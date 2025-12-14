@@ -4,18 +4,19 @@
     <div class="absolute inset-0 overflow-hidden">
       <!-- Floating Particles -->
       <div v-for="i in 15" :key="i" 
-           class="absolute w-1 h-1 bg-white/20 rounded-full animate-float"
+           class="absolute w-1 h-1 bg-white/20 rounded-full"
            :style="{
              left: Math.random() * 100 + '%',
              top: Math.random() * 100 + '%',
              animationDelay: Math.random() * 3 + 's',
              animationDuration: 2 + Math.random() * 2 + 's'
-           }">
+           }"
+           :class="{'animate-float': true}">
       </div>
       
       <!-- Gradient Orbs -->
-      <div class="absolute -top-40 -left-40 w-80 h-80 bg-blue-600/10 rounded-full animate-pulse-slow blur-3xl"></div>
-      <div class="absolute -bottom-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full animate-pulse-slower blur-3xl"></div>
+      <div class="absolute -top-40 -left-40 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl animate-pulse" style="animation-duration: 4s"></div>
+      <div class="absolute -bottom-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style="animation-duration: 6s"></div>
     </div>
 
     <div class="w-full max-w-7xl mx-auto px-4 relative z-10 flex flex-col items-center">

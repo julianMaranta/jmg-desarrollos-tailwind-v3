@@ -2,8 +2,8 @@
   <section id="testimonios" class="py-20 bg-gradient-to-br from-white via-blue-50 to-blue-100 relative overflow-hidden w-full flex justify-center items-center">
     <!-- Background Elements -->
     <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full animate-float-delayed blur-3xl"></div>
-      <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-400/5 rounded-full animate-float blur-3xl"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" style="animation: float 6s ease-in-out infinite; animation-delay: 2s"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl" style="animation: float 4s ease-in-out infinite"></div>
     </div>
 
     <div class="w-full max-w-7xl mx-auto px-4 relative z-10 flex flex-col items-center justify-center">

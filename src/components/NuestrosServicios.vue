@@ -6,9 +6,9 @@
       <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
       
       <!-- Animated Background Shapes -->
-      <div class="absolute -top-20 -left-20 w-64 h-64 bg-blue-500/5 rounded-full animate-float-delayed"></div>
-      <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-400/5 rounded-full animate-float"></div>
-      <div class="absolute top-1/2 left-1/3 w-16 h-16 bg-blue-500/10 rounded-full animate-pulse-slow"></div>
+      <div class="absolute -top-20 -left-20 w-64 h-64 bg-blue-500/5 rounded-full" style="animation: float 6s ease-in-out infinite; animation-delay: 2s"></div>
+      <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-400/5 rounded-full" style="animation: float 4s ease-in-out infinite"></div>
+      <div class="absolute top-1/2 left-1/3 w-16 h-16 bg-blue-500/10 rounded-full animate-pulse" style="animation-duration: 4s"></div>
     </div>
     
     <div class="w-full max-w-7xl mx-auto px-4 relative z-10 flex flex-col items-center">

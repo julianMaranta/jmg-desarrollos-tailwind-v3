@@ -131,7 +131,7 @@ onUnmounted(() => {
         <!-- Mobile Menu -->
         <div 
           v-if="isMobile && isMenuOpen" 
-          class="md:hidden bg-white/95 backdrop-blur-xl border-t border-blue-200/50 py-8 animate-slide-in-down rounded-b-2xl shadow-2xl mt-2 text-center"
+          class="md:hidden bg-white/95 backdrop-blur-xl border-t border-blue-200/50 py-8 mt-2 rounded-b-2xl shadow-2xl text-center"
         >
           <ul class="space-y-6">
             <li 
@@ -177,7 +177,8 @@ onUnmounted(() => {
     <div class="fixed bottom-8 right-8 z-40 space-y-4">
       <!-- WhatsApp Button -->
       <button 
-        class="w-16 h-16 bg-green-500 hover:bg-green-600 text-white rounded-2xl shadow-2xl flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:rotate-12 group animate-bounce-slow"
+        class="w-16 h-16 bg-green-500 hover:bg-green-600 text-white rounded-2xl shadow-2xl flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:rotate-12 group"
+        style="animation: bounce 2s ease-in-out infinite"
         aria-label="WhatsApp"
       >
         <span class="text-2xl">💬</span>
@@ -199,10 +200,10 @@ onUnmounted(() => {
     <footer class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white py-16 w-full flex justify-center relative overflow-hidden">
       <!-- Background Elements -->
       <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute -top-20 -right-20 w-40 h-40 bg-blue-600/10 rounded-full animate-pulse-slow"></div>
-        <div class="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-500/10 rounded-full animate-pulse-slower"></div>
-        <div class="absolute top-1/2 left-1/4 w-8 h-8 bg-blue-400/20 rounded-full animate-float"></div>
-        <div class="absolute bottom-1/3 right-1/4 w-6 h-6 bg-blue-300/20 rounded-full animate-float-delayed"></div>
+        <div class="absolute -top-20 -right-20 w-40 h-40 bg-blue-600/10 rounded-full animate-pulse" style="animation-duration: 4s"></div>
+        <div class="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-500/10 rounded-full animate-pulse" style="animation-duration: 6s"></div>
+        <div class="absolute top-1/2 left-1/4 w-8 h-8 bg-blue-400/20 rounded-full" style="animation: float 4s ease-in-out infinite"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-6 h-6 bg-blue-300/20 rounded-full" style="animation: float 6s ease-in-out infinite; animation-delay: 2s"></div>
       </div>
       
       <div class="w-full max-w-7xl mx-auto px-4 relative z-10">

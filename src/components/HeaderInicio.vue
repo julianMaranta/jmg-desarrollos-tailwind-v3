@@ -4,20 +4,21 @@
     <div class="absolute inset-0 overflow-hidden w-full">
       <!-- Floating Particles -->
       <div v-for="i in 20" :key="i" 
-           class="absolute w-2 h-2 bg-white/10 rounded-full animate-float"
+           class="absolute w-2 h-2 bg-white/10 rounded-full"
            :style="{
              left: Math.random() * 100 + '%',
              top: Math.random() * 100 + '%',
              animationDelay: Math.random() * 5 + 's',
              animationDuration: 3 + Math.random() * 2 + 's'
-           }">
+           }"
+           :class="{'animate-float': true}">
       </div>
       
       <!-- Gradient Orbs -->
-      <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-600/20 rounded-full animate-pulse-slow blur-3xl"></div>
-      <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-500/20 rounded-full animate-pulse-slower blur-3xl"></div>
-      <div class="absolute top-1/3 left-1/4 w-32 h-32 bg-blue-400/10 rounded-full animate-float-delayed blur-2xl"></div>
-      <div class="absolute bottom-1/4 right-1/3 w-24 h-24 bg-blue-300/10 rounded-full animate-float blur-2xl"></div>
+      <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse" style="animation-duration: 4s"></div>
+      <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style="animation-duration: 6s"></div>
+      <div class="absolute top-1/3 left-1/4 w-32 h-32 bg-blue-400/10 rounded-full blur-2xl" style="animation: float 6s ease-in-out infinite; animation-delay: 1s"></div>
+      <div class="absolute bottom-1/4 right-1/3 w-24 h-24 bg-blue-300/10 rounded-full blur-2xl" style="animation: float 4s ease-in-out infinite"></div>
       
       <!-- Grid Pattern -->
       <div class="absolute inset-0 opacity-10 w-full">
@@ -27,7 +28,7 @@
     
     <div class="w-full px-4 text-center relative z-10 py-16 flex flex-col items-center">
       <!-- Main Content -->
-      <div class="animate-fade-in-up w-full flex flex-col items-center">
+      <div class="w-full flex flex-col items-center animate-fadeInUp">
         <!-- Badge -->
         <div class="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-12 border border-white/20 animate-pulse">
           <div class="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-ping"></div>
@@ -36,21 +37,21 @@
 
         <!-- Main Heading -->
         <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight text-center w-full">
-          <span class="block animate-slide-in-left bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent mb-4">
+          <span class="block bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent mb-4 animate-slideInLeft">
             Impulsa Tu
           </span>
-          <span class="block animate-slide-in-right delay-300 bg-gradient-to-r from-blue-200 via-blue-100 to-white bg-clip-text text-transparent">
+          <span class="block bg-gradient-to-r from-blue-200 via-blue-100 to-white bg-clip-text text-transparent animate-slideInRight" style="animation-delay: 300ms">
             Negocio Digital
           </span>
         </h1>
 
         <!-- Subheading -->
-        <p class="text-xl md:text-2xl lg:text-3xl mb-20 text-white/80 max-w-6xl mx-auto leading-relaxed animate-fade-in-up delay-500 text-center w-full px-4">
+        <p class="text-xl md:text-2xl lg:text-3xl mb-20 text-white/80 max-w-6xl mx-auto leading-relaxed text-center w-full px-4 animate-fadeInUp" style="animation-delay: 500ms">
           Creamos <span class="text-blue-300 font-semibold">experiencias web extraordinarias</span> que convierten visitantes en clientes leales
         </p>
 
         <!-- CTA Buttons - CON MÁS ESPACIO ARRIBA Y ABAJO -->
-        <div class="flex flex-col sm:flex-row gap-8 justify-center items-center py-10 my-8 animate-fade-in-up delay-700 w-full">
+        <div class="flex flex-col sm:flex-row gap-8 justify-center items-center py-10 my-8 w-full animate-fadeInUp" style="animation-delay: 700ms">
           <button 
             @click="scrollToSection('servicios')"
             class="group relative bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-6 px-14 rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 shadow-2xl hover:shadow-3xl text-lg overflow-hidden"
@@ -75,11 +76,11 @@
         </div>
 
         <!-- Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-6xl mx-auto animate-fade-in-up delay-1000 w-full px-4 mt-20">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-6xl mx-auto w-full px-4 mt-20 animate-fadeInUp" style="animation-delay: 1000ms">
           <div v-for="(stat, index) in stats" :key="index" 
                class="text-center transform transition-all duration-500 hover:scale-110 group">
             <div class="relative">
-              <div class="text-3xl md:text-5xl font-black text-white mb-4 animate-count-up" 
+              <div class="text-3xl md:text-5xl font-black text-white mb-4" 
                    :data-target="stat.value"
                    :class="stat.gradient">
                 {{ stat.value }}
@@ -96,9 +97,9 @@
     </div>
 
     <!-- Floating Elements -->
-    <div class="absolute top-20 left-10 w-6 h-6 bg-blue-400/20 rounded-full animate-float-delayed"></div>
-    <div class="absolute top-40 right-20 w-4 h-4 bg-blue-300/20 rounded-full animate-float"></div>
-    <div class="absolute bottom-40 left-20 w-5 h-5 bg-blue-200/20 rounded-full animate-float-delayed"></div>
+    <div class="absolute top-20 left-10 w-6 h-6 bg-blue-400/20 rounded-full" style="animation: float 6s ease-in-out infinite; animation-delay: 2s"></div>
+    <div class="absolute top-40 right-20 w-4 h-4 bg-blue-300/20 rounded-full" style="animation: float 4s ease-in-out infinite"></div>
+    <div class="absolute bottom-40 left-20 w-5 h-5 bg-blue-200/20 rounded-full" style="animation: float 5s ease-in-out infinite; animation-delay: 1s"></div>
   </header>
 </template>
 
