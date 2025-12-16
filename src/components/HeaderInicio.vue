@@ -4,7 +4,7 @@
     <div class="absolute inset-0 overflow-hidden w-full">
       <!-- Floating Particles -->
       <div v-for="i in 20" :key="i" 
-           class="absolute w-2 h-2 bg-white/10 rounded-full"
+           class="absolute w-3 h-3 bg-white/10 rounded-full"
            :style="{
              left: Math.random() * 100 + '%',
              top: Math.random() * 100 + '%',
@@ -26,102 +26,105 @@
       </div>
     </div>
     
-    <div class="w-full px-4 text-center relative z-10 py-16 flex flex-col items-center">
+    <div class="w-full px-4 text-center relative z-10 py-8 flex flex-col items-center">
       <!-- Main Content -->
       <div class="w-full flex flex-col items-center animate-fadeInUp">
         <!-- Badge -->
-        <div class="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-12 border border-white/20 animate-pulse">
-          <div class="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-ping"></div>
+        <div class="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-2 mt-8 mb-4 border border-white/20 animate-pulse">
+          <div class="w-2.5 h-2.5 bg-blue-400 rounded-full mr-2 animate-ping"></div>
           <span class="text-sm font-semibold text-white/80">🚀 Listos para impulsar tu negocio</span>
         </div>
 
         <!-- Main Heading -->
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight text-center w-full">
-          <span class="block bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent mb-4 animate-slideInLeft">
-            Impulsa Tu
-          </span>
-          <span class="block bg-gradient-to-r from-blue-200 via-blue-100 to-white bg-clip-text text-transparent animate-slideInRight" style="animation-delay: 300ms">
-            Negocio Digital
-          </span>
-        </h1>
+        <div class="w-full mb-3">
+          <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-center w-full">
+            <div class="block bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent mb-1 pb-0.5 animate-slideInLeft">
+              Impulsa Tu
+            </div>
+            <div class="block bg-gradient-to-r from-blue-200 via-blue-100 to-white bg-clip-text text-transparent animate-slideInRight pb-2 pt-1" style="animation-delay: 300ms; line-height: 1.15;">
+              Negocio Digital
+            </div>
+          </h1>
+        </div>
 
-        <!-- Subheading -->
-        <p class="text-xl md:text-2xl lg:text-3xl mb-20 text-white/80 max-w-6xl mx-auto leading-relaxed text-center w-full px-4 animate-fadeInUp" style="animation-delay: 500ms">
+        <!-- Subheading - EN UNA SOLA LÍNEA -->
+        <p class="text-base md:text-lg lg:text-xl mb-6 text-white/80 max-w-6xl mx-auto leading-tight text-center w-full px-4 whitespace-nowrap animate-fadeInUp" style="animation-delay: 500ms">
           Creamos <span class="text-blue-300 font-semibold">experiencias web extraordinarias</span> que convierten visitantes en clientes leales
         </p>
 
-        <!-- CTA Buttons - CON MÁS ESPACIO ARRIBA Y ABAJO -->
-        <div class="flex flex-col sm:flex-row gap-8 justify-center items-center py-10 my-8 w-full animate-fadeInUp" style="animation-delay: 700ms">
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-3 mb-3 w-full animate-fadeInUp" style="animation-delay: 700ms">
           <button 
             @click="scrollToSection('servicios')"
-            class="group relative bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-6 px-14 rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 shadow-2xl hover:shadow-3xl text-lg overflow-hidden"
+            class="group relative bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-4 px-10 rounded-xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl text-base overflow-hidden"
           >
             <span class="relative z-10 flex items-center">
               Explorar Servicios
               <span class="ml-3 transform transition-transform duration-500 group-hover:translate-x-1">→</span>
             </span>
-            <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            <!-- ANIMACIÓN CORREGIDA - OCULTA COMPLETAMENTE ANTES DEL HOVER -->
+            <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-[110%] group-hover:translate-x-[110%] transition-transform duration-1000 opacity-0 group-hover:opacity-100"></div>
           </button>
           
           <button 
             @click="scrollToSection('contacto')"
-            class="group relative bg-transparent border-2 border-white/30 hover:border-white text-white hover:bg-white/10 font-bold py-6 px-14 rounded-2xl transition-all duration-500 transform hover:scale-105 text-lg backdrop-blur-sm overflow-hidden"
+            class="group relative bg-transparent border-2 border-white/30 hover:border-white text-white hover:bg-white/10 font-bold py-4 px-10 rounded-xl transition-all duration-500 transform hover:scale-105 text-base backdrop-blur-sm overflow-hidden"
           >
             <span class="relative z-10 flex items-center">
               <span class="mr-3">💬</span>
               Contactar Ahora
             </span>
-            <div class="absolute inset-0 bg-white/5 transform scale-0 group-hover:scale-100 transition-transform duration-500 rounded-2xl"></div>
+            <div class="absolute inset-0 bg-white/5 transform scale-0 group-hover:scale-100 transition-transform duration-500 rounded-xl"></div>
           </button>
         </div>
 
         <!-- Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-6xl mx-auto w-full px-4 mt-20 animate-fadeInUp" style="animation-delay: 1000ms">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto w-full px-4 mt-8 animate-fadeInUp" style="animation-delay: 1000ms">
           <div v-for="(stat, index) in stats" :key="index" 
                class="text-center transform transition-all duration-500 hover:scale-110 group">
             <div class="relative">
-              <div class="text-3xl md:text-5xl font-black text-white mb-4" 
+              <div class="text-2xl md:text-4xl font-black text-white mb-1" 
                    :data-target="stat.value"
                    :class="stat.gradient">
                 {{ stat.value }}
               </div>
-              <div class="absolute inset-0 text-3xl md:text-5xl font-black opacity-20 blur-sm group-hover:opacity-30 transition-opacity duration-500"
+              <div class="absolute inset-0 text-2xl md:text-4xl font-black opacity-20 blur-sm group-hover:opacity-30 transition-opacity duration-500"
                    :class="stat.gradient">
                 {{ stat.value }}
               </div>
             </div>
-            <div class="text-white/60 text-sm font-semibold uppercase tracking-wider">{{ stat.label }}</div>
+            <div class="text-white/60 text-xs font-semibold uppercase tracking-wider leading-tight mt-1">{{ stat.label }}</div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Floating Elements -->
-    <div class="absolute top-20 left-10 w-6 h-6 bg-blue-400/20 rounded-full" style="animation: float 6s ease-in-out infinite; animation-delay: 2s"></div>
-    <div class="absolute top-40 right-20 w-4 h-4 bg-blue-300/20 rounded-full" style="animation: float 4s ease-in-out infinite"></div>
-    <div class="absolute bottom-40 left-20 w-5 h-5 bg-blue-200/20 rounded-full" style="animation: float 5s ease-in-out infinite; animation-delay: 1s"></div>
+    <div class="absolute top-12 left-12 w-4 h-4 bg-blue-400/20 rounded-full" style="animation: float 6s ease-in-out infinite; animation-delay: 2s"></div>
+    <div class="absolute top-32 right-24 w-3 h-3 bg-blue-300/20 rounded-full" style="animation: float 4s ease-in-out infinite"></div>
+    <div class="absolute bottom-32 left-24 w-4 h-4 bg-blue-200/20 rounded-full" style="animation: float 5s ease-in-out infinite; animation-delay: 1s"></div>
   </header>
 </template>
 
 <script setup>
 const stats = [
   { 
-    value: 200, 
+    value: '+15', 
     label: 'Proyectos Entregados',
     gradient: 'bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent'
   },
   { 
-    value: 98, 
+    value: '+10', 
     label: 'Clientes Satisfechos',
     gradient: 'bg-gradient-to-r from-blue-300 to-blue-200 bg-clip-text text-transparent'
   },
   { 
-    value: 24, 
+    value: '24 HS', 
     label: 'Soporte Técnico',
     gradient: 'bg-gradient-to-r from-blue-200 to-blue-100 bg-clip-text text-transparent'
   },
   { 
-    value: 5, 
+    value: '+5', 
     label: 'Años de Experiencia',
     gradient: 'bg-gradient-to-r from-blue-100 to-white bg-clip-text text-transparent'
   }

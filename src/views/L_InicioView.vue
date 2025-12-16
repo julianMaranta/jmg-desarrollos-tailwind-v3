@@ -68,23 +68,23 @@ onUnmounted(() => {
     <!-- Navigation -->
     <nav 
       class="bg-white/95 backdrop-blur-xl text-gray-800 fixed w-full top-0 z-50 transition-all duration-500 border-b border-blue-200/50 flex justify-center"
-      :class="isScrolled ? 'py-3 shadow-2xl' : 'py-5'"
+      :class="isScrolled ? 'py-2 shadow-lg' : 'py-4'"
     >
-      <div class="w-full max-w-7xl mx-auto px-6">
+      <div class="w-full max-w-6xl mx-auto px-4">
         <div class="flex justify-between items-center">
-          <!-- Logo - Más separación entre logo y texto -->
-          <div class="flex items-center space-x-6 group cursor-pointer" @click="scrollToSection('inicio')">
-            <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-lg">
-              <span class="text-white font-bold text-lg">JMG</span>
+          <!-- Logo -->
+          <div class="flex items-center space-x-4 group cursor-pointer" @click="scrollToSection('inicio')">
+            <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow">
+              <span class="text-white font-bold text-base">JMG</span>
             </div>
             <div class="text-center">
-              <span class="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">JMG Desarrollos</span>
-              <div class="h-1 w-0 bg-gradient-to-r from-blue-600 to-blue-800 transition-all duration-500 group-hover:w-full mt-1 mx-auto"></div>
+              <span class="text-lg font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">JMG Desarrollos</span>
+              <div class="h-0.5 w-0 bg-gradient-to-r from-blue-600 to-blue-800 transition-all duration-500 group-hover:w-full mt-1 mx-auto"></div>
             </div>
           </div>
           
-          <!-- Desktop Menu - Más espacio entre items -->
-          <ul class="hidden md:flex space-x-12 items-center">
+          <!-- Desktop Menu -->
+          <ul class="hidden md:flex space-x-6 items-center">
             <li 
               v-for="item in [
                 { id: 'inicio', name: 'Inicio' },
@@ -95,20 +95,20 @@ onUnmounted(() => {
               :key="item.id"
               @click="scrollToSection(item.id)"
               class="cursor-pointer transition-all duration-500 relative group"
-              :class="activeSection === item.id ? 'text-blue-600 scale-110' : 'text-gray-600 hover:text-blue-500'"
+              :class="activeSection === item.id ? 'text-blue-600 scale-105' : 'text-gray-600 hover:text-blue-500'"
             >
-              <a class="font-semibold text-lg relative z-10 px-2 py-1">{{ item.name }}</a>
+              <a class="font-semibold text-base relative z-10 px-2 py-1">{{ item.name }}</a>
               <div 
-                class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full transition-all duration-500 origin-center"
+                class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full transition-all duration-500 origin-center"
                 :class="activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'"
               ></div>
-              <div class="absolute inset-0 bg-blue-600/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+              <div class="absolute inset-0 bg-blue-600/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-500"></div>
             </li>
             <li 
               @click="scrollToSection('contacto')" 
-              class="cursor-pointer bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900 px-10 py-3 rounded-xl transition-all duration-500 transform hover:scale-105 font-semibold shadow-lg hover:shadow-xl relative overflow-hidden group ml-4"
+              class="cursor-pointer bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900 px-8 py-2 rounded-lg transition-all duration-500 transform hover:scale-105 font-semibold shadow hover:shadow-md relative overflow-hidden group"
             >
-              <span class="relative z-10">Contacto</span>
+              <span class="relative z-10 text-sm">Contacto</span>
               <div class="absolute inset-0 bg-white/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </li>
           </ul>
@@ -116,24 +116,24 @@ onUnmounted(() => {
           <!-- Mobile Menu Button -->
           <button 
             @click="toggleMenu" 
-            class="md:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer relative z-60 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg shadow-lg"
+            class="md:hidden flex flex-col justify-center items-center w-8 h-8 cursor-pointer relative z-60 bg-gradient-to-br from-blue-600 to-blue-800 rounded-md shadow"
             aria-label="Menú"
           >
-            <span class="w-6 h-0.5 bg-white mb-1 rounded transition-all duration-500" 
-                  :class="{ 'rotate-45 translate-y-1.5': isMenuOpen }"></span>
-            <span class="w-6 h-0.5 bg-white mb-1 rounded transition-all duration-500" 
+            <span class="w-5 h-0.5 bg-white mb-1 rounded transition-all duration-500" 
+                  :class="{ 'rotate-45 translate-y-1': isMenuOpen }"></span>
+            <span class="w-5 h-0.5 bg-white mb-1 rounded transition-all duration-500" 
                   :class="{ 'opacity-0': isMenuOpen }"></span>
-            <span class="w-6 h-0.5 bg-white rounded transition-all duration-500" 
-                  :class="{ '-rotate-45 -translate-y-1.5': isMenuOpen }"></span>
+            <span class="w-5 h-0.5 bg-white rounded transition-all duration-500" 
+                  :class="{ '-rotate-45 -translate-y-1': isMenuOpen }"></span>
           </button>
         </div>
 
         <!-- Mobile Menu -->
         <div 
           v-if="isMobile && isMenuOpen" 
-          class="md:hidden bg-white/95 backdrop-blur-xl border-t border-blue-200/50 py-8 mt-2 rounded-b-2xl shadow-2xl text-center"
+          class="md:hidden bg-white/95 backdrop-blur-xl border-t border-blue-200/50 py-4 mt-1 rounded-b-xl shadow-lg text-center"
         >
-          <ul class="space-y-6">
+          <ul class="space-y-3">
             <li 
               v-for="item in [
                 { id: 'inicio', name: 'Inicio' },
@@ -143,18 +143,18 @@ onUnmounted(() => {
               ]" 
               :key="item.id"
               @click="scrollToSection(item.id)"
-              class="cursor-pointer transition-all duration-500 py-4 px-6 rounded-lg mx-4"
+              class="cursor-pointer transition-all duration-500 py-3 px-4 rounded-md mx-2"
               :class="activeSection === item.id ? 'bg-blue-600/10 text-blue-600 scale-105' : 'text-gray-600 hover:bg-blue-50'"
             >
-              <a class="font-semibold text-lg flex items-center justify-center">
-                <div class="w-2 h-2 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full mr-4 transition-all duration-500" 
+              <a class="font-semibold text-base flex items-center justify-center">
+                <div class="w-1.5 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full mr-3 transition-all duration-500" 
                      :class="activeSection === item.id ? 'scale-100' : 'scale-0'"></div>
                 {{ item.name }}
               </a>
             </li>
             <li 
               @click="scrollToSection('contacto')" 
-              class="cursor-pointer bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900 px-8 py-4 rounded-lg transition-all duration-500 transform hover:scale-105 font-semibold shadow-lg mt-6 mx-4 text-center"
+              class="cursor-pointer bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900 px-6 py-3 rounded-md transition-all duration-500 transform hover:scale-105 font-semibold shadow mt-4 mx-2 text-center text-sm"
             >
               <a>Contacto</a>
             </li>
@@ -164,7 +164,7 @@ onUnmounted(() => {
     </nav>
 
     <!-- Main Content -->
-    <main class="pt-16 w-full flex flex-col items-center">
+    <main class="pt-14 w-full flex flex-col items-center">
       <HeaderInicio />
       <NuestrosServicios />
       <PorqueElegirnos />
@@ -174,64 +174,61 @@ onUnmounted(() => {
     </main>
 
     <!-- Floating Action Buttons -->
-    <div class="fixed bottom-8 right-8 z-40 space-y-4">
+    <div class="fixed bottom-4 right-4 z-40 space-y-2">
       <!-- WhatsApp Button -->
       <button 
-        class="w-16 h-16 bg-green-500 hover:bg-green-600 text-white rounded-2xl shadow-2xl flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:rotate-12 group"
-        style="animation: bounce 2s ease-in-out infinite"
+        class="w-12 h-12 bg-green-500 hover:bg-green-600 text-white rounded-lg shadow-lg flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:rotate-6 group"
         aria-label="WhatsApp"
       >
-        <span class="text-2xl">💬</span>
-        <div class="absolute inset-0 bg-white/20 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+        <span class="text-xl">💬</span>
+        <div class="absolute inset-0 bg-white/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-500"></div>
       </button>
       
       <!-- Scroll to Top -->
       <button 
         @click="scrollToSection('inicio')"
-        class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white rounded-2xl shadow-2xl flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 group"
+        class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white rounded-lg shadow-lg flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 group"
         aria-label="Volver arriba"
       >
-        <span class="text-2xl transform transition-transform duration-500 group-hover:-translate-y-1">↑</span>
-        <div class="absolute inset-0 bg-white/10 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+        <span class="text-xl transform transition-transform duration-500 group-hover:-translate-y-0.5">↑</span>
+        <div class="absolute inset-0 bg-white/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-500"></div>
       </button>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white py-16 w-full flex justify-center relative overflow-hidden">
+    <footer class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white py-8 w-full flex justify-center relative overflow-hidden">
       <!-- Background Elements -->
       <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute -top-20 -right-20 w-40 h-40 bg-blue-600/10 rounded-full animate-pulse" style="animation-duration: 4s"></div>
-        <div class="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-500/10 rounded-full animate-pulse" style="animation-duration: 6s"></div>
-        <div class="absolute top-1/2 left-1/4 w-8 h-8 bg-blue-400/20 rounded-full" style="animation: float 4s ease-in-out infinite"></div>
-        <div class="absolute bottom-1/3 right-1/4 w-6 h-6 bg-blue-300/20 rounded-full" style="animation: float 6s ease-in-out infinite; animation-delay: 2s"></div>
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-600/10 rounded-full animate-pulse" style="animation-duration: 4s"></div>
+        <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-500/10 rounded-full animate-pulse" style="animation-duration: 6s"></div>
       </div>
       
-      <div class="w-full max-w-7xl mx-auto px-4 relative z-10">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+      <div class="w-full max-w-6xl mx-auto px-4 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center md:text-left">
           <!-- Logo y Descripción -->
           <div class="flex flex-col items-center md:items-start">
-            <div class="flex items-center space-x-6 justify-center md:justify-start mb-6 group cursor-pointer" @click="scrollToSection('inicio')">
-              <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-lg">
-                <span class="text-white font-bold text-xl">JMG</span>
+            <div class="flex items-center space-x-3 justify-center md:justify-start mb-4 group cursor-pointer" @click="scrollToSection('inicio')">
+              <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow">
+                <span class="text-white font-bold text-base">JMG</span>
               </div>
-              <span class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">JMG Desarrollos</span>
+              <span class="text-lg font-bold bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">JMG Desarrollos</span>
             </div>
-            <p class="text-gray-400 mb-6 max-w-xs text-center md:text-left leading-relaxed">
-              Creamos soluciones web innovadoras que impulsan el crecimiento de tu negocio con tecnología de vanguardia.
+            <p class="text-gray-400 mb-4 max-w-xs text-center md:text-left leading-relaxed text-sm">
+              Creamos soluciones web innovadoras que impulsan el crecimiento de tu negocio
             </p>
-            <p class="text-gray-500 text-sm text-center md:text-left">&copy; 2024 JMG Desarrollos. Todos los derechos reservados.</p>
+            <p class="text-gray-500 text-xs text-center md:text-left">&copy; 2024 JMG Desarrollos. Todos los derechos reservados.</p>
           </div>
           
           <!-- Enlaces rápidos -->
           <div class="flex flex-col items-center md:items-start">
-            <h3 class="text-lg font-bold mb-6 text-transparent bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text">Enlaces Rápidos</h3>
-            <ul class="space-y-3">
+            <h3 class="text-base font-bold mb-4 text-transparent bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text">Enlaces Rápidos</h3>
+            <ul class="space-y-2">
               <li v-for="link in ['inicio', 'servicios', 'proceso', 'testimonios']" :key="link">
                 <a 
                   @click="scrollToSection(link)" 
-                  class="text-gray-400 hover:text-white transition-all duration-500 cursor-pointer transform hover:translate-x-2 inline-block group"
+                  class="text-gray-400 hover:text-white transition-all duration-500 cursor-pointer transform hover:translate-x-1 inline-block group"
                 >
-                  <span class="flex items-center justify-center md:justify-start">
+                  <span class="flex items-center justify-center md:justify-start text-sm">
                     <div class="w-1 h-1 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                     {{ link.charAt(0).toUpperCase() + link.slice(1) }}
                   </span>
@@ -242,18 +239,18 @@ onUnmounted(() => {
           
           <!-- Contacto -->
           <div class="flex flex-col items-center md:items-start">
-            <h3 class="text-lg font-bold mb-6 text-transparent bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text">Contacto</h3>
-            <div class="space-y-4 text-gray-400 flex flex-col items-center md:items-start">
-              <p class="flex items-center transition-all duration-500 hover:text-white transform hover:translate-x-2 group justify-center md:justify-start">
-                <span class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-500">📞</span>
+            <h3 class="text-base font-bold mb-4 text-transparent bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text">Contacto</h3>
+            <div class="space-y-2 text-gray-400 flex flex-col items-center md:items-start">
+              <p class="flex items-center transition-all duration-500 hover:text-white transform hover:translate-x-1 group justify-center md:justify-start text-sm">
+                <span class="w-6 h-6 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-2 group-hover:scale-110 transition-transform duration-500 text-xs">📞</span>
                 +54 9 11 5527-1430
               </p>
-              <p class="flex items-center transition-all duration-500 hover:text-white transform hover:translate-x-2 group justify-center md:justify-start">
-                <span class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-500">✉️</span>
+              <p class="flex items-center transition-all duration-500 hover:text-white transform hover:translate-x-1 group justify-center md:justify-start text-sm">
+                <span class="w-6 h-6 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-2 group-hover:scale-110 transition-transform duration-500 text-xs">✉️</span>
                 contacto@jmgdesarrollos.com
               </p>
-              <p class="flex items-center transition-all duration-500 hover:text-white transform hover:translate-x-2 group justify-center md:justify-start">
-                <span class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-500">📍</span>
+              <p class="flex items-center transition-all duration-500 hover:text-white transform hover:translate-x-1 group justify-center md:justify-start text-sm">
+                <span class="w-6 h-6 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-2 group-hover:scale-110 transition-transform duration-500 text-xs">📍</span>
                 Buenos Aires, Argentina
               </p>
             </div>
@@ -261,8 +258,8 @@ onUnmounted(() => {
           
           <!-- Redes sociales -->
           <div class="flex flex-col items-center md:items-start">
-            <h3 class="text-lg font-bold mb-6 text-transparent bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text">Síguenos</h3>
-            <div class="flex justify-center md:justify-start space-x-3">
+            <h3 class="text-base font-bold mb-4 text-transparent bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text">Síguenos</h3>
+            <div class="flex justify-center md:justify-start space-x-2">
               <a 
                 v-for="(social, index) in [
                   { name: 'FB', icon: '📘', color: 'from-blue-600 to-blue-800' },
@@ -272,18 +269,18 @@ onUnmounted(() => {
                 ]" 
                 :key="social.name" 
                 href="#" 
-                class="w-12 h-12 bg-gradient-to-br rounded-xl flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 shadow-lg"
+                class="w-10 h-10 bg-gradient-to-br rounded-lg flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow"
                 :class="social.color"
               >
-                <span class="text-white font-bold text-lg">{{ social.icon }}</span>
+                <span class="text-white font-bold text-base">{{ social.icon }}</span>
               </a>
             </div>
           </div>
         </div>
         
         <!-- Divider -->
-        <div class="border-t border-blue-700/50 mt-12 pt-8 text-center">
-          <p class="text-gray-500 text-sm">
+        <div class="border-t border-blue-700/50 mt-6 pt-4 text-center">
+          <p class="text-gray-500 text-xs">
             Hecho con ❤️ por JMG Desarrollos - Transformando ideas en realidad digital
           </p>
         </div>
