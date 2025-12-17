@@ -100,7 +100,7 @@
         </div>
       </div>
 
-      <!-- CTA Section -->
+      <!-- CTA Section 
       <div class="text-center w-full flex flex-col items-center justify-center mt-8">
         <div class="bg-gradient-to-r from-blue-500/10 to-blue-600/10 rounded-2xl p-8 border border-blue-500/20 w-full max-w-3xl">
           <div class="flex flex-col items-center justify-center space-y-6">
@@ -122,7 +122,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
   </section>
 </template>

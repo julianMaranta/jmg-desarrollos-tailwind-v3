@@ -252,10 +252,10 @@
         </div>
       </div>
 
-      <!-- CTA Section mejorada -->
+      <!-- CTA Section mejorada 
       <div class="text-center mt-8 md:mt-10 w-full max-w-3xl mx-auto">
         <div class="bg-gradient-to-br from-blue-700/40 via-blue-800/50 to-purple-800/40 backdrop-blur-2xl rounded-3xl border-2 border-blue-400/40 shadow-xl p-6 md:p-7 w-full flex flex-col items-center justify-center transform hover:scale-102 transition-all duration-500 group">
-          <!-- Efecto de borde animado -->
+           
           <div class="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-cyan-400/30 transition-all duration-500"></div>
           
           <h3 class="text-xl md:text-2xl font-black text-white mb-3 text-center w-full bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent px-4">
@@ -269,7 +269,7 @@
               @click="scrollToSection('contacto')"
               class="relative bg-gradient-to-r from-cyan-600 via-blue-700 to-purple-700 hover:from-cyan-700 hover:via-blue-800 hover:to-purple-800 text-white font-bold py-3.5 px-8 rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-custom-hover text-base md:text-lg group overflow-hidden"
             >
-              <!-- Efecto de brillo al pasar el mouse -->
+              
               <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               
               <span class="flex items-center justify-center relative">
@@ -279,7 +279,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
   </section>
 </template>

@@ -139,7 +139,7 @@
         </div>
       </div>
 
-      <!-- CTA Section -->
+      <!-- CTA Section 
       <div class="text-center mt-8 w-full">
         <div class="bg-gradient-to-r from-blue-500/10 to-blue-600/10 rounded-2xl p-8 border border-blue-500/20 w-full flex flex-col items-center justify-center">
           <h3 class="text-xl md:text-2xl font-black text-gray-800 mb-4 text-center w-full">
@@ -165,7 +165,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
   </section>
 </template>

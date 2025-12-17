@@ -1,5 +1,6 @@
 <script setup>
 import HeaderInicio from "../components/HeaderInicio.vue";
+import Listo from "../components/Listo.vue";
 import NuestrosServicios from "../components/NuestrosServicios.vue";
 import PorqueElegirnos from "../components/PorqueElegirnos.vue";
 import ProcesoDesarrollo from "../components/ProcesoDesarrollo.vue";
@@ -167,10 +168,15 @@ onUnmounted(() => {
     <main class="pt-14 w-full flex flex-col items-center">
       <HeaderInicio />
       <NuestrosServicios />
-      <PorqueElegirnos />
       <ProcesoDesarrollo />
       <TestimoniosClientes />
+      <Listo />
+      
+      <PorqueElegirnos />
       <Contacto />
+      
+      
+      
     </main>
 
     <!-- Floating Action Buttons -->
