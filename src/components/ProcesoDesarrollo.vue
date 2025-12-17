@@ -1,186 +1,222 @@
 <template>
-  <section id="proceso" class="py-6 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white relative overflow-hidden w-full flex justify-center">
-    <!-- Background simplificado sin animaciones -->
-    <div class="absolute inset-0">
-      <!-- Background estático -->
-      <div class="absolute top-1/4 -left-10 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-blue-600/5 rounded-full blur-xl"></div>
-      <div class="absolute bottom-1/4 -right-10 w-32 h-32 bg-gradient-to-br from-blue-400/10 to-blue-500/5 rounded-full blur-xl"></div>
+  <section id="proceso" class="py-10 md:py-12 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white relative overflow-hidden w-full flex justify-center">
+    <!-- Efectos de fondo animados -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-1/4 -left-16 w-56 h-56 bg-gradient-to-br from-blue-500/15 to-purple-500/10 rounded-full blur-3xl custom-pulse-slow"></div>
+      <div class="absolute bottom-1/3 -right-16 w-60 h-60 bg-gradient-to-br from-purple-500/15 to-blue-500/10 rounded-full blur-3xl custom-pulse-slow custom-delay-2000"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-blue-600/5 to-purple-600/5 rounded-full blur-3xl custom-pulse-slow custom-delay-4000"></div>
+      
+      <!-- Partículas flotantes -->
+      <div v-for="i in 12" :key="i" 
+           class="absolute w-1 h-1 bg-blue-400/30 rounded-full custom-float"
+           :style="`top: ${Math.random() * 100}%; left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 5}s;`">
+      </div>
     </div>
 
-    <div class="w-full max-w-6xl mx-auto px-4 relative z-10 flex flex-col items-center">
-      <!-- Section Header con padding para la "G" -->
-      <div class="text-center mb-4 w-full flex flex-col items-center">
-        <div class="inline-flex items-center bg-gradient-to-r from-blue-600/40 to-blue-800/40 backdrop-blur-lg rounded-full px-5 py-2 mb-3 border border-blue-400/30 shadow-lg">
-          <div class="w-2 h-2 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full mr-3"></div>
-          <span class="text-sm font-bold text-white/90 tracking-wide">🔄 NUESTRO PROCESO</span>
+    <div class="w-full max-w-6xl mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center">
+      <!-- Section Header - Corregida la letra "G" -->
+      <div class="text-center mb-6 md:mb-10 w-full">
+        <div class="inline-flex items-center bg-gradient-to-r from-blue-600/30 to-purple-600/30 backdrop-blur-xl rounded-full px-5 py-2.5 mb-3 border border-blue-400/40 shadow-custom-glow custom-glow">
+          <div class="w-2.5 h-2.5 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full mr-2.5 custom-pulse"></div>
+          <span class="text-sm font-bold text-white tracking-wider">🚀 NUESTRO PROCESO</span>
         </div>
         
-        <!-- Título con padding extra para la "G" -->
-        <h2 class="text-2xl md:text-3xl font-black mb-2 bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent text-center w-full px-3 pb-0.5 pt-0.5 tracking-tight">
+        <!-- Título con ajuste para la letra "G" -->
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-3 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent text-center px-2 tracking-tight leading-tight pb-1">
           Metodología Probada
         </h2>
         
-        <p class="text-sm text-white/80 max-w-xl leading-relaxed text-center mx-auto px-2">
+        <p class="text-base md:text-lg text-white/90 max-w-2xl leading-relaxed text-center mx-auto">
           Un proceso estructurado que garantiza el éxito de tu proyecto desde el primer día hasta el lanzamiento
         </p>
       </div>
 
-      <!-- Carousel Container -->
-      <div class="relative w-full max-w-6xl mx-auto">
-        <!-- Contenedor principal -->
-        <div class="flex items-center justify-center h-[400px] gap-4 md:gap-6">
+      <!-- Contenedor de tarjetas mejorado -->
+      <div class="relative w-full max-w-5xl mx-auto mb-6">
+        <!-- Contenedor principal con tarjetas más juntas -->
+        <div class="flex items-center justify-center h-[420px] md:h-[460px]">
           <!-- Botón izquierdo -->
           <button 
             @click="prevSlide"
-            class="relative z-30 w-12 h-12 bg-gradient-to-br from-blue-600/50 to-blue-800/40 backdrop-blur-lg rounded-lg border border-blue-400/40 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg group"
+            class="relative z-30 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-blue-600/40 to-purple-600/30 backdrop-blur-xl rounded-xl border-2 border-blue-400/40 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-cyan-300/60 group mr-2 md:mr-4 shadow-lg"
             :disabled="isAnimating"
           >
-            <span class="text-xl text-white group-hover:text-blue-200 transition-colors duration-300">←</span>
+            <div class="w-7 h-7 bg-gradient-to-r from-blue-200 to-cyan-100 rounded-lg flex items-center justify-center transform group-hover:-translate-x-1 transition-transform duration-300">
+              <span class="text-lg md:text-xl font-bold text-blue-900">←</span>
+            </div>
           </button>
 
-          <!-- Contenedor de tarjetas -->
-          <div class="flex-1 relative flex items-center justify-center h-full gap-4 md:gap-6">
-            <!-- Card anterior (izquierda) -->
+          <!-- Contenedor de tarjetas - más juntas -->
+          <div class="flex-1 relative flex items-center justify-center h-full">
+            <!-- Tarjeta anterior -->
             <div 
               v-if="prevCard"
-              class="absolute left-0 w-[250px] h-[320px] transition-all duration-500 z-20"
-              :class="isAnimating ? 'opacity-60 translate-x-2' : 'opacity-90'"
-              @click="prevSlide"
+              class="absolute left-0 w-[240px] h-[340px] md:w-[280px] md:h-[380px] transition-all duration-700 z-20"
+              :class="isAnimating ? 'opacity-70 -translate-x-10' : 'opacity-90'"
             >
-              <div class="w-full h-full bg-gradient-to-br from-blue-800/30 to-blue-900/25 backdrop-blur-lg rounded-2xl border border-blue-400/35 shadow-lg p-5 transform perspective-1000 rotate-y-10 hover:rotate-y-5 hover:scale-105 transition-all duration-300 cursor-pointer group flex flex-col items-center">
-                <!-- Brillo superior -->
-                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent rounded-t-2xl"></div>
+              <div 
+                class="w-full h-full bg-gradient-to-br from-blue-800/25 via-blue-900/20 to-purple-900/25 backdrop-blur-2xl rounded-2xl border-2 border-blue-400/30 shadow-xl p-5 transform-gpu hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer group flex flex-col items-center relative overflow-hidden"
+                style="transform: rotateY(15deg) translateZ(-15px);"
+                @click="prevSlide"
+              >
+                <!-- Efecto de luz 3D -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                <!-- Número centrado -->
-                <div class="flex items-center justify-center mb-3 w-full">
-                  <div class="w-9 h-9 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center text-white font-black text-base shadow-lg">
+                <!-- Número -->
+                <div class="flex items-center justify-center mb-3 w-full relative">
+                  <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-black text-lg md:text-xl shadow-xl transform group-hover:scale-110 transition-transform duration-300">
                     {{ prevCard.number }}
                   </div>
                 </div>
                 
-                <!-- Icono centrado -->
-                <div class="flex justify-center mb-3 w-full">
-                  <div class="w-13 h-13 bg-gradient-to-br from-blue-500/35 to-blue-600/30 rounded-xl flex items-center justify-center border border-blue-400/35">
-                    <span class="text-2xl">{{ prevCard.icon }}</span>
+                <!-- Icono más grande -->
+                <div class="flex justify-center mb-4 w-full">
+                  <div class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500/40 via-blue-600/50 to-purple-600/40 rounded-xl flex items-center justify-center border-2 border-blue-400/40 shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+                    <span class="text-2xl md:text-3xl">{{ prevCard.icon }}</span>
                   </div>
                 </div>
                 
-                <!-- Título centrado - SIN line-clamp -->
-                <h3 class="text-sm font-bold text-white mb-2 text-center w-full group-hover:text-blue-200 transition-colors duration-300 px-2 whitespace-normal">
+                <!-- Título más grande -->
+                <h3 class="text-lg md:text-xl font-black text-white mb-2 text-center w-full group-hover:text-cyan-200 transition-colors duration-300 px-3 whitespace-normal tracking-tight">
                   {{ prevCard.title }}
                 </h3>
                 
-                <!-- Descripción centrada - SIN SCROLL -->
-                <p class="text-white/75 leading-snug text-xs text-center mb-3 min-h-[2.8rem] w-full px-2">
+                <!-- Descripción -->
+                <p class="text-white/85 leading-relaxed text-sm md:text-base text-center mb-4 min-h-[3rem] w-full px-3">
                   {{ prevCard.description }}
                 </p>
                 
-                <!-- Características centradas -->
-                <ul class="space-y-1 text-white/70 w-full px-2">
+                <!-- Características -->
+                <ul class="space-y-1.5 text-white/80 w-full px-3">
                   <li v-for="(feature, featureIndex) in prevCard.features" :key="featureIndex" 
                       class="flex items-start justify-center">
-                    <div class="w-1.5 h-1.5 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full mr-2 mt-0.5 flex-shrink-0"></div>
-                    <span class="text-xs text-center flex-1">{{ feature }}</span>
+                    <div class="w-2.5 h-2.5 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full mr-2.5 mt-0.5 flex-shrink-0 shadow-sm"></div>
+                    <span class="text-xs md:text-sm text-center flex-1">{{ feature }}</span>
                   </li>
                 </ul>
+                
+                <!-- Efecto de borde brillante al pasar el mouse -->
+                <div class="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-cyan-400/30 transition-all duration-500"></div>
               </div>
             </div>
 
-            <!-- Card actual (centro) -->
+            <!-- Tarjeta actual central - CON NÚMERO QUE GIRA 360° SUAVE -->
             <div 
-              class="absolute left-1/2 transform -translate-x-1/2 w-[270px] h-[360px] z-30 transition-all duration-500"
+              class="absolute left-1/2 transform -translate-x-1/2 w-[280px] h-[420px] md:w-[340px] md:h-[480px] z-30 transition-all duration-700"
               :class="isAnimating ? 'opacity-90 scale-95' : 'opacity-100 scale-100'"
             >
-              <div class="w-full h-full bg-gradient-to-br from-blue-700/40 via-blue-800/50 to-blue-900/40 backdrop-blur-xl rounded-3xl border-2 border-blue-300/45 shadow-2xl p-6 transform perspective-1000 hover:scale-[1.02] transition-all duration-300 group flex flex-col items-center">
+              <div 
+                class="w-full h-full bg-gradient-to-br from-blue-700/50 via-blue-800/60 to-purple-800/50 backdrop-blur-2xl rounded-3xl border-3 border-cyan-400/50 shadow-3d p-6 md:p-7 transform-gpu hover:scale-103 transition-all duration-500 group flex flex-col items-center relative overflow-hidden"
+              >
                 <!-- Efecto de luz superior -->
-                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-300/60 to-transparent rounded-t-3xl"></div>
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-cyan-400/70 to-transparent rounded-t-3xl custom-pulse"></div>
                 
-                <!-- Número centrado -->
-                <div class="flex items-center justify-center mb-4 w-full">
-                  <div class="w-11 h-11 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 rounded-lg flex items-center justify-center text-white font-black text-lg shadow-2xl">
+                <!-- Brillo interior -->
+                <div class="absolute top-8 left-8 w-32 h-32 bg-gradient-to-br from-cyan-500/10 to-blue-500/5 rounded-full blur-xl"></div>
+                
+                <!-- Número destacado - AHORA GIRA 360° SUAVE AL PASAR EL MOUSE -->
+                <div class="flex items-center justify-center mb-5 w-full relative">
+                  <div class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-white font-black text-xl md:text-2xl shadow-custom custom-number-container">
                     {{ currentCard.number }}
                   </div>
+                  <!-- Anillo decorativo -->
+                  <div class="absolute inset-0 w-14 h-14 md:w-16 md:h-16 rounded-xl border-3 border-cyan-400/30 custom-spin-slow"></div>
                 </div>
                 
-                <!-- Icono centrado -->
-                <div class="flex justify-center mb-4 w-full">
-                  <div class="w-15 h-15 bg-gradient-to-br from-blue-500/45 via-blue-600/55 to-blue-700/45 rounded-xl flex items-center justify-center border-2 border-blue-300/45">
-                    <span class="text-2xl">{{ currentCard.icon }}</span>
+                <!-- Icono grande y animado -->
+                <div class="flex justify-center mb-5 w-full relative">
+                  <div class="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-cyan-500/60 via-blue-600/70 to-purple-600/60 rounded-2xl flex items-center justify-center border-3 border-cyan-300/60 shadow-xl transform group-hover:rotate-12 transition-transform duration-500">
+                    <span class="text-3xl md:text-4xl custom-bounce-slow">{{ currentCard.icon }}</span>
                   </div>
+                  <!-- Brillo alrededor del icono -->
+                  <div class="absolute inset-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl border-3 border-cyan-400/20 custom-ping-slow"></div>
                 </div>
                 
-                <!-- Título centrado - SIN line-clamp -->
-                <h3 class="text-base font-black text-white mb-3 text-center w-full bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent px-3 whitespace-normal tracking-tight">
+                <!-- Título principal -->
+                <h3 class="text-xl md:text-2xl font-black text-white mb-3 text-center w-full bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent px-4 whitespace-normal tracking-tight">
                   {{ currentCard.title }}
                 </h3>
                 
-                <!-- Descripción centrada - SIN SCROLL -->
-                <p class="text-white/90 leading-snug text-sm text-center mb-4 min-h-[3.2rem] w-full px-3">
+                <!-- Descripción -->
+                <p class="text-white/95 leading-relaxed text-base md:text-lg text-center mb-5 min-h-[3.5rem] w-full px-4">
                   {{ currentCard.description }}
                 </p>
                 
-                <!-- Características centradas -->
-                <ul class="space-y-1.5 text-white/85 w-full px-3">
+                <!-- Características -->
+                <ul class="space-y-2 text-white/90 w-full px-4 mb-6">
                   <li v-for="(feature, featureIndex) in currentCard.features" :key="featureIndex" 
-                      class="flex items-start justify-center">
-                    <div class="w-2 h-2 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full mr-2 mt-0.5 flex-shrink-0"></div>
-                    <span class="text-xs text-center flex-1">{{ feature }}</span>
+                      class="flex items-start justify-center transform group-hover:translate-x-2 transition-transform duration-300"
+                      :style="`transition-delay: ${featureIndex * 100}ms`">
+                    <div class="w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full mr-2.5 mt-0.5 flex-shrink-0 shadow-md"></div>
+                    <span class="text-sm md:text-base text-center flex-1 font-medium">{{ feature }}</span>
                   </li>
                 </ul>
                 
-                <!-- Indicador actual centrado -->
-                <div class="mt-4 text-center w-full">
-                  <div class="inline-flex items-center bg-blue-500/20 backdrop-blur-sm rounded-full px-3 py-1">
-                    <div class="w-1.5 h-1.5 bg-blue-400 rounded-full mr-1.5"></div>
-                    <span class="text-xs font-semibold text-blue-300">PASO ACTUAL</span>
+                <!-- ESPACIO ADICIONAL DEBAJO DE LAS FEATURES -->
+                <div class="flex-1 min-h-[10px]"></div>
+                
+                <!-- Indicador actual 
+                <div class="mt-2 mb-1 text-center w-full">
+                  <div class="inline-flex items-center bg-gradient-to-r from-cyan-500/30 to-blue-500/30 backdrop-blur-lg rounded-full px-4 py-2 border border-cyan-400/40 shadow-lg custom-pulse-slow">
+                    <div class="w-2.5 h-2.5 bg-gradient-to-r from-cyan-300 to-blue-300 rounded-full mr-2 custom-pulse"></div>
+                    <span class="text-xs font-semibold text-cyan-300 tracking-wide">PASO ACTUAL</span>
                   </div>
-                </div>
+                </div>-->
+                
+                <!-- Efecto de brillo 3D al pasar el mouse -->
+                <div class="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 custom-glow-inner"></div>
               </div>
             </div>
 
-            <!-- Card siguiente (derecha) -->
+            <!-- Tarjeta siguiente -->
             <div 
               v-if="nextCard"
-              class="absolute right-0 w-[250px] h-[320px] transition-all duration-500 z-20"
-              :class="isAnimating ? 'opacity-60 -translate-x-2' : 'opacity-90'"
-              @click="nextSlide"
+              class="absolute right-0 w-[240px] h-[340px] md:w-[280px] md:h-[380px] transition-all duration-700 z-20"
+              :class="isAnimating ? 'opacity-70 translate-x-10' : 'opacity-90'"
             >
-              <div class="w-full h-full bg-gradient-to-br from-blue-800/30 to-blue-900/25 backdrop-blur-lg rounded-2xl border border-blue-400/35 shadow-lg p-5 transform perspective-1000 -rotate-y-10 hover:-rotate-y-5 hover:scale-105 transition-all duration-300 cursor-pointer group flex flex-col items-center">
-                <!-- Brillo superior -->
-                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent rounded-t-2xl"></div>
+              <div 
+                class="w-full h-full bg-gradient-to-br from-blue-800/25 via-blue-900/20 to-purple-900/25 backdrop-blur-2xl rounded-2xl border-2 border-blue-400/30 shadow-xl p-5 transform-gpu hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer group flex flex-col items-center relative overflow-hidden"
+                style="transform: rotateY(-15deg) translateZ(-15px);"
+                @click="nextSlide"
+              >
+                <!-- Efecto de luz 3D -->
+                <div class="absolute inset-0 bg-gradient-to-tl from-transparent via-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                <!-- Número centrado -->
-                <div class="flex items-center justify-center mb-3 w-full">
-                  <div class="w-9 h-9 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center text-white font-black text-base shadow-lg">
+                <!-- Número -->
+                <div class="flex items-center justify-center mb-3 w-full relative">
+                  <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-black text-lg md:text-xl shadow-xl transform group-hover:scale-110 transition-transform duration-300">
                     {{ nextCard.number }}
                   </div>
                 </div>
                 
-                <!-- Icono centrado -->
-                <div class="flex justify-center mb-3 w-full">
-                  <div class="w-13 h-13 bg-gradient-to-br from-blue-500/35 to-blue-600/30 rounded-xl flex items-center justify-center border border-blue-400/35">
-                    <span class="text-2xl">{{ nextCard.icon }}</span>
+                <!-- Icono más grande -->
+                <div class="flex justify-center mb-4 w-full">
+                  <div class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500/40 via-blue-600/50 to-purple-600/40 rounded-xl flex items-center justify-center border-2 border-blue-400/40 shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+                    <span class="text-2xl md:text-3xl">{{ nextCard.icon }}</span>
                   </div>
                 </div>
                 
-                <!-- Título centrado - SIN line-clamp -->
-                <h3 class="text-sm font-bold text-white mb-2 text-center w-full group-hover:text-blue-200 transition-colors duration-300 px-2 whitespace-normal">
+                <!-- Título más grande -->
+                <h3 class="text-lg md:text-xl font-black text-white mb-2 text-center w-full group-hover:text-cyan-200 transition-colors duration-300 px-3 whitespace-normal tracking-tight">
                   {{ nextCard.title }}
                 </h3>
                 
-                <!-- Descripción centrada - SIN SCROLL -->
-                <p class="text-white/75 leading-snug text-xs text-center mb-3 min-h-[2.8rem] w-full px-2">
+                <!-- Descripción -->
+                <p class="text-white/85 leading-relaxed text-sm md:text-base text-center mb-4 min-h-[3rem] w-full px-3">
                   {{ nextCard.description }}
                 </p>
                 
-                <!-- Características centradas -->
-                <ul class="space-y-1 text-white/70 w-full px-2">
+                <!-- Características -->
+                <ul class="space-y-1.5 text-white/80 w-full px-3">
                   <li v-for="(feature, featureIndex) in nextCard.features" :key="featureIndex" 
                       class="flex items-start justify-center">
-                    <div class="w-1.5 h-1.5 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full mr-2 mt-0.5 flex-shrink-0"></div>
-                    <span class="text-xs text-center flex-1">{{ feature }}</span>
+                    <div class="w-2.5 h-2.5 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full mr-2.5 mt-0.5 flex-shrink-0 shadow-sm"></div>
+                    <span class="text-xs md:text-sm text-center flex-1">{{ feature }}</span>
                   </li>
                 </ul>
+                
+                <!-- Efecto de borde brillante al pasar el mouse -->
+                <div class="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-cyan-400/30 transition-all duration-500"></div>
               </div>
             </div>
           </div>
@@ -188,47 +224,57 @@
           <!-- Botón derecho -->
           <button 
             @click="nextSlide"
-            class="relative z-30 w-12 h-12 bg-gradient-to-br from-blue-600/50 to-blue-800/40 backdrop-blur-lg rounded-lg border border-blue-400/40 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg group"
+            class="relative z-30 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-blue-600/40 to-purple-600/30 backdrop-blur-xl rounded-xl border-2 border-blue-400/40 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-cyan-300/60 group ml-2 md:ml-4 shadow-lg"
             :disabled="isAnimating"
           >
-            <span class="text-xl text-white group-hover:text-blue-200 transition-colors duration-300">→</span>
+            <div class="w-7 h-7 bg-gradient-to-r from-blue-200 to-cyan-100 rounded-lg flex items-center justify-center transform group-hover:translate-x-1 transition-transform duration-300">
+              <span class="text-lg md:text-xl font-bold text-blue-900">→</span>
+            </div>
           </button>
         </div>
 
-        <!-- Indicators -->
-        <div class="flex justify-center items-center mt-6 space-x-2 md:space-x-3">
+        <!-- Indicadores mejorados -->
+        <div class="flex justify-center items-center mt-8 md:mt-10 space-x-2.5 md:space-x-3">
           <button 
             v-for="(step, index) in steps" 
             :key="index"
             @click="goToSlide(index)"
-            class="relative w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 group"
+            class="relative w-3.5 h-3.5 md:w-4 md:h-4 rounded-full transition-all duration-500 group"
             :class="currentIndex === index ? 'scale-125' : ''"
           >
             <div 
-              class="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full transition-all duration-300"
-              :class="currentIndex === index ? 'opacity-100 shadow-md shadow-blue-500/50' : 'opacity-40 group-hover:opacity-70'"
+              class="absolute inset-0 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full transition-all duration-500"
+              :class="currentIndex === index ? 'opacity-100 shadow-md shadow-cyan-500/60' : 'opacity-50 group-hover:opacity-80'"
             ></div>
+            <div v-if="currentIndex === index" 
+                 class="absolute inset-0 rounded-full custom-ping bg-cyan-400/40"></div>
           </button>
         </div>
       </div>
 
-      <!-- CTA Section -->
-      <div class="text-center mt-6 w-full flex flex-col items-center justify-center">
-        <div class="bg-gradient-to-br from-blue-700/40 via-blue-800/50 to-blue-900/40 backdrop-blur-xl rounded-3xl border border-blue-400/30 shadow-xl p-5 w-full max-w-2xl mx-auto flex flex-col items-center justify-center">
-          <h3 class="text-lg md:text-xl font-black text-white mb-2 text-center w-full bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent px-4">
+      <!-- CTA Section mejorada -->
+      <div class="text-center mt-8 md:mt-10 w-full max-w-3xl mx-auto">
+        <div class="bg-gradient-to-br from-blue-700/40 via-blue-800/50 to-purple-800/40 backdrop-blur-2xl rounded-3xl border-2 border-blue-400/40 shadow-xl p-6 md:p-7 w-full flex flex-col items-center justify-center transform hover:scale-102 transition-all duration-500 group">
+          <!-- Efecto de borde animado -->
+          <div class="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-cyan-400/30 transition-all duration-500"></div>
+          
+          <h3 class="text-xl md:text-2xl font-black text-white mb-3 text-center w-full bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent px-4">
             ¿Listo para Iniciar tu Proyecto?
           </h3>
-          <p class="text-xs md:text-sm text-white/80 mb-3 max-w-md text-center">
+          <p class="text-base md:text-lg text-white/85 mb-5 max-w-xl text-center">
             Sigue los pasos de más de 200 empresas exitosas que confiaron en nuestro proceso probado.
           </p>
           <div class="flex justify-center w-full">
             <button 
               @click="scrollToSection('contacto')"
-              class="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white font-bold py-2.5 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-xl text-sm"
+              class="relative bg-gradient-to-r from-cyan-600 via-blue-700 to-purple-700 hover:from-cyan-700 hover:via-blue-800 hover:to-purple-800 text-white font-bold py-3.5 px-8 rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-custom-hover text-base md:text-lg group overflow-hidden"
             >
-              <span class="flex items-center justify-center">
+              <!-- Efecto de brillo al pasar el mouse -->
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              
+              <span class="flex items-center justify-center relative">
                 Iniciar Proceso
-                <span class="ml-2">🚀</span>
+                <span class="ml-2.5 text-xl custom-bounce-slow">🚀</span>
               </span>
             </button>
           </div>
@@ -308,9 +354,9 @@ const navigateToSlide = async (index) => {
   if (isAnimating.value || index === currentIndex.value) return;
   
   isAnimating.value = true;
-  await new Promise(resolve => setTimeout(resolve, 300));
+  await new Promise(resolve => setTimeout(resolve, 400));
   currentIndex.value = index;
-  await new Promise(resolve => setTimeout(resolve, 300));
+  await new Promise(resolve => setTimeout(resolve, 400));
   isAnimating.value = false;
 };
 
@@ -328,7 +374,7 @@ const goToSlide = (index) => navigateToSlide(index);
 
 // Auto-rotation
 const startAutoRotate = () => {
-  autoRotateInterval.value = setInterval(() => nextSlide(), 5000);
+  autoRotateInterval.value = setInterval(() => nextSlide(), 6000);
 };
 const stopAutoRotate = () => {
   if (autoRotateInterval.value) {
@@ -344,7 +390,7 @@ const scrollToSection = (sectionId) => {
 
 const handleInteraction = () => {
   stopAutoRotate();
-  setTimeout(startAutoRotate, 10000);
+  setTimeout(startAutoRotate, 15000);
 };
 
 onMounted(() => {
@@ -367,129 +413,380 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* Efectos 3D simplificados */
-.perspective-1000 {
-  transform-style: preserve-3d;
+/* Animaciones personalizadas */
+@keyframes customFloat {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+    opacity: 0.3;
+  }
+  50% { 
+    transform: translateY(-15px) rotate(180deg); 
+    opacity: 0.7;
+  }
+}
+
+@keyframes customPulseSlow {
+  0%, 100% { 
+    opacity: 0.5; 
+  }
+  50% { 
+    opacity: 1; 
+  }
+}
+
+@keyframes customBounceSlow {
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+  50% { 
+    transform: translateY(-8px); 
+  }
+}
+
+@keyframes customSpinSlow {
+  from { 
+    transform: rotate(0deg); 
+  }
+  to { 
+    transform: rotate(360deg); 
+  }
+}
+
+@keyframes customPing {
+  75%, 100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+@keyframes customGlow {
+  0%, 100% { 
+    box-shadow: 0 0 15px rgba(0, 150, 255, 0.3); 
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(0, 200, 255, 0.5); 
+  }
+}
+
+@keyframes customPulse {
+  0%, 100% { 
+    opacity: 1; 
+  }
+  50% { 
+    opacity: 0.5; 
+  }
+}
+
+@keyframes numberRotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Clases de animación personalizadas */
+.custom-float {
+  animation: customFloat 8s ease-in-out infinite;
+}
+
+.custom-pulse-slow {
+  animation: customPulseSlow 3s ease-in-out infinite;
+}
+
+.custom-bounce-slow {
+  animation: customBounceSlow 2.5s ease-in-out infinite;
+}
+
+.custom-spin-slow {
+  animation: customSpinSlow 8s linear infinite;
+}
+
+.custom-ping-slow {
+  animation: customPing 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.custom-glow {
+  animation: customGlow 2.5s ease-in-out infinite;
+}
+
+.custom-pulse {
+  animation: customPulse 1.5s ease-in-out infinite;
+}
+
+.custom-delay-2000 {
+  animation-delay: 1.5s;
+}
+
+.custom-delay-4000 {
+  animation-delay: 3s;
+}
+
+/* Efectos personalizados */
+.shadow-custom {
+  box-shadow: 0 8px 25px rgba(0, 200, 255, 0.4);
+}
+
+.shadow-3d {
+  box-shadow: 0 20px 40px -10px rgba(0, 150, 255, 0.4), 
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+}
+
+.shadow-custom-glow {
+  box-shadow: 0 0 15px rgba(0, 150, 255, 0.3);
+}
+
+.shadow-custom-hover {
+  box-shadow: 0 15px 35px rgba(0, 150, 255, 0.4);
+}
+
+.custom-glow-inner {
+  box-shadow: inset 0 0 40px rgba(0, 200, 255, 0.3);
+}
+
+/* Mejoras 3D */
+.transform-gpu {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
   perspective: 1000px;
 }
 
-.rotate-y-10 {
-  transform: rotateY(10deg);
+/* NÚMERO QUE GIRA 360° - SOLUCIÓN FUNCIONAL */
+.custom-number-container {
+  transform-origin: center center;
+  transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.-rotate-y-10 {
-  transform: rotateY(-10deg);
+.group:hover .custom-number-container {
+  animation: numberRotate360 0.7s ease-out forwards;
 }
 
-.rotate-y-5 {
-  transform: rotateY(5deg);
+/* Asegurar que el número mantenga su posición centrada mientras gira */
+.w-14, .w-16 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.-rotate-y-5 {
-  transform: rotateY(-5deg);
+/* Efecto de vidrio esmerilado mejorado */
+.backdrop-blur-2xl {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-/* Ajuste para evitar que letras como la "G" se corten */
-.text-center {
-  text-align: center;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+/* Sombra 3D mejorada */
+.shadow-2xl {
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Asegurar que todo el texto sea visible */
-.whitespace-normal {
-  white-space: normal;
+/* Transiciones suaves */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Clases de utilidad para escalas específicas */
+.hover\:scale-103:hover {
+  transform: scale(1.03);
+}
+
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+/* Ajustes para evitar que se corte la letra "G" */
+.leading-tight {
+  line-height: 1.1;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem;
 }
 
 /* Ajustes responsive */
+@media (max-width: 1024px) {
+  .h-\[420px\] {
+    height: 380px;
+  }
+  
+  .h-\[460px\] {
+    height: 420px;
+  }
+}
+
 @media (max-width: 768px) {
-  .h-\[400px\] {
+  .h-\[420px\] {
     height: 340px;
   }
   
-  .w-\[250px\] {
-    width: 210px;
+  .h-\[460px\] {
+    height: 380px;
   }
   
-  .w-\[270px\] {
-    width: 230px;
+  .w-\[240px\] {
+    width: 200px;
   }
   
-  .h-\[320px\] {
+  .w-\[280px\] {
+    width: 220px;
+  }
+  
+  .w-\[340px\] {
+    width: 260px;
+  }
+  
+  .h-\[340px\] {
     height: 280px;
   }
   
-  .h-\[360px\] {
+  .h-\[380px\] {
     height: 320px;
   }
   
-  .gap-4 {
-    gap: 0.75rem;
+  .h-\[420px\] {
+    height: 340px;
   }
   
-  /* Botones más pequeños en móvil */
-  .w-12 {
-    width: 2rem;
+  .h-\[480px\] {
+    height: 400px;
   }
   
-  .h-12 {
-    height: 2rem;
+  .mr-4, .ml-4 {
+    margin-right: 1rem;
+    margin-left: 1rem;
   }
   
-  /* Ajuste para la "G" en móvil */
-  h2 {
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
+  /* Ajuste adicional para la letra "G" en móvil */
+  .text-3xl {
+    line-height: 1.15;
   }
 }
 
 @media (max-width: 640px) {
-  .h-\[400px\] {
+  .h-\[420px\] {
     height: 300px;
   }
   
-  .w-\[250px\] {
+  .h-\[460px\] {
+    height: 340px;
+  }
+  
+  .w-\[240px\] {
+    width: 160px;
+  }
+  
+  .w-\[280px\] {
     width: 180px;
   }
   
-  .w-\[270px\] {
-    width: 200px;
+  .w-\[340px\] {
+    width: 220px;
   }
   
-  .h-\[320px\] {
-    height: 250px;
+  .h-\[340px\] {
+    height: 240px;
   }
   
-  .h-\[360px\] {
-    height: 290px;
+  .h-\[380px\] {
+    height: 280px;
   }
   
-  .gap-4 {
-    gap: 0.5rem;
+  .h-\[420px\] {
+    height: 280px;
   }
   
-  .w-12 {
-    width: 1.75rem;
+  .h-\[480px\] {
+    height: 320px;
   }
   
-  .h-12 {
-    height: 1.75rem;
+  .w-12, .h-12 {
+    width: 2.25rem;
+    height: 2.25rem;
   }
   
-  /* Más padding para la "G" en pantallas muy pequeñas */
-  h2 {
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
-    font-size: 1.5rem !important;
-    line-height: 1.2 !important;
+  .text-3xl {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+  
+  .text-xl {
+    font-size: 1.25rem;
+  }
+  
+  .text-lg {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
+  .h-\[420px\] {
+    height: 280px;
+  }
+  
+  .h-\[460px\] {
+    height: 300px;
+  }
+  
+  .w-\[240px\] {
+    width: 140px;
+  }
+  
+  .w-\[280px\] {
+    width: 150px;
+  }
+  
+  .w-\[340px\] {
+    width: 180px;
+  }
+  
+  .h-\[340px\] {
+    height: 220px;
+  }
+  
+  .h-\[380px\] {
+    height: 240px;
+  }
+  
+  .h-\[420px\] {
+    height: 240px;
+  }
+  
+  .h-\[480px\] {
+    height: 280px;
+  }
+  
+  .text-3xl {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    padding-bottom: 0.125rem;
+  }
+  
+  .text-2xl {
+    font-size: 1.25rem;
+  }
+  
+  .text-xl {
+    font-size: 1.125rem;
+  }
+  
+  .p-5 {
+    padding: 1rem;
+  }
+  
+  .p-6 {
+    padding: 1.25rem;
+  }
+  
+  .p-7 {
+    padding: 1.5rem;
+  }
+  
+  /* Ajuste extra para la "G" en pantallas muy pequeñas */
   h2 {
-    font-size: 1.3rem !important;
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
+    padding-top: 0.125rem;
+    padding-bottom: 0.25rem;
   }
 }
 </style>
