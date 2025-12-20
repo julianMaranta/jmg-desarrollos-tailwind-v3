@@ -1,10 +1,10 @@
 <template>
-  <section id="proceso" class="py-10 md:py-12 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white relative overflow-hidden w-full flex justify-center">
+  <section id="proceso" class="py-10 md:py-12 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white relative overflow-hidden w-full flex justify-center">
     <!-- Efectos de fondo animados -->
     <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute top-1/4 -left-16 w-56 h-56 bg-gradient-to-br from-blue-500/15 to-purple-500/10 rounded-full blur-3xl custom-pulse-slow"></div>
-      <div class="absolute bottom-1/3 -right-16 w-60 h-60 bg-gradient-to-br from-purple-500/15 to-blue-500/10 rounded-full blur-3xl custom-pulse-slow custom-delay-2000"></div>
-      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-blue-600/5 to-purple-600/5 rounded-full blur-3xl custom-pulse-slow custom-delay-4000"></div>
+      <div class="absolute top-1/4 -left-16 w-56 h-56 bg-gradient-to-br from-blue-500/15 to-blue-400/10 rounded-full blur-3xl custom-pulse-slow"></div>
+      <div class="absolute bottom-1/3 -right-16 w-60 h-60 bg-gradient-to-br from-blue-500/15 to-blue-400/10 rounded-full blur-3xl custom-pulse-slow custom-delay-2000"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-blue-600/5 to-blue-500/5 rounded-full blur-3xl custom-pulse-slow custom-delay-4000"></div>
       
       <!-- Partículas flotantes -->
       <div v-for="i in 12" :key="i" 
@@ -14,15 +14,15 @@
     </div>
 
     <div class="w-full max-w-6xl mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center">
-        <!-- Section Header - Corregida la letra "G" -->
+        <!-- Section Header -->
       <div class="text-center mb-6 md:mb-10 w-full">
-        <div class="inline-flex items-center bg-gradient-to-r from-blue-600/30 to-purple-600/30 backdrop-blur-xl rounded-full px-5 py-2.5 mb-3 border border-blue-400/40 shadow-custom-glow custom-glow">
-          <div class="w-2.5 h-2.5 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full mr-2.5 custom-pulse"></div>
+        <div class="inline-flex items-center bg-gradient-to-r from-blue-600/30 to-blue-500/30 backdrop-blur-xl rounded-full px-5 py-2.5 mb-3 border border-blue-400/40 shadow-custom-glow custom-glow">
+          <div class="w-2.5 h-2.5 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full mr-2.5 custom-pulse"></div>
           <span class="text-sm font-bold text-white tracking-wider">🚀 ANIMATE</span>
         </div>
         
-        <!-- Título con ajuste para la letra "G" -->
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-3 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent text-center px-2 tracking-tight leading-tight pb-1">
+        <!-- Título -->
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-3 bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent text-center px-2 tracking-tight leading-tight pb-1">
           Empecemos el proceso
         </h2>
         
@@ -34,11 +34,11 @@
 
       <!-- CTA Section mejorada -->
       <div class="text-center mt-8 md:mt-10 w-full max-w-3xl mx-auto">
-        <div class="bg-gradient-to-br from-blue-700/40 via-blue-800/50 to-purple-800/40 backdrop-blur-2xl rounded-3xl border-2 border-blue-400/40 shadow-xl p-6 md:p-7 w-full flex flex-col items-center justify-center transform hover:scale-102 transition-all duration-500 group">
+        <div class="bg-gradient-to-br from-blue-700/40 via-blue-800/50 to-blue-900/40 backdrop-blur-2xl rounded-3xl border-2 border-blue-400/40 shadow-xl p-6 md:p-7 w-full flex flex-col items-center justify-center transform hover:scale-102 transition-all duration-500 group">
           <!-- Efecto de borde animado -->
-          <div class="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-cyan-400/30 transition-all duration-500"></div>
+          <div class="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-blue-400/30 transition-all duration-500"></div>
           
-          <h3 class="text-xl md:text-2xl font-black text-white mb-3 text-center w-full bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent px-4">
+          <h3 class="text-xl md:text-2xl font-black text-white mb-3 text-center w-full bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent px-4">
             ¿Listo para Iniciar tu Proyecto?
           </h3>
           <p class="text-base md:text-lg text-white/85 mb-5 max-w-xl text-center">
@@ -47,7 +47,7 @@
           <div class="flex justify-center w-full">
             <button 
               @click="scrollToSection('contacto')"
-              class="relative bg-gradient-to-r from-cyan-600 via-blue-700 to-purple-700 hover:from-cyan-700 hover:via-blue-800 hover:to-purple-800 text-white font-bold py-3.5 px-8 rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-custom-hover text-base md:text-lg group overflow-hidden"
+              class="relative bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white font-bold py-3.5 px-8 rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-custom-hover text-base md:text-lg group overflow-hidden"
             >
               <!-- Efecto de brillo al pasar el mouse -->
               <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
@@ -241,10 +241,10 @@ onUnmounted(() => {
 
 @keyframes customGlow {
   0%, 100% { 
-    box-shadow: 0 0 15px rgba(0, 150, 255, 0.3); 
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); 
   }
   50% { 
-    box-shadow: 0 0 30px rgba(0, 200, 255, 0.5); 
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); 
   }
 }
 
@@ -305,24 +305,24 @@ onUnmounted(() => {
 
 /* Efectos personalizados */
 .shadow-custom {
-  box-shadow: 0 8px 25px rgba(0, 200, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
 .shadow-3d {
-  box-shadow: 0 20px 40px -10px rgba(0, 150, 255, 0.4), 
+  box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.4), 
               inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
 }
 
 .shadow-custom-glow {
-  box-shadow: 0 0 15px rgba(0, 150, 255, 0.3);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
 }
 
 .shadow-custom-hover {
-  box-shadow: 0 15px 35px rgba(0, 150, 255, 0.4);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
 }
 
 .custom-glow-inner {
-  box-shadow: inset 0 0 40px rgba(0, 200, 255, 0.3);
+  box-shadow: inset 0 0 40px rgba(59, 130, 246, 0.3);
 }
 
 /* Mejoras 3D */

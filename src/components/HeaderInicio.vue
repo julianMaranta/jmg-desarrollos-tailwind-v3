@@ -1,166 +1,226 @@
 <template>
-  <header id="inicio" class="min-h-[75vh] w-full bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white relative overflow-hidden flex items-center justify-center pt-8">
-    <!-- Background animado con los mismos efectos -->
+  <header id="inicio" class="min-h-[90vh] w-full bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white relative overflow-hidden flex items-center justify-center">
+    <!-- Sistema de Capas de Fondo Mejorado -->
     <div class="absolute inset-0 overflow-hidden w-full">
-      <!-- Partículas flotantes mejoradas -->
-      <div v-for="i in 20" :key="i" 
-           class="absolute w-1.5 h-1.5 bg-blue-400/30 rounded-full custom-float"
+      <!-- Partículas flotantes - Más y más grandes -->
+      <div v-for="i in 30" :key="i" 
+           class="absolute w-2 h-2 bg-gradient-to-br from-blue-400/30 via-blue-500/25 to-blue-600/20 rounded-full custom-float"
            :style="{
              left: Math.random() * 100 + '%',
              top: Math.random() * 100 + '%',
-             animationDelay: Math.random() * 5 + 's'
+             animationDelay: Math.random() * 6 + 's',
+             animationDuration: 10 + Math.random() * 10 + 's'
            }">
       </div>
       
-      <!-- Orbes de gradiente mejorados -->
-      <div class="absolute -top-32 -right-32 w-72 h-72 bg-gradient-to-br from-blue-600/15 to-purple-600/15 rounded-full blur-3xl custom-pulse-slow"></div>
-      <div class="absolute -bottom-32 -left-32 w-72 h-72 bg-gradient-to-br from-purple-600/15 to-blue-500/15 rounded-full blur-3xl custom-pulse-slow custom-delay-2000"></div>
-      <div class="absolute top-1/3 left-1/4 w-36 h-36 bg-gradient-to-br from-cyan-500/10 to-blue-500/8 rounded-full blur-xl" style="animation: customFloat 8s ease-in-out infinite; animation-delay: 1s"></div>
-      <div class="absolute bottom-1/4 right-1/3 w-28 h-28 bg-gradient-to-br from-blue-400/10 to-purple-400/8 rounded-full blur-xl" style="animation: customFloat 6s ease-in-out infinite; animation-delay: 0.5s"></div>
+      <!-- Sistema de Orbes Mejorado -->
+      <div class="absolute -top-56 -right-56 w-[700px] h-[700px] bg-gradient-to-br from-blue-600/25 via-blue-700/20 to-blue-500/15 rounded-full blur-3xl custom-pulse-slow"></div>
+      <div class="absolute -bottom-56 -left-56 w-[700px] h-[700px] bg-gradient-to-br from-blue-700/25 via-blue-600/20 to-blue-800/15 rounded-full blur-3xl custom-pulse-slow custom-delay-2500"></div>
       
-      <!-- Patrón de cuadrícula sutil -->
-      <div class="absolute inset-0 opacity-3 w-full">
+      <!-- Orbes medianos -->
+      <div class="absolute top-1/3 left-1/4 w-48 h-48 bg-gradient-to-br from-blue-500/30 to-blue-600/25 rounded-full blur-2xl custom-float" style="animation-delay: 1.5s; animation-duration: 15s"></div>
+      <div class="absolute bottom-1/4 right-1/3 w-40 h-40 bg-gradient-to-br from-blue-400/28 to-blue-500/20 rounded-full blur-2xl custom-float" style="animation-delay: 0.8s; animation-duration: 12s"></div>
+      
+      <!-- Patrón de cuadrícula mejorado -->
+      <div class="absolute inset-0 opacity-[0.03] w-full">
         <div class="absolute inset-0 w-full" style="
           background-image: 
-            linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), 
-            linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-          background-size: 50px 50px;
+            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), 
+            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+          background-size: 70px 70px;
         "></div>
       </div>
+      
+      <!-- Efecto de luz de escenario -->
+      <div class="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-blue-900/50 via-blue-800/30 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-blue-800/40 via-blue-700/25 to-transparent"></div>
     </div>
     
-    <div class="w-full max-w-6xl mx-auto px-4 md:px-6 text-center relative z-10 py-6 flex flex-col items-center">
-      <!-- Main Content -->
-      <div class="w-full flex flex-col items-center animate-fadeInUp">
-        <!-- Badge mejorado - CON MÁS ESPACIO ARRIBA -->
-        <div class="inline-flex items-center bg-gradient-to-r from-blue-600/30 to-purple-600/30 backdrop-blur-xl rounded-full px-5 py-2.5 mb-6 mt-4 border border-blue-400/40 shadow-custom-glow custom-glow animate-fadeInUp">
-          <div class="w-2.5 h-2.5 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full mr-2.5 custom-pulse"></div>
+    <!-- Contenedor Principal -->
+    <div class="w-full max-w-7xl mx-auto px-4 md:px-8 text-center relative z-10 py-8 md:py-12 flex flex-col items-center">
+      
+      <!-- Contenido Principal con ESPACIO REDUCIDO -->
+      <div class="w-full flex flex-col items-center space-y-4 md:space-y-6">
+        
+        <!-- Badge con menos espacio debajo -->
+        <div class="inline-flex items-center bg-gradient-to-r from-blue-700/50 via-blue-600/45 to-blue-500/40 backdrop-blur-xl rounded-full px-5 py-2.5 mb-1 border border-blue-400/40 shadow-xl shadow-blue-500/25 custom-glow animate-fadeInUp transform-gpu">
+          <div class="relative w-2.5 h-2.5 mr-3">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 rounded-full custom-pulse"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 rounded-full blur-xs opacity-60"></div>
+          </div>
           <span class="text-xs font-bold text-white tracking-wider">🚀 LISTOS PARA IMPULSAR TU NEGOCIO</span>
+          <div class="ml-3 w-1 h-5 bg-gradient-to-b from-blue-300/40 via-transparent to-blue-400/40 rounded-full"></div>
         </div>
 
-        <!-- Main Heading - TÍTULO CORREGIDO -->
-        <div class="w-full mb-4">
-          <h1 class="text-3xl md:text-4xl lg:text-5xl font-black text-center w-full tracking-tight">
-            <div class="block mb-2 animate-slideInLeft leading-tight">
-              <span class="bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent">
+        <!-- Título Principal con ESPACIO REDUCIDO ARRIBA -->
+        <div class="relative w-full">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-center w-full tracking-tight">
+            
+            <!-- Línea 1 con menos margen -->
+            <div class="relative animate-slideInLeft">
+              <span class="bg-gradient-to-r from-white via-blue-100 to-blue-50 bg-clip-text text-transparent relative z-10 pb-0.5 block leading-[1.05]">
                 Impulsa Tu
               </span>
+              <!-- Sombra de texto para profundidad -->
+              <div class="absolute inset-0 text-5xl md:text-6xl lg:text-7xl font-black opacity-20 blur-sm transform translate-y-0.5 pb-0.5 leading-[1.05]"
+                   style="background: linear-gradient(to right, white, blue-100, blue-50); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                Impulsa Tu
+              </div>
             </div>
-            <div class="block animate-slideInRight leading-tight" style="animation-delay: 300ms;">
-              <span class="relative">
-                <span class="bg-gradient-to-r from-blue-200 via-cyan-100 to-white bg-clip-text text-transparent">
+            
+            <!-- Línea 2 - Ajustada para menos espacio -->
+            <div class="relative animate-slideInRight" style="animation-delay: 300ms;">
+              <span class="relative inline-block pb-2 pt-0">
+                <span class="bg-gradient-to-r from-blue-50 via-blue-100 to-white bg-clip-text text-transparent relative z-20 leading-[1.1] tracking-tight block">
                   Negocio Digital
                 </span>
-                <!-- Efecto de subrayado animado - más sutil -->
-                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-0.5 bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent rounded-full mt-0.5"></div>
-                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full mt-0.5 opacity-60 blur-xs custom-pulse"></div>
+                
+                <!-- Efectos de subrayado ajustados -->
+                <div class="absolute bottom-0.5 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-300/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-blue-300 to-blue-400 rounded-full opacity-70 blur-xs custom-pulse"></div>
+                <div class="absolute -bottom-0.5 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-200/40 to-transparent rounded-full"></div>
               </span>
+              
+              <!-- Sombra de texto para línea 2 - ajustada -->
+              <div class="absolute inset-0 text-5xl md:text-6xl lg:text-7xl font-black opacity-15 blur-md transform translate-y-0.5 -z-10 pt-0 pb-2 leading-[1.1]"
+                   style="background: linear-gradient(to right, blue-50, blue-100, white); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                Negocio Digital
+              </div>
             </div>
           </h1>
         </div>
 
-        <!-- Subheading - TAMAÑOS REDUCIDOS -->
-        <p class="text-base md:text-lg lg:text-xl mb-6 text-white/90 max-w-3xl mx-auto leading-relaxed text-center w-full px-4 animate-fadeInUp" style="animation-delay: 500ms">
-          Creamos <span class="relative">
-            <span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent font-bold tracking-tight px-0.5">
-              experiencias web extraordinarias
+        <!-- Subtítulo PEGADO AL TÍTULO -->
+        <div class="relative max-w-3xl mx-auto mb-3 animate-fadeInUp" style="animation-delay: 500ms">
+          <p class="text-lg md:text-xl text-white/85 leading-relaxed text-center px-6 -mt-1">
+            Creamos 
+            <span class="relative inline-block mx-1">
+              <span class="bg-gradient-to-r from-blue-200 via-blue-300 to-blue-400 bg-clip-text text-transparent font-bold tracking-tight">
+                experiencias web extraordinarias
+              </span>
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-300/25 via-blue-400/25 to-blue-500/25 blur-lg -z-10 rounded-full px-1"></div>
+              <div class="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-300/50 via-blue-400/50 to-blue-500/50 rounded-full"></div>
             </span>
-            <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/15 via-blue-400/15 to-purple-400/15 blur-md -z-10"></div>
-          </span> que convierten visitantes en clientes leales
-        </p>
+            que transforman visitantes en clientes leales
+          </p>
+          
+          <!-- Línea decorativa más cerca -->
+          <div class="absolute -bottom-1.5 left-1/2 transform -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-transparent via-blue-300/50 to-transparent rounded-full"></div>
+        </div>
 
-        <!-- CTA Buttons - TAMAÑOS REDUCIDOS -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-4 mb-4 w-full animate-fadeInUp" style="animation-delay: 700ms">
+        <!-- Botones CTA con Más Espacio -->
+        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center w-full animate-fadeInUp mt-2" style="animation-delay: 700ms">
+          
+          <!-- Botón Primario Mejorado -->
           <button 
             @click="scrollToSection('servicios')"
-            class="group relative bg-gradient-to-r from-cyan-600 via-blue-700 to-purple-700 hover:from-cyan-700 hover:via-blue-800 hover:to-purple-800 text-white font-bold py-3.5 px-8 rounded-xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-custom-hover text-base overflow-hidden"
+            class="group relative bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white font-bold py-3 px-8 md:py-3.5 md:px-9 rounded-xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-0.5 shadow-xl hover:shadow-2xl text-base md:text-base overflow-hidden transform-gpu"
           >
-            <!-- Efecto de brillo al pasar el mouse -->
-            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+            <!-- Efecto de brillo sweep -->
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+            
+            <!-- Efecto de partículas en hover -->
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div v-for="i in 3" :key="i" 
+                   class="absolute w-1 h-1 bg-white/40 rounded-full"
+                   :style="{
+                     left: Math.random() * 100 + '%',
+                     top: Math.random() * 100 + '%',
+                     animation: `sparkle 0.6s ease-out ${i * 0.15}s`
+                   }"></div>
+            </div>
             
             <span class="relative z-10 flex items-center justify-center">
               Explorar Servicios
-              <span class="ml-2.5 text-lg transform transition-transform duration-500 group-hover:translate-x-1">→</span>
+              <span class="ml-2 text-lg transform transition-transform duration-300 group-hover:translate-x-1">→</span>
             </span>
             
-            <!-- Borde brillante al pasar el mouse -->
-            <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-cyan-400/40 transition-all duration-500"></div>
+            <!-- Sistema de bordes animados -->
+            <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-blue-300/60 transition-all duration-500"></div>
           </button>
           
+          <!-- Botón Secundario Mejorado -->
           <button 
             @click="scrollToSection('contacto')"
-            class="group relative bg-gradient-to-r from-transparent via-blue-900/15 to-transparent border-2 border-cyan-400/30 hover:border-cyan-300 text-white hover:text-cyan-100 font-bold py-3.5 px-8 rounded-xl transition-all duration-500 transform hover:scale-105 text-base backdrop-blur-xl overflow-hidden"
+            class="group relative bg-gradient-to-r from-transparent via-blue-800/25 to-transparent border-2 border-blue-300/50 hover:border-blue-200/70 text-white hover:text-blue-100 font-bold py-3 px-8 md:py-3.5 md:px-9 rounded-xl transition-all duration-500 transform hover:scale-105 text-base md:text-base overflow-hidden backdrop-blur-xl transform-gpu"
           >
-            <!-- Efecto de fondo al pasar el mouse -->
-            <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/8 via-blue-500/8 to-purple-500/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <!-- Efecto de fondo animado -->
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-500/15 via-blue-600/15 to-blue-700/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            <!-- Efecto de líneas interiores -->
+            <div class="absolute inset-2 rounded-lg border border-blue-300/20 group-hover:border-blue-200/35 transition-all duration-300"></div>
             
             <span class="relative z-10 flex items-center justify-center">
-              <span class="mr-2.5 text-lg transform transition-transform duration-500 group-hover:scale-105">💬</span>
+              <span class="mr-2 text-lg transform transition-transform duration-300 group-hover:scale-110">💬</span>
               Contactar Ahora
             </span>
             
-            <!-- Anillo de expansión -->
-            <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-cyan-300/20 transition-all duration-500"></div>
+            <!-- Sistema de bordes exteriores -->
+            <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-blue-200/50 transition-all duration-500"></div>
           </button>
         </div>
 
-        <!-- Stats - TAMAÑOS REDUCIDOS -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto w-full px-4 mt-6 animate-fadeInUp" style="animation-delay: 1000ms">
+        <!-- Stats con menos margen superior -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto w-full px-6 mt-6 md:mt-8 animate-fadeInUp" style="animation-delay: 900ms">
           <div v-for="(stat, index) in stats" :key="index" 
-               class="text-center transform transition-all duration-500 hover:scale-105 group relative">
-            <!-- Carta 3D para cada stat - más compacta -->
-            <div class="relative bg-gradient-to-br from-blue-800/20 via-blue-900/15 to-purple-900/20 backdrop-blur-xl rounded-xl border-2 border-blue-400/30 p-4 transform-gpu hover:shadow-xl transition-all duration-500">
-              <!-- Efecto de luz superior -->
-              <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent rounded-t-xl"></div>
+               class="group relative transform-gpu">
+            
+            <!-- Fondo animado que se ilumina en hover -->
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-700/25 via-blue-600/20 to-blue-500/15 rounded-xl transform group-hover:scale-105 transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:custom-glow-hover"></div>
+            
+            <!-- Efecto de luz adicional en hover -->
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-300/15 via-blue-400/12 to-blue-500/10 rounded-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-sm"></div>
+            
+            <!-- Tarjeta Stat con Iluminación -->
+            <div class="relative bg-gradient-to-br from-blue-900/45 via-blue-800/35 to-blue-700/30 backdrop-blur-xl rounded-xl border border-blue-400/35 hover:border-blue-300/60 p-4 md:p-5 transform transition-all duration-500 group-hover:-translate-y-1.5 group-hover:shadow-xl group-hover:shadow-blue-400/25 shadow-lg shadow-blue-500/20">
+              
+              <!-- Luz superior que se intensifica en hover -->
+              <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-blue-300/50 to-transparent rounded-t-xl group-hover:via-blue-200/80 transition-all duration-500"></div>
               
               <div class="relative">
-                <!-- Número animado -->
-                <div class="text-2xl md:text-3xl font-black mb-1.5 custom-stat-number" 
-                     :data-target="stat.value.replace('+', '').replace(' HS', '')"
-                     :class="stat.gradient">
-                  {{ stat.value }}
+                <!-- Número animado con brillo en hover -->
+                <div class="relative mb-2 md:mb-3">
+                  <div class="text-2xl md:text-3xl lg:text-4xl font-black custom-stat-number leading-none" 
+                       :data-target="stat.value.replace('+', '').replace(' HS', '')"
+                       :class="stat.gradient">
+                    {{ stat.value }}
+                  </div>
+                  
+                  <!-- Efecto de brillo que aparece en hover -->
+                  <div class="absolute inset-0 text-2xl md:text-3xl lg:text-4xl font-black opacity-0 blur-md transform scale-105 group-hover:opacity-20 transition-opacity duration-500"
+                       :class="stat.gradient">
+                    {{ stat.value }}
+                  </div>
+                  
+                  <!-- Icono decorativo que brilla en hover -->
+                  <div class="absolute -top-1 -right-1 md:-top-1.5 md:-right-1.5 w-6 h-6 md:w-7 md:h-7 bg-gradient-to-br from-blue-400/45 to-blue-300/35 backdrop-blur-sm rounded-full flex items-center justify-center border border-blue-300/35 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 group-hover:border-blue-200/60">
+                    <div class="w-1.5 h-1.5 bg-blue-200 rounded-full group-hover:bg-blue-100 group-hover:scale-110 transition-all duration-300"></div>
+                  </div>
                 </div>
                 
-                <!-- Efecto de brillo detrás -->
-                <div class="absolute inset-0 text-2xl md:text-3xl font-black opacity-20 blur-sm group-hover:opacity-25 transition-opacity duration-500 transform group-hover:scale-105"
-                     :class="stat.gradient">
-                  {{ stat.value }}
+                <!-- Label con efecto de brillo en hover -->
+                <div class="text-white/90 text-xs md:text-sm font-semibold uppercase tracking-wide group-hover:text-white transition-colors duration-300">
+                  <div class="flex items-center justify-center space-x-1 md:space-x-2">
+                    <div class="w-1.5 h-1.5 md:w-2 md:h-2 bg-gradient-to-r from-blue-300 to-blue-400 rounded-full group-hover:scale-125 group-hover:from-blue-200 group-hover:to-blue-300 transition-all duration-300"></div>
+                    <span class="text-center">{{ stat.label }}</span>
+                  </div>
                 </div>
                 
-                <!-- Icono decorativo -->
-                <div class="absolute -top-1.5 -right-1.5 w-6 h-6 bg-gradient-to-br from-cyan-500/25 to-blue-500/15 rounded-full flex items-center justify-center backdrop-blur-sm border border-cyan-400/25">
-                  <div class="w-1.5 h-1.5 bg-cyan-300 rounded-full"></div>
-                </div>
+                <!-- Línea decorativa que aparece en hover -->
+                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 md:w-16 h-0.5 bg-gradient-to-r from-transparent via-blue-300/40 to-transparent rounded-full mt-2 md:mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
               
-              <!-- Label mejorado -->
-              <div class="text-white/80 text-xs font-semibold uppercase tracking-wider leading-tight mt-1.5">
-                <div class="flex items-center justify-center">
-                  <div class="w-1.5 h-1.5 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full mr-1.5"></div>
-                  {{ stat.label }}
-                </div>
-              </div>
-              
-              <!-- Efecto de borde al pasar el mouse -->
-              <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-cyan-400/20 transition-all duration-500"></div>
+              <!-- Efecto de borde que brilla en hover -->
+              <div class="absolute inset-0 rounded-xl border border-transparent group-hover:border-blue-300/30 group-hover:shadow-[0_0_20px_rgba(100,150,255,0.4)_inset] transition-all duration-500"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Flecha de scroll - más pequeña -->
-    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce-slow cursor-pointer" @click="scrollToSection('proceso')">
-      <div class="w-10 h-10 bg-gradient-to-br from-blue-600/30 to-purple-600/20 backdrop-blur-xl rounded-lg border-2 border-cyan-400/30 flex items-center justify-center group hover:scale-110 transition-all duration-300">
-        <div class="w-5 h-5 bg-gradient-to-r from-blue-200 to-cyan-100 rounded flex items-center justify-center transform group-hover:translate-y-0.5 transition-transform duration-300">
-          <span class="text-sm font-bold text-blue-900">↓</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Elementos flotantes mejorados - menos numerosos -->
-    <div class="absolute top-16 left-16 w-4 h-4 bg-gradient-to-br from-cyan-500/15 to-blue-500/8 rounded-full" style="animation: customFloat 8s ease-in-out infinite; animation-delay: 2s"></div>
-    <div class="absolute bottom-32 right-24 w-3 h-3 bg-gradient-to-br from-blue-400/15 to-purple-400/8 rounded-full" style="animation: customFloat 6s ease-in-out infinite; animation-delay: 0.5s"></div>
+    <!-- Elementos Flotantes Decorativos -->
+    <div class="absolute top-20 left-20 w-5 h-5 bg-gradient-to-br from-blue-400/30 to-blue-500/20 rounded-full blur-sm custom-float" style="animation-delay: 2s; animation-duration: 8s"></div>
+    <div class="absolute bottom-40 right-32 w-4 h-4 bg-gradient-to-br from-blue-300/25 to-blue-400/20 rounded-full blur-xs custom-float" style="animation-delay: 0.5s; animation-duration: 6s"></div>
   </header>
 </template>
 
@@ -169,33 +229,36 @@ const stats = [
   { 
     value: '+15', 
     label: 'Proyectos Entregados',
-    gradient: 'bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent'
+    gradient: 'bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 bg-clip-text text-transparent'
   },
   { 
     value: '+10', 
     label: 'Clientes Satisfechos',
-    gradient: 'bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-200 bg-clip-text text-transparent'
+    gradient: 'bg-gradient-to-r from-blue-400 via-blue-300 to-blue-200 bg-clip-text text-transparent'
   },
   { 
     value: '24 HS', 
     label: 'Soporte Técnico',
-    gradient: 'bg-gradient-to-r from-cyan-300 via-blue-200 to-purple-300 bg-clip-text text-transparent'
+    gradient: 'bg-gradient-to-r from-blue-200 via-blue-300 to-blue-400 bg-clip-text text-transparent'
   },
   { 
     value: '+5', 
     label: 'Años de Experiencia',
-    gradient: 'bg-gradient-to-r from-blue-200 via-cyan-100 to-white bg-clip-text text-transparent'
+    gradient: 'bg-gradient-to-r from-blue-100 via-blue-200 to-white bg-clip-text text-transparent'
   }
 ];
 
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
+    element.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
   }
 };
 
-// Animación de contadores
+// Animación de contadores mejorada
 import { onMounted } from 'vue';
 
 onMounted(() => {
@@ -209,32 +272,42 @@ onMounted(() => {
         const target = parseInt(targetText);
         
         if (!isNaN(target)) {
-          const duration = 2000;
-          const step = target / (duration / 16);
-          let current = 0;
+          const duration = 1800;
+          const startTime = Date.now();
           
-          const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-              counter.textContent = target + (counter.textContent.includes('+') ? '+' : (counter.textContent.includes('HS') ? ' HS' : ''));
-              clearInterval(timer);
+          const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function para animación suave
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const current = Math.floor(easeOutQuart * target);
+            
+            counter.textContent = current + (counter.textContent.includes('+') ? '+' : 
+                              (counter.textContent.includes('HS') ? ' HS' : ''));
+            
+            if (progress < 1) {
+              requestAnimationFrame(animate);
             } else {
-              counter.textContent = Math.floor(current) + (counter.textContent.includes('+') ? '+' : (counter.textContent.includes('HS') ? ' HS' : ''));
+              observer.unobserve(counter);
             }
-          }, 16);
+          };
           
-          observer.unobserve(counter);
+          requestAnimationFrame(animate);
         }
       }
     });
-  }, { threshold: 0.3 });
+  }, { 
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  });
   
   counters.forEach(counter => observer.observe(counter));
 });
 </script>
 
 <style scoped>
-/* Reutilizando las mismas animaciones de la sección proceso */
+/* Sistema de Animaciones Mejorado */
 @keyframes customFloat {
   0%, 100% { 
     transform: translateY(0) rotate(0deg); 
@@ -242,50 +315,64 @@ onMounted(() => {
   }
   50% { 
     transform: translateY(-15px) rotate(180deg); 
-    opacity: 0.7;
+    opacity: 0.6;
   }
 }
 
 @keyframes customPulseSlow {
   0%, 100% { 
-    opacity: 0.5; 
+    opacity: 0.3; 
+    transform: scale(1);
   }
   50% { 
-    opacity: 1; 
-  }
-}
-
-@keyframes customBounceSlow {
-  0%, 100% { 
-    transform: translateY(0); 
-  }
-  50% { 
-    transform: translateY(-8px); 
+    opacity: 0.6; 
+    transform: scale(1.03);
   }
 }
 
 @keyframes customPulse {
   0%, 100% { 
     opacity: 1; 
+    transform: scale(1);
   }
   50% { 
-    opacity: 0.5; 
+    opacity: 0.6; 
+    transform: scale(1.15);
   }
 }
 
 @keyframes customGlow {
   0%, 100% { 
-    box-shadow: 0 0 15px rgba(0, 150, 255, 0.3); 
+    box-shadow: 
+      0 0 20px rgba(100, 150, 255, 0.4),
+      0 0 30px rgba(80, 120, 255, 0.2);
   }
   50% { 
-    box-shadow: 0 0 30px rgba(0, 200, 255, 0.5); 
+    box-shadow: 
+      0 0 30px rgba(120, 180, 255, 0.6),
+      0 0 50px rgba(100, 160, 255, 0.3);
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(360deg);
   }
 }
 
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-40px);
   }
   to {
     opacity: 1;
@@ -296,7 +383,7 @@ onMounted(() => {
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(40px);
   }
   to {
     opacity: 1;
@@ -307,7 +394,7 @@ onMounted(() => {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -315,126 +402,203 @@ onMounted(() => {
   }
 }
 
-/* Clases de animación personalizadas */
+/* Efecto especial de iluminación para hover */
+@keyframes glowHover {
+  0%, 100% { 
+    box-shadow: 
+      0 0 15px rgba(100, 150, 255, 0.3),
+      inset 0 0 20px rgba(255, 255, 255, 0.05);
+  }
+  50% { 
+    box-shadow: 
+      0 0 25px rgba(120, 180, 255, 0.5),
+      inset 0 0 30px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Clases de Animación Personalizadas */
 .custom-float {
-  animation: customFloat 10s ease-in-out infinite;
+  animation: customFloat 15s ease-in-out infinite;
 }
 
 .custom-pulse-slow {
-  animation: customPulseSlow 4s ease-in-out infinite;
-}
-
-.custom-bounce-slow {
-  animation: customBounceSlow 2.5s ease-in-out infinite;
+  animation: customPulseSlow 5s ease-in-out infinite;
 }
 
 .custom-glow {
-  animation: customGlow 2.5s ease-in-out infinite;
+  animation: customGlow 3.5s ease-in-out infinite;
 }
 
 .custom-pulse {
-  animation: customPulse 1.5s ease-in-out infinite;
+  animation: customPulse 2s ease-in-out infinite;
 }
 
-.custom-delay-2000 {
-  animation-delay: 2s;
+.custom-delay-2500 {
+  animation-delay: 2.5s;
 }
 
-/* Efectos personalizados */
-.shadow-custom-glow {
-  box-shadow: 0 0 15px rgba(0, 150, 255, 0.3);
+/* Clase para efecto de iluminación en hover */
+.custom-glow-hover {
+  animation: glowHover 2s ease-in-out infinite;
 }
 
-.shadow-custom-hover {
-  box-shadow: 0 15px 30px rgba(0, 150, 255, 0.4);
-}
-
-/* Mejoras 3D */
+/* Optimizaciones 3D */
 .transform-gpu {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
 }
 
-/* Efecto de vidrio esmerilado mejorado */
+/* Sistema Glassmorphism */
 .backdrop-blur-xl {
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
 
-/* Transiciones suaves */
+/* Transiciones Mejoradas */
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
 }
 
-/* Animaciones de entrada */
+/* Animaciones de Entrada */
 .animate-slideInLeft {
-  animation: slideInLeft 0.8s ease-out forwards;
+  animation: slideInLeft 0.7s ease-out forwards;
+  opacity: 0;
+  animation-fill-mode: both;
 }
 
 .animate-slideInRight {
-  animation: slideInRight 0.8s ease-out forwards;
+  animation: slideInRight 0.7s ease-out forwards;
+  opacity: 0;
+  animation-fill-mode: both;
 }
 
 .animate-fadeInUp {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.7s ease-out forwards;
   opacity: 0;
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
 }
 
-/* Efecto blur para texto */
+/* Efectos de Blur */
 .blur-xs {
-  filter: blur(3px);
+  filter: blur(4px);
 }
 
-/* CORRECCIÓN CRÍTICA PARA bg-clip-text */
+.blur-sm {
+  filter: blur(6px);
+}
+
+.blur-lg {
+  filter: blur(12px);
+}
+
+/* CORRECCIONES ESPECÍFICAS APLICADAS */
+
+/* Corrección específica para letras que descienden (g, j, p, q, y) */
+.leading-\[1\.1\] {
+  line-height: 1.1 !important;
+}
+
+.leading-\[1\.05\] {
+  line-height: 1.05 !important;
+}
+
+/* Ajuste fino para el espaciado del título */
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+/* Optimización para el gradiente de texto */
 .bg-clip-text {
   -webkit-background-clip: text !important;
   background-clip: text !important;
   color: transparent;
+  display: inline-block;
+  /* Previene cortes en letras descendentes */
+  padding: 0.1em 0;
+  margin: -0.1em 0;
 }
 
-/* Asegurar que los gradientes de texto funcionen */
-.bg-gradient-to-r {
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+/* Responsividad Mejorada */
+@media (max-width: 1536px) {
+  .text-7xl {
+    font-size: 5rem;
+  }
 }
 
-/* Ajustes para responsividad */
-@media (max-width: 768px) {
-  .min-h-\[75vh\] {
-    min-height: 70vh;
+@media (max-width: 1280px) {
+  .text-7xl {
+    font-size: 4.25rem;
   }
   
-  .pt-8 {
-    padding-top: 1.5rem;
+  .text-6xl {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .min-h-\[90vh\] {
+    min-height: 85vh;
   }
   
-  .mt-4 {
-    margin-top: 0.75rem;
+  .text-7xl {
+    font-size: 3.5rem;
   }
   
-  .text-3xl {
-    font-size: 2rem;
-  }
-  
-  .text-4xl {
-    font-size: 2.25rem;
+  .text-6xl {
+    font-size: 3rem;
   }
   
   .text-5xl {
     font-size: 2.5rem;
   }
   
-  .text-base {
-    font-size: 0.95rem;
+  .gap-4 {
+    gap: 1rem;
   }
   
-  .text-lg {
-    font-size: 1.05rem;
+  .p-4 {
+    padding: 1rem;
+  }
+  
+  .p-5 {
+    padding: 1.25rem;
+  }
+  
+  .space-y-4 {
+    gap: 1rem;
+  }
+  
+  .space-y-6 {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .min-h-\[90vh\] {
+    min-height: 80vh;
+  }
+  
+  .text-7xl {
+    font-size: 2.75rem;
+  }
+  
+  .text-6xl {
+    font-size: 2.5rem;
+  }
+  
+  .text-5xl {
+    font-size: 2.25rem;
   }
   
   .text-xl {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
+  }
+  
+  .py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
   
   .py-3\.5 {
@@ -443,70 +607,89 @@ onMounted(() => {
   }
   
   .px-8 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
   
-  .p-4 {
-    padding: 1rem;
+  .px-9 {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
   
-  .text-2xl {
-    font-size: 1.5rem;
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
   }
   
-  .text-3xl {
-    font-size: 1.75rem;
-  }
-  
-  .mt-6 {
-    margin-top: 1rem;
-  }
-  
-  .mb-4 {
-    margin-bottom: 0.75rem;
+  .gap-3 {
+    gap: 0.75rem;
   }
   
   .gap-4 {
     gap: 0.75rem;
   }
-}
-
-@media (max-width: 640px) {
-  .min-h-\[75vh\] {
-    min-height: 65vh;
+  
+  .space-y-4 {
+    gap: 1rem;
   }
   
-  .pt-8 {
-    padding-top: 1rem;
+  .space-y-6 {
+    gap: 1.25rem;
   }
   
-  .mt-4 {
+  /* Ajustes específicos para móviles */
+  .leading-\[1\.1\] {
+    line-height: 1.05 !important;
+  }
+  
+  .leading-\[1\.05\] {
+    line-height: 1 !important;
+  }
+  
+  .pb-2 {
+    padding-bottom: 0.4rem;
+  }
+  
+  .pt-0 {
+    padding-top: 0;
+  }
+  
+  .-mt-1 {
+    margin-top: -0.2rem;
+  }
+  
+  .mt-2 {
     margin-top: 0.5rem;
   }
   
-  .text-3xl {
-    font-size: 1.75rem;
+  .mt-6 {
+    margin-top: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .min-h-\[90vh\] {
+    min-height: 85vh;
   }
   
-  .text-4xl {
-    font-size: 2rem;
+  .text-7xl {
+    font-size: 2.5rem;
   }
   
-  .text-5xl {
+  .text-6xl {
     font-size: 2.25rem;
   }
   
-  .text-base {
-    font-size: 0.9rem;
+  .text-5xl {
+    font-size: 2rem;
   }
   
   .text-lg {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
   
-  .text-xl {
-    font-size: 1.1rem;
+  .py-3 {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
   }
   
   .py-3\.5 {
@@ -515,44 +698,91 @@ onMounted(() => {
   }
   
   .px-8 {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
   
-  .p-4 {
-    padding: 0.875rem;
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
   
-  .text-2xl {
-    font-size: 1.375rem;
+  .space-y-4 {
+    gap: 0.75rem;
   }
   
-  .text-3xl {
-    font-size: 1.625rem;
+  .space-y-6 {
+    gap: 1rem;
   }
   
-  .mt-6 {
-    margin-top: 0.75rem;
+  .-mt-1 {
+    margin-top: -0.25rem;
+  }
+}
+
+/* Corrección para móviles muy pequeños */
+@media (max-width: 375px) {
+  .text-7xl {
+    font-size: 2.25rem;
   }
   
-  .mb-4 {
-    margin-bottom: 0.5rem;
+  .text-6xl {
+    font-size: 2rem;
   }
   
-  .gap-4 {
-    gap: 0.5rem;
+  .text-5xl {
+    font-size: 1.75rem;
   }
   
-  .w-10 {
-    width: 2rem;
+  .px-5 {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   
-  .h-10 {
-    height: 2rem;
+  .py-2\.5 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
   
-  .bottom-6 {
-    bottom: 1rem;
+  .pb-2 {
+    padding-bottom: 0.3rem;
+  }
+  
+  .-mt-1 {
+    margin-top: -0.3rem;
+  }
+  
+  .mb-1 {
+    margin-bottom: 0.1rem;
+  }
+}
+
+/* Optimización para modo oscuro del sistema */
+@media (prefers-color-scheme: dark) {
+  .bg-gradient-to-br {
+    color-scheme: dark;
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .custom-float,
+  .custom-pulse-slow,
+  .custom-glow,
+  .custom-pulse,
+  .custom-glow-hover,
+  .animate-slideInLeft,
+  .animate-slideInRight,
+  .animate-fadeInUp {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .group-hover\:scale-105,
+  .group-hover\:scale-110,
+  .group-hover\:-translate-y-1\.5,
+  .group-hover\:rotate-12 {
+    transform: none !important;
   }
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
-  <section id="proceso" class="py-10 md:py-12 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white relative overflow-hidden w-full flex justify-center">
+  <section id="proceso" class="py-10 md:py-12 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white relative overflow-hidden w-full flex justify-center">
     <!-- Efectos de fondo animados -->
     <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute top-1/4 -left-16 w-56 h-56 bg-gradient-to-br from-blue-500/15 to-purple-500/10 rounded-full blur-3xl custom-pulse-slow"></div>
-      <div class="absolute bottom-1/3 -right-16 w-60 h-60 bg-gradient-to-br from-purple-500/15 to-blue-500/10 rounded-full blur-3xl custom-pulse-slow custom-delay-2000"></div>
-      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-blue-600/5 to-purple-600/5 rounded-full blur-3xl custom-pulse-slow custom-delay-4000"></div>
+      <div class="absolute top-1/4 -left-16 w-56 h-56 bg-gradient-to-br from-blue-500/15 to-blue-400/10 rounded-full blur-3xl custom-pulse-slow"></div>
+      <div class="absolute bottom-1/3 -right-16 w-60 h-60 bg-gradient-to-br from-blue-500/15 to-blue-400/10 rounded-full blur-3xl custom-pulse-slow custom-delay-2000"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-blue-600/5 to-blue-500/5 rounded-full blur-3xl custom-pulse-slow custom-delay-4000"></div>
       
       <!-- Partículas flotantes -->
       <div v-for="i in 12" :key="i" 
@@ -14,15 +14,15 @@
     </div>
 
     <div class="w-full max-w-6xl mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center">
-      <!-- Section Header - Corregida la letra "G" -->
+      <!-- Section Header -->
       <div class="text-center mb-6 md:mb-10 w-full">
-        <div class="inline-flex items-center bg-gradient-to-r from-blue-600/30 to-purple-600/30 backdrop-blur-xl rounded-full px-5 py-2.5 mb-3 border border-blue-400/40 shadow-custom-glow custom-glow">
-          <div class="w-2.5 h-2.5 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full mr-2.5 custom-pulse"></div>
+        <div class="inline-flex items-center bg-gradient-to-r from-blue-600/30 to-blue-500/30 backdrop-blur-xl rounded-full px-5 py-2.5 mb-3 border border-blue-400/40 shadow-custom-glow custom-glow">
+          <div class="w-2.5 h-2.5 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full mr-2.5 custom-pulse"></div>
           <span class="text-sm font-bold text-white tracking-wider">🚀 NUESTRO PROCESO</span>
         </div>
         
-        <!-- Título con ajuste para la letra "G" -->
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-3 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent text-center px-2 tracking-tight leading-tight pb-1">
+        <!-- Título -->
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-3 bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent text-center px-2 tracking-tight leading-tight pb-1">
           Metodología Probada
         </h2>
         
@@ -38,10 +38,10 @@
           <!-- Botón izquierdo -->
           <button 
             @click="prevSlide"
-            class="relative z-30 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-blue-600/40 to-purple-600/30 backdrop-blur-xl rounded-xl border-2 border-blue-400/40 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-cyan-300/60 group mr-2 md:mr-4 shadow-lg"
+            class="relative z-30 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-blue-600/40 to-blue-500/30 backdrop-blur-xl rounded-xl border-2 border-blue-400/40 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-blue-300/60 group mr-2 md:mr-4 shadow-lg"
             :disabled="isAnimating"
           >
-            <div class="w-7 h-7 bg-gradient-to-r from-blue-200 to-cyan-100 rounded-lg flex items-center justify-center transform group-hover:-translate-x-1 transition-transform duration-300">
+            <div class="w-7 h-7 bg-gradient-to-r from-blue-200 to-blue-100 rounded-lg flex items-center justify-center transform group-hover:-translate-x-1 transition-transform duration-300">
               <span class="text-lg md:text-xl font-bold text-blue-900">←</span>
             </div>
           </button>
@@ -55,7 +55,7 @@
               :class="isAnimating ? 'opacity-70 -translate-x-10' : 'opacity-90'"
             >
               <div 
-                class="w-full h-full bg-gradient-to-br from-blue-800/25 via-blue-900/20 to-purple-900/25 backdrop-blur-2xl rounded-2xl border-2 border-blue-400/30 shadow-xl p-5 transform-gpu hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer group flex flex-col items-center relative overflow-hidden"
+                class="w-full h-full bg-gradient-to-br from-blue-800/25 via-blue-900/20 to-blue-800/25 backdrop-blur-2xl rounded-2xl border-2 border-blue-400/30 shadow-xl p-5 transform-gpu hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer group flex flex-col items-center relative overflow-hidden"
                 style="transform: rotateY(15deg) translateZ(-15px);"
                 @click="prevSlide"
               >
@@ -64,20 +64,20 @@
                 
                 <!-- Número -->
                 <div class="flex items-center justify-center mb-3 w-full relative">
-                  <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-black text-lg md:text-xl shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+                  <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 rounded-lg flex items-center justify-center text-white font-black text-lg md:text-xl shadow-xl transform group-hover:scale-110 transition-transform duration-300">
                     {{ prevCard.number }}
                   </div>
                 </div>
                 
                 <!-- Icono más grande -->
                 <div class="flex justify-center mb-4 w-full">
-                  <div class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500/40 via-blue-600/50 to-purple-600/40 rounded-xl flex items-center justify-center border-2 border-blue-400/40 shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+                  <div class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500/40 via-blue-600/50 to-blue-600/40 rounded-xl flex items-center justify-center border-2 border-blue-400/40 shadow-xl transform group-hover:scale-110 transition-transform duration-300">
                     <span class="text-2xl md:text-3xl">{{ prevCard.icon }}</span>
                   </div>
                 </div>
                 
                 <!-- Título más grande -->
-                <h3 class="text-lg md:text-xl font-black text-white mb-2 text-center w-full group-hover:text-cyan-200 transition-colors duration-300 px-3 whitespace-normal tracking-tight">
+                <h3 class="text-lg md:text-xl font-black text-white mb-2 text-center w-full group-hover:text-blue-200 transition-colors duration-300 px-3 whitespace-normal tracking-tight">
                   {{ prevCard.title }}
                 </h3>
                 
@@ -90,13 +90,13 @@
                 <ul class="space-y-1.5 text-white/80 w-full px-3">
                   <li v-for="(feature, featureIndex) in prevCard.features" :key="featureIndex" 
                       class="flex items-start justify-center">
-                    <div class="w-2.5 h-2.5 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full mr-2.5 mt-0.5 flex-shrink-0 shadow-sm"></div>
+                    <div class="w-2.5 h-2.5 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full mr-2.5 mt-0.5 flex-shrink-0 shadow-sm"></div>
                     <span class="text-xs md:text-sm text-center flex-1">{{ feature }}</span>
                   </li>
                 </ul>
                 
                 <!-- Efecto de borde brillante al pasar el mouse -->
-                <div class="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-cyan-400/30 transition-all duration-500"></div>
+                <div class="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-blue-400/30 transition-all duration-500"></div>
               </div>
             </div>
 
@@ -106,34 +106,34 @@
               :class="isAnimating ? 'opacity-90 scale-95' : 'opacity-100 scale-100'"
             >
               <div 
-                class="w-full h-full bg-gradient-to-br from-blue-700/50 via-blue-800/60 to-purple-800/50 backdrop-blur-2xl rounded-3xl border-3 border-cyan-400/50 shadow-3d p-6 md:p-7 transform-gpu hover:scale-103 transition-all duration-500 group flex flex-col items-center relative overflow-hidden"
+                class="w-full h-full bg-gradient-to-br from-blue-700/50 via-blue-800/60 to-blue-900/50 backdrop-blur-2xl rounded-3xl border-3 border-blue-400/50 shadow-3d p-6 md:p-7 transform-gpu hover:scale-103 transition-all duration-500 group flex flex-col items-center relative overflow-hidden"
               >
                 <!-- Efecto de luz superior -->
-                <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-cyan-400/70 to-transparent rounded-t-3xl custom-pulse"></div>
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-blue-400/70 to-transparent rounded-t-3xl custom-pulse"></div>
                 
                 <!-- Brillo interior -->
-                <div class="absolute top-8 left-8 w-32 h-32 bg-gradient-to-br from-cyan-500/10 to-blue-500/5 rounded-full blur-xl"></div>
+                <div class="absolute top-8 left-8 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-blue-400/5 rounded-full blur-xl"></div>
                 
                 <!-- Número destacado - AHORA GIRA 360° SUAVE AL PASAR EL MOUSE -->
                 <div class="flex items-center justify-center mb-5 w-full relative">
-                  <div class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-white font-black text-xl md:text-2xl shadow-custom custom-number-container">
+                  <div class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 rounded-xl flex items-center justify-center text-white font-black text-xl md:text-2xl shadow-custom custom-number-container">
                     {{ currentCard.number }}
                   </div>
                   <!-- Anillo decorativo -->
-                  <div class="absolute inset-0 w-14 h-14 md:w-16 md:h-16 rounded-xl border-3 border-cyan-400/30 custom-spin-slow"></div>
+                  <div class="absolute inset-0 w-14 h-14 md:w-16 md:h-16 rounded-xl border-3 border-blue-400/30 custom-spin-slow"></div>
                 </div>
                 
                 <!-- Icono grande y animado -->
                 <div class="flex justify-center mb-5 w-full relative">
-                  <div class="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-cyan-500/60 via-blue-600/70 to-purple-600/60 rounded-2xl flex items-center justify-center border-3 border-cyan-300/60 shadow-xl transform group-hover:rotate-12 transition-transform duration-500">
+                  <div class="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-blue-500/60 via-blue-600/70 to-blue-600/60 rounded-2xl flex items-center justify-center border-3 border-blue-300/60 shadow-xl transform group-hover:rotate-12 transition-transform duration-500">
                     <span class="text-3xl md:text-4xl custom-bounce-slow">{{ currentCard.icon }}</span>
                   </div>
                   <!-- Brillo alrededor del icono -->
-                  <div class="absolute inset-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl border-3 border-cyan-400/20 custom-ping-slow"></div>
+                  <div class="absolute inset-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl border-3 border-blue-400/20 custom-ping-slow"></div>
                 </div>
                 
                 <!-- Título principal -->
-                <h3 class="text-xl md:text-2xl font-black text-white mb-3 text-center w-full bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent px-4 whitespace-normal tracking-tight">
+                <h3 class="text-xl md:text-2xl font-black text-white mb-3 text-center w-full bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent px-4 whitespace-normal tracking-tight">
                   {{ currentCard.title }}
                 </h3>
                 
@@ -147,24 +147,13 @@
                   <li v-for="(feature, featureIndex) in currentCard.features" :key="featureIndex" 
                       class="flex items-start justify-center transform group-hover:translate-x-2 transition-transform duration-300"
                       :style="`transition-delay: ${featureIndex * 100}ms`">
-                    <div class="w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full mr-2.5 mt-0.5 flex-shrink-0 shadow-md"></div>
+                    <div class="w-3 h-3 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full mr-2.5 mt-0.5 flex-shrink-0 shadow-md"></div>
                     <span class="text-sm md:text-base text-center flex-1 font-medium">{{ feature }}</span>
                   </li>
                 </ul>
                 
                 <!-- ESPACIO ADICIONAL DEBAJO DE LAS FEATURES -->
                 <div class="flex-1 min-h-[10px]"></div>
-                
-                <!-- Indicador actual 
-                <div class="mt-2 mb-1 text-center w-full">
-                  <div class="inline-flex items-center bg-gradient-to-r from-cyan-500/30 to-blue-500/30 backdrop-blur-lg rounded-full px-4 py-2 border border-cyan-400/40 shadow-lg custom-pulse-slow">
-                    <div class="w-2.5 h-2.5 bg-gradient-to-r from-cyan-300 to-blue-300 rounded-full mr-2 custom-pulse"></div>
-                    <span class="text-xs font-semibold text-cyan-300 tracking-wide">PASO ACTUAL</span>
-                  </div>
-                </div>-->
-                
-                <!-- Efecto de brillo 3D al pasar el mouse -->
-                <div class="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 custom-glow-inner"></div>
               </div>
             </div>
 
@@ -175,29 +164,29 @@
               :class="isAnimating ? 'opacity-70 translate-x-10' : 'opacity-90'"
             >
               <div 
-                class="w-full h-full bg-gradient-to-br from-blue-800/25 via-blue-900/20 to-purple-900/25 backdrop-blur-2xl rounded-2xl border-2 border-blue-400/30 shadow-xl p-5 transform-gpu hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer group flex flex-col items-center relative overflow-hidden"
+                class="w-full h-full bg-gradient-to-br from-blue-800/25 via-blue-900/20 to-blue-800/25 backdrop-blur-2xl rounded-2xl border-2 border-blue-400/30 shadow-xl p-5 transform-gpu hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer group flex flex-col items-center relative overflow-hidden"
                 style="transform: rotateY(-15deg) translateZ(-15px);"
                 @click="nextSlide"
               >
                 <!-- Efecto de luz 3D -->
-                <div class="absolute inset-0 bg-gradient-to-tl from-transparent via-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="absolute inset-0 bg-gradient-to-tl from-transparent via-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <!-- Número -->
                 <div class="flex items-center justify-center mb-3 w-full relative">
-                  <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-black text-lg md:text-xl shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+                  <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 rounded-lg flex items-center justify-center text-white font-black text-lg md:text-xl shadow-xl transform group-hover:scale-110 transition-transform duration-300">
                     {{ nextCard.number }}
                   </div>
                 </div>
                 
                 <!-- Icono más grande -->
                 <div class="flex justify-center mb-4 w-full">
-                  <div class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500/40 via-blue-600/50 to-purple-600/40 rounded-xl flex items-center justify-center border-2 border-blue-400/40 shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+                  <div class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500/40 via-blue-600/50 to-blue-600/40 rounded-xl flex items-center justify-center border-2 border-blue-400/40 shadow-xl transform group-hover:scale-110 transition-transform duration-300">
                     <span class="text-2xl md:text-3xl">{{ nextCard.icon }}</span>
                   </div>
                 </div>
                 
                 <!-- Título más grande -->
-                <h3 class="text-lg md:text-xl font-black text-white mb-2 text-center w-full group-hover:text-cyan-200 transition-colors duration-300 px-3 whitespace-normal tracking-tight">
+                <h3 class="text-lg md:text-xl font-black text-white mb-2 text-center w-full group-hover:text-blue-200 transition-colors duration-300 px-3 whitespace-normal tracking-tight">
                   {{ nextCard.title }}
                 </h3>
                 
@@ -210,13 +199,13 @@
                 <ul class="space-y-1.5 text-white/80 w-full px-3">
                   <li v-for="(feature, featureIndex) in nextCard.features" :key="featureIndex" 
                       class="flex items-start justify-center">
-                    <div class="w-2.5 h-2.5 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full mr-2.5 mt-0.5 flex-shrink-0 shadow-sm"></div>
+                    <div class="w-2.5 h-2.5 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full mr-2.5 mt-0.5 flex-shrink-0 shadow-sm"></div>
                     <span class="text-xs md:text-sm text-center flex-1">{{ feature }}</span>
                   </li>
                 </ul>
                 
                 <!-- Efecto de borde brillante al pasar el mouse -->
-                <div class="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-cyan-400/30 transition-all duration-500"></div>
+                <div class="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-blue-400/30 transition-all duration-500"></div>
               </div>
             </div>
           </div>
@@ -224,10 +213,10 @@
           <!-- Botón derecho -->
           <button 
             @click="nextSlide"
-            class="relative z-30 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-blue-600/40 to-purple-600/30 backdrop-blur-xl rounded-xl border-2 border-blue-400/40 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-cyan-300/60 group ml-2 md:ml-4 shadow-lg"
+            class="relative z-30 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-blue-600/40 to-blue-500/30 backdrop-blur-xl rounded-xl border-2 border-blue-400/40 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-blue-300/60 group ml-2 md:ml-4 shadow-lg"
             :disabled="isAnimating"
           >
-            <div class="w-7 h-7 bg-gradient-to-r from-blue-200 to-cyan-100 rounded-lg flex items-center justify-center transform group-hover:translate-x-1 transition-transform duration-300">
+            <div class="w-7 h-7 bg-gradient-to-r from-blue-200 to-blue-100 rounded-lg flex items-center justify-center transform group-hover:translate-x-1 transition-transform duration-300">
               <span class="text-lg md:text-xl font-bold text-blue-900">→</span>
             </div>
           </button>
@@ -243,43 +232,14 @@
             :class="currentIndex === index ? 'scale-125' : ''"
           >
             <div 
-              class="absolute inset-0 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full transition-all duration-500"
-              :class="currentIndex === index ? 'opacity-100 shadow-md shadow-cyan-500/60' : 'opacity-50 group-hover:opacity-80'"
+              class="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full transition-all duration-500"
+              :class="currentIndex === index ? 'opacity-100 shadow-md shadow-blue-500/60' : 'opacity-50 group-hover:opacity-80'"
             ></div>
             <div v-if="currentIndex === index" 
-                 class="absolute inset-0 rounded-full custom-ping bg-cyan-400/40"></div>
+                 class="absolute inset-0 rounded-full custom-ping bg-blue-400/40"></div>
           </button>
         </div>
       </div>
-
-      <!-- CTA Section mejorada 
-      <div class="text-center mt-8 md:mt-10 w-full max-w-3xl mx-auto">
-        <div class="bg-gradient-to-br from-blue-700/40 via-blue-800/50 to-purple-800/40 backdrop-blur-2xl rounded-3xl border-2 border-blue-400/40 shadow-xl p-6 md:p-7 w-full flex flex-col items-center justify-center transform hover:scale-102 transition-all duration-500 group">
-           
-          <div class="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-cyan-400/30 transition-all duration-500"></div>
-          
-          <h3 class="text-xl md:text-2xl font-black text-white mb-3 text-center w-full bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent px-4">
-            ¿Listo para Iniciar tu Proyecto?
-          </h3>
-          <p class="text-base md:text-lg text-white/85 mb-5 max-w-xl text-center">
-            Sigue los pasos de más de 200 empresas exitosas que confiaron en nuestro proceso probado.
-          </p>
-          <div class="flex justify-center w-full">
-            <button 
-              @click="scrollToSection('contacto')"
-              class="relative bg-gradient-to-r from-cyan-600 via-blue-700 to-purple-700 hover:from-cyan-700 hover:via-blue-800 hover:to-purple-800 text-white font-bold py-3.5 px-8 rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-custom-hover text-base md:text-lg group overflow-hidden"
-            >
-              
-              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-              
-              <span class="flex items-center justify-center relative">
-                Iniciar Proceso
-                <span class="ml-2.5 text-xl custom-bounce-slow">🚀</span>
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>-->
     </div>
   </section>
 </template>
@@ -461,10 +421,10 @@ onUnmounted(() => {
 
 @keyframes customGlow {
   0%, 100% { 
-    box-shadow: 0 0 15px rgba(0, 150, 255, 0.3); 
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); 
   }
   50% { 
-    box-shadow: 0 0 30px rgba(0, 200, 255, 0.5); 
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); 
   }
 }
 
@@ -525,24 +485,24 @@ onUnmounted(() => {
 
 /* Efectos personalizados */
 .shadow-custom {
-  box-shadow: 0 8px 25px rgba(0, 200, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
 .shadow-3d {
-  box-shadow: 0 20px 40px -10px rgba(0, 150, 255, 0.4), 
+  box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.4), 
               inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
 }
 
 .shadow-custom-glow {
-  box-shadow: 0 0 15px rgba(0, 150, 255, 0.3);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
 }
 
 .shadow-custom-hover {
-  box-shadow: 0 15px 35px rgba(0, 150, 255, 0.4);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
 }
 
 .custom-glow-inner {
-  box-shadow: inset 0 0 40px rgba(0, 200, 255, 0.3);
+  box-shadow: inset 0 0 40px rgba(59, 130, 246, 0.3);
 }
 
 /* Mejoras 3D */
