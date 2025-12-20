@@ -27,12 +27,33 @@
           <span class="text-xs font-semibold text-white/80">📞 HABLEMOS DE TU PROYECTO</span>
         </div>
         
-        <h2 class="text-3xl md:text-4xl font-black mb-4 bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent text-center w-full pb-1.5 pt-1.5">
-          Comencemos Hoy
-        </h2>
-        <p class="text-base text-white/80 max-w-2xl mx-auto leading-relaxed text-center">
-          Contáctanos y recibe una cotización gratuita personalizada para tu proyecto
-        </p>
+        <!-- Título optimizado -->
+        <div class="relative w-full mb-4">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-center w-full tracking-tight leading-tight animate-slideInLeft">
+            <span class="relative inline-block">
+              <span class="bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent relative z-20">
+                Comencemos Hoy
+              </span>
+              
+              <!-- Efectos de subrayado más compactos -->
+              <div class="absolute -bottom-1 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full opacity-60 mt-1"></div>
+            </span>
+          </h2>
+        </div>
+        
+        <!-- Subtítulo optimizado -->
+        <div class="relative max-w-2xl mx-auto mb-6 animate-fadeInUp" style="animation-delay: 200ms">
+          <p class="text-sm sm:text-base text-white/85 leading-relaxed text-center">
+            Contáctanos y recibe
+            <span class="relative inline-block">
+              <span class="bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 bg-clip-text text-transparent font-bold">
+               una cotización gratuita y personalizada
+              </span>
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-400/15 via-blue-300/15 to-blue-200/15 blur-sm -z-10 rounded-full"></div>
+            </span>
+            para tu proyecto
+          </p>
+        </div>
       </div>
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-start">

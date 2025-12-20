@@ -21,14 +21,33 @@
           <span class="text-sm font-bold text-white tracking-wider">🚀 NUESTRO PROCESO</span>
         </div>
         
-        <!-- Título -->
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-3 bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent text-center px-2 tracking-tight leading-tight pb-1">
-          Metodología Probada
-        </h2>
+        <!-- Título optimizado -->
+        <div class="relative w-full mb-4">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-center w-full tracking-tight leading-tight animate-slideInLeft">
+            <span class="relative inline-block">
+              <span class="bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent relative z-20">
+                Metodología Probada
+              </span>
+              
+              <!-- Efectos de subrayado más compactos -->
+              <div class="absolute -bottom-1 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full opacity-60 mt-1"></div>
+            </span>
+          </h2>
+        </div>
         
-        <p class="text-base md:text-lg text-white/90 max-w-2xl leading-relaxed text-center mx-auto">
-          Un proceso estructurado que garantiza el éxito de tu proyecto desde el primer día hasta el lanzamiento
-        </p>
+        <!-- Subtítulo optimizado -->
+        <div class="relative max-w-2xl mx-auto mb-6 animate-fadeInUp" style="animation-delay: 200ms">
+          <p class="text-sm sm:text-base text-white/85 leading-relaxed text-center">
+            Un proceso estructurado 
+            <span class="relative inline-block">
+              <span class="bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 bg-clip-text text-transparent font-bold">
+                que garantiza el éxito de tu proyecto
+              </span>
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-400/15 via-blue-300/15 to-blue-200/15 blur-sm -z-10 rounded-full"></div>
+            </span>
+            desde el primer día hasta el lanzamiento
+          </p>
+        </div>
       </div>
 
       <!-- Contenedor de tarjetas mejorado -->

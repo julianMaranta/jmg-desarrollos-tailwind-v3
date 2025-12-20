@@ -48,64 +48,64 @@
             <div class="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 rounded-full custom-pulse"></div>
             <div class="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-200 rounded-full blur-xs opacity-60"></div>
           </div>
-          <span class="text-xs font-bold text-white tracking-wider">🚀 LISTOS PARA IMPULSAR TU NEGOCIO</span>
+          <span class="text-xs font-bold text-white tracking-wider">🚀 AGENCIA DIGITAL PREMIUM</span>
           <div class="ml-3 w-1 h-5 bg-gradient-to-b from-blue-300/40 via-transparent to-blue-400/40 rounded-full"></div>
         </div>
 
-        <!-- Título Principal con ESPACIO REDUCIDO ARRIBA -->
-        <div class="relative w-full">
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-center w-full tracking-tight">
-            
-            <!-- Línea 1 con menos margen -->
-            <div class="relative animate-slideInLeft">
-              <span class="bg-gradient-to-r from-white via-blue-100 to-blue-50 bg-clip-text text-transparent relative z-10 pb-0.5 block leading-[1.05]">
-                Impulsa Tu
-              </span>
-              <!-- Sombra de texto para profundidad -->
-              <div class="absolute inset-0 text-5xl md:text-6xl lg:text-7xl font-black opacity-20 blur-sm transform translate-y-0.5 pb-0.5 leading-[1.05]"
-                   style="background: linear-gradient(to right, white, blue-100, blue-50); -webkit-background-clip: text; background-clip: text; color: transparent;">
-                Impulsa Tu
-              </div>
-            </div>
-            
-            <!-- Línea 2 - Ajustada para menos espacio -->
-            <div class="relative animate-slideInRight" style="animation-delay: 300ms;">
-              <span class="relative inline-block pb-2 pt-0">
-                <span class="bg-gradient-to-r from-blue-50 via-blue-100 to-white bg-clip-text text-transparent relative z-20 leading-[1.1] tracking-tight block">
-                  Negocio Digital
-                </span>
-                
-                <!-- Efectos de subrayado ajustados -->
-                <div class="absolute bottom-0.5 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-300/60 to-transparent"></div>
-                <div class="absolute bottom-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-blue-300 to-blue-400 rounded-full opacity-70 blur-xs custom-pulse"></div>
-                <div class="absolute -bottom-0.5 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-200/40 to-transparent rounded-full"></div>
+        <!-- TÍTULO PRINCIPAL MEJORADO - MÁS GRANDE Y DESTACADO -->
+        <div class="relative w-full mb-2 md:mb-3">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-center w-full tracking-tight leading-[1.1] animate-slideInLeft">
+            <span class="relative inline-block">
+              <!-- Efecto de brillo detrás -->
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-blue-400/15 to-blue-300/10 blur-xl scale-105 -z-10"></div>
+              
+              <!-- Texto principal con gradiente mejorado -->
+              <span class="bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent relative z-20 pb-2">
+                Transformamos Tu
+                <span class="block pt-0 md:pt-1">Visión Digital</span>
               </span>
               
-              <!-- Sombra de texto para línea 2 - ajustada -->
-              <div class="absolute inset-0 text-5xl md:text-6xl lg:text-7xl font-black opacity-15 blur-md transform translate-y-0.5 -z-10 pt-0 pb-2 leading-[1.1]"
-                   style="background: linear-gradient(to right, blue-50, blue-100, white); -webkit-background-clip: text; background-clip: text; color: transparent;">
-                Negocio Digital
-              </div>
-            </div>
-          </h1>
-        </div>
-
-        <!-- Subtítulo PEGADO AL TÍTULO -->
-        <div class="relative max-w-3xl mx-auto mb-3 animate-fadeInUp" style="animation-delay: 500ms">
-          <p class="text-lg md:text-xl text-white/85 leading-relaxed text-center px-6 -mt-1">
-            Creamos 
-            <span class="relative inline-block mx-1">
-              <span class="bg-gradient-to-r from-blue-200 via-blue-300 to-blue-400 bg-clip-text text-transparent font-bold tracking-tight">
-                experiencias web extraordinarias
-              </span>
-              <div class="absolute inset-0 bg-gradient-to-r from-blue-300/25 via-blue-400/25 to-blue-500/25 blur-lg -z-10 rounded-full px-1"></div>
-              <div class="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-300/50 via-blue-400/50 to-blue-500/50 rounded-full"></div>
+              <!-- Efecto de subrayado dinámico -->
+              <div class="absolute -bottom-1 left-1/4 right-1/4 h-1.5 bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 rounded-full opacity-80 mt-2 custom-pulse-slow"></div>
+              
+              <!-- Efecto de partículas en el título -->
+              <div class="absolute -top-2 -right-2 w-3 h-3 bg-blue-300/50 rounded-full blur-sm custom-float" style="animation-delay: 1s"></div>
+              <div class="absolute -bottom-2 -left-2 w-2 h-2 bg-blue-400/40 rounded-full blur-xs custom-float" style="animation-delay: 2s"></div>
             </span>
-            que transforman visitantes en clientes leales
-          </p>
+          </h1>
           
-          <!-- Línea decorativa más cerca -->
-          <div class="absolute -bottom-1.5 left-1/2 transform -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-transparent via-blue-300/50 to-transparent rounded-full"></div>
+          <!-- Slogan adicional -->
+          <div class="mt-3 md:mt-4 animate-fadeInUp" style="animation-delay: 100ms">
+            <p class="text-lg md:text-xl font-bold text-blue-100/90">
+              De <span class="text-blue-200">Ideas</span> a <span class="text-blue-200">Resultados</span> Excepcionales
+            </p>
+          </div>
+        </div>
+        
+        <!-- SUBTÍTULO MEJORADO - MÁS PROMINENTE -->
+        <div class="relative max-w-3xl mx-auto mb-6 md:mb-8 animate-fadeInUp" style="animation-delay: 300ms">
+          <div class="relative">
+            <!-- Fondo decorativo para el subtítulo -->
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-blue-500/8 to-blue-400/6 blur-lg -z-10 rounded-2xl"></div>
+            
+            <!-- Contenedor del subtítulo -->
+            <div class="relative bg-gradient-to-r from-blue-900/30 to-blue-800/25 backdrop-blur-md border border-blue-400/20 rounded-xl p-4 md:p-5 shadow-xl shadow-blue-500/15">
+              <p class="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed md:leading-loose text-center font-medium">
+                <span class="text-white">Creamos experiencias web innovadoras</span> que no solo 
+                <span class="relative inline-block">
+                  <span class="bg-gradient-to-r from-blue-300 via-blue-200 to-white bg-clip-text text-transparent font-bold">
+                    captan la atención
+                  </span>
+                  <div class="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-blue-300/15 to-blue-200/10 blur-sm -z-10 rounded-full"></div>
+                </span>, 
+                sino que <span class="text-blue-100 font-semibold">generan resultados medibles</span> y 
+                <span class="text-blue-100 font-semibold">convierten visitantes en clientes leales</span>
+              </p>
+              
+              <!-- Icono decorativo -->
+              <div class="absolute -top-2 left-1/2 transform -translate-x-1/2 w-10 h-2 bg-gradient-to-r from-blue-400/50 to-blue-300/50 rounded-full"></div>
+            </div>
+          </div>
         </div>
 
         <!-- Botones CTA con Más Espacio -->

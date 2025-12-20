@@ -52,30 +52,29 @@
           <div class="ml-3 w-1 h-5 bg-gradient-to-b from-blue-400/40 via-transparent to-blue-300/40 rounded-full"></div>
         </div>
         
-        <!-- Título optimizado - NUEVA ESTRUCTURA -->
-        <div class="relative w-full mb-6">
-          <h2 class="text-5xl md:text-6xl lg:text-7xl font-black text-center w-full tracking-tight leading-snug animate-slideInLeft">
+        <!-- Título optimizado -->
+        <div class="relative w-full mb-4">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-center w-full tracking-tight leading-tight animate-slideInLeft">
             <span class="relative inline-block">
               <span class="bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent relative z-20">
                 Testimonios Clientes
               </span>
               
-              <!-- Efectos de subrayado más compactos - Adaptado -->
+              <!-- Efectos de subrayado más compactos -->
               <div class="absolute -bottom-1 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full opacity-60 mt-1"></div>
             </span>
           </h2>
         </div>
         
-        <!-- Subtítulo optimizado - NUEVA ESTRUCTURA -->
-        <div class="relative max-w-3xl mx-auto mb-8 animate-fadeInUp" style="animation-delay: 500ms">
-          <p class="text-lg md:text-xl text-white/85 leading-relaxed text-center">
-            Más de 
-            <span class="relative inline-block mx-1">
-              <span class="bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 bg-clip-text text-transparent font-bold tracking-tight">
+        <!-- Subtítulo optimizado -->
+        <div class="relative max-w-2xl mx-auto mb-6 animate-fadeInUp" style="animation-delay: 200ms">
+          <p class="text-sm sm:text-base text-white/85 leading-relaxed text-center">
+            Más de
+            <span class="relative inline-block">
+              <span class="bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 bg-clip-text text-transparent font-bold">
                 200 empresas satisfechas
               </span>
-              <div class="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-blue-300/20 to-blue-200/20 blur-lg -z-10 rounded-full px-1"></div>
-              <div class="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-400/40 via-blue-300/40 to-blue-200/40 rounded-full"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-400/15 via-blue-300/15 to-blue-200/15 blur-sm -z-10 rounded-full"></div>
             </span>
             confían en nosotros para transformar su presencia digital
           </p>
