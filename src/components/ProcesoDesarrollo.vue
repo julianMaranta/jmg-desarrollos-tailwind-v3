@@ -386,7 +386,7 @@
                :style="isTransitioning ? { 
                  color: isDarkMode ? 'rgba(255, 255, 255, 0.95)' : 'rgba(30, 58, 138, 0.95)'
                } : {}">
-              <span :class="isDarkMode ? 'text-white' : 'text-blue-900'" :style="isTransitioning ? { color: isDarkMode ? '#ffffff' : '#1e3a8a' } : {}">Un proceso estructurado</span> 
+              <span :class="isDarkMode ? 'text-white' : 'text-blue-900'" :style="isTransitioning ? { color: isDarkMode ? '#ffffff' : '#1e3a8a' } : {}">Un proceso estructurado </span> 
               <span class="relative inline-block">
                 <span 
                   class="bg-clip-text text-transparent font-bold transition-all duration-150"

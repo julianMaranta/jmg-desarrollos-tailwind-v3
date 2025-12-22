@@ -438,7 +438,7 @@
               color: isDarkMode ? 'rgba(255, 255, 255, 0.95)' : 'rgba(30, 58, 138, 0.95)'
             } : {}"
           >
-            Sigue los pasos de más de 200 empresas exitosas que confiaron en nuestro proceso probado.
+            Sigue los pasos de las empresas exitosas que confiaron en nuestro proceso probado.
           </p>
           
           <!-- Botón CTA -->

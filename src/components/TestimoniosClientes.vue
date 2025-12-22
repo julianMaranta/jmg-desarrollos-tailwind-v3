@@ -366,7 +366,7 @@
                     : 'linear-gradient(to right, #2563eb, #3b82f6, #60a5fa)'
                 } : {}"
               >
-                200 empresas satisfechas
+                5 proyectos
               </span>
               <div 
                 class="absolute inset-0 blur-sm -z-10 rounded-full transition-all duration-150"
@@ -381,7 +381,7 @@
                 } : {}"
               ></div>
             </span>
-            confían en nosotros
+            entregados
           </p>
         </div>
       </div>
@@ -859,7 +859,7 @@
               color: isDarkMode ? 'rgba(255, 255, 255, 0.95)' : 'rgba(30, 58, 138, 0.95)'
             } : {}"
           >
-            Únete a las más de 200 empresas que ya transformaron su presencia digital.
+            Únete a las empresas que ya transformaron su presencia digital.
           </p>
           
           <!-- Botón CTA - EXACTAMENTE IGUAL -->

@@ -75,7 +75,7 @@ onUnmounted(() => {
         <div class="flex justify-between items-center">
           <!-- Logo -->
           <div class="flex items-center space-x-4 group cursor-pointer" @click="scrollToSection('inicio')">
-            <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow">
+            <div class="w-11 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow">
               <span class="text-white font-bold text-base">JMG</span>
             </div>
             <div class="text-center">
@@ -214,7 +214,7 @@ onUnmounted(() => {
           <!-- Logo y Descripción -->
           <div class="flex flex-col items-center md:items-start">
             <div class="flex items-center space-x-3 justify-center md:justify-start mb-4 group cursor-pointer" @click="scrollToSection('inicio')">
-              <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow">
+              <div class="w-11 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow">
                 <span class="text-white font-bold text-base">JMG</span>
               </div>
               <span class="text-lg font-bold bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">JMG Desarrollos</span>
@@ -222,7 +222,7 @@ onUnmounted(() => {
             <p class="text-gray-400 mb-4 max-w-xs text-center md:text-left leading-relaxed text-sm">
               Creamos soluciones web innovadoras que impulsan el crecimiento de tu negocio
             </p>
-            <p class="text-gray-500 text-xs text-center md:text-left">&copy; 2024 JMG Desarrollos. Todos los derechos reservados.</p>
+            <p class="text-gray-500 text-xs text-center md:text-left">&copy; 2025 JMG Desarrollos. Todos los derechos reservados.</p>
           </div>
           
           <!-- Enlaces rápidos -->
@@ -249,11 +249,11 @@ onUnmounted(() => {
             <div class="space-y-2 text-gray-400 flex flex-col items-center md:items-start">
               <p class="flex items-center transition-all duration-500 hover:text-white transform hover:translate-x-1 group justify-center md:justify-start text-sm">
                 <span class="w-6 h-6 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-2 group-hover:scale-110 transition-transform duration-500 text-xs">📞</span>
-                +54 9 11 5527-1430
+                +54 9 0221 400-2619
               </p>
               <p class="flex items-center transition-all duration-500 hover:text-white transform hover:translate-x-1 group justify-center md:justify-start text-sm">
                 <span class="w-6 h-6 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-2 group-hover:scale-110 transition-transform duration-500 text-xs">✉️</span>
-                contacto@jmgdesarrollos.com
+                jmgdesarrollos@gmail.com
               </p>
               <p class="flex items-center transition-all duration-500 hover:text-white transform hover:translate-x-1 group justify-center md:justify-start text-sm">
                 <span class="w-6 h-6 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-2 group-hover:scale-110 transition-transform duration-500 text-xs">📍</span>
@@ -262,27 +262,56 @@ onUnmounted(() => {
             </div>
           </div>
           
-          <!-- Redes sociales -->
+          <!-- Redes sociales con imágenes desde assets -->
           <div class="flex flex-col items-center md:items-start">
             <h3 class="text-base font-bold mb-4 text-transparent bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text">Síguenos</h3>
-            <div class="flex justify-center md:justify-start space-x-2">
+            <div class="flex justify-center md:justify-start space-x-3">
+              <!-- Facebook -->
               <a 
-                v-for="(social, index) in [
-                  { name: 'FB', icon: '📘', color: 'from-blue-600 to-blue-800' },
-                  { name: 'IG', icon: '📷', color: 'from-blue-500 to-blue-700' },
-                  { name: 'IN', icon: '💼', color: 'from-blue-700 to-blue-900' },
-                  { name: 'WA', icon: '💚', color: 'from-blue-600 to-blue-800' }
-                ]" 
-                :key="social.name" 
                 href="#" 
-                class="w-10 h-10 bg-gradient-to-br rounded-lg flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow"
-                :class="social.color"
+                class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow-lg group overflow-hidden"
               >
-                <span class="text-white font-bold text-base">{{ social.icon }}</span>
+                <img 
+                  src="/assets/icono-facebook.png" 
+                  alt="Facebook" 
+                  class="w-6 h-6 object-contain transition-all duration-500 group-hover:scale-110"
+                  onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'text-white font-bold text-base\'>FB</span>';"
+                />
+                <div class="absolute inset-0 bg-white/10 rounded-xl scale-0 group-hover:scale-100 transition-transform duration-500"></div>
               </a>
+              
+              <!-- Instagram -->
+              <a 
+                href="#" 
+                class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow-lg group overflow-hidden"
+              >
+                <img 
+                  src="/assets/icono-instagram.png" 
+                  alt="Instagram" 
+                  class="w-6 h-6 object-contain transition-all duration-500 group-hover:scale-110"
+                  onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'text-white font-bold text-base\'>IG</span>';"
+                />
+                <div class="absolute inset-0 bg-white/10 rounded-xl scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+              </a>
+              
+              <!-- LinkedIn -->
+              <a 
+                href="#" 
+                class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow-lg group overflow-hidden"
+              >
+                <img 
+                  src="/assets/icono-linkedin.png" 
+                  alt="LinkedIn" 
+                  class="w-6 h-6 object-contain transition-all duration-500 group-hover:scale-110"
+                  onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'text-white font-bold text-base\'>IN</span>';"
+                />
+                <div class="absolute inset-0 bg-white/10 rounded-xl scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+              </a>
+              
+              
             </div>
           </div>
-        </div>
+          </div>
         
         <!-- Divider -->
         <div class="border-t border-blue-700/50 mt-6 pt-4 text-center">
