@@ -508,19 +508,21 @@
                 Contáctanos directamente por WhatsApp para una respuesta inmediata y atención personalizada.
               </p>
               
-              <!-- WhatsApp Button -->
-              <button class="group relative text-white font-bold py-2.5 px-6 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow text-sm md:text-base overflow-hidden w-full max-w-xs"
-                      :class="isDarkMode 
-                        ? 'bg-gradient-to-r from-green-600 via-emerald-700 to-green-800 hover:from-green-700 hover:via-emerald-800 hover:to-green-900' 
-                        : 'bg-gradient-to-r from-green-600 via-green-700 to-green-800 hover:from-green-700 hover:via-green-800 hover:to-green-900'">
-                <!-- Efecto de brillo al hover -->
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-300"></div>
-                
-                <span class="flex items-center justify-center relative">
-                  💬 Chatear por WhatsApp
-                  <span class="ml-2 text-lg animate-bounce-fast">→</span>
-                </span>
-              </button>
+              <button 
+  @click="openWhatsApp"
+  class="group relative text-white font-bold py-2.5 px-6 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow text-sm md:text-base overflow-hidden w-full max-w-xs"
+  :class="isDarkMode 
+    ? 'bg-gradient-to-r from-green-600 via-emerald-700 to-green-800 hover:from-green-700 hover:via-emerald-800 hover:to-green-900' 
+    : 'bg-gradient-to-r from-green-600 via-green-700 to-green-800 hover:from-green-700 hover:via-green-800 hover:to-green-900'"
+>
+  <!-- Efecto de brillo al hover -->
+  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-300"></div>
+  
+  <span class="flex items-center justify-center relative">
+    💬 Chatear por WhatsApp
+    <span class="ml-2 text-lg animate-bounce-fast">→</span>
+  </span>
+</button>
             </div>
           </div>
         </div>
@@ -659,6 +661,12 @@ watch(isDarkMode, (newVal) => {
     document.documentElement.classList.remove('theme-transition-fast');
   }, 200);
 });
+
+// Añade este método en el script setup
+const openWhatsApp = () => {
+  const message = encodeURIComponent('Hola, me gustaría solicitar información sobre sus servicios de desarrollo web.');
+  window.open(`https://wa.me/5492213053175?text=${message}`, '_blank', 'noopener,noreferrer');
+};
 </script>
 
 <style scoped>
