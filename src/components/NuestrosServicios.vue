@@ -1,153 +1,190 @@
 <template>
   <section 
     id="servicios" 
-    class="min-h-[85vh] w-full relative overflow-hidden flex items-center justify-center py-8 md:py-10 transition-all duration-150 ease-out"
+    class="min-h-[85vh] w-full text-white relative overflow-hidden flex items-center justify-center transition-all duration-150 ease-out"
     :style="sectionGradientStyle"
   >
-    <!-- Capa de fondo principal -->
+    <!-- Capa de fondo principal (EXACTO AL INICIO) -->
     <div 
       class="absolute inset-0 transition-all duration-150 ease-out overflow-hidden"
       :style="sectionGradientStyle"
     >
       <!-- Efecto de partículas -->
       <div class="absolute inset-0">
-        <div v-for="i in 20" :key="i" 
+        <div v-for="i in 25" :key="i" 
              class="absolute rounded-full transition-all duration-150"
-             :class="isDarkMode ? 'bg-blue-400/12' : 'bg-white/12'"
+             :class="isDarkMode ? 'bg-blue-400/15' : 'bg-white/15'"
              :style="`
-               width: ${Math.random() * 1.5 + 0.8}px;
-               height: ${Math.random() * 1.5 + 0.8}px;
+               width: ${Math.random() * 2 + 1}px;
+               height: ${Math.random() * 2 + 1}px;
                top: ${Math.random() * 100}%;
                left: ${Math.random() * 100}%;
-               animation-delay: ${Math.random() * 0.25}s;
-               opacity: ${isTransitioning ? 0.4 : 0.15};
+               animation-delay: ${Math.random() * 0.3}s;
+               opacity: ${isTransitioning ? 0.6 : 0.2};
              `">
         </div>
       </div>
     </div>
 
-    <!-- Efectos de fondo animados -->
+    <!-- Efectos de fondo animados (EXACTO AL INICIO) -->
     <div class="absolute inset-0 overflow-hidden transition-all duration-150 ease-out">
       <transition name="theme-fade-fast" mode="out-in">
-        <div v-if="isDarkMode" key="dark-bg-1" class="absolute top-1/4 -left-10 w-36 h-36 bg-gradient-to-br from-blue-500/20 to-cyan-400/12 rounded-full blur-xl animate-pulse-fast transition-all duration-150"
-             :style="isTransitioning ? { opacity: 0.3, transform: 'scale(1.03)' } : {}"></div>
-        <div v-else key="light-bg-1" class="absolute top-1/4 -left-10 w-36 h-36 bg-gradient-to-br from-blue-100/35 to-blue-50/25 rounded-full blur-xl animate-pulse-fast transition-all duration-150"
-             :style="isTransitioning ? { opacity: 0.3, transform: 'scale(1.03)' } : {}"></div>
+        <div v-if="isDarkMode" key="dark-bg-1" class="absolute top-1/4 -left-12 w-48 h-48 bg-gradient-to-br from-blue-500/25 to-cyan-400/15 rounded-full blur-2xl animate-pulse-fast transition-all duration-150"
+             :style="isTransitioning ? { opacity: 0.4, transform: 'scale(1.05)' } : {}"></div>
+        <div v-else key="light-bg-1" class="absolute top-1/4 -left-12 w-48 h-48 bg-gradient-to-br from-blue-100/40 to-blue-50/30 rounded-full blur-2xl animate-pulse-fast transition-all duration-150"
+             :style="isTransitioning ? { opacity: 0.4, transform: 'scale(1.05)' } : {}"></div>
       </transition>
       
       <transition name="theme-fade-fast" mode="out-in">
-        <div v-if="isDarkMode" key="dark-bg-2" class="absolute bottom-1/3 -right-10 w-40 h-40 bg-gradient-to-br from-indigo-500/20 to-blue-500/12 rounded-full blur-xl animate-pulse-fast animate-delay-200 transition-all duration-150"
-             :style="isTransitioning ? { opacity: 0.3, transform: 'scale(1.03)' } : {}"></div>
-        <div v-else key="light-bg-2" class="absolute bottom-1/3 -right-10 w-40 h-40 bg-gradient-to-br from-blue-100/40 to-blue-50/25 rounded-full blur-xl animate-pulse-fast animate-delay-200 transition-all duration-150"
-             :style="isTransitioning ? { opacity: 0.3, transform: 'scale(1.03)' } : {}"></div>
+        <div v-if="isDarkMode" key="dark-bg-2" class="absolute bottom-1/3 -right-12 w-52 h-52 bg-gradient-to-br from-indigo-500/25 to-blue-500/15 rounded-full blur-2xl animate-pulse-fast animate-delay-300 transition-all duration-150"
+             :style="isTransitioning ? { opacity: 0.4, transform: 'scale(1.05)' } : {}"></div>
+        <div v-else key="light-bg-2" class="absolute bottom-1/3 -right-12 w-52 h-52 bg-gradient-to-br from-blue-100/50 to-blue-50/30 rounded-full blur-2xl animate-pulse-fast animate-delay-300 transition-all duration-150"
+             :style="isTransitioning ? { opacity: 0.4, transform: 'scale(1.05)' } : {}"></div>
       </transition>
       
       <transition name="theme-fade-fast" mode="out-in">
-        <div v-if="isDarkMode" key="dark-bg-3" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-br from-blue-600/12 to-cyan-500/8 rounded-full blur-xl animate-pulse-fast animate-delay-400 transition-all duration-150"
-             :style="isTransitioning ? { opacity: 0.3, transform: 'scale(1.03)' } : {}"></div>
-        <div v-else key="light-bg-3" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-br from-blue-100/25 to-blue-50/15 rounded-full blur-xl animate-pulse-fast animate-delay-400 transition-all duration-150"
-             :style="isTransitioning ? { opacity: 0.3, transform: 'scale(1.03)' } : {}"></div>
+        <div v-if="isDarkMode" key="dark-bg-3" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-br from-blue-600/15 to-cyan-500/10 rounded-full blur-2xl animate-pulse-fast animate-delay-600 transition-all duration-150"
+             :style="isTransitioning ? { opacity: 0.4, transform: 'scale(1.05)' } : {}"></div>
+        <div v-else key="light-bg-3" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-br from-blue-100/30 to-blue-50/20 rounded-full blur-2xl animate-pulse-fast animate-delay-600 transition-all duration-150"
+             :style="isTransitioning ? { opacity: 0.4, transform: 'scale(1.05)' } : {}"></div>
       </transition>
       
-      <!-- Partículas flotantes reducidas -->
-      <div v-for="i in 6" :key="i" 
-           class="absolute w-0.4 h-0.4 rounded-full animate-float transition-all duration-150"
-           :class="isDarkMode ? 'bg-blue-400/35' : 'bg-blue-300/35'"
+      <!-- Partículas flotantes -->
+      <div v-for="i in 8" :key="i" 
+           class="absolute w-0.5 h-0.5 rounded-full animate-float transition-all duration-150"
+           :class="isDarkMode ? 'bg-blue-400/40' : 'bg-blue-300/40'"
            :style="`
              top: ${Math.random() * 100}%; 
              left: ${Math.random() * 100}%; 
-             animation-delay: ${Math.random() * 1.2}s;
+             animation-delay: ${Math.random() * 1.5}s;
            `">
       </div>
 
-      <!-- Gradientes de borde reducidos -->
-      <div class="absolute top-0 left-0 right-0 h-24 transition-all duration-150"
-           :class="isDarkMode ? 'bg-gradient-to-b from-blue-900/30 to-transparent' : 'bg-gradient-to-b from-blue-100/30 to-transparent'">
+      <!-- Gradientes de borde -->
+      <div class="absolute top-0 left-0 right-0 h-32 transition-all duration-150"
+           :class="isDarkMode ? 'bg-gradient-to-b from-blue-900/40 to-transparent' : 'bg-gradient-to-b from-blue-100/40 to-transparent'">
       </div>
-      <div class="absolute bottom-0 left-0 right-0 h-24 transition-all duration-150"
-           :class="isDarkMode ? 'bg-gradient-to-t from-blue-800/25 to-transparent' : 'bg-gradient-to-t from-blue-200/25 to-transparent'">
+      <div class="absolute bottom-0 left-0 right-0 h-32 transition-all duration-150"
+           :class="isDarkMode ? 'bg-gradient-to-t from-blue-800/30 to-transparent' : 'bg-gradient-to-t from-blue-200/30 to-transparent'">
       </div>
     </div>
-    
-    <!-- Contenido Principal -->
-    <div class="w-full max-w-6xl mx-auto px-3 md:px-4 text-center relative z-10 py-4 md:py-6 flex flex-col items-center">
+
+    <!-- Contenedor principal -->
+    <div class="w-full max-w-6xl mx-auto px-4 md:px-6 text-center relative z-10 py-6 md:py-8 flex flex-col items-center">
       
-      <!-- Header con botón de tema integrado -->
-      <div class="text-center mb-3 md:mb-4 w-full relative">
-        <!-- Botón de tema premium compacto -->
-        <div class="absolute top-0 right-0 md:right-1 z-20">
+      <!-- Contenedor para badge y botón de temas (EXACTO AL INICIO) -->
+      <div class="relative w-full mb-6">
+        <!-- Badge animado compacto -->
+        <div 
+          class="inline-flex items-center backdrop-blur-lg rounded-full px-4 py-1.5 mb-2 shadow-glow animate-pulse-slow transition-all duration-150"
+          :class="isDarkMode 
+            ? 'bg-gradient-to-r from-blue-600/40 to-cyan-500/30 border border-cyan-400/40' 
+            : 'bg-gradient-to-r from-blue-500/30 to-blue-400/40 border border-blue-400/50'"
+          :style="isTransitioning ? { 
+            filter: 'brightness(1.1)',
+            boxShadow: isDarkMode 
+              ? '0 0 15px rgba(34, 211, 238, 0.3)' 
+              : '0 0 15px rgba(59, 130, 246, 0.3)'
+          } : {}"
+        >
+          <div 
+            class="w-2 h-2 rounded-full mr-2 animate-pulse-fast transition-all duration-150"
+            :class="isDarkMode 
+              ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+              : 'bg-gradient-to-r from-blue-400 to-blue-300'"
+            :style="isTransitioning ? { 
+              transform: 'scale(1.1)'
+            } : {}"
+          ></div>
+          <span class="text-xs font-bold tracking-wider transition-colors duration-150"
+                :class="isDarkMode ? 'text-white' : 'text-blue-900'">🚀 SERVICIOS</span>
+          <div 
+            class="ml-2 w-0.5 h-4 rounded-full transition-all duration-150"
+            :class="isDarkMode 
+              ? 'bg-gradient-to-b from-blue-300/30 to-blue-400/30' 
+              : 'bg-gradient-to-b from-blue-400/30 to-blue-500/30'">
+          </div>
+        </div>
+
+        <!-- Botón de tema compacto (EXACTAMENTE IGUAL AL INICIO) -->
+        <div class="absolute top-0 right-0 md:right-2 z-50">
           <button
             @click="toggleTheme"
-            class="relative flex items-center justify-center w-28 h-10 rounded-lg border shadow-sm hover:shadow transform hover:scale-105 active:scale-95 transition-all duration-150 ease-out overflow-hidden group theme-switch-premium"
+            class="relative flex items-center justify-center w-32 h-12 rounded-lg border shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95 transition-all duration-150 ease-out overflow-hidden group theme-switch-premium"
             :class="isDarkMode 
-              ? 'border-cyan-400/40 hover:border-cyan-300 shadow-cyan-500/10 bg-gradient-to-br from-blue-900/75 via-indigo-900/75 to-purple-900/75' 
-              : 'border-blue-300/40 hover:border-blue-200 shadow-blue-400/10 bg-gradient-to-br from-white/85 via-blue-50/85 to-blue-100/85'"
+              ? 'border-cyan-400/50 hover:border-cyan-300 shadow-cyan-500/15 bg-gradient-to-br from-blue-900/80 via-indigo-900/80 to-purple-900/80' 
+              : 'border-blue-300/50 hover:border-blue-200 shadow-blue-400/15 bg-gradient-to-br from-white/90 via-blue-50/90 to-blue-100/90'"
             :title="isDarkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
             aria-label="Cambiar tema"
           >
             <!-- Switch compacto -->
             <div 
-              class="absolute w-10 h-10 rounded-full transition-all duration-300 ease-out transform z-30 overflow-hidden"
-              :class="isDarkMode ? 'right-2' : 'left-2'"
+              class="absolute w-12 h-12 rounded-full transition-all duration-300 ease-out transform z-30 overflow-hidden"
+              :class="isDarkMode ? 'right-3' : 'left-3'"
               :style="isTransitioning ? { 
-                filter: 'brightness(1.08)',
+                filter: 'brightness(1.1)',
                 boxShadow: isDarkMode 
-                  ? '0 0 12px rgba(96, 165, 250, 0.35), inset 0 0 12px rgba(96, 165, 250, 0.15)' 
-                  : '0 0 12px rgba(250, 204, 21, 0.35), inset 0 0 12px rgba(250, 204, 21, 0.15)'
+                  ? '0 0 15px rgba(96, 165, 250, 0.4), inset 0 0 15px rgba(96, 165, 250, 0.2)' 
+                  : '0 0 15px rgba(250, 204, 21, 0.4), inset 0 0 15px rgba(250, 204, 21, 0.2)'
               } : {}"
             >
               <!-- Fondo del switch -->
               <div class="absolute inset-0">
-                <!-- Base del switch -->
+                <!-- Base del switch con gradiente -->
                 <div 
                   class="absolute inset-0 transition-all duration-150"
                   :class="isDarkMode 
                     ? 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800' 
-                    : 'bg-gradient-to-br from-yellow-400 via-yellow-300 to-yellow-500'">
-                </div>
+                    : 'bg-gradient-to-br from-yellow-400 via-yellow-300 to-yellow-500'"
+                ></div>
                 
-                <!-- Efecto de luz interior -->
-                <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/35 to-transparent opacity-50 animate-pulse-slow"></div>
+                <!-- Efecto de luz interior pulsante -->
+                <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/40 to-transparent opacity-60 animate-pulse-slow transition-all duration-150"></div>
                 
                 <!-- Brillo de borde -->
                 <div 
                   class="absolute inset-0 rounded-full border transition-all duration-150"
                   :class="isDarkMode 
-                    ? 'border-blue-400/75' 
-                    : 'border-yellow-400/75'">
-                </div>
+                    ? 'border-blue-400/80' 
+                    : 'border-yellow-400/80'"
+                  :style="isTransitioning ? { 
+                    boxShadow: isDarkMode 
+                      ? '0 0 10px rgba(96, 165, 250, 0.5), inset 0 0 8px rgba(96, 165, 250, 0.3)' 
+                      : '0 0 10px rgba(250, 204, 21, 0.5), inset 0 0 8px rgba(250, 204, 21, 0.3)'
+                  } : {}"
+                ></div>
               </div>
               
-              <!-- Icono dentro del switch -->
+              <!-- Icono dentro del switch (SVG) -->
               <div class="absolute inset-0 flex items-center justify-center z-10">
-                <!-- Luna -->
-                <svg v-if="isDarkMode" class="w-5 h-5 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
+                <!-- Icono de Luna para tema oscuro -->
+                <svg v-if="isDarkMode" class="w-6 h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
                      :class="isTransitioning ? 'text-blue-200' : 'text-blue-300'">
                   <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
                 </svg>
                 
-                <!-- Sol -->
-                <svg v-else class="w-5 h-5 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
+                <!-- Icono de Sol para tema claro -->
+                <svg v-else class="w-6 h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
                      :class="isTransitioning ? 'text-yellow-200' : 'text-yellow-400'">
                   <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
                 </svg>
               </div>
               
               <!-- Brillo central -->
-              <div class="absolute top-1/2 left-1/2 w-1.5 h-1.5 rounded-full transform -translate-x-1/2 -translate-y-1/2 blur-xs transition-all duration-150"
-                   :class="isDarkMode ? 'bg-blue-300/65' : 'bg-yellow-300/65'"></div>
+              <div class="absolute top-1/2 left-1/2 w-2 h-2 rounded-full transform -translate-x-1/2 -translate-y-1/2 blur-sm transition-all duration-150"
+                   :class="isDarkMode ? 'bg-blue-300/70' : 'bg-yellow-300/70'"></div>
             </div>
             
             <!-- Efecto de brillo al hover -->
-            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 group-hover:opacity-25 transition-opacity duration-300 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-out"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-out"></div>
             
             <!-- Contenedor principal con iconos -->
             <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
               
               <!-- Sol (izquierda) -->
-              <div class="absolute left-2 w-5 h-5 transition-all duration-150 ease-out z-20"
+              <div class="absolute left-3 w-6 h-6 transition-all duration-150 ease-out z-20"
                    :class="isDarkMode 
-                     ? 'opacity-25 scale-85 text-yellow-300/35' 
+                     ? 'opacity-30 scale-90 text-yellow-300/40' 
                      : 'opacity-100 scale-105 text-yellow-400'">
                 <svg class="w-full h-full" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
@@ -155,9 +192,9 @@
               </div>
               
               <!-- Luna (derecha) -->
-              <div class="absolute right-2 w-4 h-4 transition-all duration-150 ease-out z-20"
+              <div class="absolute right-3 w-5 h-5 transition-all duration-150 ease-out z-20"
                    :class="!isDarkMode 
-                     ? 'opacity-25 scale-85 text-blue-400/35' 
+                     ? 'opacity-30 scale-90 text-blue-400/40' 
                      : 'opacity-100 scale-105 text-blue-300'">
                 <svg class="w-full h-full" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
@@ -165,503 +202,469 @@
               </div>
               
               <!-- Texto "DÍA/NOCHE" -->
-              <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 text-[8px] font-semibold uppercase tracking-tight opacity-75 z-5 transition-all duration-150 whitespace-nowrap"
-                   :class="isDarkMode ? 'text-blue-300/75' : 'text-yellow-600/75'">
+              <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[9px] font-semibold uppercase tracking-wide opacity-80 z-5 transition-all duration-150 whitespace-nowrap"
+                   :class="isDarkMode ? 'text-blue-300/80' : 'text-yellow-600/80'">
                 {{ isDarkMode ? 'NOCHE' : 'DÍA' }}
               </div>
               
             </div>
             
+            <!-- Rayos del sol animados -->
+            <div v-if="!isDarkMode" class="absolute left-3 w-6 h-6 z-10">
+              <div v-for="(ray, index) in 8" :key="index"
+                   class="absolute top-1/2 left-1/2 w-0.5 h-2.5 bg-yellow-300/60 rounded-full transform origin-center transition-all duration-150"
+                   :style="`
+                     transform: rotate(${index * 45}deg) translateY(-10px);
+                     animation: pulse-ray-fast 1.5s ease-in-out infinite;
+                     animation-delay: ${index * 0.03}s;
+                   `">
+              </div>
+            </div>
+            
+            <!-- Constelación estelar -->
+            <div v-if="isDarkMode" class="absolute right-3 w-5 h-5 z-10">
+              <div v-for="(star, index) in 3" :key="index"
+                   class="absolute rounded-full bg-blue-100/60 animate-twinkle-fast transition-all duration-150"
+                   :style="`
+                     width: ${Math.random() * 1 + 0.6}px;
+                     height: ${Math.random() * 1 + 0.6}px;
+                     top: ${Math.random() * 100}%;
+                     left: ${Math.random() * 100}%;
+                     animation-delay: ${index * 0.15}s;
+                   `">
+              </div>
+            </div>
+            
             <!-- Tooltip -->
-            <div class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-50">
-              <div class="px-1 py-0.5 text-[8px] font-medium rounded backdrop-blur-sm shadow-xs"
+            <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-50">
+              <div class="px-1.5 py-0.5 text-[9px] font-medium rounded backdrop-blur-sm shadow-sm"
                    :class="isDarkMode 
-                     ? 'bg-blue-900/75 text-blue-300 border border-blue-400/15' 
-                     : 'bg-yellow-50/85 text-yellow-800 border border-yellow-400/15'">
+                     ? 'bg-blue-900/80 text-blue-300 border border-blue-400/20' 
+                     : 'bg-yellow-50/90 text-yellow-800 border border-yellow-400/20'">
                 {{ isDarkMode ? 'Activar día' : 'Activar noche' }}
               </div>
             </div>
             
           </button>
         </div>
-        
-        <!-- Badge animado -->
-        <div 
-          class="inline-flex items-center backdrop-blur-md rounded-full px-3 py-1 mb-1.5 shadow-sm animate-pulse-slow transition-all duration-150"
-          :class="isDarkMode 
-            ? 'bg-gradient-to-r from-blue-600/35 to-cyan-500/25 border border-cyan-400/35' 
-            : 'bg-gradient-to-r from-blue-500/25 to-blue-400/35 border border-blue-400/45'"
-          :style="isTransitioning ? { 
-            filter: 'brightness(1.08)',
-            boxShadow: isDarkMode 
-              ? '0 0 12px rgba(34, 211, 238, 0.25)' 
-              : '0 0 12px rgba(59, 130, 246, 0.25)'
-          } : {}"
-        >
-          <div 
-            class="w-1.5 h-1.5 rounded-full mr-1.5 animate-pulse-fast transition-all duration-150"
-            :class="isDarkMode 
-              ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-              : 'bg-gradient-to-r from-blue-400 to-blue-300'"
-            :style="isTransitioning ? { 
-              transform: 'scale(1.08)'
-            } : {}"
-          ></div>
-          <span class="text-xs font-bold tracking-tighter transition-colors duration-150"
-                :class="isDarkMode ? 'text-white' : 'text-blue-900'">💎 PLANES</span>
-        </div>
-        
-        <!-- Título -->
-        <div class="relative w-full mb-1.5">
-          <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-center w-full tracking-tight leading-tight animate-slideInLeft transition-all duration-150">
-            <span class="relative inline-block">
-              <span 
-                class="bg-clip-text text-transparent relative z-20 transition-all duration-150"
-                :class="isDarkMode 
-                  ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
-                  : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
-                Servicios Premium
-              </span>
-              
-              <!-- Efectos de subrayado -->
-              <div 
-                class="absolute -bottom-0.5 left-1/4 right-1/4 h-0.5 rounded-full opacity-50 mt-0.5 transition-all duration-150"
-                :class="isDarkMode 
-                  ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                  : 'bg-gradient-to-r from-blue-500 to-blue-400'">
-              </div>
-            </span>
-          </h2>
-        </div>
-        
-        <!-- Subtítulo -->
-        <div class="relative max-w-lg mx-auto mb-3 animate-fadeInUp transition-all duration-150" style="animation-delay: 40ms">
-          <p 
-            class="text-xs sm:text-sm leading-snug text-center transition-colors duration-150"
-            :class="isDarkMode ? 'text-white/85' : 'text-blue-900/85'">
-            <span :class="isDarkMode ? 'text-white' : 'text-blue-900'">Planes premium </span> 
-            <span class="relative inline-block transition-all duration-150">
-              <span 
-                class="bg-clip-text text-transparent font-bold transition-all duration-150"
-                :class="isDarkMode 
-                  ? 'bg-gradient-to-r from-cyan-300 via-blue-200 to-blue-100' 
-                  : 'bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400'">
-                 diseñados exclusivamente
-              </span>
-              <div 
-                class="absolute inset-0 blur-xs -z-10 rounded-full transition-all duration-150"
-                :class="isDarkMode 
-                  ? 'bg-gradient-to-r from-cyan-400/15 via-blue-300/10 to-blue-200/10' 
-                  : 'bg-gradient-to-r from-blue-500/15 via-blue-400/10 to-blue-300/10'">
-              </div>
-            </span>
-            para tu <span :class="isDarkMode ? 'text-blue-100' : 'text-blue-700'">negocio</span>
-          </p>
-        </div>
       </div>
-      
-      <!-- Services Grid Compacto -->
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-2 md:gap-3 w-full justify-items-center items-stretch relative mb-6 md:mb-8">
-        
-        <!-- Plan Básico -->
-        <div class="group relative w-full max-w-xs flex flex-col animate-fadeInUp transition-all duration-150"
-             style="animation-delay: 80ms">
+
+      <!-- Sección principal con títulos -->
+      <div class="w-full flex flex-col items-center space-y-3 md:space-y-4">
+        <!-- Título principal EN UN SOLO RENGLÓN (MISMO TAMAÑO QUE INICIO) -->
+        <div class="relative w-full mb-1 md:mb-2 transition-all duration-150 text-center">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center w-full tracking-tight leading-tight animate-slideInLeft transition-all duration-150">
+  <span class="relative inline-block">
+    <div class="relative pb-1">
+      <!-- Línea completa -->
+      <div 
+        class="bg-clip-text text-transparent leading-tight transition-all duration-150"
+        :class="isDarkMode 
+          ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
+          : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
+        Servicios Premium
+      </div>
+    </div>
+    
+    <!-- Subrayado animado (EXACTO A OTRAS SECCIONES) -->
+    <div 
+      class="absolute -bottom-1 left-1/4 right-1/4 h-0.5 rounded-full opacity-60 mt-0.5 transition-all duration-150"
+      :class="isDarkMode 
+        ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+        : 'bg-gradient-to-r from-blue-500 to-blue-400'">
+    </div>
+  </span>
+</h2>
           
-          <!-- Tarjeta Principal COMPACTA -->
-          <div class="relative backdrop-blur-lg rounded-xl border p-0.5 transition-all duration-150 transform group-hover:-translate-y-0.5 group-hover:scale-101 group-hover:shadow-md shadow-sm hover:shadow-glow overflow-hidden w-full flex flex-col flex-1 min-h-[280px]"
+          <!-- Slogan (EXACTO AL INICIO) -->
+          <div class="mt-2 md:mt-3 animate-fadeInUp transition-all duration-150" style="animation-delay: 50ms">
+            <p class="text-base md:text-lg font-bold transition-colors duration-150"
+               :class="isDarkMode ? 'text-blue-100/90' : 'text-blue-700/90'">
+              De <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">Ideas</span> a 
+              <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">Resultados</span> Excepcionales
+            </p>
+          </div>
+        </div>
+        
+        <!-- Subtítulo (CONSISTENTE CON INICIO) -->
+        <div class="relative max-w-2xl mx-auto mb-4 md:mb-6 animate-fadeInUp transition-all duration-150" style="animation-delay: 100ms">
+          <div class="relative backdrop-blur-sm border rounded-lg p-3 md:p-4 shadow-lg transform transition-all duration-150 hover:scale-102"
                :class="isDarkMode 
-                 ? 'bg-gradient-to-br from-blue-700/35 via-indigo-800/45 to-blue-900/35 border-cyan-400/35 hover:border-cyan-300/45' 
-                 : 'bg-gradient-to-br from-blue-50/75 via-blue-100/65 to-blue-200/55 border-blue-400/45 hover:border-blue-500/55'">
-            
-            <!-- Header de la tarjeta COMPACTO -->
-            <div class="p-2.5 md:p-3 text-center border-b flex-shrink-0 flex flex-col items-center justify-center transition-all duration-150"
-                 :class="isDarkMode ? 'border-cyan-400/15' : 'border-blue-400/15'">
+                 ? 'bg-blue-900/20 border-blue-400/15 shadow-blue-500/10 hover:border-blue-300/30' 
+                 : 'bg-blue-50/20 border-blue-300/15 shadow-blue-400/10 hover:border-blue-400/30'">
+            <p class="text-sm sm:text-base md:text-lg leading-relaxed text-center font-medium transition-colors duration-150"
+               :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
+              <span :class="isDarkMode ? 'text-white' : 'text-blue-900'">Planes premium </span> 
+              <span class="relative inline-block">
+                <span 
+                  class="bg-clip-text text-transparent font-bold transition-all duration-150"
+                  :class="isDarkMode 
+                    ? 'bg-gradient-to-r from-blue-300 via-blue-200 to-white' 
+                    : 'bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400'">
+                  diseñados exclusivamente
+                </span>
+                <!-- Brillo de fondo del texto -->
+                <div 
+                  class="absolute inset-0 blur-sm -z-10 rounded-full transition-all duration-150"
+                  :class="isDarkMode 
+                    ? 'bg-gradient-to-r from-blue-400/20 via-blue-300/15 to-blue-200/15' 
+                    : 'bg-gradient-to-r from-blue-500/20 via-blue-400/15 to-blue-300/15'">
+                </div>
+              </span>
+              para tu <span :class="isDarkMode ? 'text-blue-100' : 'text-blue-700'">negocio</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Grid de servicios (CONSISTENTE EN COLORES Y ESTILOS) -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto w-full px-4 animate-fadeInUp transition-all duration-150" style="animation-delay: 150ms">
+          
+          <!-- Plan Básico -->
+          <div class="group relative animate-fadeInUp transition-all duration-150" style="animation-delay: 80ms">
+            <!-- Tarjeta (ESTILOS IGUALES A LAS TARJETAS DE STATS DEL INICIO) -->
+            <div class="relative backdrop-blur-xl rounded-lg border p-4 transform transition-all duration-150 group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:shadow-lg shadow-md hover:shadow-glow h-full flex flex-col"
+                 :class="isDarkMode 
+                   ? 'bg-gradient-to-br from-blue-700/40 via-indigo-800/50 to-blue-900/40 border-cyan-400/40 hover:border-cyan-300/50' 
+                   : 'bg-gradient-to-br from-blue-50/80 via-blue-100/70 to-blue-200/60 border-blue-400/50 hover:border-blue-500/60'">
               
-              <!-- Icono compacto -->
-              <div class="relative w-10 h-10 rounded-full flex items-center justify-center mb-2 transform transition-all duration-150 group-hover:scale-105 shadow animate-pulse-slow"
-                   :class="isDarkMode 
-                     ? 'bg-gradient-to-br from-blue-500/60 to-cyan-500/60' 
-                     : 'bg-gradient-to-br from-blue-200/60 to-blue-300/60'">
-                <span class="text-lg">🌱</span>
+              <!-- Header -->
+              <div class="relative mb-3 md:mb-4 text-center flex-shrink-0">
+                <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center mb-3 mx-auto transform transition-all duration-150 group-hover:scale-110 animate-pulse-slow"
+                     :class="isDarkMode 
+                       ? 'bg-gradient-to-br from-blue-500/70 to-cyan-500/70 border border-cyan-400/30' 
+                       : 'bg-gradient-to-br from-blue-200/70 to-blue-300/70 border border-blue-300/30'">
+                  <span class="text-xl md:text-2xl">🌱</span>
+                </div>
+                
+                <h3 class="text-lg md:text-xl font-black mb-1 transition-colors duration-150"
+                    :class="isDarkMode ? 'text-white' : 'text-blue-900'">
+                  Inicial
+                </h3>
+                <p class="text-xs font-semibold tracking-wide uppercase transition-colors duration-150"
+                   :class="isDarkMode ? 'text-blue-100/60' : 'text-blue-700/60'">
+                  PARA EMPRENDEDORES
+                </p>
               </div>
               
-              <h3 class="text-sm font-bold mb-0.5 transition-colors duration-150"
-                  :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                Inicial
-              </h3>
-              <p class="text-xs font-semibold tracking-tight transition-colors duration-150 uppercase"
-                 :class="isDarkMode ? 'text-blue-100/50' : 'text-blue-700/50'">
-                PARA EMPRENDEDORES
-              </p>
-            </div>
-            
-            <!-- Price Section COMPACTA -->
-            <div class="p-2.5 md:p-3 text-center flex-shrink-0 transition-all duration-150 min-h-[60px]"
-                 :class="isDarkMode 
-                   ? 'bg-gradient-to-r from-blue-800/25 via-indigo-800/25 to-blue-900/25' 
-                   : 'bg-gradient-to-r from-blue-100/25 via-blue-200/25 to-blue-300/25'">
-              <div class="text-xl md:text-2xl font-black mb-0.5 transition-all duration-150">
-                <div class="leading-tight transition-all duration-150"
-                     :class="isDarkMode ? 'text-white' : 'text-blue-800'">
+              <!-- Precio (ESTILOS IGUALES A LOS STATS) -->
+              <div class="mb-4 text-center flex-shrink-0">
+                <div class="text-xl md:text-2xl lg:text-3xl font-black leading-none mb-1 transition-all duration-150"
+                     :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">
                   $400.000
                 </div>
+                <div class="text-xs font-medium transition-colors duration-150"
+                     :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
+                  Hosting 1 año incluido
+                </div>
               </div>
-              <div class="text-xs font-medium transition-colors duration-150"
-                   :class="isDarkMode ? 'text-blue-100/50' : 'text-blue-700/50'">
-                Hosting 1 año incluido
+              
+              <!-- Features -->
+              <div class="mb-4 flex-grow">
+                <ul class="space-y-2">
+                  <li v-for="(feature, index) in basicFeatures" :key="index" 
+                      class="flex items-start transform group-hover:translate-x-1 transition-transform duration-150"
+                      :style="`transition-delay: ${index * 50}ms`">
+                    <div class="w-2 h-2 rounded-full mr-2 mt-1.5 flex-shrink-0 shadow-sm animate-pulse-fast"
+                         :class="isDarkMode 
+                           ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+                           : 'bg-gradient-to-r from-blue-400 to-blue-300'">
+                    </div>
+                    <span class="text-sm text-left flex-1 font-medium transition-colors duration-150"
+                          :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
+                      {{ feature }}
+                    </span>
+                  </li>
+                </ul>
               </div>
-            </div>
-            
-            <!-- Features COMPACTAS -->
-            <div class="p-2.5 md:p-3 flex-grow transition-all duration-150">
-              <ul class="space-y-1.5">
-                <li v-for="(feature, index) in basicFeatures" :key="index" 
-                    class="flex items-start transform transition-all duration-150 group-hover:translate-x-0.5"
-                    :style="{ transitionDelay: `${index * 15}ms` }">
+              
+              <!-- Botón (IGUAL A LOS BOTONES DEL INICIO) -->
+              <div class="flex-shrink-0">
+                <button @click="scrollToSection('contacto')"
+                        class="group/btn relative w-full text-white font-bold py-2.5 px-4 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow-hover text-sm md:text-base overflow-hidden"
+                        :class="isDarkMode 
+                          ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
+                          : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'">
+                  <!-- Efecto de brillo al hover -->
+                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-300"></div>
                   
-                  <!-- Checkmark compacto -->
-                  <div class="relative w-3 h-3 rounded-full flex items-center justify-center mr-1.5 flex-shrink-0 mt-0.5 group-hover:scale-105 transition-all duration-150 animate-pulse-fast"
-                       :class="isDarkMode 
-                         ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                         : 'bg-gradient-to-r from-blue-400 to-blue-300'">
-                    <span class="text-white text-xs font-bold">✓</span>
-                  </div>
-                  
-                  <span class="text-xs leading-relaxed flex-1 transition-colors duration-150 line-clamp-2"
-                        :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
-                    {{ feature }}
+                  <span class="flex items-center justify-center relative">
+                    Comenzar
+                    <span class="ml-2 text-lg animate-bounce-fast">→</span>
                   </span>
-                </li>
-              </ul>
-            </div>
-            
-            <!-- CTA COMPACTA -->
-            <div class="p-2.5 md:p-3 pt-0 flex-shrink-0 transition-all duration-150">
-              <button @click="scrollToSection('contacto')"
-                      class="group/btn relative w-full text-white font-bold py-1.5 px-3 rounded-lg transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow hover:shadow-glow-hover text-xs overflow-hidden"
-                      :class="isDarkMode 
-                        ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
-                        : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'">
-                <!-- Efecto de brillo al hover -->
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-300"></div>
-                
-                <span class="relative z-10 flex items-center justify-center transition-all duration-150">
-                  Comenzar
-                  <span class="ml-1 text-sm animate-bounce-fast">→</span>
-                </span>
-              </button>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Plan Estándar (MÁS POPULAR) -->
-        <div class="group relative w-full max-w-xs flex flex-col animate-fadeInUp transition-all duration-150"
-             style="animation-delay: 120ms">
-          
-          <!-- Cartel MÁS POPULAR compacto -->
-          <div class="absolute -top-2 left-1/2 transform -translate-x-1/2 z-30 transition-all duration-150">
-            <div class="inline-flex items-center backdrop-blur-md rounded-full px-2 py-0.5 border shadow-sm transition-all duration-150"
-                 :class="isDarkMode 
-                   ? 'bg-gradient-to-r from-blue-600/45 to-cyan-500/35 border-cyan-400/35 shadow-cyan-500/20' 
-                   : 'bg-gradient-to-r from-blue-200/45 to-blue-100/35 border-blue-300/35 shadow-blue-400/20'">
-              <div class="relative w-1 h-1 mr-1">
-                <div class="absolute inset-0 rounded-full animate-pulse-fast transition-all duration-150"
-                     :class="isDarkMode ? 'bg-cyan-300' : 'bg-blue-400'"></div>
-              </div>
-              <span class="text-xs font-bold tracking-tighter transition-colors duration-150"
-                    :class="isDarkMode ? 'text-white' : 'text-blue-800'">
-                ⭐ POPULAR
-              </span>
-            </div>
-          </div>
-          
-          <!-- Tarjeta Principal COMPACTA -->
-          <div class="relative backdrop-blur-lg rounded-xl border p-0.5 transition-all duration-150 transform group-hover:-translate-y-0.5 group-hover:scale-101 group-hover:shadow-md shadow-sm hover:shadow-glow overflow-hidden w-full flex flex-col flex-1 min-h-[280px]"
-               :class="isDarkMode 
-                 ? 'bg-gradient-to-br from-blue-700/45 via-indigo-800/55 to-blue-900/45 border-cyan-400/45 hover:border-cyan-300/55' 
-                 : 'bg-gradient-to-br from-blue-50/80 via-blue-100/70 to-blue-200/60 border-blue-400/55 hover:border-blue-500/65'">
-            
-            <!-- Header de la tarjeta COMPACTO -->
-            <div class="p-2.5 md:p-3 text-center border-b flex-shrink-0 flex flex-col items-center justify-center transition-all duration-150"
-                 :class="isDarkMode ? 'border-cyan-400/20' : 'border-blue-400/20'">
-              
-              <!-- Icono compacto -->
-              <div class="relative w-10 h-10 rounded-full flex items-center justify-center mb-2 transform transition-all duration-150 group-hover:scale-105 shadow animate-pulse-slow"
+          <!-- Plan Estándar - Popular -->
+          <div class="group relative animate-fadeInUp transition-all duration-150" style="animation-delay: 120ms">
+            <!-- Badge Popular (ESTILO IGUAL AL BADGE DEL INICIO) -->
+            <div class="absolute -top-2 left-1/2 transform -translate-x-1/2 z-30 transition-all duration-150">
+              <div class="inline-flex items-center backdrop-blur-lg rounded-full px-3 py-1 border shadow-sm animate-pulse-slow transition-all duration-150"
                    :class="isDarkMode 
-                     ? 'bg-gradient-to-br from-cyan-500/60 to-blue-600/60' 
-                     : 'bg-gradient-to-br from-blue-300/60 to-blue-400/60'">
-                <span class="text-lg">🚀</span>
+                     ? 'bg-gradient-to-r from-blue-600/40 to-cyan-500/30 border border-cyan-400/40' 
+                     : 'bg-gradient-to-r from-blue-500/30 to-blue-400/40 border border-blue-400/50'">
+                <div 
+                  class="w-1.5 h-1.5 rounded-full mr-1.5 animate-pulse-fast transition-all duration-150"
+                  :class="isDarkMode 
+                    ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+                    : 'bg-gradient-to-r from-blue-400 to-blue-300'">
+                </div>
+                <span class="text-xs font-bold tracking-wider transition-colors duration-150"
+                      :class="isDarkMode ? 'text-white' : 'text-blue-900'">⭐ POPULAR</span>
               </div>
-              
-              <h3 class="text-sm font-bold mb-0.5 transition-colors duration-150"
-                  :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                Estándar
-              </h3>
-              <p class="text-xs font-semibold tracking-tight transition-colors duration-150 uppercase"
-                 :class="isDarkMode ? 'text-blue-100/50' : 'text-blue-700/50'">
-                PEQUEÑAS EMPRESAS
-              </p>
             </div>
             
-            <!-- Price COMPACTO -->
-            <div class="p-2.5 md:p-3 text-center flex-shrink-0 transition-all duration-150 min-h-[60px]"
+            <!-- Tarjeta -->
+            <div class="relative backdrop-blur-xl rounded-lg border p-4 transform transition-all duration-150 group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:shadow-lg shadow-md hover:shadow-glow h-full flex flex-col"
                  :class="isDarkMode 
-                   ? 'bg-gradient-to-r from-blue-800/35 via-indigo-800/35 to-blue-900/35' 
-                   : 'bg-gradient-to-r from-blue-100/35 via-blue-200/35 to-blue-300/35'">
-              <div class="text-xl md:text-2xl font-black mb-0.5 transition-all duration-150">
-                <div class="leading-tight transition-all duration-150"
-                     :class="isDarkMode ? 'text-white' : 'text-blue-800'">
+                   ? 'bg-gradient-to-br from-blue-700/50 via-indigo-800/60 to-blue-900/50 border-cyan-400/50 hover:border-cyan-300/60' 
+                   : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/60 hover:border-blue-500/70'">
+              
+              <!-- Header -->
+              <div class="relative mb-3 md:mb-4 text-center flex-shrink-0">
+                <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center mb-3 mx-auto transform transition-all duration-150 group-hover:scale-110 animate-pulse-slow"
+                     :class="isDarkMode 
+                       ? 'bg-gradient-to-br from-blue-500/70 to-cyan-500/70 border border-cyan-400/30' 
+                       : 'bg-gradient-to-br from-blue-200/70 to-blue-300/70 border border-blue-300/30'">
+                  <span class="text-xl md:text-2xl">🚀</span>
+                </div>
+                
+                <h3 class="text-lg md:text-xl font-black mb-1 transition-colors duration-150"
+                    :class="isDarkMode ? 'text-white' : 'text-blue-900'">
+                  Estándar
+                </h3>
+                <p class="text-xs font-semibold tracking-wide uppercase transition-colors duration-150"
+                   :class="isDarkMode ? 'text-blue-100/60' : 'text-blue-700/60'">
+                  PEQUEÑAS EMPRESAS
+                </p>
+              </div>
+              
+              <!-- Precio -->
+              <div class="mb-4 text-center flex-shrink-0">
+                <div class="text-xl md:text-2xl lg:text-3xl font-black leading-none mb-1 transition-all duration-150"
+                     :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">
                   $800.000
                 </div>
-              </div>
-              <div class="text-xs font-medium transition-colors duration-150"
-                   :class="isDarkMode ? 'text-blue-100/50' : 'text-blue-700/50'">
-                SEO Avanzado Incluido
-              </div>
-            </div>
-            
-            <!-- Features COMPACTAS -->
-            <div class="p-2.5 md:p-3 flex-grow transition-all duration-150">
-              <ul class="space-y-1.5">
-                <li v-for="(feature, index) in standardFeatures" :key="index" 
-                    class="flex items-start transform transition-all duration-150 group-hover:translate-x-0.5"
-                    :style="{ transitionDelay: `${index * 15}ms` }">
-                  
-                  <div class="relative w-3 h-3 rounded-full flex items-center justify-center mr-1.5 flex-shrink-0 mt-0.5 group-hover:scale-105 transition-all duration-150 animate-pulse-fast"
-                       :class="isDarkMode 
-                         ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                         : 'bg-gradient-to-r from-blue-400 to-blue-300'">
-                    <span class="text-white text-xs font-bold">✓</span>
-                  </div>
-                  
-                  <span class="text-xs leading-relaxed flex-1 transition-colors duration-150 line-clamp-2"
-                        :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
-                    {{ feature }}
-                  </span>
-                </li>
-              </ul>
-            </div>
-            
-            <!-- CTA COMPACTA -->
-            <div class="p-2.5 md:p-3 pt-0 flex-shrink-0 transition-all duration-150">
-              <button @click="scrollToSection('contacto')"
-                      class="group/btn relative w-full text-white font-bold py-1.5 px-3 rounded-lg transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow hover:shadow-glow-hover text-xs overflow-hidden"
-                      :class="isDarkMode 
-                        ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
-                        : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'">
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-300"></div>
-                
-                <span class="relative z-10 flex items-center justify-center transition-all duration-150">
-                  Elegir Plan
-                  <span class="ml-1 text-sm animate-bounce-fast">⚡</span>
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Plan Profesional -->
-        <div class="group relative w-full max-w-xs flex flex-col animate-fadeInUp transition-all duration-150"
-             style="animation-delay: 160ms">
-          
-          <!-- Tarjeta Principal COMPACTA -->
-          <div class="relative backdrop-blur-lg rounded-xl border p-0.5 transition-all duration-150 transform group-hover:-translate-y-0.5 group-hover:scale-101 group-hover:shadow-md shadow-sm hover:shadow-glow overflow-hidden w-full flex flex-col flex-1 min-h-[280px]"
-               :class="isDarkMode 
-                 ? 'bg-gradient-to-br from-blue-700/55 via-indigo-800/65 to-blue-900/55 border-cyan-400/55 hover:border-cyan-300/65' 
-                 : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/65 hover:border-blue-500/75'">
-            
-            <!-- Header de la tarjeta COMPACTO -->
-            <div class="p-2.5 md:p-3 text-center border-b flex-shrink-0 flex flex-col items-center justify-center transition-all duration-150"
-                 :class="isDarkMode ? 'border-cyan-400/25' : 'border-blue-400/25'">
-              
-              <!-- Icono compacto -->
-              <div class="relative w-10 h-10 rounded-full flex items-center justify-center mb-2 transform transition-all duration-150 group-hover:scale-105 shadow animate-pulse-slow"
-                   :class="isDarkMode 
-                     ? 'bg-gradient-to-br from-blue-600/60 to-cyan-600/60' 
-                     : 'bg-gradient-to-br from-blue-400/60 to-blue-500/60'">
-                <span class="text-lg">⭐</span>
-              </div>
-              
-              <h3 class="text-sm font-bold mb-0.5 transition-colors duration-150"
-                  :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                Profesional
-              </h3>
-              <p class="text-xs font-semibold tracking-tight transition-colors duration-150 uppercase"
-                 :class="isDarkMode ? 'text-blue-100/50' : 'text-blue-700/50'">
-                NEGOCIOS EN CRECIMIENTO
-              </p>
-            </div>
-            
-            <!-- Price COMPACTO -->
-            <div class="p-2.5 md:p-3 text-center flex-shrink-0 transition-all duration-150 min-h-[60px]"
-                 :class="isDarkMode 
-                   ? 'bg-gradient-to-r from-blue-800/45 via-indigo-800/45 to-blue-900/45' 
-                   : 'bg-gradient-to-r from-blue-100/45 via-blue-200/45 to-blue-300/45'">
-              <div class="text-xl md:text-2xl font-black mb-0.5 transition-all duration-150">
-                <div class="leading-tight transition-all duration-150"
-                     :class="isDarkMode ? 'text-white' : 'text-blue-800'">
-                  $1.400.000
+                <div class="text-xs font-medium transition-colors duration-150"
+                     :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
+                  SEO Avanzado Incluido
                 </div>
               </div>
-              <div class="text-xs font-medium transition-colors duration-150"
-                   :class="isDarkMode ? 'text-blue-100/50' : 'text-blue-700/50'">
-                Gestión de Datos Incluido
+              
+              <!-- Features -->
+              <div class="mb-4 flex-grow">
+                <ul class="space-y-2">
+                  <li v-for="(feature, index) in standardFeatures" :key="index" 
+                      class="flex items-start transform group-hover:translate-x-1 transition-transform duration-150"
+                      :style="`transition-delay: ${index * 50}ms`">
+                    <div class="w-2 h-2 rounded-full mr-2 mt-1.5 flex-shrink-0 shadow-sm animate-pulse-fast"
+                         :class="isDarkMode 
+                           ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+                           : 'bg-gradient-to-r from-blue-400 to-blue-300'">
+                    </div>
+                    <span class="text-sm text-left flex-1 font-medium transition-colors duration-150"
+                          :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
+                      {{ feature }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              
+              <!-- Botón -->
+              <div class="flex-shrink-0">
+                <button @click="scrollToSection('contacto')"
+                        class="group/btn relative w-full text-white font-bold py-2.5 px-4 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow-hover text-sm md:text-base overflow-hidden"
+                        :class="isDarkMode 
+                          ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
+                          : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'">
+                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-300"></div>
+                  
+                  <span class="flex items-center justify-center relative">
+                    Elegir Plan
+                    <span class="ml-2 text-lg animate-bounce-fast">⚡</span>
+                  </span>
+                </button>
               </div>
             </div>
-            
-            <!-- Features COMPACTAS -->
-            <div class="p-2.5 md:p-3 flex-grow transition-all duration-150">
-              <ul class="space-y-1.5">
-                <li v-for="(feature, index) in professionalFeatures" :key="index" 
-                    class="flex items-start transform transition-all duration-150 group-hover:translate-x-0.5"
-                    :style="{ transitionDelay: `${index * 15}ms` }">
-                  
-                  <div class="relative w-3 h-3 rounded-full flex items-center justify-center mr-1.5 flex-shrink-0 mt-0.5 group-hover:scale-105 transition-all duration-150 animate-pulse-fast"
-                       :class="isDarkMode 
-                         ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                         : 'bg-gradient-to-r from-blue-400 to-blue-300'">
-                    <span class="text-white text-xs font-bold">✓</span>
-                  </div>
-                  
-                  <span class="text-xs leading-relaxed flex-1 transition-colors duration-150 line-clamp-2"
-                        :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
-                    {{ feature }}
-                  </span>
-                </li>
-              </ul>
-            </div>
-            
-            <!-- CTA COMPACTA -->
-            <div class="p-2.5 md:p-3 pt-0 flex-shrink-0 transition-all duration-150">
-              <button @click="scrollToSection('contacto')"
-                      class="group/btn relative w-full text-white font-bold py-1.5 px-3 rounded-lg transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow hover:shadow-glow-hover text-xs overflow-hidden"
-                      :class="isDarkMode 
-                        ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
-                        : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'">
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-300"></div>
+          </div>
+
+          <!-- Plan Profesional -->
+          <div class="group relative animate-fadeInUp transition-all duration-150" style="animation-delay: 160ms">
+            <!-- Tarjeta -->
+            <div class="relative backdrop-blur-xl rounded-lg border p-4 transform transition-all duration-150 group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:shadow-lg shadow-md hover:shadow-glow h-full flex flex-col"
+                 :class="isDarkMode 
+                   ? 'bg-gradient-to-br from-blue-700/50 via-indigo-800/60 to-blue-900/50 border-cyan-400/50 hover:border-cyan-300/60' 
+                   : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/60 hover:border-blue-500/70'">
+              
+              <!-- Header -->
+              <div class="relative mb-3 md:mb-4 text-center flex-shrink-0">
+                <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center mb-3 mx-auto transform transition-all duration-150 group-hover:scale-110 animate-pulse-slow"
+                     :class="isDarkMode 
+                       ? 'bg-gradient-to-br from-blue-500/70 to-cyan-500/70 border border-cyan-400/30' 
+                       : 'bg-gradient-to-br from-blue-200/70 to-blue-300/70 border border-blue-300/30'">
+                  <span class="text-xl md:text-2xl">⭐</span>
+                </div>
                 
-                <span class="relative z-10 flex items-center justify-center transition-all duration-150">
-                  Ir Profesional
-                  <span class="ml-1 text-sm animate-bounce-fast">→</span>
-                </span>
-              </button>
+                <h3 class="text-lg md:text-xl font-black mb-1 transition-colors duration-150"
+                    :class="isDarkMode ? 'text-white' : 'text-blue-900'">
+                  Profesional
+                </h3>
+                <p class="text-xs font-semibold tracking-wide uppercase transition-colors duration-150"
+                   :class="isDarkMode ? 'text-blue-100/60' : 'text-blue-700/60'">
+                  NEGOCIOS EN CRECIMIENTO
+                </p>
+              </div>
+              
+              <!-- Precio -->
+              <div class="mb-4 text-center flex-shrink-0">
+                <div class="text-xl md:text-2xl lg:text-3xl font-black leading-none mb-1 transition-all duration-150"
+                     :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">
+                  $1.400.000
+                </div>
+                <div class="text-xs font-medium transition-colors duration-150"
+                     :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
+                  Gestión de Datos Incluido
+                </div>
+              </div>
+              
+              <!-- Features -->
+              <div class="mb-4 flex-grow">
+                <ul class="space-y-2">
+                  <li v-for="(feature, index) in professionalFeatures" :key="index" 
+                      class="flex items-start transform group-hover:translate-x-1 transition-transform duration-150"
+                      :style="`transition-delay: ${index * 50}ms`">
+                    <div class="w-2 h-2 rounded-full mr-2 mt-1.5 flex-shrink-0 shadow-sm animate-pulse-fast"
+                         :class="isDarkMode 
+                           ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+                           : 'bg-gradient-to-r from-blue-400 to-blue-300'">
+                    </div>
+                    <span class="text-sm text-left flex-1 font-medium transition-colors duration-150"
+                          :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
+                      {{ feature }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              
+              <!-- Botón -->
+              <div class="flex-shrink-0">
+                <button @click="scrollToSection('contacto')"
+                        class="group/btn relative w-full text-white font-bold py-2.5 px-4 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow-hover text-sm md:text-base overflow-hidden"
+                        :class="isDarkMode 
+                          ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
+                          : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'">
+                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-300"></div>
+                  
+                  <span class="flex items-center justify-center relative">
+                    Ir Profesional
+                    <span class="ml-2 text-lg animate-bounce-fast">→</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plan Empresa -->
+          <div class="group relative animate-fadeInUp transition-all duration-150" style="animation-delay: 200ms">
+            <!-- Tarjeta -->
+            <div class="relative backdrop-blur-xl rounded-lg border p-4 transform transition-all duration-150 group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:shadow-lg shadow-md hover:shadow-glow h-full flex flex-col"
+                 :class="isDarkMode 
+                   ? 'bg-gradient-to-br from-blue-700/50 via-indigo-800/60 to-blue-900/50 border-cyan-400/50 hover:border-cyan-300/60' 
+                   : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/60 hover:border-blue-500/70'">
+              
+              <!-- Header -->
+              <div class="relative mb-3 md:mb-4 text-center flex-shrink-0">
+                <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center mb-3 mx-auto transform transition-all duration-150 group-hover:scale-110 animate-pulse-slow"
+                     :class="isDarkMode 
+                       ? 'bg-gradient-to-br from-blue-500/70 to-cyan-500/70 border border-cyan-400/30' 
+                       : 'bg-gradient-to-br from-blue-200/70 to-blue-300/70 border border-blue-300/30'">
+                  <span class="text-xl md:text-2xl">🏢</span>
+                </div>
+                
+                <h3 class="text-lg md:text-xl font-black mb-1 transition-colors duration-150"
+                    :class="isDarkMode ? 'text-white' : 'text-blue-900'">
+                  Empresa
+                </h3>
+                <p class="text-xs font-semibold tracking-wide uppercase transition-colors duration-150"
+                   :class="isDarkMode ? 'text-blue-100/60' : 'text-blue-700/60'">
+                  SOLUCIONES CORPORATIVAS
+                </p>
+              </div>
+              
+              <!-- Precio (CON GRADIENTE ESPECIAL) -->
+              <div class="mb-4 text-center flex-shrink-0">
+                <div class="text-xl md:text-2xl lg:text-3xl font-black leading-none mb-1 bg-clip-text text-transparent transition-all duration-150"
+                     :class="isDarkMode 
+                       ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
+                       : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
+                  Hablemos
+                </div>
+                <div class="text-xs font-medium transition-colors duration-150"
+                     :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
+                  Aplicaciones Web & Mobile
+                </div>
+              </div>
+              
+              <!-- Features -->
+              <div class="mb-4 flex-grow">
+                <ul class="space-y-2">
+                  <li v-for="(feature, index) in enterpriseFeatures" :key="index" 
+                      class="flex items-start transform group-hover:translate-x-1 transition-transform duration-150"
+                      :style="`transition-delay: ${index * 50}ms`">
+                    <div class="w-2 h-2 rounded-full mr-2 mt-1.5 flex-shrink-0 shadow-sm animate-pulse-fast"
+                         :class="isDarkMode 
+                           ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+                           : 'bg-gradient-to-r from-blue-400 to-blue-300'">
+                    </div>
+                    <span class="text-sm text-left flex-1 font-medium transition-colors duration-150"
+                          :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
+                      {{ feature }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              
+              <!-- Botón -->
+              <div class="flex-shrink-0">
+                <button @click="scrollToSection('contacto')"
+                        class="group/btn relative w-full text-white font-bold py-2.5 px-4 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow-hover text-sm md:text-base overflow-hidden"
+                        :class="isDarkMode 
+                          ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
+                          : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'">
+                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-300"></div>
+                  
+                  <span class="flex items-center justify-center relative">
+                    Enviar Mensaje
+                    <span class="ml-2 text-lg animate-bounce-fast">→</span>
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Plan Empresa -->
-        <div class="group relative w-full max-w-xs flex flex-col animate-fadeInUp transition-all duration-150"
-             style="animation-delay: 200ms">
-          
-          <!-- Tarjeta Principal COMPACTA -->
-          <div class="relative backdrop-blur-lg rounded-xl border p-0.5 transition-all duration-150 transform group-hover:-translate-y-0.5 group-hover:scale-101 group-hover:shadow-md shadow-sm hover:shadow-glow overflow-hidden w-full flex flex-col flex-1 min-h-[280px]"
+        <!-- Nota adicional -->
+        <div class="text-center mt-4 md:mt-6 max-w-2xl mx-auto px-4 animate-fadeInUp transition-all duration-150" style="animation-delay: 240ms">
+          <div class="relative backdrop-blur-sm border rounded-lg p-3 md:p-4 shadow-lg transform transition-all duration-150 hover:scale-102"
                :class="isDarkMode 
-                 ? 'bg-gradient-to-br from-blue-700/65 via-indigo-800/75 to-blue-900/65 border-cyan-400/65 hover:border-cyan-300/75' 
-                 : 'bg-gradient-to-br from-blue-50/90 via-blue-100/80 to-blue-200/70 border-blue-400/75 hover:border-blue-500/85'">
-            
-            <!-- Header de la tarjeta COMPACTO -->
-            <div class="p-2.5 md:p-3 text-center border-b flex-shrink-0 flex flex-col items-center justify-center transition-all duration-150"
-                 :class="isDarkMode ? 'border-cyan-400/30' : 'border-blue-400/30'">
-              
-              <!-- Icono compacto -->
-              <div class="relative w-10 h-10 rounded-full flex items-center justify-center mb-2 transform transition-all duration-150 group-hover:scale-105 shadow animate-pulse-slow"
-                   :class="isDarkMode 
-                     ? 'bg-gradient-to-br from-cyan-600/60 to-blue-700/60' 
-                     : 'bg-gradient-to-br from-blue-500/60 to-blue-600/60'">
-                <span class="text-lg">🏢</span>
-              </div>
-              
-              <h3 class="text-sm font-bold mb-0.5 transition-colors duration-150"
-                  :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                Empresa
-              </h3>
-              <p class="text-xs font-semibold tracking-tight transition-colors duration-150 uppercase"
-                 :class="isDarkMode ? 'text-blue-100/50' : 'text-blue-700/50'">
-                SOLUCIONES CORPORATIVAS
-              </p>
-            </div>
-            
-            <!-- Price COMPACTO -->
-            <div class="p-2.5 md:p-3 text-center flex-shrink-0 transition-all duration-150 min-h-[60px]"
-                 :class="isDarkMode 
-                   ? 'bg-gradient-to-r from-blue-800/55 via-indigo-800/55 to-blue-900/55' 
-                   : 'bg-gradient-to-r from-blue-100/55 via-blue-200/55 to-blue-300/55'">
-              <div class="text-xl md:text-2xl font-black mb-0.5 transition-all duration-150">
-                <span 
-                  class="bg-clip-text text-transparent transition-all duration-150"
-                  :class="isDarkMode 
-                    ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
-                    : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
-                  Hablemos
-                </span>
-              </div>
-              <div class="text-xs font-medium transition-colors duration-150"
-                   :class="isDarkMode ? 'text-blue-100/50' : 'text-blue-700/50'">
-                Aplicaciones Web & Mobile
-              </div>
-            </div>
-            
-            <!-- Features COMPACTAS -->
-            <div class="p-2.5 md:p-3 flex-grow transition-all duration-150">
-              <ul class="space-y-1.5">
-                <li v-for="(feature, index) in enterpriseFeatures" :key="index" 
-                    class="flex items-start transform transition-all duration-150 group-hover:translate-x-0.5"
-                    :style="{ transitionDelay: `${index * 15}ms` }">
-                  
-                  <div class="relative w-3 h-3 rounded-full flex items-center justify-center mr-1.5 flex-shrink-0 mt-0.5 group-hover:scale-105 transition-all duration-150 animate-pulse-fast"
-                       :class="isDarkMode 
-                         ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                         : 'bg-gradient-to-r from-blue-400 to-blue-300'">
-                    <span class="text-white text-xs font-bold">✓</span>
-                  </div>
-                  
-                  <span class="text-xs leading-relaxed flex-1 transition-colors duration-150 line-clamp-2"
-                        :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
-                    {{ feature }}
-                  </span>
-                </li>
-              </ul>
-            </div>
-            
-            <!-- CTA COMPACTA -->
-            <div class="p-2.5 md:p-3 pt-0 flex-shrink-0 transition-all duration-150">
+                 ? 'bg-blue-900/20 border-blue-400/15 shadow-blue-500/10 hover:border-blue-300/30' 
+                 : 'bg-blue-50/20 border-blue-300/15 shadow-blue-400/10 hover:border-blue-400/30'">
+            <p class="text-xs sm:text-sm leading-relaxed text-center font-medium transition-colors duration-150"
+               :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
+              <span :class="isDarkMode ? 'text-white' : 'text-blue-900'">¿Necesitas algo personalizado?</span> 
+              Todos los planes son ajustables.
               <button @click="scrollToSection('contacto')"
-                      class="group/btn relative w-full text-white font-bold py-1.5 px-3 rounded-lg transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow hover:shadow-glow-hover text-xs overflow-hidden"
-                      :class="isDarkMode 
-                        ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
-                        : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'">
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-300"></div>
-                
-                <span class="relative z-10 flex items-center justify-center transition-all duration-150">
-                  Enviar Mensaje
-                  <span class="ml-1 text-sm animate-bounce-fast">→</span>
+                      class="inline-flex items-center font-bold ml-1 transition-colors duration-150 group"
+                      :class="isDarkMode ? 'text-blue-200 hover:text-white' : 'text-blue-700 hover:text-blue-900'">
+                Contáctanos
+                <span class="ml-1 transform transition-transform duration-150 group-hover:translate-x-0.5 animate-bounce-fast transition-all duration-150"
+                      :class="isDarkMode ? 'text-blue-300' : 'text-blue-600'">
+                  ↗
                 </span>
               </button>
-            </div>
+            </p>
           </div>
-        </div>
-      </div>
-      
-      <!-- Nota adicional compacta -->
-      <div class="text-center mt-4 md:mt-6 max-w-lg mx-auto px-3 animate-fadeInUp transition-all duration-150" style="animation-delay: 240ms">
-        <div class="relative backdrop-blur-sm border rounded-lg p-3 shadow transform transition-all duration-150 hover:scale-101"
-             :class="isDarkMode 
-               ? 'bg-blue-900/15 border-blue-400/10 shadow-blue-500/5 hover:border-blue-300/20' 
-               : 'bg-blue-50/15 border-blue-300/10 shadow-blue-400/5 hover:border-blue-400/20'">
-          <p class="text-xs sm:text-sm leading-relaxed text-center font-medium transition-colors duration-150"
-             :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
-            <span :class="isDarkMode ? 'text-white' : 'text-blue-900'">¿Necesitas algo personalizado?</span> 
-            Todos los planes son ajustables.
-            <button @click="scrollToSection('contacto')"
-                    class="inline-flex items-center font-bold ml-0.5 transition-colors duration-150 group"
-                    :class="isDarkMode ? 'text-blue-200 hover:text-white' : 'text-blue-700 hover:text-blue-900'">
-              Contáctanos
-              <span class="ml-0.5 transform transition-transform duration-150 group-hover:translate-x-0.5 animate-bounce-fast transition-all duration-150"
-                    :class="isDarkMode ? 'text-blue-300' : 'text-blue-600'">
-                ↗
-              </span>
-            </button>
-          </p>
         </div>
       </div>
     </div>
@@ -671,17 +674,17 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue';
 
-// Estado del tema
+// Estado (EXACTO AL INICIO)
 const isDarkMode = ref(true);
 const isTransitioning = ref(false);
 const gradientPosition = ref(0);
 const showParticles = ref(false);
 
-// Gradientes premium
+// Gradientes simplificados (EXACTO AL INICIO)
 const darkGradient = 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #0369a1 50%, #1e40af 75%, #0f172a 100%)';
 const lightGradient = 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 25%, #93c5fd 50%, #60a5fa 75%, #3b82f6 100%)';
 
-// Inicializar tema
+// Inicializar tema (EXACTO AL INICIO)
 const initializeTheme = () => {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'light') {
@@ -693,7 +696,7 @@ const initializeTheme = () => {
   }
 };
 
-// Alternar entre temas con transición
+// Alternar tema (EXACTO AL INICIO)
 const toggleTheme = async () => {
   if (isTransitioning.value) return;
   
@@ -703,7 +706,7 @@ const toggleTheme = async () => {
   const startPosition = isDarkMode.value ? 0 : 100;
   const endPosition = isDarkMode.value ? 100 : 0;
   
-  const duration = 180;
+  const duration = 200;
   const startTime = Date.now();
   
   const animateGradient = () => {
@@ -728,10 +731,10 @@ const toggleTheme = async () => {
   setTimeout(() => {
     showParticles.value = false;
     isTransitioning.value = false;
-  }, duration + 40);
+  }, duration + 50);
 };
 
-// Estilo del gradiente del fondo principal
+// Estilo del gradiente (EXACTO AL INICIO)
 const sectionGradientStyle = computed(() => {
   if (isTransitioning.value) {
     const startGradient = isDarkMode.value ? lightGradient : darkGradient;
@@ -741,20 +744,20 @@ const sectionGradientStyle = computed(() => {
       backgroundImage: `${startGradient}, ${endGradient}`,
       backgroundSize: `200% 200%, 200% 200%`,
       backgroundPosition: `${gradientPosition.value}% ${gradientPosition.value}%, ${gradientPosition.value}% ${gradientPosition.value}%`,
-      filter: 'brightness(1.08)',
-      transition: 'all 0.12s ease-out',
+      filter: 'brightness(1.1)',
+      transition: 'all 0.15s ease-out',
     };
   } else {
     return {
       backgroundImage: isDarkMode.value ? darkGradient : lightGradient,
       backgroundSize: '200% 200%',
       backgroundPosition: '0% 0%',
-      animation: isDarkMode.value ? 'gradient-shift-dark 6s ease infinite' : 'gradient-shift-light 6s ease infinite',
+      animation: isDarkMode.value ? 'gradient-shift-dark 8s ease infinite' : 'gradient-shift-light 8s ease infinite',
     };
   }
 });
 
-// Features de planes COMPACTAS
+// Features de planes
 const basicFeatures = [
   'Página web con 5 secciones',
   'Diseño responsive avanzado',
@@ -788,7 +791,7 @@ const enterpriseFeatures = [
   'Seguridad informática avanzada'
 ];
 
-// Scroll a sección
+// Scroll a sección (EXACTO AL INICIO)
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
   if (element) {
@@ -799,12 +802,12 @@ const scrollToSection = (sectionId) => {
   }
 };
 
-// Inicializar
+// Inicializar (EXACTO AL INICIO)
 onMounted(() => {
   initializeTheme();
 });
 
-// Aplicar transición al cambiar tema
+// Watch para cambio de tema (EXACTO AL INICIO)
 watch(isDarkMode, (newVal) => {
   document.documentElement.classList.add('theme-transition-fast');
   
@@ -816,12 +819,12 @@ watch(isDarkMode, (newVal) => {
   
   setTimeout(() => {
     document.documentElement.classList.remove('theme-transition-fast');
-  }, 180);
+  }, 200);
 });
 </script>
 
 <style scoped>
-/* ANIMACIONES OPTIMIZADAS */
+/* ANIMACIONES OPTIMIZADAS (EXACTO AL INICIO) */
 
 @keyframes gradient-shift-dark {
   0%, 100% {
@@ -845,7 +848,7 @@ watch(isDarkMode, (newVal) => {
 @keyframes themeFadeInFast {
   from {
     opacity: 0;
-    transform: scale(0.96);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
@@ -860,60 +863,88 @@ watch(isDarkMode, (newVal) => {
   }
   to {
     opacity: 0;
-    transform: scale(1.03);
+    transform: scale(1.05);
   }
 }
 
 .theme-fade-fast-enter-active {
-  animation: themeFadeInFast 0.1s ease-out !important;
+  animation: themeFadeInFast 0.12s ease-out !important;
 }
 
 .theme-fade-fast-leave-active {
-  animation: themeFadeOutFast 0.1s ease-out !important;
+  animation: themeFadeOutFast 0.12s ease-out !important;
 }
 
 /* Transiciones optimizadas */
 * {
-  transition: background-color 0.1s ease-out, 
-              border-color 0.1s ease-out,
-              color 0.1s ease-out,
-              transform 0.1s ease-out,
-              opacity 0.1s ease-out;
+  transition: background-color 0.12s ease-out, 
+              border-color 0.12s ease-out,
+              color 0.12s ease-out,
+              transform 0.12s ease-out,
+              opacity 0.12s ease-out;
+}
+
+/* Animación para rayos del sol */
+@keyframes pulse-ray-fast {
+  0%, 100% {
+    opacity: 0.3;
+    transform: rotate(var(--rotation)) translateY(-10px) scale(0.8);
+  }
+  50% {
+    opacity: 0.7;
+    transform: rotate(var(--rotation)) translateY(-10px) scale(1.1);
+  }
+}
+
+/* Animación para brillo estelar */
+@keyframes twinkle-fast {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
 }
 
 /* Animaciones básicas */
 .animate-pulse-fast {
-  animation: pulse 1s ease-in-out infinite;
+  animation: pulse 1.2s ease-in-out infinite;
 }
 
 .animate-pulse-slow {
-  animation: pulse 2s ease-in-out infinite;
+  animation: pulse 2.5s ease-in-out infinite;
 }
 
 .animate-bounce-fast {
-  animation: bounce 0.7s infinite;
+  animation: bounce 0.8s infinite;
 }
 
 .animate-float {
-  animation: float 2s ease-in-out infinite;
+  animation: float 2.5s ease-in-out infinite;
 }
 
 .animate-slideInLeft {
-  animation: slideInLeft 0.4s ease-out forwards;
+  animation: slideInLeft 0.5s ease-out forwards;
   opacity: 0;
 }
 
 .animate-fadeInUp {
-  animation: fadeInUp 0.4s ease-out forwards;
+  animation: fadeInUp 0.5s ease-out forwards;
   opacity: 0;
 }
 
-.animate-delay-200 {
-  animation-delay: 200ms;
+.animate-delay-300 {
+  animation-delay: 300ms;
 }
 
-.animate-delay-400 {
-  animation-delay: 400ms;
+.animate-delay-600 {
+  animation-delay: 600ms;
+}
+
+.animate-twinkle-fast {
+  animation: twinkle-fast 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
@@ -921,7 +952,7 @@ watch(isDarkMode, (newVal) => {
     opacity: 1;
   }
   50% {
-    opacity: 0.6;
+    opacity: 0.5;
   }
 }
 
@@ -930,7 +961,7 @@ watch(isDarkMode, (newVal) => {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
   }
 }
 
@@ -939,14 +970,14 @@ watch(isDarkMode, (newVal) => {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
   }
 }
 
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-15px);
+    transform: translateX(-20px);
   }
   to {
     opacity: 1;
@@ -957,7 +988,7 @@ watch(isDarkMode, (newVal) => {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
@@ -967,104 +998,68 @@ watch(isDarkMode, (newVal) => {
 
 /* Efectos de sombras */
 .shadow-glow {
-  box-shadow: 0 0 12px rgba(34, 211, 238, 0.15);
-}
-
-.hover\:shadow-glow:hover {
   box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);
 }
 
+.hover\:shadow-glow:hover {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+}
+
 .hover\:shadow-glow-hover:hover {
-  box-shadow: 0 6px 20px rgba(34, 211, 238, 0.2);
+  box-shadow: 0 0 25px rgba(34, 211, 238, 0.4);
 }
 
-/* Clase utilitaria para limitar líneas de texto */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Altura mínima para tarjetas */
-.min-h-\[280px\] {
-  min-height: 280px;
-}
-
-/* Clase para escala mínima */
-.hover\:scale-101:hover {
-  transform: scale(1.01);
-}
-
-/* Desenfoque sutil */
-.blur-xs {
-  filter: blur(2px);
-}
-
-/* Sombra pequeña */
-.shadow-xs {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-/* Optimización responsive */
+/* Optimización responsive (CONSISTENTE CON INICIO) */
 @media (max-width: 768px) {
   #servicios {
     min-height: 80vh;
   }
   
-  .lg\:grid-cols-4 {
+  .relative.w-full.mb-6 {
+    margin-bottom: 4rem;
+  }
+  
+  /* Botón de tema más compacto en móvil (IGUAL AL INICIO) */
+  .theme-switch-premium {
+    width: 28px;
+    height: 10px;
+  }
+  
+  .theme-switch-premium > div:first-child {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .absolute.left-3, .absolute.right-3 {
+    width: 5px;
+    height: 5px;
+  }
+  
+  .absolute.-bottom-4 {
+    font-size: 8px;
+    bottom: -3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid.grid-cols-2 {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
   
-  /* Altura de tarjetas en móvil */
-  .min-h-\[280px\] {
-    min-height: 260px;
-  }
-  
-  /* Ajustes para el botón en móvil */
-  button[aria-label="Cambiar tema"] {
+  /* Botón de tema ultra compacto (IGUAL AL INICIO) */
+  .theme-switch-premium {
     width: 26px;
     height: 9px;
   }
   
-  button[aria-label="Cambiar tema"] > div:first-child {
+  .theme-switch-premium > div:first-child {
     width: 9px;
     height: 9px;
   }
-  
-  .absolute.left-2, .absolute.right-2 {
-    width: 4px;
-    height: 4px;
-  }
-  
-  .absolute.-bottom-3 {
-    font-size: 7px;
-    bottom: -2.5px;
-  }
 }
 
-@media (max-width: 640px) {
-  .lg\:grid-cols-4 {
-    grid-template-columns: 1fr;
-  }
-  
-  .min-h-\[280px\] {
-    min-height: 250px;
-  }
-  
-  /* Botón aún más compacto en móviles pequeños */
-  button[aria-label="Cambiar tema"] {
-    width: 24px;
-    height: 8px;
-  }
-  
-  button[aria-label="Cambiar tema"] > div:first-child {
-    width: 8px;
-    height: 8px;
-  }
-}
-
-/* Accesibilidad */
+/* Accesibilidad (IGUAL AL INICIO) */
 @media (prefers-reduced-motion: reduce) {
   .animate-pulse-fast,
   .animate-pulse-slow,
@@ -1075,18 +1070,18 @@ watch(isDarkMode, (newVal) => {
     animation: none !important;
   }
   
-  .hover\:scale-101,
+  .hover\:scale-105,
   .hover\:-translate-y-0\.5 {
     transform: none !important;
   }
 }
 
-/* Mejoras de rendimiento */
+/* Mejoras de rendimiento (IGUAL AL INICIO) */
 #servicios > div:first-child {
   will-change: background-position;
 }
 
-button[aria-label="Cambiar tema"] {
+.theme-switch-premium {
   will-change: transform;
 }
 </style>

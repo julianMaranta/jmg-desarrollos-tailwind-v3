@@ -1,7 +1,8 @@
 <template>
   <section 
     id="proceso" 
-    class="py-8 md:py-10 text-white relative overflow-hidden w-full flex justify-center transition-all duration-150 ease-out"
+    class="min-h-[50vh] w-full text-white relative overflow-hidden flex items-center justify-center transition-all duration-150 ease-out"
+    :style="sectionGradientStyle"
   >
     <!-- Capa de fondo principal -->
     <div 
@@ -10,42 +11,41 @@
     >
       <!-- Efecto de partículas -->
       <div class="absolute inset-0">
-        <div v-for="i in 20" :key="i" 
+        <div v-for="i in 25" :key="i" 
              class="absolute rounded-full transition-all duration-150"
-             :class="isDarkMode ? 'bg-blue-400/20' : 'bg-white/20'"
+             :class="isDarkMode ? 'bg-blue-400/15' : 'bg-white/15'"
              :style="`
                width: ${Math.random() * 2 + 1}px;
                height: ${Math.random() * 2 + 1}px;
                top: ${Math.random() * 100}%;
                left: ${Math.random() * 100}%;
                animation-delay: ${Math.random() * 0.3}s;
-               opacity: ${isTransitioning ? 0.7 : 0.2};
-               filter: ${isTransitioning ? 'brightness(1.2)' : 'brightness(1)'};
+               opacity: ${isTransitioning ? 0.6 : 0.2};
              `">
         </div>
       </div>
     </div>
-    
+
     <!-- Efectos de fondo animados -->
     <div class="absolute inset-0 overflow-hidden transition-all duration-150 ease-out">
       <transition name="theme-fade-fast" mode="out-in">
-        <div v-if="isDarkMode" key="dark-bg-1" class="absolute top-1/4 -left-8 w-40 h-40 bg-gradient-to-br from-blue-500/20 to-cyan-400/15 rounded-full blur-2xl animate-pulse-fast transition-all duration-150"
+        <div v-if="isDarkMode" key="dark-bg-1" class="absolute top-1/4 -left-12 w-48 h-48 bg-gradient-to-br from-blue-500/25 to-cyan-400/15 rounded-full blur-2xl animate-pulse-fast transition-all duration-150"
              :style="isTransitioning ? { opacity: 0.4, transform: 'scale(1.05)' } : {}"></div>
-        <div v-else key="light-bg-1" class="absolute top-1/4 -left-8 w-40 h-40 bg-gradient-to-br from-blue-100/40 to-blue-50/30 rounded-full blur-2xl animate-pulse-fast transition-all duration-150"
-             :style="isTransitioning ? { opacity: 0.4, transform: 'scale(1.05)' } : {}"></div>
-      </transition>
-      
-      <transition name="theme-fade-fast" mode="out-in">
-        <div v-if="isDarkMode" key="dark-bg-2" class="absolute bottom-1/3 -right-8 w-44 h-44 bg-gradient-to-br from-indigo-500/20 to-blue-500/15 rounded-full blur-2xl animate-pulse-fast animate-delay-500 transition-all duration-150"
-             :style="isTransitioning ? { opacity: 0.4, transform: 'scale(1.05)' } : {}"></div>
-        <div v-else key="light-bg-2" class="absolute bottom-1/3 -right-8 w-44 h-44 bg-gradient-to-br from-blue-100/50 to-blue-50/30 rounded-full blur-2xl animate-pulse-fast animate-delay-500 transition-all duration-150"
+        <div v-else key="light-bg-1" class="absolute top-1/4 -left-12 w-48 h-48 bg-gradient-to-br from-blue-100/40 to-blue-50/30 rounded-full blur-2xl animate-pulse-fast transition-all duration-150"
              :style="isTransitioning ? { opacity: 0.4, transform: 'scale(1.05)' } : {}"></div>
       </transition>
       
       <transition name="theme-fade-fast" mode="out-in">
-        <div v-if="isDarkMode" key="dark-bg-3" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-blue-600/15 to-cyan-500/10 rounded-full blur-2xl animate-pulse-fast animate-delay-1000 transition-all duration-150"
+        <div v-if="isDarkMode" key="dark-bg-2" class="absolute bottom-1/3 -right-12 w-52 h-52 bg-gradient-to-br from-indigo-500/25 to-blue-500/15 rounded-full blur-2xl animate-pulse-fast animate-delay-300 transition-all duration-150"
              :style="isTransitioning ? { opacity: 0.4, transform: 'scale(1.05)' } : {}"></div>
-        <div v-else key="light-bg-3" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-blue-100/30 to-blue-50/20 rounded-full blur-2xl animate-pulse-fast animate-delay-1000 transition-all duration-150"
+        <div v-else key="light-bg-2" class="absolute bottom-1/3 -right-12 w-52 h-52 bg-gradient-to-br from-blue-100/50 to-blue-50/30 rounded-full blur-2xl animate-pulse-fast animate-delay-300 transition-all duration-150"
+             :style="isTransitioning ? { opacity: 0.4, transform: 'scale(1.05)' } : {}"></div>
+      </transition>
+      
+      <transition name="theme-fade-fast" mode="out-in">
+        <div v-if="isDarkMode" key="dark-bg-3" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-br from-blue-600/15 to-cyan-500/10 rounded-full blur-2xl animate-pulse-fast animate-delay-600 transition-all duration-150"
+             :style="isTransitioning ? { opacity: 0.4, transform: 'scale(1.05)' } : {}"></div>
+        <div v-else key="light-bg-3" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-br from-blue-100/30 to-blue-50/20 rounded-full blur-2xl animate-pulse-fast animate-delay-600 transition-all duration-150"
              :style="isTransitioning ? { opacity: 0.4, transform: 'scale(1.05)' } : {}"></div>
       </transition>
       
@@ -57,21 +57,30 @@
              top: ${Math.random() * 100}%; 
              left: ${Math.random() * 100}%; 
              animation-delay: ${Math.random() * 1.5}s;
-             filter: ${isTransitioning ? 'brightness(1.2)' : 'brightness(1)'};
            `">
+      </div>
+
+      <!-- Gradientes de borde -->
+      <div class="absolute top-0 left-0 right-0 h-32 transition-all duration-150"
+           :class="isDarkMode ? 'bg-gradient-to-b from-blue-900/40 to-transparent' : 'bg-gradient-to-b from-blue-100/40 to-transparent'">
+      </div>
+      <div class="absolute bottom-0 left-0 right-0 h-32 transition-all duration-150"
+           :class="isDarkMode ? 'bg-gradient-to-t from-blue-800/30 to-transparent' : 'bg-gradient-to-t from-blue-200/30 to-transparent'">
       </div>
     </div>
 
-    <div class="w-full max-w-5xl mx-auto px-3 md:px-4 relative z-10 flex flex-col items-center">
-      <!-- Section Header con botón de tema integrado -->
-      <div class="text-center mb-4 md:mb-8 w-full relative">
-        <!-- Botón de tema premium con switch grande que cubre el icono -->
-        <div class="absolute top-0 right-0 md:right-2 z-20">
+    <!-- Contenedor principal -->
+    <div class="w-full max-w-6xl mx-auto px-4 md:px-6 text-center relative z-10 py-6 md:py-8 flex flex-col items-center">
+      
+      <!-- Contenedor para badge y botón de temas -->
+      <div class="relative w-full mb-6">
+        <!-- Botón de tema compacto -->
+        <div class="absolute top-0 right-0 md:right-2 z-50">
           <button
             @click="toggleTheme"
-            class="relative flex items-center justify-center w-28 h-10 rounded-lg border shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95 transition-all duration-150 ease-out overflow-hidden group theme-switch-premium"
+            class="relative flex items-center justify-center w-32 h-12 rounded-lg border shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95 transition-all duration-150 ease-out overflow-hidden group theme-switch-premium"
             :class="isDarkMode 
-              ? 'border-cyan-400/50 hover:border-cyan-300 shadow-cyan-500/15 bg-gradient-to-br from-blue-900/85 via-indigo-900/85 to-purple-900/85' 
+              ? 'border-cyan-400/50 hover:border-cyan-300 shadow-cyan-500/15 bg-gradient-to-br from-blue-900/80 via-indigo-900/80 to-purple-900/80' 
               : 'border-blue-300/50 hover:border-blue-200 shadow-blue-400/15 bg-gradient-to-br from-white/90 via-blue-50/90 to-blue-100/90'"
             :title="isDarkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
             aria-label="Cambiar tema"
@@ -81,10 +90,10 @@
               class="absolute w-12 h-12 rounded-full transition-all duration-300 ease-out transform z-30 overflow-hidden"
               :class="isDarkMode ? 'right-3' : 'left-3'"
               :style="isTransitioning ? { 
-                filter: 'brightness(1.15)',
+                filter: 'brightness(1.1)',
                 boxShadow: isDarkMode 
-                  ? '0 0 15px rgba(96, 165, 250, 0.4), inset 0 0 15px rgba(96, 165, 250, 0.25)' 
-                  : '0 0 15px rgba(250, 204, 21, 0.4), inset 0 0 15px rgba(250, 204, 21, 0.25)'
+                  ? '0 0 15px rgba(96, 165, 250, 0.4), inset 0 0 15px rgba(96, 165, 250, 0.2)' 
+                  : '0 0 15px rgba(250, 204, 21, 0.4), inset 0 0 15px rgba(250, 204, 21, 0.2)'
               } : {}"
             >
               <!-- Fondo del switch -->
@@ -95,16 +104,10 @@
                   :class="isDarkMode 
                     ? 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800' 
                     : 'bg-gradient-to-br from-yellow-400 via-yellow-300 to-yellow-500'"
-                  :style="isTransitioning ? { 
-                    background: isDarkMode 
-                      ? 'linear-gradient(135deg, #1d4ed8, #3b82f6, #1e40af)' 
-                      : 'linear-gradient(135deg, #facc15, #fde047, #eab308)'
-                  } : {}"
                 ></div>
                 
                 <!-- Efecto de luz interior pulsante -->
-                <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/40 to-transparent opacity-60 animate-pulse-slow transition-all duration-150"
-                     :style="isTransitioning ? { opacity: 0.8 } : {}"></div>
+                <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/40 to-transparent opacity-60 animate-pulse-slow transition-all duration-150"></div>
                 
                 <!-- Brillo de borde -->
                 <div 
@@ -113,67 +116,44 @@
                     ? 'border-blue-400/80' 
                     : 'border-yellow-400/80'"
                   :style="isTransitioning ? { 
-                    borderColor: isDarkMode ? 'rgba(96, 165, 250, 0.9)' : 'rgba(250, 204, 21, 0.9)',
                     boxShadow: isDarkMode 
-                      ? '0 0 12px rgba(96, 165, 250, 0.5), inset 0 0 8px rgba(96, 165, 250, 0.3)' 
-                      : '0 0 12px rgba(250, 204, 21, 0.5), inset 0 0 8px rgba(250, 204, 21, 0.3)'
+                      ? '0 0 10px rgba(96, 165, 250, 0.5), inset 0 0 8px rgba(96, 165, 250, 0.3)' 
+                      : '0 0 10px rgba(250, 204, 21, 0.5), inset 0 0 8px rgba(250, 204, 21, 0.3)'
                   } : {}"
                 ></div>
-                
-                <!-- Sombra interna -->
-                <div class="absolute inset-0 rounded-full shadow-inner transition-all duration-150"
-                     :class="isDarkMode 
-                       ? 'shadow-blue-900/60' 
-                       : 'shadow-yellow-900/30'"
-                     :style="isTransitioning ? { 
-                       boxShadow: isDarkMode 
-                         ? 'inset 0 3px 6px rgba(0, 0, 0, 0.4)' 
-                         : 'inset 0 3px 6px rgba(0, 0, 0, 0.2)'
-                     } : {}"></div>
               </div>
               
               <!-- Icono dentro del switch (SVG) -->
               <div class="absolute inset-0 flex items-center justify-center z-10">
                 <!-- Icono de Luna para tema oscuro -->
                 <svg v-if="isDarkMode" class="w-6 h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
-                     :class="isTransitioning ? 'text-blue-200 filter drop-shadow-[0_0_8px_rgba(147,197,253,0.7)]' : 'text-blue-300'">
+                     :class="isTransitioning ? 'text-blue-200' : 'text-blue-300'">
                   <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
                 </svg>
                 
                 <!-- Icono de Sol para tema claro -->
                 <svg v-else class="w-6 h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
-                     :class="isTransitioning ? 'text-yellow-200 filter drop-shadow-[0_0_8px_rgba(253,224,71,0.7)]' : 'text-yellow-400'">
+                     :class="isTransitioning ? 'text-yellow-200' : 'text-yellow-400'">
                   <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
                 </svg>
               </div>
               
               <!-- Brillo central -->
-              <div class="absolute top-1/2 left-1/2 w-2 h-2 rounded-full transform -translate-x-1/2 -translate-y-1/2 blur-xs transition-all duration-150"
-                   :class="isDarkMode ? 'bg-blue-300/70' : 'bg-yellow-300/70'"
-                   :style="isTransitioning ? { 
-                     width: '3px', 
-                     height: '3px',
-                     opacity: 0.8
-                   } : {}"></div>
+              <div class="absolute top-1/2 left-1/2 w-2 h-2 rounded-full transform -translate-x-1/2 -translate-y-1/2 blur-sm transition-all duration-150"
+                   :class="isDarkMode ? 'bg-blue-300/70' : 'bg-yellow-300/70'"></div>
             </div>
             
-            <!-- Efecto de brillo al pasar el mouse -->
-            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 group-hover:opacity-35 transition-opacity duration-300 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-out"></div>
+            <!-- Efecto de brillo al hover -->
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-out"></div>
             
-            <!-- Contenedor principal con ambos iconos -->
+            <!-- Contenedor principal con iconos -->
             <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
               
               <!-- Sol (izquierda) -->
               <div class="absolute left-3 w-6 h-6 transition-all duration-150 ease-out z-20"
                    :class="isDarkMode 
-                     ? 'opacity-35 scale-85 text-yellow-300/40' 
-                     : 'opacity-100 scale-105 text-yellow-400 filter drop-shadow-[0_0_6px_rgba(250,204,21,0.6)]'"
-                   :style="isTransitioning ? { 
-                     filter: isDarkMode 
-                       ? 'drop-shadow(0 0 3px rgba(245, 158, 11, 0.2)) brightness(1.15)' 
-                       : 'drop-shadow(0 0 10px rgba(250, 204, 21, 0.5)) brightness(1.2)',
-                     transform: isDarkMode ? 'scale(0.9)' : 'scale(1.05)'
-                   } : {}">
+                     ? 'opacity-30 scale-90 text-yellow-300/40' 
+                     : 'opacity-100 scale-105 text-yellow-400'">
                 <svg class="w-full h-full" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
                 </svg>
@@ -182,30 +162,16 @@
               <!-- Luna (derecha) -->
               <div class="absolute right-3 w-5 h-5 transition-all duration-150 ease-out z-20"
                    :class="!isDarkMode 
-                     ? 'opacity-35 scale-85 text-blue-400/40' 
-                     : 'opacity-100 scale-105 text-blue-300 filter drop-shadow-[0_0_6px_rgba(96,165,250,0.6)]'"
-                   :style="isTransitioning ? { 
-                     filter: !isDarkMode 
-                       ? 'drop-shadow(0 0 3px rgba(147, 197, 253, 0.2)) brightness(1.15)' 
-                       : 'drop-shadow(0 0 10px rgba(96, 165, 250, 0.5)) brightness(1.2)',
-                     transform: !isDarkMode ? 'scale(0.9)' : 'scale(1.05)'
-                   } : {}">
+                     ? 'opacity-30 scale-90 text-blue-400/40' 
+                     : 'opacity-100 scale-105 text-blue-300'">
                 <svg class="w-full h-full" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
                 </svg>
               </div>
               
               <!-- Texto "DÍA/NOCHE" -->
-              <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[9px] font-semibold uppercase tracking-tight opacity-85 z-5 transition-all duration-150 whitespace-nowrap"
-                   :class="isDarkMode ? 'text-blue-300/85' : 'text-yellow-600/85'"
-                   :style="isTransitioning ? { 
-                     color: isDarkMode ? 'rgba(147, 197, 253, 0.9)' : 'rgba(202, 138, 4, 0.9)',
-                     opacity: 1,
-                     textShadow: isDarkMode 
-                       ? '0 1px 2px rgba(147, 197, 253, 0.3)' 
-                       : '0 1px 2px rgba(202, 138, 4, 0.3)',
-                     fontWeight: '500'
-                   } : {}">
+              <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[9px] font-semibold uppercase tracking-wide opacity-80 z-5 transition-all duration-150 whitespace-nowrap"
+                   :class="isDarkMode ? 'text-blue-300/80' : 'text-yellow-600/80'">
                 {{ isDarkMode ? 'NOCHE' : 'DÍA' }}
               </div>
               
@@ -213,13 +179,12 @@
             
             <!-- Rayos del sol animados -->
             <div v-if="!isDarkMode" class="absolute left-3 w-6 h-6 z-10">
-              <div v-for="(ray, index) in 6" :key="index"
-                   class="absolute top-1/2 left-1/2 w-0.5 h-2 bg-yellow-300/70 rounded-full transform origin-center transition-all duration-150"
+              <div v-for="(ray, index) in 8" :key="index"
+                   class="absolute top-1/2 left-1/2 w-0.5 h-2.5 bg-yellow-300/60 rounded-full transform origin-center transition-all duration-150"
                    :style="`
-                     transform: rotate(${index * 60}deg) translateY(-9px);
+                     transform: rotate(${index * 45}deg) translateY(-10px);
                      animation: pulse-ray-fast 1.5s ease-in-out infinite;
                      animation-delay: ${index * 0.03}s;
-                     ${isTransitioning ? 'opacity: 0.8; height: 2.5px;' : ''}
                    `">
               </div>
             </div>
@@ -227,42 +192,23 @@
             <!-- Constelación estelar -->
             <div v-if="isDarkMode" class="absolute right-3 w-5 h-5 z-10">
               <div v-for="(star, index) in 3" :key="index"
-                   class="absolute rounded-full bg-blue-100/70 animate-twinkle-fast transition-all duration-150"
+                   class="absolute rounded-full bg-blue-100/60 animate-twinkle-fast transition-all duration-150"
                    :style="`
                      width: ${Math.random() * 1 + 0.6}px;
                      height: ${Math.random() * 1 + 0.6}px;
                      top: ${Math.random() * 100}%;
                      left: ${Math.random() * 100}%;
-                     animation-delay: ${index * 0.1}s;
-                     ${isTransitioning ? 'opacity: 1;' : ''}
-                   `">
-              </div>
-            </div>
-            
-            <!-- Efecto de partículas al hacer clic -->
-            <div v-if="showParticles" class="absolute inset-0 pointer-events-none z-40">
-              <div v-for="i in 8" :key="i"
-                   class="absolute w-1 h-1 rounded-full animate-particle-explode-fast transition-all duration-150"
-                   :class="isDarkMode ? 'bg-blue-400' : 'bg-yellow-400'"
-                   :style="`
-                     --x: ${Math.random() * 30 - 15}px;
-                     --y: ${Math.random() * 30 - 15}px;
-                     animation-delay: ${Math.random() * 0.08}s;
-                     ${isTransitioning ? 'filter: brightness(1.2);' : ''}
+                     animation-delay: ${index * 0.15}s;
                    `">
               </div>
             </div>
             
             <!-- Tooltip -->
-            <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap transition-all duration-150 pointer-events-none z-50">
-              <div class="px-1.5 py-0.5 text-[9px] font-medium rounded backdrop-blur-sm shadow-xs transition-all duration-150"
+            <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-50">
+              <div class="px-1.5 py-0.5 text-[9px] font-medium rounded backdrop-blur-sm shadow-sm"
                    :class="isDarkMode 
-                     ? 'bg-blue-900/85 text-blue-300 border border-blue-400/25' 
-                     : 'bg-yellow-50/90 text-yellow-800 border border-yellow-400/25'"
-                   :style="isTransitioning ? { 
-                     backgroundColor: isDarkMode ? 'rgba(30, 58, 138, 0.9)' : 'rgba(254, 252, 232, 0.9)',
-                     borderColor: isDarkMode ? 'rgba(96, 165, 250, 0.35)' : 'rgba(250, 204, 21, 0.35)'
-                   } : {}">
+                     ? 'bg-blue-900/80 text-blue-300 border border-blue-400/20' 
+                     : 'bg-yellow-50/90 text-yellow-800 border border-yellow-400/20'">
                 {{ isDarkMode ? 'Activar día' : 'Activar noche' }}
               </div>
             </div>
@@ -270,14 +216,14 @@
           </button>
         </div>
         
-        <!-- Badge animado -->
+        <!-- Badge animado compacto -->
         <div 
           class="inline-flex items-center backdrop-blur-lg rounded-full px-4 py-1.5 mb-2 shadow-glow animate-pulse-slow transition-all duration-150"
           :class="isDarkMode 
             ? 'bg-gradient-to-r from-blue-600/40 to-cyan-500/30 border border-cyan-400/40' 
-            : 'bg-gradient-to-r from-blue-500/35 to-blue-400/40 border border-blue-400/50'"
+            : 'bg-gradient-to-r from-blue-500/30 to-blue-400/40 border border-blue-400/50'"
           :style="isTransitioning ? { 
-            filter: 'brightness(1.15)',
+            filter: 'brightness(1.1)',
             boxShadow: isDarkMode 
               ? '0 0 15px rgba(34, 211, 238, 0.3)' 
               : '0 0 15px rgba(59, 130, 246, 0.3)'
@@ -289,183 +235,164 @@
               ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
               : 'bg-gradient-to-r from-blue-400 to-blue-300'"
             :style="isTransitioning ? { 
-              background: isDarkMode 
-                ? 'linear-gradient(to right, #22d3ee, #60a5fa)' 
-                : 'linear-gradient(to right, #60a5fa, #93c5fd)',
-              transform: 'scale(1.15)'
+              transform: 'scale(1.1)'
             } : {}"
           ></div>
-          <span class="text-xs font-bold tracking-tighter transition-colors duration-150"
-                :class="isDarkMode ? 'text-white' : 'text-blue-900'"
-                :style="isTransitioning ? { 
-                  color: isDarkMode ? '#f0f9ff' : '#1e3a8a',
-                  textShadow: isDarkMode 
-                    ? '0 0 4px rgba(240, 249, 255, 0.4)' 
-                    : '0 0 4px rgba(30, 58, 138, 0.25)'
-                } : {}">🚀 ANIMATE</span>
-        </div>
-        
-        <!-- Título -->
-        <div class="relative w-full mb-3">
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-center w-full tracking-tight leading-tight animate-slideInLeft transition-all duration-150">
-            <span class="relative inline-block">
-              <span 
-                class="bg-clip-text text-transparent relative z-20 transition-all duration-150"
-                :class="isDarkMode 
-                  ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
-                  : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'"
-                :style="isTransitioning ? { 
-                  backgroundImage: isDarkMode 
-                    ? 'linear-gradient(to right, #ffffff, #a5f3fc, #dbeafe)' 
-                    : 'linear-gradient(to right, #1e3a8a, #1d4ed8, #2563eb)'
-                } : {}"
-              >
-                Empecemos el proceso
-              </span>
-              
-              <!-- Efectos de subrayado -->
-              <div 
-                class="absolute -bottom-0.5 left-1/4 right-1/4 h-0.5 rounded-full opacity-60 mt-0.5 transition-all duration-150"
-                :class="isDarkMode 
-                  ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                  : 'bg-gradient-to-r from-blue-500 to-blue-400'"
-                :style="isTransitioning ? { 
-                  background: isDarkMode 
-                    ? 'linear-gradient(to right, #22d3ee, #60a5fa)' 
-                    : 'linear-gradient(to right, #3b82f6, #60a5fa)',
-                  opacity: 0.7,
-                  height: '0.4px'
-                } : {}"
-              ></div>
-            </span>
-          </h2>
-        </div>
-        
-        <!-- Subtítulo -->
-        <div class="relative max-w-xl mx-auto mb-4 animate-fadeInUp transition-all duration-150" style="animation-delay: 40ms">
-          <p 
-            class="text-xs sm:text-sm leading-snug text-center transition-colors duration-150"
-            :class="isDarkMode ? 'text-white/85' : 'text-blue-900/85'"
-            :style="isTransitioning ? { 
-              color: isDarkMode ? 'rgba(255, 255, 255, 0.9)' : 'rgba(30, 58, 138, 0.9)',
-              textShadow: isDarkMode 
-                ? '0 0 6px rgba(255, 255, 255, 0.25)' 
-                : '0 0 6px rgba(30, 58, 138, 0.08)'
-            } : {}"
-          >
-            Consultas y asesorías
-            <span class="relative inline-block transition-all duration-150">
-              <span 
-                class="bg-clip-text text-transparent font-bold transition-all duration-150"
-                :class="isDarkMode 
-                  ? 'bg-gradient-to-r from-cyan-300 via-blue-200 to-blue-100' 
-                  : 'bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400'"
-                :style="isTransitioning ? { 
-                  backgroundImage: isDarkMode 
-                    ? 'linear-gradient(to right, #67e8f9, #bfdbfe, #dbeafe)' 
-                    : 'linear-gradient(to right, #2563eb, #3b82f6, #60a5fa)'
-                } : {}"
-              >
-                100% Gratis.
-              </span>
-              <div 
-                class="absolute inset-0 blur-xs -z-10 rounded-full transition-all duration-150"
-                :class="isDarkMode 
-                  ? 'bg-gradient-to-r from-cyan-400/25 via-blue-300/20 to-blue-200/20' 
-                  : 'bg-gradient-to-r from-blue-500/25 via-blue-400/20 to-blue-300/20'"
-                :style="isTransitioning ? { 
-                  background: isDarkMode 
-                    ? 'linear-gradient(to right, rgba(34, 211, 238, 0.35), rgba(59, 130, 246, 0.3), rgba(191, 219, 254, 0.3))' 
-                    : 'linear-gradient(to right, rgba(59, 130, 246, 0.35), rgba(96, 165, 250, 0.3), rgba(147, 197, 253, 0.3))',
-                  filter: 'blur(4px)'
-                } : {}"
-              ></div>
-            </span>
-            ¡Envíanos un mensaje!
-          </p>
+          <span class="text-xs font-bold tracking-wider transition-colors duration-150"
+                :class="isDarkMode ? 'text-white' : 'text-blue-900'">🚀 ANIMATE</span>
+          <div 
+            class="ml-2 w-0.5 h-4 rounded-full transition-all duration-150"
+            :class="isDarkMode 
+              ? 'bg-gradient-to-b from-blue-300/30 to-blue-400/30' 
+              : 'bg-gradient-to-b from-blue-400/30 to-blue-500/30'">
+          </div>
         </div>
       </div>
 
-      <!-- CTA Section -->
-      <div class="text-center mt-6 md:mt-0 w-full max-w-2xl mx-auto transition-all duration-150">
-        <div 
-          class="backdrop-blur-xl rounded-2xl border shadow-lg p-4 md:p-5 w-full flex flex-col items-center justify-center transform hover:scale-101 transition-all duration-150 group"
-          :class="isDarkMode 
-            ? 'bg-gradient-to-br from-blue-700/45 via-indigo-800/55 to-blue-900/45 border-cyan-400/40' 
-            : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/50'"
-          :style="isTransitioning ? { 
-            background: isDarkMode 
-              ? 'linear-gradient(135deg, rgba(29, 78, 216, 0.5), rgba(55, 48, 163, 0.6), rgba(30, 58, 138, 0.5))' 
-              : 'linear-gradient(135deg, rgba(219, 234, 254, 0.9), rgba(191, 219, 254, 0.8), rgba(147, 197, 253, 0.7))',
-            borderColor: isDarkMode ? 'rgba(34, 211, 238, 0.45)' : 'rgba(59, 130, 246, 0.6)',
-            filter: 'brightness(1.05)'
-          } : {}"
-        >
-          <!-- Efecto de borde animado -->
-          <div 
-            class="absolute inset-0 rounded-2xl border border-transparent transition-all duration-150"
-            :class="isDarkMode 
-              ? 'group-hover:border-cyan-400/35' 
-              : 'group-hover:border-blue-400/40'"
-            :style="isTransitioning ? { 
-              borderColor: isDarkMode ? 'rgba(34, 211, 238, 0.4)' : 'rgba(59, 130, 246, 0.5)',
-              boxShadow: isDarkMode 
-                ? '0 0 20px rgba(34, 211, 238, 0.25)' 
-                : '0 0 20px rgba(59, 130, 246, 0.25)'
-            } : {}"
-          ></div>
-          
-          <!-- Título CTA -->
-          <h3 
-            class="text-lg md:text-xl font-black mb-2 text-center w-full bg-clip-text text-transparent px-3 transition-all duration-150"
-            :class="isDarkMode 
-              ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
-              : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'"
-            :style="isTransitioning ? { 
-              backgroundImage: isDarkMode 
-                ? 'linear-gradient(to right, #ffffff, #a5f3fc, #dbeafe)' 
-                : 'linear-gradient(to right, #1e3a8a, #1d4ed8, #2563eb)'
-            } : {}"
-          >
-            ¿Listo para Iniciar tu Proyecto?
-          </h3>
-          
-          <!-- Texto CTA -->
-          <p 
-            class="text-sm md:text-base mb-4 max-w-md text-center transition-colors duration-150"
-            :class="isDarkMode ? 'text-white/85' : 'text-blue-900/85'"
-            :style="isTransitioning ? { 
-              color: isDarkMode ? 'rgba(255, 255, 255, 0.9)' : 'rgba(30, 58, 138, 0.9)'
-            } : {}"
-          >
-            Sigue los pasos de las empresas exitosas que confiaron en nuestro proceso probado.
-          </p>
-          
-          <!-- Botón CTA -->
-          <div class="flex justify-center w-full transition-all duration-150">
-            <button 
-              @click="scrollToSection('contacto')"
-              class="relative text-white font-bold py-2.5 px-6 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow text-sm md:text-base group overflow-hidden"
-              :class="isDarkMode 
-                ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
-                : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'"
-              :style="isTransitioning ? { 
-                background: isDarkMode 
-                  ? 'linear-gradient(to right, #2563eb, #0891b2, #3730a3)' 
-                  : 'linear-gradient(to right, #2563eb, #1d4ed8, #1e40af)',
-                filter: 'brightness(1.1)'
-              } : {}"
-            >
-              <!-- Efecto de brillo al pasar el mouse -->
-              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-300 transition-all duration-150"
-                   :style="isTransitioning ? { opacity: 0.35 } : {}"></div>
+      <!-- Sección principal con títulos -->
+      <div class="w-full flex flex-col items-center space-y-3 md:space-y-4">
+        <!-- Título principal -->
+        <div class="relative w-full mb-1 md:mb-2 transition-all duration-150 text-center">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center w-full tracking-tight leading-tight animate-slideInLeft transition-all duration-150">
+            <span class="relative inline-block">
+              <div class="relative pb-1">
+                <!-- Línea completa -->
+                <div 
+                  class="bg-clip-text text-transparent leading-tight transition-all duration-150"
+                  :class="isDarkMode 
+                    ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
+                    : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
+                  Empecemos el proceso
+                </div>
+              </div>
               
-              <span class="flex items-center justify-center relative transition-all duration-150">
-                Iniciar Proceso
-                <span class="ml-2 text-lg animate-bounce-fast transition-all duration-150"
-                      :style="isTransitioning ? { transform: 'scale(1.15)' } : {}">🚀</span>
+              <!-- Subrayado animado -->
+              <div 
+                class="absolute -bottom-1 left-1/4 right-1/4 h-0.5 rounded-full opacity-60 mt-0.5 transition-all duration-150"
+                :class="isDarkMode 
+                  ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+                  : 'bg-gradient-to-r from-blue-500 to-blue-400'">
+              </div>
+            </span>
+          </h2>
+          
+          <!-- Slogan -->
+          <div class="mt-2 md:mt-3 animate-fadeInUp transition-all duration-150" style="animation-delay: 50ms">
+            <p class="text-base md:text-lg font-bold transition-colors duration-150"
+               :class="isDarkMode ? 'text-blue-100/90' : 'text-blue-700/90'">
+              Consultas y asesorías 
+              <span 
+                class="bg-clip-text text-transparent font-bold transition-all duration-150"
+                :class="isDarkMode 
+                  ? 'bg-gradient-to-r from-blue-300 via-blue-200 to-white' 
+                  : 'bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400'">
+                100% Gratis.
               </span>
-            </button>
+              ¡Envíanos un mensaje!
+            </p>
+          </div>
+        </div>
+        
+        <!-- Subtítulo -->
+        <div class="relative max-w-2xl mx-auto mb-4 md:mb-6 animate-fadeInUp transition-all duration-150" style="animation-delay: 100ms">
+          <div class="relative backdrop-blur-sm border rounded-lg p-3 md:p-4 shadow-lg transform transition-all duration-150 hover:scale-102"
+               :class="isDarkMode 
+                 ? 'bg-blue-900/20 border-blue-400/15 shadow-blue-500/10 hover:border-blue-300/30' 
+                 : 'bg-blue-50/20 border-blue-300/15 shadow-blue-400/10 hover:border-blue-400/30'">
+            <p class="text-sm sm:text-base md:text-lg leading-relaxed text-center font-medium transition-colors duration-150"
+               :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
+              Sigue los pasos de las empresas exitosas que confiaron en nuestro 
+              <span class="relative inline-block">
+                <span 
+                  class="bg-clip-text text-transparent font-bold transition-all duration-150"
+                  :class="isDarkMode 
+                    ? 'bg-gradient-to-r from-blue-300 via-blue-200 to-white' 
+                    : 'bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400'">
+                  proceso probado
+                </span>
+                <!-- Brillo de fondo del texto -->
+                <div 
+                  class="absolute inset-0 blur-sm -z-10 rounded-full transition-all duration-150"
+                  :class="isDarkMode 
+                    ? 'bg-gradient-to-r from-blue-400/20 via-blue-300/15 to-blue-200/15' 
+                    : 'bg-gradient-to-r from-blue-500/20 via-blue-400/15 to-blue-300/15'">
+                </div>
+              </span>.
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="text-center mt-1 w-full max-w-2xl mx-auto transition-all duration-150">
+          <div 
+            class="backdrop-blur-xl rounded-2xl border shadow-lg p-4 md:p-5 w-full flex flex-col items-center justify-center transform transition-all duration-150 group"
+            :class="isDarkMode 
+              ? 'bg-gradient-to-br from-blue-700/45 via-indigo-800/55 to-blue-900/45 border-cyan-400/40' 
+              : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/50'"
+          >
+            <!-- Efecto de borde animado -->
+            <div 
+              class="absolute inset-0 rounded-2xl border border-transparent transition-all duration-150"
+              :class="isDarkMode 
+                ? 'group-hover:border-cyan-400/35' 
+                : 'group-hover:border-blue-400/40'"
+            ></div>
+            
+            <!-- Título CTA -->
+            <h3 
+              class="text-lg md:text-xl font-black mb-2 text-center w-full bg-clip-text text-transparent px-3 transition-all duration-150"
+              :class="isDarkMode 
+                ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
+                : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'"
+            >
+              ¿Listo para Iniciar tu Proyecto?
+            </h3>
+            
+            <!-- Texto CTA -->
+            <p 
+              class="text-sm md:text-base mb-4 max-w-md text-center transition-colors duration-150"
+              :class="isDarkMode ? 'text-white/85' : 'text-blue-900/85'"
+            >
+              De <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">Ideas</span> a 
+              <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">Resultados</span> Excepcionales
+            </p>
+            
+            <!-- Botones CTA -->
+            <div class="flex flex-col sm:flex-row gap-2 md:gap-3 justify-center items-center w-full animate-fadeInUp transition-all duration-150" style="animation-delay: 150ms">
+              
+              <!-- Botón Primario -->
+              <button @click="scrollToSection('contacto')"
+                      class="group relative text-white font-bold py-2.5 px-6 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow-hover text-sm md:text-base overflow-hidden"
+                      :class="isDarkMode 
+                        ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
+                        : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'">
+                <!-- Efecto de brillo al hover -->
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-300"></div>
+                
+                <span class="flex items-center justify-center relative">
+                  Iniciar Proceso
+                  <span class="ml-2 text-lg animate-bounce-fast">🚀</span>
+                </span>
+              </button>
+              
+              <!-- Botón Secundario -->
+              <button @click="scrollToSection('contacto')"
+                      class="group relative border font-bold py-2.5 px-6 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 text-sm md:text-base overflow-hidden backdrop-blur-lg"
+                      :class="isDarkMode 
+                        ? 'border-cyan-400/40 text-white hover:text-blue-100 hover:border-cyan-300/50' 
+                        : 'border-blue-400/40 text-blue-800 hover:text-blue-900 hover:border-blue-500/60'">
+                <!-- Efecto de fondo al hover -->
+                <div class="absolute inset-0 transition-all duration-150"
+                     :class="isDarkMode 
+                       ? 'bg-blue-900/15 group-hover:bg-blue-800/20' 
+                       : 'bg-blue-100/15 group-hover:bg-blue-200/20'"></div>
+                
+                <span class="relative z-10 flex items-center justify-center">
+                  <span class="mr-2 text-lg transform transition-transform duration-300 group-hover:scale-105 animate-bounce-fast">💬</span>
+                  Contactar Ahora
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -474,15 +401,15 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 
-// Estado del tema
+// Estado
 const isDarkMode = ref(true);
 const isTransitioning = ref(false);
 const gradientPosition = ref(0);
 const showParticles = ref(false);
 
-// Gradientes premium (más compactos)
+// Gradientes simplificados
 const darkGradient = 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #0369a1 50%, #1e40af 75%, #0f172a 100%)';
 const lightGradient = 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 25%, #93c5fd 50%, #60a5fa 75%, #3b82f6 100%)';
 
@@ -498,25 +425,24 @@ const initializeTheme = () => {
   }
 };
 
-// Alternar entre temas con transición
+// Alternar tema
 const toggleTheme = async () => {
   if (isTransitioning.value) return;
   
   isTransitioning.value = true;
   showParticles.value = true;
   
-  // Animar el degradado
   const startPosition = isDarkMode.value ? 0 : 100;
   const endPosition = isDarkMode.value ? 100 : 0;
   
-  const duration = 180;
+  const duration = 200;
   const startTime = Date.now();
   
   const animateGradient = () => {
     const elapsed = Date.now() - startTime;
     const progress = Math.min(elapsed / duration, 1);
     
-    const easedProgress = cubicBezier(progress, 0.4, 0, 0.2, 1);
+    const easedProgress = progress * (2 - progress);
     gradientPosition.value = startPosition + (endPosition - startPosition) * easedProgress;
     
     if (progress < 1) {
@@ -526,36 +452,18 @@ const toggleTheme = async () => {
     }
   };
   
-  // Cambiar el estado del tema
   isDarkMode.value = !isDarkMode.value;
   localStorage.setItem('theme', isDarkMode.value ? 'dark' : 'light');
   
   requestAnimationFrame(animateGradient);
   
-  // Ocultar partículas
   setTimeout(() => {
     showParticles.value = false;
     isTransitioning.value = false;
-  }, duration + 40);
+  }, duration + 50);
 };
 
-// Función cubic bezier
-const cubicBezier = (t, p0, p1, p2, p3) => {
-  const u = 1 - t;
-  const tt = t * t;
-  const uu = u * u;
-  const uuu = uu * u;
-  const ttt = tt * t;
-  
-  const p = uuu * 0;
-  const q = 3 * uu * t * p1;
-  const r = 3 * u * tt * p2;
-  const s = ttt * 1;
-  
-  return p + q + r + s;
-};
-
-// Estilo del degradado del fondo principal
+// Estilo del gradiente
 const sectionGradientStyle = computed(() => {
   if (isTransitioning.value) {
     const startGradient = isDarkMode.value ? lightGradient : darkGradient;
@@ -565,24 +473,36 @@ const sectionGradientStyle = computed(() => {
       backgroundImage: `${startGradient}, ${endGradient}`,
       backgroundSize: `200% 200%, 200% 200%`,
       backgroundPosition: `${gradientPosition.value}% ${gradientPosition.value}%, ${gradientPosition.value}% ${gradientPosition.value}%`,
-      backgroundBlendMode: 'overlay, normal',
-      filter: 'brightness(1.1) saturate(1.05)',
-      transition: 'all 0.18s cubic-bezier(0.4, 0, 0.2, 1)',
-      willChange: 'background-position, background-image, filter'
+      filter: 'brightness(1.1)',
+      transition: 'all 0.15s ease-out',
     };
   } else {
     return {
       backgroundImage: isDarkMode.value ? darkGradient : lightGradient,
       backgroundSize: '200% 200%',
       backgroundPosition: '0% 0%',
-      animation: isDarkMode.value ? 'gradient-shift-dark 6s ease infinite' : 'gradient-shift-light 6s ease infinite',
-      filter: 'brightness(1) saturate(1)',
-      willChange: 'background-position'
+      animation: isDarkMode.value ? 'gradient-shift-dark 8s ease infinite' : 'gradient-shift-light 8s ease infinite',
     };
   }
 });
 
-// Aplicar transición al cambiar tema
+// Scroll a sección
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+};
+
+// Inicializar
+onMounted(() => {
+  initializeTheme();
+});
+
+// Watch para cambio de tema
 watch(isDarkMode, (newVal) => {
   document.documentElement.classList.add('theme-transition-fast');
   
@@ -596,15 +516,6 @@ watch(isDarkMode, (newVal) => {
     document.documentElement.classList.remove('theme-transition-fast');
   }, 200);
 });
-
-const scrollToSection = (sectionId) => {
-  const element = document.getElementById(sectionId);
-  if (element) element.scrollIntoView({ behavior: 'smooth' });
-};
-
-onMounted(() => {
-  initializeTheme();
-});
 </script>
 
 <style scoped>
@@ -614,14 +525,8 @@ onMounted(() => {
   0%, 100% {
     background-position: 0% 0%;
   }
-  25% {
-    background-position: 40% 20%;
-  }
   50% {
-    background-position: 80% 40%;
-  }
-  75% {
-    background-position: 40% 60%;
+    background-position: 100% 50%;
   }
 }
 
@@ -629,14 +534,8 @@ onMounted(() => {
   0%, 100% {
     background-position: 0% 0%;
   }
-  25% {
-    background-position: 40% 20%;
-  }
   50% {
-    background-position: 80% 40%;
-  }
-  75% {
-    background-position: 40% 60%;
+    background-position: 100% 50%;
   }
 }
 
@@ -644,101 +543,99 @@ onMounted(() => {
 @keyframes themeFadeInFast {
   from {
     opacity: 0;
-    transform: scale(0.96) translateY(6px);
-    filter: blur(2px);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
-    transform: scale(1) translateY(0);
-    filter: blur(0);
+    transform: scale(1);
   }
 }
 
 @keyframes themeFadeOutFast {
   from {
     opacity: 1;
-    transform: scale(1) translateY(0);
-    filter: blur(0);
+    transform: scale(1);
   }
   to {
     opacity: 0;
-    transform: scale(1.03) translateY(-6px);
-    filter: blur(2px);
+    transform: scale(1.05);
   }
 }
 
 .theme-fade-fast-enter-active {
-  animation: themeFadeInFast 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  animation: themeFadeInFast 0.12s ease-out !important;
 }
 
 .theme-fade-fast-leave-active {
-  animation: themeFadeOutFast 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  animation: themeFadeOutFast 0.12s ease-out !important;
 }
 
-/* Transiciones generales optimizadas */
+/* Transiciones optimizadas */
 * {
-  transition: background-color 0.12s cubic-bezier(0.4, 0, 0.2, 1), 
-              border-color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.12s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.12s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.12s cubic-bezier(0.4, 0, 0.2, 1),
-              filter 0.12s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.12s cubic-bezier(0.4, 0, 0.2, 1),
-              background-position 0.12s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Transición específica para el tema */
-.theme-transition-fast * {
-  transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: background-color 0.12s ease-out, 
+              border-color 0.12s ease-out,
+              color 0.12s ease-out,
+              transform 0.12s ease-out,
+              opacity 0.12s ease-out;
 }
 
 /* Animación para rayos del sol */
 @keyframes pulse-ray-fast {
   0%, 100% {
-    opacity: 0.25;
-    transform: rotate(var(--rotation)) translateY(-9px) scale(0.85);
+    opacity: 0.3;
+    transform: rotate(var(--rotation)) translateY(-10px) scale(0.8);
   }
   50% {
-    opacity: 0.8;
-    transform: rotate(var(--rotation)) translateY(-9px) scale(1.1);
-  }
-}
-
-/* Animación para partículas */
-@keyframes particle-explode-fast {
-  0% {
-    transform: translate(0, 0) scale(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(var(--x), var(--y)) scale(1);
-    opacity: 0;
+    opacity: 0.7;
+    transform: rotate(var(--rotation)) translateY(-10px) scale(1.1);
   }
 }
 
 /* Animación para brillo estelar */
 @keyframes twinkle-fast {
   0%, 100% {
-    opacity: 0.25;
-    transform: scale(0.85);
+    opacity: 0.3;
+    transform: scale(0.8);
   }
   50% {
-    opacity: 0.9;
+    opacity: 0.8;
     transform: scale(1.1);
   }
 }
 
-/* Animaciones de utilidad */
+/* Animaciones básicas */
 .animate-pulse-fast {
-  animation: pulse 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse 1.2s ease-in-out infinite;
 }
 
 .animate-pulse-slow {
-  animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse 2.5s ease-in-out infinite;
 }
 
 .animate-bounce-fast {
-  animation: bounce 0.9s infinite;
+  animation: bounce 0.8s infinite;
+}
+
+.animate-float {
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-600 {
+  animation-delay: 600ms;
 }
 
 @keyframes pulse {
@@ -746,7 +643,7 @@ onMounted(() => {
     opacity: 1;
   }
   50% {
-    opacity: 0.6;
+    opacity: 0.5;
   }
 }
 
@@ -759,62 +656,82 @@ onMounted(() => {
   }
 }
 
-/* Efecto especial para el switch */
-button[aria-label="Cambiar tema"] > div:first-child {
-  animation: float-gentle 2.5s ease-in-out infinite;
-}
-
-@keyframes float-gentle {
+@keyframes float {
   0%, 100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-1.5px);
+    transform: translateY(-10px);
   }
 }
 
-/* Optimización para dispositivos móviles */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efectos de sombras */
+.shadow-glow {
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);
+}
+
+.hover\:shadow-glow:hover {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+}
+
+/* Optimización responsive */
 @media (max-width: 768px) {
+  section {
+    min-height: 40vh;
+  }
+  
+  .relative.w-full.mb-6 {
+    margin-bottom: 4rem;
+  }
+  
   /* Botón de tema más compacto en móvil */
   button[aria-label="Cambiar tema"] {
-    width: 24px;
+    width: 28px;
     height: 10px;
   }
   
-  /* Switch más pequeño en móvil */
   button[aria-label="Cambiar tema"] > div:first-child {
     width: 10px;
     height: 10px;
   }
   
-  /* Iconos más pequeños en móvil */
   .absolute.left-3, .absolute.right-3 {
     width: 5px;
     height: 5px;
   }
   
-  /* Texto "DÍA/NOCHE" más pequeño en móvil */
   .absolute.-bottom-4 {
     font-size: 8px;
     bottom: -3px;
   }
-  
-  /* Padding reducido en móvil */
-  .px-3 {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-  
-  /* Margen inferior reducido */
-  .mb-4 {
-    margin-bottom: 0.75rem;
-  }
 }
 
 @media (max-width: 480px) {
-  /* Botón aún más compacto */
+  /* Botón de tema ultra compacto */
   button[aria-label="Cambiar tema"] {
-    width: 22px;
+    width: 26px;
     height: 9px;
   }
   
@@ -822,64 +739,31 @@ button[aria-label="Cambiar tema"] > div:first-child {
     width: 9px;
     height: 9px;
   }
-  
-  .absolute.left-3 {
-    left: 2px;
-    width: 4px;
-    height: 4px;
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-fast,
+  .animate-pulse-slow,
+  .animate-bounce-fast,
+  .animate-float,
+  .animate-slideInLeft,
+  .animate-fadeInUp {
+    animation: none !important;
   }
   
-  .absolute.right-3 {
-    right: 2px;
-    width: 4px;
-    height: 4px;
-  }
-  
-  /* Texto de títulos más pequeño */
-  .text-2xl {
-    font-size: 1.5rem;
-  }
-  
-  /* Padding mínimo */
-  .px-3 {
-    padding-left: 0.375rem;
-    padding-right: 0.375rem;
+  .hover\:scale-105,
+  .hover\:-translate-y-0\.5 {
+    transform: none !important;
   }
 }
 
-/* Clases de utilidad para tamaños reducidos */
-.text-xs {
-  font-size: 0.75rem;
+/* Mejoras de rendimiento */
+section > div:first-child {
+  will-change: background-position;
 }
 
-.text-sm {
-  font-size: 0.875rem;
-}
-
-.p-4 {
-  padding: 1rem;
-}
-
-.p-5 {
-  padding: 1.25rem;
-}
-
-.py-2\.5 {
-  padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
-}
-
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-/* Utilería para hover escalas reducidas */
-.hover\:scale-101:hover {
-  transform: scale(1.01);
-}
-
-.hover\:scale-102:hover {
-  transform: scale(1.02);
+button[aria-label="Cambiar tema"] {
+  will-change: transform;
 }
 </style>

@@ -106,7 +106,7 @@
           </div>
         </div>
 
-        <!-- Botón de tema compacto -->
+        <!-- Botón de tema compacto - YA ES EL CORRECTO -->
         <div class="absolute top-0 right-0 md:right-2 z-50">
           <button
             @click="toggleTheme"
@@ -364,11 +364,11 @@
         </div>
 
         <!-- Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 max-w-5xl mx-auto w-full px-4 mt-4 md:mt-6 animate-fadeInUp transition-all duration-150" style="animation-delay: 200ms">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 max-w-6xl mx-auto w-full px-4 mt-4 md:mt-6 animate-fadeInUp transition-all duration-150" style="animation-delay: 200ms">
           <div v-for="(stat, index) in stats" :key="index" class="group relative">
             
             <!-- Tarjeta Stat -->
-            <div class="relative backdrop-blur-xl rounded-2xl border p-3 md:p-4 transform transition-all duration-150 group-hover:-translate-y-0.5 group-hover:scale-102 group-hover:shadow-lg shadow-md hover:shadow-glow"
+            <div class="relative backdrop-blur-xl rounded-lg border p-4 transform transition-all duration-150 group-hover:-translate-y-0.5 group-hover:scale-102 group-hover:shadow-lg shadow-md hover:shadow-glow"
                  :class="isDarkMode 
                    ? 'bg-gradient-to-br from-blue-700/40 via-indigo-800/50 to-blue-900/40 border-cyan-400/40 hover:border-cyan-300/50' 
                    : 'bg-gradient-to-br from-blue-50/80 via-blue-100/70 to-blue-200/60 border-blue-400/50 hover:border-blue-500/60'">
@@ -726,12 +726,12 @@ watch(isDarkMode, (newVal) => {
   }
   
   /* Botón de tema más compacto en móvil */
-  button[aria-label="Cambiar tema"] {
+  .theme-switch-premium {
     width: 28px;
     height: 10px;
   }
   
-  button[aria-label="Cambiar tema"] > div:first-child {
+  .theme-switch-premium > div:first-child {
     width: 10px;
     height: 10px;
   }
@@ -754,12 +754,12 @@ watch(isDarkMode, (newVal) => {
   }
   
   /* Botón de tema ultra compacto */
-  button[aria-label="Cambiar tema"] {
+  .theme-switch-premium {
     width: 26px;
     height: 9px;
   }
   
-  button[aria-label="Cambiar tema"] > div:first-child {
+  .theme-switch-premium > div:first-child {
     width: 9px;
     height: 9px;
   }
@@ -787,7 +787,7 @@ watch(isDarkMode, (newVal) => {
   will-change: background-position;
 }
 
-button[aria-label="Cambiar tema"] {
+.theme-switch-premium {
   will-change: transform;
 }
 </style>

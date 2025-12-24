@@ -1,10 +1,10 @@
 <template>
   <section 
     id="proceso" 
-    class="min-h-[85vh] w-full relative overflow-hidden flex items-center justify-center py-8 md:py-10 transition-all duration-150 ease-out"
+    class="min-h-[85vh] w-full text-white relative overflow-hidden flex items-center justify-center transition-all duration-150 ease-out"
     :style="sectionGradientStyle"
   >
-    <!-- Capa de fondo principal -->
+    <!-- Capa de fondo principal (EXACTO A OTRAS SECCIONES) -->
     <div 
       class="absolute inset-0 transition-all duration-150 ease-out overflow-hidden"
       :style="sectionGradientStyle"
@@ -20,13 +20,13 @@
                top: ${Math.random() * 100}%;
                left: ${Math.random() * 100}%;
                animation-delay: ${Math.random() * 0.3}s;
-               opacity: ${isTransitioning ? 0.5 : 0.2};
+               opacity: ${isTransitioning ? 0.6 : 0.2};
              `">
         </div>
       </div>
     </div>
 
-    <!-- Efectos de fondo animados -->
+    <!-- Efectos de fondo animados (EXACTO A OTRAS SECCIONES) -->
     <div class="absolute inset-0 overflow-hidden transition-all duration-150 ease-out">
       <transition name="theme-fade-fast" mode="out-in">
         <div v-if="isDarkMode" key="dark-bg-1" class="absolute top-1/4 -left-12 w-48 h-48 bg-gradient-to-br from-blue-500/25 to-cyan-400/15 rounded-full blur-2xl animate-pulse-fast transition-all duration-150"
@@ -69,124 +69,12 @@
       </div>
     </div>
 
-    <!-- Contenido Principal -->
-    <div class="w-full max-w-7xl mx-auto px-4 md:px-6 text-center relative z-10 py-4 md:py-6 flex flex-col items-center">
+    <!-- Contenedor principal -->
+    <div class="w-full max-w-6xl mx-auto px-4 md:px-6 text-center relative z-10 py-6 md:py-8 flex flex-col items-center">
       
-      <!-- BOTÓN DE TEMA - CONTENEDOR SEPARADO -->
-      <div class="absolute top-0 right-0 md:right-2 z-20 w-full max-w-7xl mx-auto px-4 md:px-6">
-        <button
-          @click="toggleTheme"
-          class="relative flex items-center justify-center w-32 h-12 rounded-lg border shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95 transition-all duration-150 ease-out overflow-hidden group theme-switch-premium float-right"
-          :class="isDarkMode 
-            ? 'border-cyan-400/50 hover:border-cyan-300 shadow-cyan-500/15 bg-gradient-to-br from-blue-900/80 via-indigo-900/80 to-purple-900/80' 
-            : 'border-blue-300/50 hover:border-blue-200 shadow-blue-400/15 bg-gradient-to-br from-white/90 via-blue-50/90 to-blue-100/90'"
-          :title="isDarkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
-          aria-label="Cambiar tema"
-        >
-          <!-- Switch compacto -->
-          <div 
-            class="absolute w-12 h-12 rounded-full transition-all duration-300 ease-out transform z-30 overflow-hidden"
-            :class="isDarkMode ? 'right-3' : 'left-3'"
-            :style="isTransitioning ? { 
-              filter: 'brightness(1.1)',
-              boxShadow: isDarkMode 
-                ? '0 0 15px rgba(96, 165, 250, 0.4), inset 0 0 15px rgba(96, 165, 250, 0.2)' 
-                : '0 0 15px rgba(250, 204, 21, 0.4), inset 0 0 15px rgba(250, 204, 21, 0.2)'
-            } : {}"
-          >
-            <!-- Fondo del switch -->
-            <div class="absolute inset-0">
-              <!-- Base del switch -->
-              <div 
-                class="absolute inset-0 transition-all duration-150"
-                :class="isDarkMode 
-                  ? 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800' 
-                  : 'bg-gradient-to-br from-yellow-400 via-yellow-300 to-yellow-500'">
-              </div>
-              
-              <!-- Efecto de luz interior -->
-              <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/40 to-transparent opacity-60 animate-pulse-slow"></div>
-              
-              <!-- Brillo de borde -->
-              <div 
-                class="absolute inset-0 rounded-full border transition-all duration-150"
-                :class="isDarkMode 
-                  ? 'border-blue-400/80' 
-                  : 'border-yellow-400/80'">
-              </div>
-            </div>
-            
-            <!-- Icono dentro del switch -->
-            <div class="absolute inset-0 flex items-center justify-center z-10">
-              <!-- Luna -->
-              <svg v-if="isDarkMode" class="w-6 h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
-                   :class="isTransitioning ? 'text-blue-200' : 'text-blue-300'">
-                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
-              </svg>
-              
-              <!-- Sol -->
-              <svg v-else class="w-6 h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
-                   :class="isTransitioning ? 'text-yellow-200' : 'text-yellow-400'">
-                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
-              </svg>
-            </div>
-            
-            <!-- Brillo central -->
-            <div class="absolute top-1/2 left-1/2 w-2 h-2 rounded-full transform -translate-x-1/2 -translate-y-1/2 blur-sm transition-all duration-150"
-                 :class="isDarkMode ? 'bg-blue-300/70' : 'bg-yellow-300/70'"></div>
-          </div>
-          
-          <!-- Efecto de brillo al hover -->
-          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-out"></div>
-          
-          <!-- Contenedor principal con iconos -->
-          <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
-            
-            <!-- Sol (izquierda) -->
-            <div class="absolute left-3 w-6 h-6 transition-all duration-150 ease-out z-20"
-                 :class="isDarkMode 
-                   ? 'opacity-30 scale-90 text-yellow-300/40' 
-                   : 'opacity-100 scale-105 text-yellow-400'">
-              <svg class="w-full h-full" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
-              </svg>
-            </div>
-            
-            <!-- Luna (derecha) -->
-            <div class="absolute right-3 w-5 h-5 transition-all duration-150 ease-out z-20"
-                 :class="!isDarkMode 
-                   ? 'opacity-30 scale-90 text-blue-400/40' 
-                   : 'opacity-100 scale-105 text-blue-300'">
-              <svg class="w-full h-full" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
-              </svg>
-            </div>
-            
-            <!-- Texto "DÍA/NOCHE" -->
-            <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[9px] font-semibold uppercase tracking-wide opacity-80 z-5 transition-all duration-150 whitespace-nowrap"
-                 :class="isDarkMode ? 'text-blue-300/80' : 'text-yellow-600/80'">
-              {{ isDarkMode ? 'NOCHE' : 'DÍA' }}
-            </div>
-            
-          </div>
-          
-          <!-- Tooltip -->
-          <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-50">
-            <div class="px-1.5 py-0.5 text-[9px] font-medium rounded backdrop-blur-sm shadow-sm"
-                 :class="isDarkMode 
-                   ? 'bg-blue-900/80 text-blue-300 border border-blue-400/20' 
-                   : 'bg-yellow-50/90 text-yellow-800 border border-yellow-400/20'">
-              {{ isDarkMode ? 'Activar día' : 'Activar noche' }}
-            </div>
-          </div>
-          
-        </button>
-      </div>
-      
-      <!-- HEADER CENTRADO -->
-      <div class="text-center w-full flex flex-col items-center mb-6 md:mb-8 animate-fadeInUp transition-all duration-150">
-        
-        <!-- Badge animado -->
+      <!-- Contenedor para badge y botón de temas (EXACTO A OTRAS SECCIONES) -->
+      <div class="relative w-full mb-6">
+        <!-- Badge animado compacto -->
         <div 
           class="inline-flex items-center backdrop-blur-lg rounded-full px-4 py-1.5 mb-2 shadow-glow animate-pulse-slow transition-all duration-150"
           :class="isDarkMode 
@@ -209,7 +97,7 @@
             } : {}"
           ></div>
           <span class="text-xs font-bold tracking-wider transition-colors duration-150"
-                :class="isDarkMode ? 'text-white' : 'text-blue-900'">🔄 NUESTRO PROCESO</span>
+                :class="isDarkMode ? 'text-white' : 'text-blue-900'">🔄 PROCESO</span>
           <div 
             class="ml-2 w-0.5 h-4 rounded-full transition-all duration-150"
             :class="isDarkMode 
@@ -217,41 +105,194 @@
               : 'bg-gradient-to-b from-blue-400/30 to-blue-500/30'">
           </div>
         </div>
-        
-        <!-- Título CENTRADO -->
-        <div class="relative w-full mb-3 md:mb-4 transition-all duration-150">
-          <div class="w-full flex justify-center">
-            <div class="w-full max-w-3xl">
-              <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-center w-full tracking-tight leading-tight animate-slideInLeft transition-all duration-150">
-                <span class="relative inline-block">
-                  <span 
-                    class="bg-clip-text text-transparent relative z-20 pb-1 transition-all duration-150"
-                    :class="isDarkMode 
-                      ? 'bg-gradient-to-r from-white via-blue-100 to-blue-200' 
-                      : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
-                    Metodología Probada
-                  </span>
-                  
-                  <!-- Subrayado animado -->
-                  <div 
-                    class="absolute -bottom-0.5 left-1/4 right-1/4 h-0.5 rounded-full opacity-60 mt-0.5 transition-all duration-150"
-                    :class="isDarkMode 
-                      ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                      : 'bg-gradient-to-r from-blue-500 to-blue-400'">
-                  </div>
-                </span>
-              </h2>
+
+        <!-- Botón de tema compacto (EXACTAMENTE IGUAL A OTRAS SECCIONES) -->
+        <div class="absolute top-0 right-0 md:right-2 z-50">
+          <button
+            @click="toggleTheme"
+            class="relative flex items-center justify-center w-32 h-12 rounded-lg border shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95 transition-all duration-150 ease-out overflow-hidden group theme-switch-premium"
+            :class="isDarkMode 
+              ? 'border-cyan-400/50 hover:border-cyan-300 shadow-cyan-500/15 bg-gradient-to-br from-blue-900/80 via-indigo-900/80 to-purple-900/80' 
+              : 'border-blue-300/50 hover:border-blue-200 shadow-blue-400/15 bg-gradient-to-br from-white/90 via-blue-50/90 to-blue-100/90'"
+            :title="isDarkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
+            aria-label="Cambiar tema"
+          >
+            <!-- Switch compacto -->
+            <div 
+              class="absolute w-12 h-12 rounded-full transition-all duration-300 ease-out transform z-30 overflow-hidden"
+              :class="isDarkMode ? 'right-3' : 'left-3'"
+              :style="isTransitioning ? { 
+                filter: 'brightness(1.1)',
+                boxShadow: isDarkMode 
+                  ? '0 0 15px rgba(96, 165, 250, 0.4), inset 0 0 15px rgba(96, 165, 250, 0.2)' 
+                  : '0 0 15px rgba(250, 204, 21, 0.4), inset 0 0 15px rgba(250, 204, 21, 0.2)'
+              } : {}"
+            >
+              <!-- Fondo del switch -->
+              <div class="absolute inset-0">
+                <!-- Base del switch con gradiente -->
+                <div 
+                  class="absolute inset-0 transition-all duration-150"
+                  :class="isDarkMode 
+                    ? 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800' 
+                    : 'bg-gradient-to-br from-yellow-400 via-yellow-300 to-yellow-500'"
+                ></div>
+                
+                <!-- Efecto de luz interior pulsante -->
+                <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/40 to-transparent opacity-60 animate-pulse-slow transition-all duration-150"></div>
+                
+                <!-- Brillo de borde -->
+                <div 
+                  class="absolute inset-0 rounded-full border transition-all duration-150"
+                  :class="isDarkMode 
+                    ? 'border-blue-400/80' 
+                    : 'border-yellow-400/80'"
+                  :style="isTransitioning ? { 
+                    boxShadow: isDarkMode 
+                      ? '0 0 10px rgba(96, 165, 250, 0.5), inset 0 0 8px rgba(96, 165, 250, 0.3)' 
+                      : '0 0 10px rgba(250, 204, 21, 0.5), inset 0 0 8px rgba(250, 204, 21, 0.3)'
+                  } : {}"
+                ></div>
+              </div>
+              
+              <!-- Icono dentro del switch (SVG) -->
+              <div class="absolute inset-0 flex items-center justify-center z-10">
+                <!-- Icono de Luna para tema oscuro -->
+                <svg v-if="isDarkMode" class="w-6 h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
+                     :class="isTransitioning ? 'text-blue-200' : 'text-blue-300'">
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                </svg>
+                
+                <!-- Icono de Sol para tema claro -->
+                <svg v-else class="w-6 h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
+                     :class="isTransitioning ? 'text-yellow-200' : 'text-yellow-400'">
+                  <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              
+              <!-- Brillo central -->
+              <div class="absolute top-1/2 left-1/2 w-2 h-2 rounded-full transform -translate-x-1/2 -translate-y-1/2 blur-sm transition-all duration-150"
+                   :class="isDarkMode ? 'bg-blue-300/70' : 'bg-yellow-300/70'"></div>
             </div>
+            
+            <!-- Efecto de brillo al hover -->
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-out"></div>
+            
+            <!-- Contenedor principal con iconos -->
+            <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
+              
+              <!-- Sol (izquierda) -->
+              <div class="absolute left-3 w-6 h-6 transition-all duration-150 ease-out z-20"
+                   :class="isDarkMode 
+                     ? 'opacity-30 scale-90 text-yellow-300/40' 
+                     : 'opacity-100 scale-105 text-yellow-400'">
+                <svg class="w-full h-full" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              
+              <!-- Luna (derecha) -->
+              <div class="absolute right-3 w-5 h-5 transition-all duration-150 ease-out z-20"
+                   :class="!isDarkMode 
+                     ? 'opacity-30 scale-90 text-blue-400/40' 
+                     : 'opacity-100 scale-105 text-blue-300'">
+                <svg class="w-full h-full" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                </svg>
+              </div>
+              
+              <!-- Texto "DÍA/NOCHE" -->
+              <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[9px] font-semibold uppercase tracking-wide opacity-80 z-5 transition-all duration-150 whitespace-nowrap"
+                   :class="isDarkMode ? 'text-blue-300/80' : 'text-yellow-600/80'">
+                {{ isDarkMode ? 'NOCHE' : 'DÍA' }}
+              </div>
+              
+            </div>
+            
+            <!-- Rayos del sol animados -->
+            <div v-if="!isDarkMode" class="absolute left-3 w-6 h-6 z-10">
+              <div v-for="(ray, index) in 8" :key="index"
+                   class="absolute top-1/2 left-1/2 w-0.5 h-2.5 bg-yellow-300/60 rounded-full transform origin-center transition-all duration-150"
+                   :style="`
+                     transform: rotate(${index * 45}deg) translateY(-10px);
+                     animation: pulse-ray-fast 1.5s ease-in-out infinite;
+                     animation-delay: ${index * 0.03}s;
+                   `">
+              </div>
+            </div>
+            
+            <!-- Constelación estelar -->
+            <div v-if="isDarkMode" class="absolute right-3 w-5 h-5 z-10">
+              <div v-for="(star, index) in 3" :key="index"
+                   class="absolute rounded-full bg-blue-100/60 animate-twinkle-fast transition-all duration-150"
+                   :style="`
+                     width: ${Math.random() * 1 + 0.6}px;
+                     height: ${Math.random() * 1 + 0.6}px;
+                     top: ${Math.random() * 100}%;
+                     left: ${Math.random() * 100}%;
+                     animation-delay: ${index * 0.15}s;
+                   `">
+              </div>
+            </div>
+            
+            <!-- Tooltip -->
+            <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-50">
+              <div class="px-1.5 py-0.5 text-[9px] font-medium rounded backdrop-blur-sm shadow-sm"
+                   :class="isDarkMode 
+                     ? 'bg-blue-900/80 text-blue-300 border border-blue-400/20' 
+                     : 'bg-yellow-50/90 text-yellow-800 border border-yellow-400/20'">
+                {{ isDarkMode ? 'Activar día' : 'Activar noche' }}
+              </div>
+            </div>
+            
+          </button>
+        </div>
+      </div>
+
+      <!-- Sección principal con títulos -->
+      <div class="w-full flex flex-col items-center space-y-3 md:space-y-4">
+        <!-- Título principal en un solo renglón (MISMO TAMAÑO QUE INICIO) -->
+        <div class="relative w-full mb-1 md:mb-2 transition-all duration-150 text-center">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center w-full tracking-tight leading-tight animate-slideInLeft transition-all duration-150">
+  <span class="relative inline-block">
+    <div class="relative pb-1">
+      <!-- Línea completa -->
+      <div 
+        class="bg-clip-text text-transparent leading-tight transition-all duration-150"
+        :class="isDarkMode 
+          ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
+          : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
+        Metodología Probada
+      </div>
+    </div>
+    
+    <!-- Subrayado animado (EXACTO A OTRAS SECCIONES) -->
+    <div 
+      class="absolute -bottom-1 left-1/4 right-1/4 h-0.5 rounded-full opacity-60 mt-0.5 transition-all duration-150"
+      :class="isDarkMode 
+        ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+        : 'bg-gradient-to-r from-blue-500 to-blue-400'">
+    </div>
+  </span>
+</h2>
+          
+          <!-- Slogan (EXACTO AL INICIO) -->
+          <div class="mt-2 md:mt-3 animate-fadeInUp transition-all duration-150" style="animation-delay: 50ms">
+            <p class="text-base md:text-lg font-bold transition-colors duration-150"
+               :class="isDarkMode ? 'text-blue-100/90' : 'text-blue-700/90'">
+              De <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">Estrategia</span> a 
+              <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">Resultados</span> Excepcionales
+            </p>
           </div>
         </div>
         
-        <!-- Subtítulo CENTRADO -->
-        <div class="relative w-full max-w-2xl mx-auto mb-4 md:mb-6 animate-fadeInUp transition-all duration-150" style="animation-delay: 50ms">
+        <!-- Subtítulo (CONSISTENTE CON INICIO) -->
+        <div class="relative max-w-2xl mx-auto mb-4 md:mb-6 animate-fadeInUp transition-all duration-150" style="animation-delay: 100ms">
           <div class="relative backdrop-blur-sm border rounded-lg p-3 md:p-4 shadow-lg transform transition-all duration-150 hover:scale-102"
                :class="isDarkMode 
                  ? 'bg-blue-900/20 border-blue-400/15 shadow-blue-500/10 hover:border-blue-300/30' 
                  : 'bg-blue-50/20 border-blue-300/15 shadow-blue-400/10 hover:border-blue-400/30'">
-            <p class="text-sm sm:text-base leading-relaxed text-center font-medium transition-colors duration-150"
+            <p class="text-sm sm:text-base md:text-lg leading-relaxed text-center font-medium transition-colors duration-150"
                :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
               <span :class="isDarkMode ? 'text-white' : 'text-blue-900'">Un proceso estructurado </span> 
               <span class="relative inline-block">
@@ -274,314 +315,315 @@
             </p>
           </div>
         </div>
-      </div>
 
-      <!-- Contenedor del carrusel de pasos -->
-      <div class="relative w-full max-w-6xl mx-auto mb-6 md:mb-8">
-        <!-- Contenedor principal con tarjetas -->
-        <div class="flex items-center justify-center h-[320px] md:h-[360px] transition-all duration-150">
-          
-          <!-- Botón izquierdo -->
-          <button 
-            @click="prevSlide"
-            :disabled="isAnimating"
-            class="relative z-30 w-10 h-10 md:w-12 md:h-12 backdrop-blur-lg rounded-lg border flex items-center justify-center transition-all duration-150 hover:scale-110 hover:shadow-xl group mr-2 md:mr-3 shadow-md transform-gpu hover:-translate-y-0.5"
-            :class="isDarkMode 
-              ? 'bg-blue-900/30 border-blue-400/30 hover:border-cyan-300/50 shadow-blue-500/15 hover:shadow-blue-500/30' 
-              : 'bg-blue-50/30 border-blue-300/30 hover:border-blue-400/50 shadow-blue-400/15 hover:shadow-blue-400/30'">
-            <!-- Efecto de fondo -->
-            <div class="absolute inset-0 transition-all duration-150"
-                 :class="isDarkMode 
-                   ? 'bg-gradient-to-br from-blue-800/40 to-indigo-800/40' 
-                   : 'bg-gradient-to-br from-blue-100/40 to-blue-200/40'"></div>
+        <!-- Contenedor del carrusel de pasos -->
+        <div class="relative w-full max-w-6xl mx-auto mb-6 md:mb-8 animate-fadeInUp transition-all duration-150" style="animation-delay: 150ms">
+          <!-- Contenedor principal con tarjetas -->
+          <div class="flex items-center justify-center h-[320px] md:h-[360px] transition-all duration-150">
             
-            <div class="relative w-5 h-5 rounded flex items-center justify-center transform group-hover:-translate-x-0.5 transition-transform duration-150"
-                 :class="isDarkMode 
-                   ? 'bg-gradient-to-r from-blue-200 to-blue-100 shadow-inner' 
-                   : 'bg-gradient-to-r from-blue-300 to-blue-200 shadow-inner'">
-              <span class="text-base font-bold transition-colors duration-150"
-                    :class="isDarkMode ? 'text-blue-900' : 'text-blue-800'">
-                ←
-              </span>
-            </div>
-          </button>
+            <!-- Botón izquierdo (ESTILO COHERENTE) -->
+            <button 
+              @click="prevSlide"
+              :disabled="isAnimating"
+              class="relative z-30 w-12 h-12 md:w-14 md:h-14 backdrop-blur-lg rounded-lg border flex items-center justify-center transition-all duration-150 hover:scale-110 hover:-translate-y-0.5 hover:shadow-xl group mr-2 md:mr-3 shadow-md"
+              :class="isDarkMode 
+                ? 'bg-blue-900/30 border-cyan-400/30 hover:border-cyan-300/50 shadow-cyan-500/15 hover:shadow-cyan-500/30' 
+                : 'bg-blue-50/30 border-blue-400/30 hover:border-blue-500/50 shadow-blue-400/15 hover:shadow-blue-400/30'">
+              <!-- Efecto de fondo -->
+              <div class="absolute inset-0 transition-all duration-150"
+                   :class="isDarkMode 
+                     ? 'bg-gradient-to-br from-blue-800/40 to-indigo-800/40' 
+                     : 'bg-gradient-to-br from-blue-100/40 to-blue-200/40'"></div>
+              
+              <div class="relative w-6 h-6 rounded-full flex items-center justify-center transform group-hover:-translate-x-0.5 transition-transform duration-150 animate-pulse-slow"
+                   :class="isDarkMode 
+                     ? 'bg-gradient-to-r from-blue-200 to-blue-100 shadow-inner' 
+                     : 'bg-gradient-to-r from-blue-300 to-blue-200 shadow-inner'">
+                <span class="text-base font-bold transition-colors duration-150"
+                      :class="isDarkMode ? 'text-blue-900' : 'text-blue-800'">
+                  ←
+                </span>
+              </div>
+            </button>
 
-          <!-- Contenedor de tarjetas -->
-          <div class="flex-1 relative flex items-center justify-center h-full transition-all duration-150">
-            
-            <!-- Tarjeta anterior -->
-            <div 
-              v-if="prevCard"
-              class="absolute left-0 w-[220px] h-[280px] md:w-[260px] md:h-[300px] transition-all duration-500 z-20"
-              :class="isAnimating ? 'opacity-60 -translate-x-8' : 'opacity-80'"
-            >
+            <!-- Contenedor de tarjetas -->
+            <div class="flex-1 relative flex items-center justify-center h-full transition-all duration-150">
+              
+              <!-- Tarjeta anterior -->
               <div 
-                class="w-full h-full backdrop-blur-xl rounded-2xl border shadow-lg p-4 transform-gpu hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer group flex flex-col items-center relative overflow-hidden hover:border-blue-500/60 min-h-full"
-                style="transform: rotateY(15deg) translateZ(-10px);"
-                @click="prevSlide"
-                :class="isDarkMode 
-                  ? 'bg-gradient-to-br from-blue-700/40 via-indigo-800/50 to-blue-900/40 border-cyan-400/40 hover:border-cyan-300/50' 
-                  : 'bg-gradient-to-br from-blue-50/80 via-blue-100/70 to-blue-200/60 border-blue-400/50 hover:border-blue-500/60'">
-                
-                <!-- Icono -->
-                <div class="flex justify-center mb-3 w-full">
-                  <div class="w-14 h-14 md:w-16 md:h-16 rounded-lg flex items-center justify-center border shadow-lg transform group-hover:scale-105 transition-transform duration-150 animate-pulse-slow"
-                       :class="isDarkMode 
-                         ? 'bg-gradient-to-br from-blue-500/70 to-cyan-500/70 border-cyan-400/30' 
-                         : 'bg-gradient-to-br from-blue-200/70 to-blue-300/70 border-blue-300/30'">
-                    <span class="text-2xl">{{ prevCard.icon }}</span>
-                  </div>
-                </div>
-                
-                <!-- Título -->
-                <h3 class="text-base font-bold mb-2 text-center w-full group-hover:text-blue-800 transition-colors duration-150 px-3 whitespace-normal tracking-tight"
-                    :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                  {{ prevCard.title }}
-                </h3>
-                
-                <!-- Descripción -->
-                <p class="leading-relaxed text-xs text-center mb-3 min-h-[2.5rem] max-h-[3rem] w-full px-3 transition-colors duration-150 overflow-hidden text-ellipsis line-clamp-2"
-                   :class="isDarkMode ? 'text-white/80' : 'text-blue-800/80'">
-                  {{ prevCard.description }}
-                </p>
-                
-                <!-- Características -->
-                <ul class="space-y-1.5 w-full px-3 flex-grow overflow-hidden">
-                  <li v-for="(feature, featureIndex) in prevCard.features" :key="featureIndex" 
-                      class="flex items-start justify-start">
-                    <div class="w-2 h-2 rounded-full mr-2 mt-0.5 flex-shrink-0 shadow-sm animate-pulse-fast"
+                v-if="prevCard"
+                class="absolute left-0 w-[220px] h-[280px] md:w-[260px] md:h-[300px] transition-all duration-300 z-20"
+                :class="isAnimating ? 'opacity-60 -translate-x-8' : 'opacity-80'"
+              >
+                <div 
+                  class="w-full h-full backdrop-blur-xl rounded-lg border shadow-lg p-4 transform hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer group flex flex-col items-center relative overflow-hidden min-h-full"
+                  style="transform: rotateY(15deg) translateZ(-10px);"
+                  @click="prevSlide"
+                  :class="isDarkMode 
+                    ? 'bg-gradient-to-br from-blue-700/40 via-indigo-800/50 to-blue-900/40 border-cyan-400/40 hover:border-cyan-300/50 hover:shadow-glow' 
+                    : 'bg-gradient-to-br from-blue-50/80 via-blue-100/70 to-blue-200/60 border-blue-400/50 hover:border-blue-500/60 hover:shadow-glow'">
+                  
+                  <!-- Icono -->
+                  <div class="flex justify-center mb-3 w-full">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center border shadow-lg transform group-hover:scale-110 transition-transform duration-150 animate-pulse-slow"
                          :class="isDarkMode 
-                           ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                           : 'bg-gradient-to-r from-blue-400 to-blue-300'">
+                           ? 'bg-gradient-to-br from-blue-500/70 to-cyan-500/70 border-cyan-400/30' 
+                           : 'bg-gradient-to-br from-blue-200/70 to-blue-300/70 border-blue-300/30'">
+                      <span class="text-xl md:text-2xl">{{ prevCard.icon }}</span>
                     </div>
-                    <span class="text-xs text-left flex-1 font-medium transition-colors duration-150 line-clamp-2"
-                          :class="isDarkMode ? 'text-white/75' : 'text-blue-800/75'">
-                      {{ feature }}
-                    </span>
-                  </li>
-                </ul>
+                  </div>
+                  
+                  <!-- Título -->
+                  <h3 class="text-base md:text-lg font-black mb-2 text-center w-full group-hover:text-blue-800 transition-colors duration-150 px-3 whitespace-normal tracking-tight"
+                      :class="isDarkMode ? 'text-white' : 'text-blue-900'">
+                    {{ prevCard.title }}
+                  </h3>
+                  
+                  <!-- Descripción -->
+                  <p class="leading-relaxed text-xs md:text-sm text-center mb-3 min-h-[2.5rem] max-h-[3rem] w-full px-3 transition-colors duration-150 overflow-hidden text-ellipsis line-clamp-2"
+                     :class="isDarkMode ? 'text-white/80' : 'text-blue-800/80'">
+                    {{ prevCard.description }}
+                  </p>
+                  
+                  <!-- Características -->
+                  <ul class="space-y-1.5 w-full px-3 flex-grow overflow-hidden">
+                    <li v-for="(feature, featureIndex) in prevCard.features" :key="featureIndex" 
+                        class="flex items-start justify-start transform group-hover:translate-x-1 transition-transform duration-150"
+                        :style="`transition-delay: ${featureIndex * 50}ms`">
+                      <div class="w-2 h-2 rounded-full mr-2 mt-0.5 flex-shrink-0 shadow-sm animate-pulse-fast"
+                           :class="isDarkMode 
+                             ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+                             : 'bg-gradient-to-r from-blue-400 to-blue-300'">
+                      </div>
+                      <span class="text-xs text-left flex-1 font-medium transition-colors duration-150 line-clamp-2"
+                            :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
+                        {{ feature }}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Tarjeta actual central -->
+              <div 
+                class="absolute left-1/2 transform -translate-x-1/2 w-[280px] h-[320px] md:w-[320px] md:h-[360px] z-30 transition-all duration-300"
+                :class="isAnimating ? 'opacity-80 scale-95' : 'opacity-100 scale-100'"
+              >
+                <div 
+                  class="w-full h-full backdrop-blur-xl rounded-lg border shadow-xl p-5 md:p-6 transform hover:scale-105 hover:-translate-y-0.5 transition-all duration-300 group flex flex-col items-center relative overflow-hidden min-h-full"
+                  :class="isDarkMode 
+                    ? 'bg-gradient-to-br from-blue-700/50 via-indigo-800/60 to-blue-900/50 border-cyan-400/50 hover:border-cyan-300/60 shadow-cyan-500/20 hover:shadow-glow' 
+                    : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/60 hover:border-blue-500/70 shadow-blue-400/20 hover:shadow-glow'">
+                  
+                  <!-- Icono grande central -->
+                  <div class="flex justify-center mb-4 w-full relative">
+                    <div class="w-16 h-16 md:w-18 md:h-18 rounded-lg flex items-center justify-center border shadow-xl transform group-hover:rotate-12 transition-transform duration-300 animate-pulse-slow"
+                         :class="isDarkMode 
+                           ? 'bg-gradient-to-br from-blue-500/60 to-cyan-600/60 border-cyan-400/50' 
+                           : 'bg-gradient-to-br from-blue-300/60 to-blue-400/60 border-blue-300/50'">
+                      <span class="text-2xl md:text-3xl custom-bounce-slow">{{ currentCard.icon }}</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Título principal -->
+                  <h3 class="text-lg md:text-xl font-black mb-3 text-center w-full bg-clip-text text-transparent px-4 whitespace-normal tracking-tight transition-all duration-150"
+                      :class="isDarkMode 
+                        ? 'bg-gradient-to-r from-white via-blue-100 to-blue-200' 
+                        : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
+                    {{ currentCard.title }}
+                  </h3>
+                  
+                  <!-- Descripción -->
+                  <p class="leading-relaxed text-sm md:text-base text-center mb-4 min-h-[3rem] max-h-[3.5rem] w-full px-4 transition-colors duration-150 overflow-hidden text-ellipsis line-clamp-2"
+                     :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
+                    {{ currentCard.description }}
+                  </p>
+                  
+                  <!-- Características -->
+                  <ul class="space-y-2 w-full px-4 mb-4 flex-grow overflow-y-auto">
+                    <li v-for="(feature, featureIndex) in currentCard.features" :key="featureIndex" 
+                        class="flex items-start justify-start transform group-hover:translate-x-1 transition-transform duration-150"
+                        :style="`transition-delay: ${featureIndex * 80}ms`">
+                      <div class="w-2 h-2 rounded-full mr-2 mt-0.5 flex-shrink-0 shadow-md group-hover:scale-110 transition-all duration-150 animate-pulse-fast"
+                           :class="isDarkMode 
+                             ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+                             : 'bg-gradient-to-r from-blue-400 to-blue-300'">
+                      </div>
+                      <span class="text-sm md:text-base text-left flex-1 font-semibold transition-colors duration-150 line-clamp-2"
+                            :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
+                        {{ feature }}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Tarjeta siguiente -->
+              <div 
+                v-if="nextCard"
+                class="absolute right-0 w-[220px] h-[280px] md:w-[260px] md:h-[300px] transition-all duration-300 z-20"
+                :class="isAnimating ? 'opacity-60 translate-x-8' : 'opacity-80'"
+              >
+                <div 
+                  class="w-full h-full backdrop-blur-xl rounded-lg border shadow-lg p-4 transform hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer group flex flex-col items-center relative overflow-hidden min-h-full"
+                  style="transform: rotateY(-15deg) translateZ(-10px);"
+                  @click="nextSlide"
+                  :class="isDarkMode 
+                    ? 'bg-gradient-to-br from-blue-700/40 via-indigo-800/50 to-blue-900/40 border-cyan-400/40 hover:border-cyan-300/50 hover:shadow-glow' 
+                    : 'bg-gradient-to-br from-blue-50/80 via-blue-100/70 to-blue-200/60 border-blue-400/50 hover:border-blue-500/60 hover:shadow-glow'">
+                  
+                  <!-- Icono -->
+                  <div class="flex justify-center mb-3 w-full">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center border shadow-lg transform group-hover:scale-110 transition-transform duration-150 animate-pulse-slow"
+                         :class="isDarkMode 
+                           ? 'bg-gradient-to-br from-blue-500/70 to-cyan-500/70 border-cyan-400/30' 
+                           : 'bg-gradient-to-br from-blue-200/70 to-blue-300/70 border-blue-300/30'">
+                      <span class="text-xl md:text-2xl">{{ nextCard.icon }}</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Título -->
+                  <h3 class="text-base md:text-lg font-black mb-2 text-center w-full group-hover:text-blue-800 transition-colors duration-150 px-3 whitespace-normal tracking-tight"
+                      :class="isDarkMode ? 'text-white' : 'text-blue-900'">
+                    {{ nextCard.title }}
+                  </h3>
+                  
+                  <!-- Descripción -->
+                  <p class="leading-relaxed text-xs md:text-sm text-center mb-3 min-h-[2.5rem] max-h-[3rem] w-full px-3 transition-colors duration-150 overflow-hidden text-ellipsis line-clamp-2"
+                     :class="isDarkMode ? 'text-white/80' : 'text-blue-800/80'">
+                    {{ nextCard.description }}
+                  </p>
+                  
+                  <!-- Características -->
+                  <ul class="space-y-1.5 w-full px-3 flex-grow overflow-hidden">
+                    <li v-for="(feature, featureIndex) in nextCard.features" :key="featureIndex" 
+                        class="flex items-start justify-start transform group-hover:translate-x-1 transition-transform duration-150"
+                        :style="`transition-delay: ${featureIndex * 50}ms`">
+                      <div class="w-2 h-2 rounded-full mr-2 mt-0.5 flex-shrink-0 shadow-sm animate-pulse-fast"
+                           :class="isDarkMode 
+                             ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+                             : 'bg-gradient-to-r from-blue-400 to-blue-300'">
+                      </div>
+                      <span class="text-xs text-left flex-1 font-medium transition-colors duration-150 line-clamp-2"
+                            :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
+                        {{ feature }}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
 
-            <!-- Tarjeta actual central -->
-            <div 
-              class="absolute left-1/2 transform -translate-x-1/2 w-[280px] h-[320px] md:w-[320px] md:h-[360px] z-30 transition-all duration-500"
-              :class="isAnimating ? 'opacity-80 scale-95' : 'opacity-100 scale-100'"
-            >
-              <div 
-                class="w-full h-full backdrop-blur-xl rounded-2xl border shadow-xl p-5 md:p-6 transform-gpu hover:scale-[1.02] transition-all duration-300 group flex flex-col items-center relative overflow-hidden hover:shadow-glow min-h-full"
-                :class="isDarkMode 
-                  ? 'bg-gradient-to-br from-blue-700/50 via-indigo-800/60 to-blue-900/50 border-cyan-400/50 hover:border-cyan-300/60 shadow-blue-500/20 hover:shadow-blue-500/30' 
-                  : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/60 hover:border-blue-500/70 shadow-blue-400/20 hover:shadow-blue-400/30'">
-                
-                <!-- Icono grande central -->
-                <div class="flex justify-center mb-4 w-full relative">
-                  <div class="w-18 h-18 md:w-20 md:h-20 rounded-xl flex items-center justify-center border shadow-xl transform group-hover:rotate-12 transition-transform duration-300 animate-pulse-slow"
-                       :class="isDarkMode 
-                         ? 'bg-gradient-to-br from-blue-500/60 to-cyan-600/60 border-cyan-400/50' 
-                         : 'bg-gradient-to-br from-blue-300/60 to-blue-400/60 border-blue-300/50'">
-                    <span class="text-3xl md:text-4xl custom-bounce-slow">{{ currentCard.icon }}</span>
-                  </div>
-                </div>
-                
-                <!-- Título principal -->
-                <h3 class="text-lg md:text-xl font-black mb-3 text-center w-full bg-clip-text text-transparent px-4 whitespace-normal tracking-tight transition-all duration-150"
-                    :class="isDarkMode 
-                      ? 'bg-gradient-to-r from-white via-blue-100 to-blue-200' 
-                      : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
-                  {{ currentCard.title }}
-                </h3>
-                
-                <!-- Descripción -->
-                <p class="leading-relaxed text-sm md:text-base text-center mb-4 min-h-[3rem] max-h-[3.5rem] w-full px-4 transition-colors duration-150 overflow-hidden text-ellipsis line-clamp-2"
-                   :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
-                  {{ currentCard.description }}
-                </p>
-                
-                <!-- Características -->
-                <ul class="space-y-2 w-full px-4 mb-4 flex-grow overflow-y-auto">
-                  <li v-for="(feature, featureIndex) in currentCard.features" :key="featureIndex" 
-                      class="flex items-start justify-start transform group-hover:translate-x-1 transition-transform duration-150"
-                      :style="`transition-delay: ${featureIndex * 80}ms`">
-                    <div class="w-3 h-3 rounded-full mr-2 mt-0.5 flex-shrink-0 shadow-md group-hover:scale-110 transition-all duration-150 animate-pulse-fast"
-                         :class="isDarkMode 
-                           ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                           : 'bg-gradient-to-r from-blue-400 to-blue-300'">
-                    </div>
-                    <span class="text-sm md:text-base text-left flex-1 font-semibold transition-colors duration-150 line-clamp-2"
-                          :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
-                      {{ feature }}
-                    </span>
-                  </li>
-                </ul>
+            <!-- Botón derecho (ESTILO COHERENTE) -->
+            <button 
+              @click="nextSlide"
+              :disabled="isAnimating"
+              class="relative z-30 w-12 h-12 md:w-14 md:h-14 backdrop-blur-lg rounded-lg border flex items-center justify-center transition-all duration-150 hover:scale-110 hover:-translate-y-0.5 hover:shadow-xl group ml-2 md:ml-3 shadow-md"
+              :class="isDarkMode 
+                ? 'bg-blue-900/30 border-cyan-400/30 hover:border-cyan-300/50 shadow-cyan-500/15 hover:shadow-cyan-500/30' 
+                : 'bg-blue-50/30 border-blue-400/30 hover:border-blue-500/50 shadow-blue-400/15 hover:shadow-blue-400/30'">
+              <!-- Efecto de fondo -->
+              <div class="absolute inset-0 transition-all duration-150"
+                   :class="isDarkMode 
+                     ? 'bg-gradient-to-br from-blue-800/40 to-indigo-800/40' 
+                     : 'bg-gradient-to-br from-blue-100/40 to-blue-200/40'"></div>
+              
+              <div class="relative w-6 h-6 rounded-full flex items-center justify-center transform group-hover:translate-x-0.5 transition-transform duration-150 animate-pulse-slow"
+                   :class="isDarkMode 
+                     ? 'bg-gradient-to-r from-blue-200 to-blue-100 shadow-inner' 
+                     : 'bg-gradient-to-r from-blue-300 to-blue-200 shadow-inner'">
+                <span class="text-base font-bold transition-colors duration-150"
+                      :class="isDarkMode ? 'text-blue-900' : 'text-blue-800'">
+                  →
+                </span>
               </div>
-            </div>
-
-            <!-- Tarjeta siguiente -->
-            <div 
-              v-if="nextCard"
-              class="absolute right-0 w-[220px] h-[280px] md:w-[260px] md:h-[300px] transition-all duration-500 z-20"
-              :class="isAnimating ? 'opacity-60 translate-x-8' : 'opacity-80'"
-            >
-              <div 
-                class="w-full h-full backdrop-blur-xl rounded-2xl border shadow-lg p-4 transform-gpu hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer group flex flex-col items-center relative overflow-hidden hover:border-blue-500/60 min-h-full"
-                style="transform: rotateY(-15deg) translateZ(-10px);"
-                @click="nextSlide"
-                :class="isDarkMode 
-                  ? 'bg-gradient-to-br from-blue-700/40 via-indigo-800/50 to-blue-900/40 border-cyan-400/40 hover:border-cyan-300/50' 
-                  : 'bg-gradient-to-br from-blue-50/80 via-blue-100/70 to-blue-200/60 border-blue-400/50 hover:border-blue-500/60'">
-                
-                <!-- Icono -->
-                <div class="flex justify-center mb-3 w-full">
-                  <div class="w-14 h-14 md:w-16 md:h-16 rounded-lg flex items-center justify-center border shadow-lg transform group-hover:scale-105 transition-transform duration-150 animate-pulse-slow"
-                       :class="isDarkMode 
-                         ? 'bg-gradient-to-br from-blue-500/70 to-cyan-500/70 border-cyan-400/30' 
-                         : 'bg-gradient-to-br from-blue-200/70 to-blue-300/70 border-blue-300/30'">
-                    <span class="text-2xl">{{ nextCard.icon }}</span>
-                  </div>
-                </div>
-                
-                <!-- Título -->
-                <h3 class="text-base font-bold mb-2 text-center w-full group-hover:text-blue-800 transition-colors duration-150 px-3 whitespace-normal tracking-tight"
-                    :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                  {{ nextCard.title }}
-                </h3>
-                
-                <!-- Descripción -->
-                <p class="leading-relaxed text-xs text-center mb-3 min-h-[2.5rem] max-h-[3rem] w-full px-3 transition-colors duration-150 overflow-hidden text-ellipsis line-clamp-2"
-                   :class="isDarkMode ? 'text-white/80' : 'text-blue-800/80'">
-                  {{ nextCard.description }}
-                </p>
-                
-                <!-- Características -->
-                <ul class="space-y-1.5 w-full px-3 flex-grow overflow-hidden">
-                  <li v-for="(feature, featureIndex) in nextCard.features" :key="featureIndex" 
-                      class="flex items-start justify-start">
-                    <div class="w-2 h-2 rounded-full mr-2 mt-0.5 flex-shrink-0 shadow-sm animate-pulse-fast"
-                         :class="isDarkMode 
-                           ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                           : 'bg-gradient-to-r from-blue-400 to-blue-300'">
-                    </div>
-                    <span class="text-xs text-left flex-1 font-medium transition-colors duration-150 line-clamp-2"
-                          :class="isDarkMode ? 'text-white/75' : 'text-blue-800/75'">
-                      {{ feature }}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            </button>
           </div>
 
-          <!-- Botón derecho -->
-          <button 
-            @click="nextSlide"
-            :disabled="isAnimating"
-            class="relative z-30 w-10 h-10 md:w-12 md:h-12 backdrop-blur-lg rounded-lg border flex items-center justify-center transition-all duration-150 hover:scale-110 hover:shadow-xl group ml-2 md:ml-3 shadow-md transform-gpu hover:-translate-y-0.5"
-            :class="isDarkMode 
-              ? 'bg-blue-900/30 border-blue-400/30 hover:border-cyan-300/50 shadow-blue-500/15 hover:shadow-blue-500/30' 
-              : 'bg-blue-50/30 border-blue-300/30 hover:border-blue-400/50 shadow-blue-400/15 hover:shadow-blue-400/30'">
-            <!-- Efecto de fondo -->
-            <div class="absolute inset-0 transition-all duration-150"
-                 :class="isDarkMode 
-                   ? 'bg-gradient-to-br from-blue-800/40 to-indigo-800/40' 
-                   : 'bg-gradient-to-br from-blue-100/40 to-blue-200/40'"></div>
-            
-            <div class="relative w-5 h-5 rounded flex items-center justify-center transform group-hover:translate-x-0.5 transition-transform duration-150"
-                 :class="isDarkMode 
-                   ? 'bg-gradient-to-r from-blue-200 to-blue-100 shadow-inner' 
-                   : 'bg-gradient-to-r from-blue-300 to-blue-200 shadow-inner'">
-              <span class="text-base font-bold transition-colors duration-150"
-                    :class="isDarkMode ? 'text-blue-900' : 'text-blue-800'">
-                →
-              </span>
-            </div>
-          </button>
-        </div>
-
-        <!-- Indicadores -->
-        <div class="flex justify-center items-center mt-4 md:mt-6 space-x-2 md:space-x-3">
-          <button 
-            v-for="(step, index) in steps" 
-            :key="index"
-            @click="goToSlide(index)"
-            class="relative w-6 h-6 md:w-8 md:h-8 rounded-full transition-all duration-150 group hover:scale-125"
-          >
-            <div 
-              class="absolute inset-0 rounded-full flex items-center justify-center transition-all duration-150 border"
-              :class="currentIndex === index 
-                ? (isDarkMode 
-                    ? 'bg-gradient-to-r from-cyan-400 to-blue-300 border-cyan-300/80 shadow-glow' 
-                    : 'bg-gradient-to-r from-blue-400 to-blue-300 border-blue-500/80 shadow-blue-500/15')
-                : (isDarkMode 
-                    ? 'bg-blue-800/30 border-blue-600/30' 
-                    : 'bg-blue-200/30 border-blue-300/30')"
-              :style="currentIndex === index 
-                ? { 
-                    opacity: 1, 
-                    boxShadow: isDarkMode 
-                      ? '0 0 10px rgba(34, 211, 238, 0.6)' 
-                      : '0 0 10px rgba(59, 130, 246, 0.6)',
-                  } 
-                : { 
-                    opacity: 0.7,
-                  }"
+          <!-- Indicadores (ESTILO COHERENTE CON BOTONES DE OTRAS SECCIONES) -->
+          <div class="flex justify-center items-center mt-4 md:mt-6 space-x-2 md:space-x-3 animate-fadeInUp transition-all duration-150" style="animation-delay: 200ms">
+            <button 
+              v-for="(step, index) in steps" 
+              :key="index"
+              @click="goToSlide(index)"
+              class="relative w-6 h-6 md:w-8 md:h-8 rounded-full transition-all duration-150 group hover:scale-110 hover:-translate-y-0.5"
             >
-              <span class="text-xs font-bold transition-colors duration-150"
-                    :class="currentIndex === index 
-                      ? (isDarkMode ? 'text-blue-900' : 'text-white') 
-                      : (isDarkMode ? 'text-blue-300/60' : 'text-blue-700/60')">
-                {{ step.icon }}
-              </span>
-            </div>
-            <div v-if="currentIndex === index" 
-                 class="absolute inset-0 rounded-full custom-ping transition-all duration-150"
-                 :class="isDarkMode ? 'bg-cyan-400/30' : 'bg-blue-500/30'">
-            </div>
-          </button>
-        </div>
-      </div>
-
-      <!-- Nota adicional -->
-      <div class="text-center mt-4 md:mt-6 max-w-2xl mx-auto px-4 animate-fadeInUp transition-all duration-150" style="animation-delay: 300ms">
-        <div class="relative backdrop-blur-sm border rounded-lg p-3 md:p-4 shadow-lg transform transition-all duration-150 hover:scale-102"
-             :class="isDarkMode 
-               ? 'bg-blue-900/20 border-blue-400/15 shadow-blue-500/10 hover:border-blue-300/30' 
-               : 'bg-blue-50/20 border-blue-300/15 shadow-blue-400/10 hover:border-blue-400/30'">
-          <p class="text-xs sm:text-sm leading-relaxed text-center font-medium transition-colors duration-150"
-             :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
-            <span :class="isDarkMode ? 'text-white' : 'text-blue-900'">¿Listo para comenzar?</span> 
-            Nuestro proceso probado garantiza resultados excepcionales en cada paso.
-            <button @click="scrollToSection('contacto')"
-                    class="inline-flex items-center font-bold ml-1 transition-colors duration-150 group"
-                    :class="isDarkMode ? 'text-blue-200 hover:text-white' : 'text-blue-700 hover:text-blue-900'">
-              Iniciar Proyecto
-              <span class="ml-1 transform transition-transform duration-150 group-hover:translate-x-0.5 animate-bounce-fast transition-all duration-150"
-                    :class="isDarkMode ? 'text-blue-300' : 'text-blue-600'">
-                ↗
-              </span>
+              <div 
+                class="absolute inset-0 rounded-full flex items-center justify-center transition-all duration-150 border"
+                :class="currentIndex === index 
+                  ? (isDarkMode 
+                      ? 'bg-gradient-to-r from-cyan-400 to-blue-300 border-cyan-300/80 shadow-glow' 
+                      : 'bg-gradient-to-r from-blue-400 to-blue-300 border-blue-500/80 shadow-blue-500/15')
+                  : (isDarkMode 
+                      ? 'bg-blue-800/30 border-blue-600/30' 
+                      : 'bg-blue-200/30 border-blue-300/30')"
+                :style="currentIndex === index 
+                  ? { 
+                      opacity: 1, 
+                      boxShadow: isDarkMode 
+                        ? '0 0 10px rgba(34, 211, 238, 0.6)' 
+                        : '0 0 10px rgba(59, 130, 246, 0.6)',
+                    } 
+                  : { 
+                      opacity: 0.7,
+                    }"
+              >
+                <span class="text-xs font-bold transition-colors duration-150"
+                      :class="currentIndex === index 
+                        ? (isDarkMode ? 'text-blue-900' : 'text-white') 
+                        : (isDarkMode ? 'text-blue-300/60' : 'text-blue-700/60')">
+                  {{ step.icon }}
+                </span>
+              </div>
+              <div v-if="currentIndex === index" 
+                   class="absolute inset-0 rounded-full custom-ping transition-all duration-150"
+                   :class="isDarkMode ? 'bg-cyan-400/30' : 'bg-blue-500/30'">
+              </div>
             </button>
-          </p>
+          </div>
+        </div>
+
+        <!-- Nota adicional (EXACTO A OTRAS SECCIONES) -->
+        <div class="text-center mt-4 md:mt-6 max-w-2xl mx-auto px-4 animate-fadeInUp transition-all duration-150" style="animation-delay: 240ms">
+          <div class="relative backdrop-blur-sm border rounded-lg p-3 md:p-4 shadow-lg transform transition-all duration-150 hover:scale-102"
+               :class="isDarkMode 
+                 ? 'bg-blue-900/20 border-blue-400/15 shadow-blue-500/10 hover:border-blue-300/30' 
+                 : 'bg-blue-50/20 border-blue-300/15 shadow-blue-400/10 hover:border-blue-400/30'">
+            <p class="text-xs sm:text-sm leading-relaxed text-center font-medium transition-colors duration-150"
+               :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
+              <span :class="isDarkMode ? 'text-white' : 'text-blue-900'">¿Listo para comenzar?</span> 
+              Nuestro proceso probado garantiza resultados excepcionales en cada paso.
+              <button @click="scrollToSection('contacto')"
+                      class="inline-flex items-center font-bold ml-1 transition-colors duration-150 group"
+                      :class="isDarkMode ? 'text-blue-200 hover:text-white' : 'text-blue-700 hover:text-blue-900'">
+                Iniciar Proyecto
+                <span class="ml-1 transform transition-transform duration-150 group-hover:translate-x-0.5 animate-bounce-fast transition-all duration-150"
+                      :class="isDarkMode ? 'text-blue-300' : 'text-blue-600'">
+                  ↗
+                </span>
+              </button>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    
   </section>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
 
-// Estado del tema
+// Estado (EXACTO A OTRAS SECCIONES)
 const isDarkMode = ref(true);
 const isTransitioning = ref(false);
 const gradientPosition = ref(0);
 const showParticles = ref(false);
 
-// Gradientes optimizados
+// Gradientes simplificados (EXACTO A OTRAS SECCIONES)
 const darkGradient = 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #0369a1 50%, #1e40af 75%, #0f172a 100%)';
 const lightGradient = 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 25%, #93c5fd 50%, #60a5fa 75%, #3b82f6 100%)';
 
-// Inicializar tema
+// Inicializar tema (EXACTO A OTRAS SECCIONES)
 const initializeTheme = () => {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'light') {
@@ -593,7 +635,7 @@ const initializeTheme = () => {
   }
 };
 
-// Alternar entre temas con transición
+// Alternar tema (EXACTO A OTRAS SECCIONES)
 const toggleTheme = async () => {
   if (isTransitioning.value) return;
   
@@ -631,7 +673,7 @@ const toggleTheme = async () => {
   }, duration + 50);
 };
 
-// Estilo del gradiente del fondo principal
+// Estilo del gradiente (EXACTO A OTRAS SECCIONES)
 const sectionGradientStyle = computed(() => {
   if (isTransitioning.value) {
     const startGradient = isDarkMode.value ? lightGradient : darkGradient;
@@ -691,9 +733,9 @@ const steps = [
     title: "Lanzamiento",
     description: "Desplegamos tu sitio web con garantía de calidad.",
     features: [
-      "Lanzamiento y deployment seguro",
-      "Monitoreo y analytics integrados",
-      "Soporte y mantenimiento post-lanzamiento"
+      "Lanzamiento seguro",
+      "Monitoreo y analytics",
+      "Soporte y mantenimiento"
     ]
   }
 ];
@@ -747,9 +789,15 @@ const stopAutoRotate = () => {
   }
 };
 
+// Scroll a sección (EXACTO A OTRAS SECCIONES)
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
-  if (element) element.scrollIntoView({ behavior: 'smooth' });
+  if (element) {
+    element.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
 };
 
 const handleInteraction = () => {
@@ -757,6 +805,7 @@ const handleInteraction = () => {
   setTimeout(startAutoRotate, 15000);
 };
 
+// Inicializar (EXACTO A OTRAS SECCIONES)
 onMounted(() => {
   initializeTheme();
   startAutoRotate();
@@ -776,7 +825,7 @@ onUnmounted(() => {
   }
 });
 
-// Aplicar transición al cambiar tema
+// Watch para cambio de tema (EXACTO A OTRAS SECCIONES)
 watch(isDarkMode, (newVal) => {
   document.documentElement.classList.add('theme-transition-fast');
   
@@ -793,7 +842,7 @@ watch(isDarkMode, (newVal) => {
 </script>
 
 <style scoped>
-/* ANIMACIONES OPTIMIZADAS */
+/* ANIMACIONES OPTIMIZADAS (EXACTO A OTRAS SECCIONES) */
 
 @keyframes gradient-shift-dark {
   0%, 100% {
@@ -851,6 +900,30 @@ watch(isDarkMode, (newVal) => {
               color 0.12s ease-out,
               transform 0.12s ease-out,
               opacity 0.12s ease-out;
+}
+
+/* Animación para rayos del sol */
+@keyframes pulse-ray-fast {
+  0%, 100% {
+    opacity: 0.3;
+    transform: rotate(var(--rotation)) translateY(-10px) scale(0.8);
+  }
+  50% {
+    opacity: 0.7;
+    transform: rotate(var(--rotation)) translateY(-10px) scale(1.1);
+  }
+}
+
+/* Animación para brillo estelar */
+@keyframes twinkle-fast {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
 }
 
 /* Animación para rebote lento */
@@ -914,6 +987,10 @@ watch(isDarkMode, (newVal) => {
   animation: custom-ping 1.2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
+.animate-twinkle-fast {
+  animation: twinkle-fast 2s ease-in-out infinite;
+}
+
 @keyframes pulse {
   0%, 100% {
     opacity: 1;
@@ -928,7 +1005,7 @@ watch(isDarkMode, (newVal) => {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
   }
 }
 
@@ -937,7 +1014,7 @@ watch(isDarkMode, (newVal) => {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
   }
 }
 
@@ -963,37 +1040,44 @@ watch(isDarkMode, (newVal) => {
   }
 }
 
-/* Efecto de sombras */
+/* Efectos de sombras */
 .shadow-glow {
-  box-shadow: 0 0 10px rgba(34, 211, 238, 0.2);
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);
 }
 
-/* Utilidades para control de texto */
-.line-clamp-1 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  line-clamp: 1;
+.hover\:shadow-glow:hover {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
 }
 
-.line-clamp-2 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-}
-
-.text-ellipsis {
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-/* Optimización responsive */
+/* Optimización responsive (CONSISTENTE CON INICIO) */
 @media (max-width: 768px) {
   #proceso {
     min-height: 80vh;
+  }
+  
+  .relative.w-full.mb-6 {
+    margin-bottom: 4rem;
+  }
+  
+  /* Botón de tema más compacto en móvil (IGUAL AL INICIO) */
+  .theme-switch-premium {
+    width: 28px;
+    height: 10px;
+  }
+  
+  .theme-switch-premium > div:first-child {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .absolute.left-3, .absolute.right-3 {
+    width: 5px;
+    height: 5px;
+  }
+  
+  .absolute.-bottom-4 {
+    font-size: 8px;
+    bottom: -3px;
   }
   
   /* Ajustes del carrusel en móvil */
@@ -1037,31 +1121,36 @@ watch(isDarkMode, (newVal) => {
     height: 300px;
   }
   
-  /* Ajustes de iconos en móvil */
-  .w-14, .w-16 {
-    width: 3rem;
-    height: 3rem;
+  /* Botones de navegación más pequeños */
+  .w-12, .w-14 {
+    width: 2.5rem;
+    height: 2.5rem;
   }
   
-  .w-18, .w-20 {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-  
-  .text-3xl {
-    font-size: 1.5rem;
-  }
-  
-  .text-4xl {
-    font-size: 1.75rem;
-  }
-  
-  .text-5xl {
-    font-size: 2rem;
+  .w-6, .w-8 {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 480px) {
+  .grid.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  /* Botón de tema ultra compacto (IGUAL AL INICIO) */
+  .theme-switch-premium {
+    width: 26px;
+    height: 9px;
+  }
+  
+  .theme-switch-premium > div:first-child {
+    width: 9px;
+    height: 9px;
+  }
+  
+  /* Ajustes del carrusel en móvil pequeño */
   .h-\[320px\] {
     height: 260px;
   }
@@ -1120,18 +1209,18 @@ watch(isDarkMode, (newVal) => {
   }
   
   /* Botones más pequeños */
-  .w-10, .w-12 {
+  .w-12, .w-14 {
     width: 2rem;
     height: 2rem;
   }
   
   .w-6, .w-8 {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 }
 
-/* Accesibilidad */
+/* Accesibilidad (IGUAL AL INICIO) */
 @media (prefers-reduced-motion: reduce) {
   .animate-pulse-fast,
   .animate-pulse-slow,
@@ -1140,24 +1229,59 @@ watch(isDarkMode, (newVal) => {
   .animate-slideInLeft,
   .animate-fadeInUp,
   .custom-bounce-slow,
-  .custom-ping {
+  .custom-ping,
+  .animate-twinkle-fast {
     animation: none !important;
   }
   
   .hover\:scale-105,
   .hover\:-translate-y-0\.5,
   .group-hover\:scale-110,
-  .hover\:scale-110 {
+  .hover\:scale-110,
+  .hover\:scale-105,
+  .hover\:-translate-y-0\.5 {
     transform: none !important;
   }
 }
 
-/* Mejoras de rendimiento */
+/* Mejoras de rendimiento (IGUAL AL INICIO) */
 #proceso > div:first-child {
   will-change: background-position;
 }
 
-button[aria-label="Cambiar tema"] {
+.theme-switch-premium {
   will-change: transform;
+}
+
+/* Utilidades para control de texto */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* Transform GPU para mejor rendimiento */
+.transform-gpu {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Utilidades de escalado */
+.hover\:scale-102:hover {
+  transform: scale(1.02);
 }
 </style>
