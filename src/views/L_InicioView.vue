@@ -182,13 +182,20 @@ onUnmounted(() => {
     <!-- Floating Action Buttons -->
     <div class="fixed bottom-4 right-4 z-40 space-y-2">
       <!-- WhatsApp Button -->
-      <button 
-        class="w-12 h-12 bg-green-500 hover:bg-green-600 text-white rounded-lg shadow-lg flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:rotate-6 group"
-        aria-label="WhatsApp"
-      >
-        <span class="text-xl">💬</span>
-        <div class="absolute inset-0 bg-white/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-500"></div>
-      </button>
+      <a 
+  href="https://wa.me/5492214002619" 
+  target="_blank"
+  class="w-12 h-12 rounded-lg shadow-lg flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:rotate-6 group overflow-hidden relative bg-transparent"
+  aria-label="WhatsApp"
+>
+  <img 
+    src="/assets/whatsapp-logo.png" 
+    alt="WhatsApp" 
+    class="w-11 h-11 object-contain transition-all duration-500 group-hover:scale-110"
+    onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'text-white font-bold text-base\'>WA</span>';"
+  />
+  <div class="absolute inset-0 bg-white/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+</a>
       
       <!-- Scroll to Top -->
       <button 

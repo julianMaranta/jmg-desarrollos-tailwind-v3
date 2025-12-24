@@ -277,143 +277,89 @@
         <!-- Contenido Principal -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4 w-full max-w-6xl mx-auto px-4 animate-fadeInUp transition-all duration-150" style="animation-delay: 150ms">
           
-          <!-- Contact Form compacto -->
+          <!-- WhatsApp Box (caja compacta) -->
           <div 
-            class="backdrop-blur-xl rounded-lg border shadow-lg p-4 md:p-5 w-full flex flex-col items-center justify-center transform hover:scale-101 transition-all duration-150 group"
+            class="backdrop-blur-xl rounded-lg border shadow-lg p-4 md:p-5 w-full flex flex-col items-center justify-center transform hover:scale-101 transition-all duration-150 group min-h-[300px]"
             :class="isDarkMode 
-              ? 'bg-gradient-to-br from-blue-700/25 via-indigo-800/35 to-blue-900/25 border-cyan-400/35 hover:border-cyan-300/50' 
-              : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/35 hover:border-blue-300/50'"
+              ? 'bg-gradient-to-br from-green-900/20 via-emerald-800/25 to-green-900/20 border-green-400/35 hover:border-green-300/50' 
+              : 'bg-gradient-to-br from-green-50/85 via-emerald-100/75 to-green-200/65 border-green-400/35 hover:border-green-300/50'"
           >
-            <!-- Título Formulario -->
-            <h3 class="text-lg md:text-xl font-bold mb-4 text-center w-full bg-clip-text text-transparent transition-all duration-150"
+            <!-- WhatsApp Logo compacto -->
+            <div class="mb-3 md:mb-4">
+              <img 
+                src="/assets/whatsapp-logo1.png" 
+                alt="WhatsApp" 
+                class="w-16 h-16 md:w-20 md:h-20 object-contain transition-all duration-500 group-hover:scale-105"
+              />
+            </div>
+            
+            <!-- Título WhatsApp compacto -->
+            <h3 class="text-lg md:text-xl font-bold mb-2 text-center w-full bg-clip-text text-transparent transition-all duration-150"
                 :class="isDarkMode 
-                  ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
-                  : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
-              Solicita Tu Cotización
+                  ? 'bg-gradient-to-r from-green-300 via-emerald-200 to-green-100' 
+                  : 'bg-gradient-to-r from-green-900 via-emerald-800 to-green-700'">
+              WhatsApp Directo
             </h3>
-            <form class="space-y-4 w-full transition-all duration-150">
-              <!-- Name & Email -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 transition-all duration-150">
-                <div class="group transition-all duration-150">
-                  <label class="block mb-1.5 font-semibold text-left text-sm transition-colors duration-150"
-                         :class="isDarkMode ? 'text-white/85' : 'text-blue-900/85'">
-                    Nombre Completo
-                  </label>
-                  <input 
-                    type="text" 
-                    class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-150 group-hover:bg-white/10 text-left text-sm"
-                    :class="isDarkMode 
-                      ? 'bg-white/5 border-white/15 focus:ring-cyan-400 text-white placeholder-white/50' 
-                      : 'bg-white/10 border-blue-300/25 focus:ring-blue-400 text-blue-900 placeholder-blue-400/50'"
-                    placeholder="Tu nombre"
-                  >
+            
+            <!-- Descripción compacta -->
+            <p class="mb-3 md:mb-4 text-center w-full max-w-md mx-auto text-xs md:text-sm transition-colors duration-150 px-2"
+               :class="isDarkMode ? 'text-green-100/90' : 'text-green-900/90'">
+              <span :class="isDarkMode ? 'text-green-200 font-semibold' : 'text-green-800 font-semibold'">Respuesta inmediata</span> y atención personalizada
+            </p>
+            
+            <!-- Botón de WhatsApp -->
+            <a 
+              href="https://wa.me/5492214002619" 
+              target="_blank"
+              @click="openWhatsApp"
+              class="group relative text-white font-bold py-2.5 md:py-3 px-6 md:px-8 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow text-base md:text-lg overflow-hidden w-full max-w-xs"
+              :class="isDarkMode 
+                ? 'bg-gradient-to-r from-green-600 via-emerald-700 to-green-800 hover:from-green-700 hover:via-emerald-800 hover:to-green-900' 
+                : 'bg-gradient-to-r from-green-600 via-green-700 to-green-800 hover:from-green-700 hover:via-green-800 hover:to-green-900'"
+            >
+              <!-- Efecto de brillo al hover -->
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-300"></div>
+              
+              <span class="flex items-center justify-center relative">
+                <img 
+                  src="/assets/whatsapp-logo1.png" 
+                  alt="WhatsApp" 
+                  class="w-5 h-5 md:w-6 md:h-6 mr-2 object-contain transition-all duration-500 group-hover:scale-110"
+                />
+                Chatear Ahora
+              </span>
+            </a>
+            
+            <!-- Información adicional compacta -->
+            <div class="mt-3 md:mt-4 pt-3 md:pt-4 border-t w-full max-w-sm"
+                 :class="isDarkMode ? 'border-green-400/20' : 'border-green-400/30'">
+              <div class="flex justify-center space-x-4 md:space-x-6">
+                <div class="text-center">
+                  <div class="text-base md:text-lg transition-colors duration-150"
+                       :class="isDarkMode ? 'text-green-300' : 'text-green-700'">
+                    <span class="text-xl">⚡</span>
+                  </div>
+                  <p class="text-xs mt-0.5 transition-colors duration-150"
+                     :class="isDarkMode ? 'text-green-200/80' : 'text-green-800/80'">
+                    Rápido
+                  </p>
                 </div>
-                <div class="group transition-all duration-150">
-                  <label class="block mb-1.5 font-semibold text-left text-sm transition-colors duration-150"
-                         :class="isDarkMode ? 'text-white/85' : 'text-blue-900/85'">
-                    Email
-                  </label>
-                  <input 
-                    type="email" 
-                    class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-150 group-hover:bg-white/10 text-left text-sm"
-                    :class="isDarkMode 
-                      ? 'bg-white/5 border-white/15 focus:ring-cyan-400 text-white placeholder-white/50' 
-                      : 'bg-white/10 border-blue-300/25 focus:ring-blue-400 text-blue-900 placeholder-blue-400/50'"
-                    placeholder="tu@email.com"
-                  >
+                <div class="text-center">
+                  <div class="text-base md:text-lg transition-colors duration-150"
+                       :class="isDarkMode ? 'text-green-300' : 'text-green-700'">
+                    <span class="text-xl">💬</span>
+                  </div>
+                  <p class="text-xs mt-0.5 transition-colors duration-150"
+                     :class="isDarkMode ? 'text-green-200/80' : 'text-green-800/80'">
+                    24/7
+                  </p>
                 </div>
               </div>
-              
-              <!-- Company -->
-              <div class="group transition-all duration-150">
-                <label class="block mb-1.5 font-semibold text-left text-sm transition-colors duration-150"
-                       :class="isDarkMode ? 'text-white/85' : 'text-blue-900/85'">
-                  Empresa
-                </label>
-                <input 
-                  type="text" 
-                  class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-150 group-hover:bg-white/10 text-left text-sm"
-                  :class="isDarkMode 
-                    ? 'bg-white/5 border-white/15 focus:ring-cyan-400 text-white placeholder-white/50' 
-                    : 'bg-white/10 border-blue-300/25 focus:ring-blue-400 text-blue-900 placeholder-blue-400/50'"
-                  placeholder="Nombre de tu empresa"
-                >
-              </div>
-              
-              <!-- Service -->
-              <div class="group transition-all duration-150">
-                <label class="block mb-1.5 font-semibold text-left text-sm transition-colors duration-150"
-                       :class="isDarkMode ? 'text-white/85' : 'text-blue-900/85'">
-                  Servicio de Interés
-                </label>
-                <select class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-150 group-hover:bg-white/10 text-left text-sm appearance-none"
-                        :class="isDarkMode 
-                          ? 'bg-white/5 border-white/15 focus:ring-cyan-400 text-white' 
-                          : 'bg-white/10 border-blue-300/25 focus:ring-blue-400 text-blue-900'">
-                  <option class="text-left text-sm transition-colors duration-150"
-                          :class="isDarkMode ? 'bg-blue-900 text-white' : 'bg-blue-50 text-blue-900'">
-                    Selecciona un servicio
-                  </option>
-                  <option class="text-left text-sm transition-colors duration-150"
-                          :class="isDarkMode ? 'bg-blue-900 text-white' : 'bg-blue-50 text-blue-900'">
-                    Plan Inicial
-                  </option>
-                  <option class="text-left text-sm transition-colors duration-150"
-                          :class="isDarkMode ? 'bg-blue-900 text-white' : 'bg-blue-50 text-blue-900'">
-                    Plan Estándar
-                  </option>
-                  <option class="text-left text-sm transition-colors duration-150"
-                          :class="isDarkMode ? 'bg-blue-900 text-white' : 'bg-blue-50 text-blue-900'">
-                    Plan Profesional
-                  </option>
-                  <option class="text-left text-sm transition-colors duration-150"
-                          :class="isDarkMode ? 'bg-blue-900 text-white' : 'bg-blue-50 text-blue-900'">
-                    Plan Empresa
-                  </option>
-                  <option class="text-left text-sm transition-colors duration-150"
-                          :class="isDarkMode ? 'bg-blue-900 text-white' : 'bg-blue-50 text-blue-900'">
-                    Desarrollo a medida
-                  </option>
-                </select>
-              </div>
-              
-              <!-- Message -->
-              <div class="group transition-all duration-150">
-                <label class="block mb-1.5 font-semibold text-left text-sm transition-colors duration-150"
-                       :class="isDarkMode ? 'text-white/85' : 'text-blue-900/85'">
-                  Mensaje
-                </label>
-                <textarea 
-                  rows="3" 
-                  class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-150 group-hover:bg-white/10 resize-none text-left text-sm"
-                  :class="isDarkMode 
-                    ? 'bg-white/5 border-white/15 focus:ring-cyan-400 text-white placeholder-white/50' 
-                    : 'bg-white/10 border-blue-300/25 focus:ring-blue-400 text-blue-900 placeholder-blue-400/50'"
-                  placeholder="Cuéntanos sobre tu proyecto..."
-                ></textarea>
-              </div>
-              
-              <!-- Submit Button -->
-              <button 
-                type="submit" 
-                class="group relative text-white font-bold py-2.5 px-6 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow text-sm md:text-base overflow-hidden w-full"
-                :class="isDarkMode 
-                  ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
-                  : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'"
-              >
-                <!-- Efecto de brillo al hover -->
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-300"></div>
-                
-                <span class="flex items-center justify-center relative">
-                  Enviar Solicitud
-                  <span class="ml-2 text-lg animate-bounce-fast">🚀</span>
-                </span>
-              </button>
-            </form>
+            </div>
           </div>
           
-          <!-- Contact Information compacto -->
-          <div class="flex flex-col justify-center space-y-4 items-start w-full transition-all duration-150">
+          <!-- Contact Information (datos de contacto) -->
+          <div class="flex flex-col justify-center items-start w-full transition-all duration-150">
             <!-- Contact Methods -->
             <div class="space-y-3 w-full transition-all duration-150">
               <!-- Phone -->
@@ -487,42 +433,6 @@
                   </p>
                 </div>
               </div>
-            </div>
-            
-            <!-- Quick Contact -->
-            <div 
-              class="backdrop-blur-xl rounded-lg border shadow-lg p-4 md:p-5 w-full flex flex-col items-center justify-center transform hover:scale-101 transition-all duration-150 group"
-              :class="isDarkMode 
-                ? 'bg-gradient-to-br from-blue-700/25 via-indigo-800/35 to-blue-900/25 border-cyan-400/35 hover:border-cyan-300/50' 
-                : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/35 hover:border-blue-300/50'"
-            >
-              <!-- Título Quick Contact -->
-              <h4 class="text-base md:text-lg font-bold mb-3 text-center w-full bg-clip-text text-transparent transition-all duration-150"
-                  :class="isDarkMode 
-                    ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
-                    : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
-                ¿Necesitas una solución urgente?
-              </h4>
-              <p class="mb-4 text-center w-full max-w-md mx-auto text-sm transition-colors duration-150"
-                 :class="isDarkMode ? 'text-white/85' : 'text-blue-900/85'">
-                Contáctanos directamente por WhatsApp para una respuesta inmediata y atención personalizada.
-              </p>
-              
-              <button 
-  @click="openWhatsApp"
-  class="group relative text-white font-bold py-2.5 px-6 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow text-sm md:text-base overflow-hidden w-full max-w-xs"
-  :class="isDarkMode 
-    ? 'bg-gradient-to-r from-green-600 via-emerald-700 to-green-800 hover:from-green-700 hover:via-emerald-800 hover:to-green-900' 
-    : 'bg-gradient-to-r from-green-600 via-green-700 to-green-800 hover:from-green-700 hover:via-green-800 hover:to-green-900'"
->
-  <!-- Efecto de brillo al hover -->
-  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-300"></div>
-  
-  <span class="flex items-center justify-center relative">
-    💬 Chatear por WhatsApp
-    <span class="ml-2 text-lg animate-bounce-fast">→</span>
-  </span>
-</button>
             </div>
           </div>
         </div>
@@ -642,6 +552,12 @@ const getParticleStyle = (i) => {
   };
 };
 
+// WhatsApp function
+const openWhatsApp = () => {
+  const message = encodeURIComponent('Hola, me gustaría solicitar información sobre sus servicios de desarrollo web.');
+  window.open(`https://wa.me/5492214002619?text=${message}`, '_blank', 'noopener,noreferrer');
+};
+
 // Inicializar
 onMounted(() => {
   initializeTheme();
@@ -661,12 +577,6 @@ watch(isDarkMode, (newVal) => {
     document.documentElement.classList.remove('theme-transition-fast');
   }, 200);
 });
-
-// Añade este método en el script setup
-const openWhatsApp = () => {
-  const message = encodeURIComponent('Hola, me gustaría solicitar información sobre sus servicios de desarrollo web.');
-  window.open(`https://wa.me/5492213053175?text=${message}`, '_blank', 'noopener,noreferrer');
-};
 </script>
 
 <style scoped>
@@ -873,6 +783,11 @@ const openWhatsApp = () => {
   .relative.w-full.mb-6 {
     margin-bottom: 4rem;
   }
+  
+  /* WhatsApp logo responsive */
+  .min-h-\[300px\] {
+    min-height: 280px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -890,6 +805,11 @@ const openWhatsApp = () => {
   .theme-switch-premium > div:first-child {
     width: 9px;
     height: 9px;
+  }
+  
+  /* WhatsApp logo más pequeño en móvil */
+  .min-h-\[300px\] {
+    min-height: 260px;
   }
 }
 

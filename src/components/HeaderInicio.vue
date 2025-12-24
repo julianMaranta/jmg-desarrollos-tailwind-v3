@@ -346,21 +346,25 @@
           
           <!-- Botón Secundario -->
           <button @click="scrollToSection('contacto')"
-                  class="group relative border font-bold py-2.5 px-6 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 text-sm md:text-base overflow-hidden backdrop-blur-lg"
-                  :class="isDarkMode 
-                    ? 'border-cyan-400/40 text-white hover:text-blue-100 hover:border-cyan-300/50' 
-                    : 'border-blue-400/40 text-blue-800 hover:text-blue-900 hover:border-blue-500/60'">
-            <!-- Efecto de fondo al hover -->
-            <div class="absolute inset-0 transition-all duration-150"
-                 :class="isDarkMode 
-                   ? 'bg-blue-900/15 group-hover:bg-blue-800/20' 
-                   : 'bg-blue-100/15 group-hover:bg-blue-200/20'"></div>
-            
-            <span class="relative z-10 flex items-center justify-center">
-              <span class="mr-2 text-lg transform transition-transform duration-300 group-hover:scale-105 animate-bounce-fast">💬</span>
-              Contactar Ahora
-            </span>
-          </button>
+        class="group relative border font-bold py-2.5 px-6 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 text-sm md:text-base overflow-hidden backdrop-blur-lg"
+        :class="isDarkMode 
+          ? 'border-cyan-400/40 text-white hover:text-blue-100 hover:border-cyan-300/50' 
+          : 'border-blue-400/40 text-blue-800 hover:text-blue-900 hover:border-blue-500/60'">
+  <!-- Efecto de fondo al hover -->
+  <div class="absolute inset-0 transition-all duration-150"
+       :class="isDarkMode 
+         ? 'bg-blue-900/15 group-hover:bg-blue-800/20' 
+         : 'bg-blue-100/15 group-hover:bg-blue-200/20'"></div>
+  
+  <span class="relative z-10 flex items-center justify-center">
+    <img 
+      src="/assets/whatsapp-logo1.png" 
+      alt="WhatsApp" 
+      class="w-5 h-5 mr-2 object-contain transform transition-all duration-300 group-hover:scale-105 animate-bounce-fast"
+    />
+    Contactar Ahora
+  </span>
+</button>
         </div>
 
         <!-- Stats -->
