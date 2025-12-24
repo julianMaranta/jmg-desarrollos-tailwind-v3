@@ -431,7 +431,7 @@
                   </h4>
                   <p class="text-sm md:text-base font-semibold transition-colors duration-150"
                      :class="isDarkMode ? 'text-cyan-200' : 'text-blue-700'">
-                    +54 9 11 5527-1430
+                    +54 9 0221 400-2619
                   </p>
                   <p class="text-xs transition-colors duration-150 mt-0.5"
                      :class="isDarkMode ? 'text-white/65' : 'text-blue-900/65'">
@@ -455,7 +455,7 @@
                   </h4>
                   <p class="text-sm md:text-base font-semibold transition-colors duration-150"
                      :class="isDarkMode ? 'text-cyan-200' : 'text-blue-700'">
-                    contacto@jmgdesarrollos.com
+                    jmgdesarrollos@gmail.com
                   </p>
                   <p class="text-xs transition-colors duration-150 mt-0.5"
                      :class="isDarkMode ? 'text-white/65' : 'text-blue-900/65'">

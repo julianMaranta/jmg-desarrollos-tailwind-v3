@@ -266,7 +266,7 @@ onUnmounted(() => {
           <div class="flex flex-col items-center md:items-start">
             <h3 class="text-base font-bold mb-4 text-transparent bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text">Síguenos</h3>
             <div class="flex justify-center md:justify-start space-x-3">
-              <!-- Facebook -->
+              <!-- Facebook 
               <a 
                 href="#" 
                 class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow-lg group overflow-hidden"
@@ -278,11 +278,11 @@ onUnmounted(() => {
                   onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'text-white font-bold text-base\'>FB</span>';"
                 />
                 <div class="absolute inset-0 bg-white/10 rounded-xl scale-0 group-hover:scale-100 transition-transform duration-500"></div>
-              </a>
+              </a> -->
               
               <!-- Instagram -->
               <a 
-                href="#" 
+                href="https://www.instagram.com/jmg.desarrollos/" 
                 class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow-lg group overflow-hidden"
               >
                 <img 
@@ -296,7 +296,7 @@ onUnmounted(() => {
               
               <!-- LinkedIn -->
               <a 
-                href="#" 
+                href="https://www.linkedin.com/company/jmg-desarrollos" 
                 class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow-lg group overflow-hidden"
               >
                 <img 

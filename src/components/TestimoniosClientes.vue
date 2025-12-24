@@ -555,36 +555,43 @@
   </span>
 </h3>
         
-        <!-- Grid de logos de clientes - IMÁGENES MÁS GRANDES (CAMBIO PRINCIPAL) -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 items-center justify-items-center w-full max-w-4xl mx-auto">
-          <div v-for="(client, index) in clients" :key="index" 
-               class="group relative w-full">
-            
-            <!-- Logo Card - MÁS GRANDE (CAMBIO PRINCIPAL) -->
-            <div class="relative backdrop-blur-xl rounded-lg border p-0.5 transition-all duration-150 transform group-hover:-translate-y-0.5 group-hover:scale-105 shadow-md hover:shadow-glow overflow-hidden h-full"
-                 :class="isDarkMode 
-                   ? 'bg-gradient-to-br from-blue-700/40 via-indigo-800/50 to-blue-900/40 border-cyan-400/40 hover:border-cyan-300/50' 
-                   : 'bg-gradient-to-br from-blue-50/80 via-blue-100/70 to-blue-200/60 border-blue-400/50 hover:border-blue-500/60'">
-              
-              <!-- Logo Container - MÁS GRANDE (CAMBIO PRINCIPAL) -->
-              <div class="p-4 md:p-5 flex flex-col items-center justify-center h-full">
-                <!-- Contenedor de imagen del logo - MÁS GRANDE -->
-                <div class="relative w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg overflow-hidden mb-3 transform transition-all duration-150 group-hover:scale-110">
-                  <img 
-                    :src="client.logo" 
-                    :alt="client.name"
-                    class="w-full h-full object-contain p-1"
-                  />
-                </div>
-                
-                <span class="text-sm font-medium text-center transition-colors duration-150 line-clamp-2"
-                      :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
-                  {{ client.name }}
-                </span>
-              </div>
-            </div>
-          </div>
+       <!-- Grid de logos de clientes - FONDO AZUL CON CUADRADO BLANCO PARA IMAGEN -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 items-center justify-items-center w-full max-w-4xl mx-auto">
+  <div v-for="(client, index) in clients" :key="index" 
+       class="group relative w-full">
+    
+    <!-- Logo Card - FONDO AZUL ORIGINAL EN TEMA OSCURO -->
+    <div class="relative backdrop-blur-xl rounded-lg border p-0.5 transition-all duration-150 transform group-hover:-translate-y-0.5 group-hover:scale-105 shadow-md hover:shadow-glow overflow-hidden h-full"
+         :class="isDarkMode 
+           ? 'bg-gradient-to-br from-blue-700/40 via-indigo-800/50 to-blue-900/40 border-cyan-400/40 hover:border-cyan-300/50 hover:shadow-glow' 
+           : 'bg-gradient-to-br from-blue-50/80 via-blue-100/70 to-blue-200/60 border-blue-400/50 hover:border-blue-500/60 hover:shadow-glow'">
+      
+      <!-- Logo Container -->
+      <div class="p-4 md:p-5 flex flex-col items-center justify-center h-full relative z-10">
+        <!-- Contenedor de imagen del logo - CUADRADO BLANCO -->
+        <div class="relative w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg overflow-hidden mb-3 transform transition-all duration-150 group-hover:scale-110 bg-white p-2 shadow-inner">
+          <img 
+            :src="client.logo" 
+            :alt="client.name"
+            class="w-full h-full object-contain"
+          />
+          <!-- Brillo interior del cuadrado blanco -->
+          <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
         </div>
+        
+        <!-- Nombre de la empresa - COLOR CLARO PARA CONTRASTE CON FONDO AZUL -->
+        <span class="text-sm font-medium text-center transition-colors duration-150 line-clamp-2"
+              :class="isDarkMode ? 'text-white/90 font-semibold' : 'text-blue-800/90'">
+          {{ client.name }}
+        </span>
+      </div>
+      
+      <!-- Efecto de borde brillante al hover -->
+      <div class="absolute inset-0 rounded-lg border-2 opacity-0 group-hover:opacity-60 transition-opacity duration-300"
+           :class="isDarkMode ? 'border-cyan-400/60' : 'border-blue-500/60'"></div>
+    </div>
+  </div>
+</div>
       </div>
 
       <!-- Nota adicional -->
@@ -725,28 +732,73 @@ const sectionGradientStyle = computed(() => {
 const images = [
   {
     image: '/assets/ensea1.png',
-    title: 'ENSEA Plataforma Educativa',
-    description: 'Rediseño completo de la plataforma de cursos online con sistema de gestión',
+    title: 'ENSEA - Plataforma Educativa',
+    description: 'Rediseño completo de la Plataforma Web con Panel de Administrador y contenido autogestionable',
   },
   {
     image: '/assets/ensea2.png',
-    title: 'ENSEA Plataforma Educativa',
-    description: 'Rediseño completo de la plataforma de cursos online con sistema de gestión',
+    title: 'ENSEA - Niveles de Cursos',
+    description: 'Niveles de complejidad',
   },
   {
     image: '/assets/ensea3.png',
-    title: 'ENSEA Plataforma Educativa',
-    description: 'Rediseño completo de la plataforma de cursos online con sistema de gestión',
+    title: 'ENSEA - Alianzas Comerciales',
+    description: 'Empresas asociadas con ENSEA',
   },
   {
     image: '/assets/ensea4.png',
-    title: 'ENSEA Plataforma Educativa',
-    description: 'Rediseño completo de la plataforma de cursos online con sistema de gestión',
+    title: 'ENSEA - Libro',
+    description: 'Promoción',
   },
   {
     image: '/assets/ensea5.png',
-    title: 'ENSEA Plataforma Educativa',
-    description: 'Rediseño completo de la plataforma de cursos online con sistema de gestión',
+    title: 'ENSEA - Nosotros',
+    description: 'Información personal',
+  },
+  {
+    image: '/assets/ensea6.png',
+    title: 'ENSEA - Login Plataforma Educativa',
+    description: 'Incio de sesión con usuario y contraseña',
+  },
+  {
+    image: '/assets/ensea7.png',
+    title: 'ENSEA - Plataforma de Estudiantes',
+    description: 'Panel inicial de estudiantes',
+  },
+  {
+    image: '/assets/ensea8.png',
+    title: 'ENSEA - Catálogo de Cursos',
+    description: 'Aquí se compran los cursos, especializaciones y tutorías',
+  },
+  {
+    image: '/assets/ensea9.png',
+    title: 'ENSEA - Comunidad',
+    description: 'Redes sociales de la ONG',
+  },
+  {
+    image: '/assets/ensea10.png',
+    title: 'ENSEA - Listado de Clases',
+    description: 'Los cursos están organizados en clases',
+  },
+  {
+    image: '/assets/ensea11.png',
+    title: 'ENSEA - Videos de Clases',
+    description: 'Las clases contienen videos ilimitados.',
+  },
+  {
+    image: '/assets/ensea12.png',
+    title: 'ENSEA - Listado de Cursos Comprados',
+    description: 'Cada estudiante tiene acceso a los cursos comprados',
+  },
+  {
+    image: '/assets/ensea13.png',
+    title: 'ENSEA - Clase Video + Imágenes',
+    description: 'Videos e imágenes en todas las clases.',
+  },
+  {
+    image: '/assets/ensea14.png',
+    title: 'ENSEA - Imágenes de Clases',
+    description: 'Las clases contienen imágenes ilimitadas',
   }
 ];
 
@@ -781,8 +833,8 @@ const clients = [
     name: 'Trenes Argentinos'
   },
   {
-    logo: '/assets/Trenes Argentinos.png',
-    name: 'Trenes Argentinos'
+    logo: '/assets/Adidas.png',
+    name: 'Adidas'
   }
 ];
 
