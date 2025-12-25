@@ -3,6 +3,8 @@
     id="inicio" 
     class="min-h-[85vh] w-full text-white relative overflow-hidden flex items-center justify-center transition-all duration-150 ease-out"
     :style="sectionGradientStyle"
+    ref="headerRef"
+    @mousemove="handleMouseMove"
   >
     <!-- Capa de fondo principal -->
     <div 
@@ -25,6 +27,37 @@
         </div>
       </div>
     </div>
+
+    <!-- Efecto de halo del cursor - CON AZUL ESPECÍFICO blue-600/700/800 -->
+    <div 
+      class="fixed rounded-full pointer-events-none transition-all duration-100 ease-out z-50 cursor-halo"
+      :class="[
+        isDarkMode ? 'cursor-halo-white' : 'cursor-halo-blue-intense',
+        cursorHaloClass
+      ]"
+      :style="`
+        width: ${cursorHaloSize}px;
+        height: ${cursorHaloSize}px;
+        left: ${cursorPosition.x}px;
+        top: ${cursorPosition.y}px;
+        transform: translate(-50%, -50%);
+        filter: blur(${isDarkMode ? '45px' : '35px'});
+      `"
+    ></div>
+
+    <!-- Efecto de destello interno del cursor -->
+    <div 
+      class="fixed rounded-full pointer-events-none transition-all duration-150 ease-out z-40 cursor-sparkle"
+      :class="isDarkMode ? 'cursor-sparkle-white' : 'cursor-sparkle-blue-intense'"
+      :style="`
+        width: ${cursorHaloSize * 0.4}px;
+        height: ${cursorHaloSize * 0.4}px;
+        left: ${cursorPosition.x}px;
+        top: ${cursorPosition.y}px;
+        transform: translate(-50%, -50%);
+        filter: blur(10px);
+      `"
+    ></div>
 
     <!-- Efectos de fondo animados -->
     <div class="absolute inset-0 overflow-hidden transition-all duration-150 ease-out">
@@ -106,7 +139,7 @@
           </div>
         </div>
 
-        <!-- Botón de tema compacto - YA ES EL CORRECTO -->
+        <!-- Botón de tema compacto -->
         <div class="absolute top-0 right-0 md:right-2 z-50">
           <button
             @click="toggleTheme"
@@ -404,13 +437,21 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue';
+import { ref, computed, onMounted, watch, onUnmounted } from 'vue';
 
 // Estado
 const isDarkMode = ref(true);
 const isTransitioning = ref(false);
 const gradientPosition = ref(0);
 const showParticles = ref(false);
+
+// Estado para el efecto del cursor
+const cursorPosition = ref({ x: 0, y: 0 });
+const cursorHaloSize = ref(200);
+const cursorHaloClass = ref('cursor-halo-idle');
+const headerRef = ref(null);
+const mouseMoveTimeout = ref(null);
+const isMouseActive = ref(true);
 
 // Gradientes simplificados
 const darkGradient = 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #0369a1 50%, #1e40af 75%, #0f172a 100%)';
@@ -520,9 +561,79 @@ const scrollToSection = (sectionId) => {
   }
 };
 
+// Manejar movimiento del mouse
+const handleMouseMove = (event) => {
+  cursorPosition.value = {
+    x: event.clientX,
+    y: event.clientY
+  };
+  
+  isMouseActive.value = true;
+  cursorHaloClass.value = 'cursor-halo-active';
+  
+  // Limpiar timeout anterior
+  if (mouseMoveTimeout.value) {
+    clearTimeout(mouseMoveTimeout.value);
+  }
+  
+  // Volver a estado idle después de un tiempo
+  mouseMoveTimeout.value = setTimeout(() => {
+    cursorHaloClass.value = 'cursor-halo-idle';
+    isMouseActive.value = false;
+  }, 1000);
+};
+
+// Ajustar tamaño del halo según el dispositivo
+const adjustHaloSize = () => {
+  if (window.innerWidth < 768) {
+    cursorHaloSize.value = 170;
+  } else {
+    cursorHaloSize.value = 200;
+  }
+};
+
+// Inicializar posición del cursor en el centro
+const initializeCursorPosition = () => {
+  if (typeof window !== 'undefined') {
+    cursorPosition.value = {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2
+    };
+  }
+};
+
+// Mover cursor cuando la ventana cambia de tamaño
+const handleResize = () => {
+  adjustHaloSize();
+  initializeCursorPosition();
+};
+
 // Inicializar
 onMounted(() => {
   initializeTheme();
+  initializeCursorPosition();
+  adjustHaloSize();
+  
+  // Escuchar cambios de tamaño de ventana
+  window.addEventListener('resize', handleResize);
+  
+  // Escuchar movimiento del mouse en toda la ventana
+  window.addEventListener('mousemove', handleMouseMove);
+  
+  // Inicializar con animación suave
+  setTimeout(() => {
+    cursorHaloClass.value = 'cursor-halo-idle';
+  }, 100);
+});
+
+// Limpiar event listeners
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize);
+  window.removeEventListener('mousemove', handleMouseMove);
+  
+  if (mouseMoveTimeout.value) {
+    clearTimeout(mouseMoveTimeout.value);
+  }
 });
 
 // Watch para cambio de tema
@@ -591,6 +702,150 @@ watch(isDarkMode, (newVal) => {
 
 .theme-fade-fast-leave-active {
   animation: themeFadeOutFast 0.12s ease-out !important;
+}
+
+/* ANIMACIONES DEL CURSOR */
+
+/* Halo principal - Pulsación suave */
+@keyframes cursorHaloIdle {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Halo activo - Más brillante cuando se mueve */
+@keyframes cursorHaloActive {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+    filter: blur(var(--cursor-blur)) brightness(1.3);
+  }
+  70% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1.05);
+    filter: blur(var(--cursor-blur)) brightness(1.1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(var(--cursor-blur)) brightness(1);
+  }
+}
+
+/* Destello interno */
+@keyframes cursorSparkle {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+}
+
+/* Clases para el cursor */
+.cursor-halo-idle {
+  animation: cursorHaloIdle 1.8s ease-in-out infinite;
+  --cursor-blur: 35px;
+}
+
+.cursor-halo-active {
+  animation: cursorHaloActive 0.7s ease-out;
+  --cursor-blur: 35px;
+}
+
+.cursor-sparkle {
+  animation: cursorSparkle 1.3s ease-in-out infinite;
+}
+
+/* TEMA OSCURO - HALO BLANCO LUMINOSO */
+.cursor-halo-white {
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.3) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%,
+    rgba(255, 255, 255, 0.05) 90%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 100px rgba(255, 255, 255, 0.5),
+    0 0 200px rgba(255, 255, 255, 0.3),
+    0 0 300px rgba(255, 255, 255, 0.15),
+    inset 0 0 80px rgba(255, 255, 255, 0.4);
+  --cursor-blur: 45px;
+}
+
+.cursor-sparkle-white {
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.6) 30%,
+    rgba(255, 255, 255, 0.4) 60%,
+    rgba(255, 255, 255, 0.2) 90%,
+    transparent 100%
+  );
+}
+
+/* TEMA CLARO - HALO AZUL blue-600/700/800 INTENSO */
+.cursor-halo-blue-intense {
+  background: radial-gradient(
+    circle at center,
+    rgba(37, 99, 235, 0.5) 0%,        /* blue-600 - 50% opacidad */
+    rgba(29, 78, 216, 0.4) 20%,       /* blue-700 - 40% */
+    rgba(30, 64, 175, 0.3) 40%,       /* blue-800 - 30% */
+    rgba(37, 99, 235, 0.2) 60%,       /* blue-600 - 20% */
+    rgba(29, 78, 216, 0.15) 80%,      /* blue-700 - 15% */
+    rgba(30, 64, 175, 0.1) 95%,       /* blue-800 - 10% */
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 120px rgba(37, 99, 235, 0.6),      /* blue-600 */
+    0 0 240px rgba(29, 78, 216, 0.5),      /* blue-700 */
+    0 0 360px rgba(30, 64, 175, 0.4),      /* blue-800 */
+    0 0 480px rgba(37, 99, 235, 0.25),     /* blue-600 (efecto profundidad) */
+    inset 0 0 100px rgba(37, 99, 235, 0.5), /* brillo interior blue-600 */
+    inset 0 0 50px rgba(29, 78, 216, 0.4),  /* brillo interior blue-700 */
+    inset 0 0 25px rgba(30, 64, 175, 0.3);  /* brillo interior blue-800 */
+  --cursor-blur: 35px;
+}
+
+.cursor-sparkle-blue-intense {
+  background: radial-gradient(
+    circle at center,
+    rgba(37, 99, 235, 0.9) 0%,        /* blue-600 - 90% */
+    rgba(29, 78, 216, 0.7) 25%,       /* blue-700 - 70% */
+    rgba(30, 64, 175, 0.5) 50%,       /* blue-800 - 50% */
+    rgba(37, 99, 235, 0.3) 75%,       /* blue-600 - 30% */
+    rgba(29, 78, 216, 0.15) 95%,      /* blue-700 - 15% */
+    transparent 100%
+  );
+  filter: blur(10px) brightness(1.4) saturate(1.3);
+}
+
+/* Mejorar blend modes para cada tema */
+.cursor-halo-white {
+  mix-blend-mode: plus-lighter;
+}
+
+.cursor-sparkle-white {
+  mix-blend-mode: screen;
+}
+
+/* AZUL ESPECÍFICO blue-600/700/800 - Blend mode para máximo contraste */
+.cursor-halo-blue-intense {
+  mix-blend-mode: hard-light; /* Para azules intensos sobre fondo claro */
+}
+
+.cursor-sparkle-blue-intense {
+  mix-blend-mode: screen;
 }
 
 /* Transiciones optimizadas */
@@ -729,6 +984,39 @@ watch(isDarkMode, (newVal) => {
     margin-bottom: 4rem;
   }
   
+  /* Ajustar tamaño del cursor en móviles */
+  .cursor-halo {
+    width: 170px !important;
+    height: 170px !important;
+    filter: blur(30px) !important;
+  }
+  
+  .cursor-sparkle {
+    width: 68px !important;
+    height: 68px !important;
+    filter: blur(8px) !important;
+  }
+  
+  /* Reducir efectos de sombra en móviles */
+  .cursor-halo-white {
+    box-shadow: 
+      0 0 70px rgba(255, 255, 255, 0.45),
+      0 0 140px rgba(255, 255, 255, 0.25),
+      0 0 210px rgba(255, 255, 255, 0.12),
+      inset 0 0 60px rgba(255, 255, 255, 0.35);
+  }
+  
+  .cursor-halo-blue-intense {
+    box-shadow: 
+      0 0 90px rgba(37, 99, 235, 0.55),
+      0 0 180px rgba(29, 78, 216, 0.4),
+      0 0 270px rgba(30, 64, 175, 0.3),
+      0 0 360px rgba(37, 99, 235, 0.2),
+      inset 0 0 70px rgba(37, 99, 235, 0.4),
+      inset 0 0 35px rgba(29, 78, 216, 0.3),
+      inset 0 0 18px rgba(30, 64, 175, 0.2);
+  }
+  
   /* Botón de tema más compacto en móvil */
   .theme-switch-premium {
     width: 28px;
@@ -757,6 +1045,38 @@ watch(isDarkMode, (newVal) => {
     gap: 1rem;
   }
   
+  /* Cursor más pequeño en móviles muy pequeños */
+  .cursor-halo {
+    width: 150px !important;
+    height: 150px !important;
+    filter: blur(25px) !important;
+  }
+  
+  .cursor-sparkle {
+    width: 60px !important;
+    height: 60px !important;
+    filter: blur(7px) !important;
+  }
+  
+  .cursor-halo-white {
+    box-shadow: 
+      0 0 50px rgba(255, 255, 255, 0.4),
+      0 0 100px rgba(255, 255, 255, 0.2),
+      0 0 150px rgba(255, 255, 255, 0.1),
+      inset 0 0 45px rgba(255, 255, 255, 0.3);
+  }
+  
+  .cursor-halo-blue-intense {
+    box-shadow: 
+      0 0 70px rgba(37, 99, 235, 0.5),
+      0 0 140px rgba(29, 78, 216, 0.35),
+      0 0 210px rgba(30, 64, 175, 0.25),
+      0 0 280px rgba(37, 99, 235, 0.15),
+      inset 0 0 50px rgba(37, 99, 235, 0.35),
+      inset 0 0 25px rgba(29, 78, 216, 0.25),
+      inset 0 0 12px rgba(30, 64, 175, 0.15);
+  }
+  
   /* Botón de tema ultra compacto */
   .theme-switch-premium {
     width: 26px;
@@ -776,13 +1096,21 @@ watch(isDarkMode, (newVal) => {
   .animate-bounce-fast,
   .animate-float,
   .animate-slideInLeft,
-  .animate-fadeInUp {
+  .animate-fadeInUp,
+  .cursor-halo-idle,
+  .cursor-halo-active,
+  .cursor-sparkle {
     animation: none !important;
   }
   
   .hover\:scale-105,
   .hover\:-translate-y-0\.5 {
     transform: none !important;
+  }
+  
+  /* Mantener cursor visible pero sin animaciones */
+  .cursor-halo {
+    opacity: 0.7 !important;
   }
 }
 
@@ -793,5 +1121,66 @@ watch(isDarkMode, (newVal) => {
 
 .theme-switch-premium {
   will-change: transform;
+}
+
+/* Asegurar visibilidad en ambos temas */
+.cursor-halo-white,
+.cursor-halo-blue-intense {
+  opacity: 0.9 !important;
+  will-change: transform, opacity, filter;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+/* Refuerzo EXTRA para tema claro - AZUL blue-600/700/800 MUY FUERTE */
+:not(.dark) .cursor-halo-blue-intense {
+  opacity: 0.95 !important;
+  filter: blur(35px) saturate(1.6) brightness(1.15) !important;
+}
+
+/* Refuerzo para tema oscuro - blanco más luminoso */
+.dark .cursor-halo-white {
+  opacity: 0.9 !important;
+  filter: blur(45px) brightness(1.25) !important;
+}
+
+/* Efecto de contraste extra para el azul blue-600/700/800 */
+:not(.dark) .cursor-halo-blue-intense::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 65%
+  );
+  filter: blur(5px);
+  z-index: -1;
+}
+
+/* Asegurar que el cursor esté en la capa correcta */
+.fixed.rounded-full.pointer-events-none.z-50 {
+  z-index: 9999;
+}
+
+.fixed.rounded-full.pointer-events-none.z-40 {
+  z-index: 9998;
+}
+
+/* Asegurar que elementos interactivos estén por encima */
+button, a, [role="button"], input, select, textarea {
+  position: relative;
+  z-index: 10000;
+  cursor: pointer !important;
+}
+
+/* Deshabilitar el cursor del sistema solo en el header */
+#inicio {
+  cursor: none;
+}
+
+/* Restaurar cursor normal en otros elementos */
+body *:not(#inicio) {
+  cursor: auto;
 }
 </style>
