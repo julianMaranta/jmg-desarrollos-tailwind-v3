@@ -28,36 +28,36 @@
       </div>
     </div>
 
-    <!-- Efecto de halo del cursor - CON AZUL ESPECÍFICO blue-600/700/800 -->
-    <div 
-      class="fixed rounded-full pointer-events-none transition-all duration-100 ease-out z-50 cursor-halo"
-      :class="[
-        isDarkMode ? 'cursor-halo-white' : 'cursor-halo-blue-intense',
-        cursorHaloClass
-      ]"
-      :style="`
-        width: ${cursorHaloSize}px;
-        height: ${cursorHaloSize}px;
-        left: ${cursorPosition.x}px;
-        top: ${cursorPosition.y}px;
-        transform: translate(-50%, -50%);
-        filter: blur(${isDarkMode ? '45px' : '35px'});
-      `"
-    ></div>
+    <!-- Efecto de halo del cursor - TAMAÑO REDUCIDO -->
+<div 
+  class="fixed rounded-full pointer-events-none transition-all duration-100 ease-out z-50 cursor-halo"
+  :class="[
+    isDarkMode ? 'cursor-halo-white' : 'cursor-halo-blue-intense',
+    cursorHaloClass
+  ]"
+  :style="`
+    width: ${cursorHaloSize}px;
+    height: ${cursorHaloSize}px;
+    left: ${cursorPosition.x}px;
+    top: ${cursorPosition.y}px;
+    transform: translate(-50%, -50%);
+    filter: blur(${isDarkMode ? '25px' : '20px'}); <!-- Reducido de 35/45px -->
+  `"
+></div>
 
-    <!-- Efecto de destello interno del cursor -->
-    <div 
-      class="fixed rounded-full pointer-events-none transition-all duration-150 ease-out z-40 cursor-sparkle"
-      :class="isDarkMode ? 'cursor-sparkle-white' : 'cursor-sparkle-blue-intense'"
-      :style="`
-        width: ${cursorHaloSize * 0.4}px;
-        height: ${cursorHaloSize * 0.4}px;
-        left: ${cursorPosition.x}px;
-        top: ${cursorPosition.y}px;
-        transform: translate(-50%, -50%);
-        filter: blur(10px);
-      `"
-    ></div>
+    <!-- Efecto de destello interno del cursor - TAMAÑO REDUCIDO -->
+<div 
+  class="fixed rounded-full pointer-events-none transition-all duration-150 ease-out z-40 cursor-sparkle"
+  :class="isDarkMode ? 'cursor-sparkle-white' : 'cursor-sparkle-blue-intense'"
+  :style="`
+    width: ${cursorHaloSize * 0.3}px; <!-- Reducido de 0.4 -->
+    height: ${cursorHaloSize * 0.3}px; <!-- Reducido de 0.4 -->
+    left: ${cursorPosition.x}px;
+    top: ${cursorPosition.y}px;
+    transform: translate(-50%, -50%);
+    filter: blur(6px); <!-- Reducido de 10px -->
+  `"
+></div>
 
     <!-- Efectos de fondo animados -->
     <div class="absolute inset-0 overflow-hidden transition-all duration-150 ease-out">
@@ -586,9 +586,9 @@ const handleMouseMove = (event) => {
 // Ajustar tamaño del halo según el dispositivo
 const adjustHaloSize = () => {
   if (window.innerWidth < 768) {
-    cursorHaloSize.value = 170;
+    cursorHaloSize.value = 120; // Reducido de 170px
   } else {
-    cursorHaloSize.value = 200;
+    cursorHaloSize.value = 150; // Reducido de 200px
   }
 };
 
@@ -984,37 +984,36 @@ watch(isDarkMode, (newVal) => {
     margin-bottom: 4rem;
   }
   
-  /* Ajustar tamaño del cursor en móviles */
-  .cursor-halo {
-    width: 170px !important;
-    height: 170px !important;
-    filter: blur(30px) !important;
+   .cursor-halo {
+    width: 120px !important; 
+    height: 120px !important; 
+    filter: blur(20px) !important;
   }
   
   .cursor-sparkle {
-    width: 68px !important;
-    height: 68px !important;
-    filter: blur(8px) !important;
+    width: 36px !important;
+    height: 36px !important; 
+    filter: blur(5px) !important;
   }
   
   /* Reducir efectos de sombra en móviles */
   .cursor-halo-white {
     box-shadow: 
-      0 0 70px rgba(255, 255, 255, 0.45),
-      0 0 140px rgba(255, 255, 255, 0.25),
-      0 0 210px rgba(255, 255, 255, 0.12),
-      inset 0 0 60px rgba(255, 255, 255, 0.35);
+      0 0 50px rgba(255, 255, 255, 0.4), 
+      0 0 100px rgba(255, 255, 255, 0.25), 
+      0 0 150px rgba(255, 255, 255, 0.1), 
+      inset 0 0 40px rgba(255, 255, 255, 0.3); 
   }
   
   .cursor-halo-blue-intense {
     box-shadow: 
-      0 0 90px rgba(37, 99, 235, 0.55),
-      0 0 180px rgba(29, 78, 216, 0.4),
-      0 0 270px rgba(30, 64, 175, 0.3),
-      0 0 360px rgba(37, 99, 235, 0.2),
-      inset 0 0 70px rgba(37, 99, 235, 0.4),
-      inset 0 0 35px rgba(29, 78, 216, 0.3),
-      inset 0 0 18px rgba(30, 64, 175, 0.2);
+      0 0 60px rgba(37, 99, 235, 0.5), 
+      0 0 120px rgba(29, 78, 216, 0.4), 
+      0 0 180px rgba(30, 64, 175, 0.3), 
+      0 0 240px rgba(37, 99, 235, 0.2), 
+      inset 0 0 50px rgba(37, 99, 235, 0.4), 
+      inset 0 0 25px rgba(29, 78, 216, 0.3), 
+      inset 0 0 12px rgba(30, 64, 175, 0.2); 
   }
   
   /* Botón de tema más compacto en móvil */
@@ -1046,35 +1045,35 @@ watch(isDarkMode, (newVal) => {
   }
   
   /* Cursor más pequeño en móviles muy pequeños */
-  .cursor-halo {
-    width: 150px !important;
-    height: 150px !important;
-    filter: blur(25px) !important;
+    .cursor-halo {
+    width: 100px !important;
+    height: 100px !important;
+    filter: blur(15px) !important
   }
   
   .cursor-sparkle {
-    width: 60px !important;
-    height: 60px !important;
-    filter: blur(7px) !important;
+    width: 30px !important;
+    height: 30px !important; 
+    filter: blur(4px) !important;
   }
   
   .cursor-halo-white {
     box-shadow: 
-      0 0 50px rgba(255, 255, 255, 0.4),
-      0 0 100px rgba(255, 255, 255, 0.2),
-      0 0 150px rgba(255, 255, 255, 0.1),
-      inset 0 0 45px rgba(255, 255, 255, 0.3);
+      0 0 35px rgba(255, 255, 255, 0.4), 
+      0 0 70px rgba(255, 255, 255, 0.2), 
+      0 0 105px rgba(255, 255, 255, 0.1), 
+      inset 0 0 30px rgba(255, 255, 255, 0.3); 
   }
   
   .cursor-halo-blue-intense {
     box-shadow: 
-      0 0 70px rgba(37, 99, 235, 0.5),
-      0 0 140px rgba(29, 78, 216, 0.35),
-      0 0 210px rgba(30, 64, 175, 0.25),
-      0 0 280px rgba(37, 99, 235, 0.15),
-      inset 0 0 50px rgba(37, 99, 235, 0.35),
-      inset 0 0 25px rgba(29, 78, 216, 0.25),
-      inset 0 0 12px rgba(30, 64, 175, 0.15);
+      0 0 50px rgba(37, 99, 235, 0.5), 
+      0 0 100px rgba(29, 78, 216, 0.35), 
+      0 0 150px rgba(30, 64, 175, 0.25), 
+      0 0 200px rgba(37, 99, 235, 0.15), 
+      inset 0 0 35px rgba(37, 99, 235, 0.35), 
+      inset 0 0 18px rgba(29, 78, 216, 0.25), 
+      inset 0 0 9px rgba(30, 64, 175, 0.15); 
   }
   
   /* Botón de tema ultra compacto */
