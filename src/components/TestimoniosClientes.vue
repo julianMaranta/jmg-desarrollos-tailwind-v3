@@ -104,8 +104,8 @@
         </div>
       </div>
 
-      <!-- Botón de tema compacto - EXACTO AL HEADER -->
-      <div class="absolute top-0 right-0 md:right-2 z-50">
+      <!-- Botón de tema compacto - EXACTO AL HEADER Y SERVICIOS CON MÁS ESPACIO A LA DERECHA -->
+      <div class="absolute top-0 right-0 md:right-2 z-50 mr-2 md:mr-0">
         <button
           @click="toggleTheme"
           class="relative flex items-center justify-center w-10 h-10 md:w-32 md:h-12 rounded-lg border shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95 transition-all duration-150 ease-out overflow-hidden group theme-switch-premium"
@@ -115,7 +115,7 @@
           :title="isDarkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
           aria-label="Cambiar tema"
         >
-          <!-- Switch compacto - MÁS GRANDE EN MÓVIL -->
+          <!-- Switch compacto - MÁS GRANDE EN MÓVIL (IGUAL AL HEADER Y SERVICIOS) -->
           <div 
             class="absolute w-8 h-8 md:w-12 md:h-12 rounded-full transition-all duration-300 ease-out transform z-30 overflow-hidden"
             :class="isDarkMode ? 'right-1 md:right-3' : 'left-1 md:left-3'"
@@ -342,7 +342,7 @@
           </button>
 
           <!-- Contenedor de imágenes -->
-          <div class="flex-1 relative flex items-center justify-center h-full transition-all duration-150">
+          <div class="flex-1 relative flex items-center justify-center h-full transition-all duration-150 px-3 md:px-0">
             
             <!-- Imagen anterior -->
             <div 
@@ -384,7 +384,7 @@
 
             <!-- Imagen actual central -->
             <div 
-              class="absolute left-1/2 transform -translate-x-1/2 w-[500px] h-[375px] md:w-[600px] md:h-[450px] z-30 transition-all duration-300"
+              class="absolute left-1/2 transform -translate-x-1/2 w-[calc(100%-20px)] md:w-[600px] h-[400px] md:h-[450px] z-30 transition-all duration-300"
               :class="isAnimating ? 'opacity-80 scale-95' : 'opacity-100 scale-100'"
             >
               <div 
@@ -393,8 +393,8 @@
                   ? 'bg-gradient-to-br from-blue-700/50 via-indigo-800/60 to-blue-900/50 border-cyan-400/50 hover:border-cyan-300/60 shadow-cyan-500/20 hover:shadow-glow' 
                   : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/60 hover:border-blue-500/70 shadow-blue-400/20 hover:shadow-glow'">
                 
-                <!-- Imagen grande -->
-                <div class="relative w-full h-[250px] md:h-[300px] rounded-t-lg overflow-hidden">
+                <!-- Imagen grande - MÁS ALTA Y MENOS ANCHA EN MÓVIL -->
+                <div class="relative w-full h-[270px] md:h-[300px] rounded-t-lg overflow-hidden">
                   <img 
                     :src="currentImage.image" 
                     :alt="currentImage.title"
@@ -403,15 +403,16 @@
                   <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 </div>
                 
-                <!-- Contenido principal -->
-                <div class="p-4 md:p-5 h-[125px] md:h-[150px] flex flex-col justify-center">
+                <!-- Contenido principal - ALTURA INCREMENTADA PARA EVITAR CORTE -->
+                <div class="p-4 md:p-5 h-[130px] md:h-[150px] flex flex-col justify-center min-h-[80px]">
                   <h3 class="text-lg md:text-xl font-black mb-2 text-center bg-clip-text text-transparent transition-all duration-150 line-clamp-1"
                       :class="isDarkMode 
                         ? 'bg-gradient-to-r from-white via-blue-100 to-blue-200' 
                         : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
                     {{ currentImage.title }}
                   </h3>
-                  <p class="text-sm leading-relaxed text-center transition-colors duration-150 line-clamp-2"
+                  <!-- TEXTO MÁS PEQUEÑO PERO CON SUFICIENTE ESPACIO -->
+                  <p class="text-xs md:text-sm leading-relaxed text-center transition-colors duration-150 line-clamp-2"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
                     {{ currentImage.description }}
                   </p>
@@ -527,71 +528,68 @@
         </div>
       </div>
 
-      <!-- Título "Empresas que Confían en ENSEA" - MÁS GRANDE (CAMBIO PRINCIPAL) -->
+      <!-- Título "Empresas que Confían en ENSEA" - EN UN RENGLÓN CON TAMAÑO REDUCIDO -->
       <div class="text-center w-full flex flex-col items-center mt-4 md:mt-5 animate-fadeInUp transition-all duration-150" style="animation-delay: 250ms">
-        <h3 class="text-2xl md:text-3xl lg:text-4xl font-black mb-4 md:mb-6 text-center w-full">
-  <span class="relative inline-block">
-    <div class="relative pb-1">
-      <div 
-        class="bg-clip-text text-transparent leading-tight transition-all duration-150"
-        :class="isDarkMode 
-          ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
-          : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
-        Empresas que Confían en 
-      </div>
-    </div>
-    
-    <!-- Subrayado para esta sección -->
-    <div 
-      class="absolute -bottom-1 left-1/4 right-1/4 h-0.5 rounded-full opacity-60 mt-0.5 transition-all duration-150"
-      :class="isDarkMode 
-        ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-        : 'bg-gradient-to-r from-blue-500 to-blue-400'">
-    </div>
-  </span>
-  <span class="animate-pulse-slow font-bold relative z-20"
-        :class="isDarkMode ? 'text-cyan-300' : 'text-blue-600'">
-    ENSEA
-  </span>
-</h3>
+        <!-- TÍTULO EN UN SOLO RENGLÓN CON TAMAÑO REDUCIDO EN MÓVIL -->
+        <h3 class="text-lg sm:text-xl md:text-3xl lg:text-4xl font-black mb-4 md:mb-6 text-center w-full whitespace-nowrap overflow-hidden text-ellipsis px-4 md:px-0">
+          <span class="relative inline-block">
+            <div class="relative pb-1">
+              <div 
+                class="bg-clip-text text-transparent leading-tight transition-all duration-150"
+                :class="isDarkMode 
+                  ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
+                  : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
+                Empresas que Confían en ENSEA
+              </div>
+            </div>
+            
+            <!-- Subrayado para esta sección -->
+            <div 
+              class="absolute -bottom-1 left-1/4 right-1/4 h-0.5 rounded-full opacity-60 mt-0.5 transition-all duration-150"
+              :class="isDarkMode 
+                ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+                : 'bg-gradient-to-r from-blue-500 to-blue-400'">
+            </div>
+          </span>
+        </h3>
         
-       <!-- Grid de logos de clientes - FONDO AZUL CON CUADRADO BLANCO PARA IMAGEN -->
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 items-center justify-items-center w-full max-w-4xl mx-auto">
-  <div v-for="(client, index) in clients" :key="index" 
-       class="group relative w-full">
-    
-    <!-- Logo Card - FONDO AZUL ORIGINAL EN TEMA OSCURO -->
-    <div class="relative backdrop-blur-xl rounded-lg border p-0.5 transition-all duration-150 transform group-hover:-translate-y-0.5 group-hover:scale-105 shadow-md hover:shadow-glow overflow-hidden h-full"
-         :class="isDarkMode 
-           ? 'bg-gradient-to-br from-blue-700/40 via-indigo-800/50 to-blue-900/40 border-cyan-400/40 hover:border-cyan-300/50 hover:shadow-glow' 
-           : 'bg-gradient-to-br from-blue-50/80 via-blue-100/70 to-blue-200/60 border-blue-400/50 hover:border-blue-500/60 hover:shadow-glow'">
-      
-      <!-- Logo Container -->
-      <div class="p-4 md:p-5 flex flex-col items-center justify-center h-full relative z-10">
-        <!-- Contenedor de imagen del logo - CUADRADO BLANCO -->
-        <div class="relative w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg overflow-hidden mb-3 transform transition-all duration-150 group-hover:scale-110 bg-white p-2 shadow-inner">
-          <img 
-            :src="client.logo" 
-            :alt="client.name"
-            class="w-full h-full object-contain"
-          />
-          <!-- Brillo interior del cuadrado blanco -->
-          <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+        <!-- Grid de logos de clientes - IMÁGENES AUMENTADAS 50% EN MÓVIL -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-4 items-center justify-items-center w-full max-w-4xl mx-auto">
+          <div v-for="(client, index) in clients" :key="index" 
+               class="group relative w-full">
+            
+            <!-- Logo Card -->
+            <div class="relative backdrop-blur-xl rounded-lg border p-1 md:p-0.5 transition-all duration-150 transform group-hover:-translate-y-0.5 group-hover:scale-105 shadow-md hover:shadow-glow overflow-hidden h-full"
+                 :class="isDarkMode 
+                   ? 'bg-gradient-to-br from-blue-700/40 via-indigo-800/50 to-blue-900/40 border-cyan-400/40 hover:border-cyan-300/50 hover:shadow-glow' 
+                   : 'bg-gradient-to-br from-blue-50/80 via-blue-100/70 to-blue-200/60 border-blue-400/50 hover:border-blue-500/60 hover:shadow-glow'">
+              
+              <!-- Logo Container -->
+              <div class="p-3 md:p-5 flex flex-col items-center justify-center h-full relative z-10">
+                <!-- Contenedor de imagen del logo - AUMENTADO 50% EN MÓVIL -->
+                <div class="relative w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-lg overflow-hidden mb-2 md:mb-3 transform transition-all duration-150 group-hover:scale-110 bg-white p-1 md:p-2 shadow-inner">
+                  <img 
+                    :src="client.logo" 
+                    :alt="client.name"
+                    class="w-full h-full object-contain p-1"
+                  />
+                  <!-- Brillo interior del cuadrado blanco -->
+                  <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                </div>
+                
+                <!-- Nombre de la empresa -->
+                <span class="text-xs md:text-sm font-medium text-center transition-colors duration-150 line-clamp-2"
+                      :class="isDarkMode ? 'text-white/90 font-semibold' : 'text-blue-800/90'">
+                  {{ client.name }}
+                </span>
+              </div>
+              
+              <!-- Efecto de borde brillante al hover -->
+              <div class="absolute inset-0 rounded-lg border-2 opacity-0 group-hover:opacity-60 transition-opacity duration-300"
+                   :class="isDarkMode ? 'border-cyan-400/60' : 'border-blue-500/60'"></div>
+            </div>
+          </div>
         </div>
-        
-        <!-- Nombre de la empresa - COLOR CLARO PARA CONTRASTE CON FONDO AZUL -->
-        <span class="text-sm font-medium text-center transition-colors duration-150 line-clamp-2"
-              :class="isDarkMode ? 'text-white/90 font-semibold' : 'text-blue-800/90'">
-          {{ client.name }}
-        </span>
-      </div>
-      
-      <!-- Efecto de borde brillante al hover -->
-      <div class="absolute inset-0 rounded-lg border-2 opacity-0 group-hover:opacity-60 transition-opacity duration-300"
-           :class="isDarkMode ? 'border-cyan-400/60' : 'border-blue-500/60'"></div>
-    </div>
-  </div>
-</div>
       </div>
 
       <!-- Nota adicional -->
@@ -1142,89 +1140,119 @@ watch(isDarkMode, (newVal) => {
 /* *********************************************************** */
 
 @media (max-width: 768px) {
-  /* 1. BOTÓN DE TEMAS IDÉNTICO AL HEADER */
+  /* 1. BOTÓN DE TEMAS CON MÁS ESPACIO A LA DERECHA */
+  .mr-2 {
+    margin-right: 0.5rem !important; /* 8px de espacio a la derecha */
+  }
+  
   .theme-switch-premium {
-    width: 40px; /* AUMENTADO DE 10px */
-    height: 40px; /* AUMENTADO DE 10px */
+    width: 40px !important;
+    height: 40px !important;
   }
   
   .theme-switch-premium > div:first-child {
-    width: 32px; /* AUMENTADO DE 8px */
-    height: 32px; /* AUMENTADO DE 8px */
+    width: 32px !important;
+    height: 32px !important;
   }
   
   .absolute.left-2 {
-    left: 8px;
+    left: 8px !important;
   }
   
   .absolute.right-2 {
-    right: 8px;
+    right: 8px !important;
   }
   
   .absolute.-bottom-4 {
-    display: none; /* OCULTO EN MÓVIL */
-  }
-  
-  .absolute.-bottom-6 {
-    display: none; /* OCULTO EN MÓVIL */
-  }
-  
-  /* 2. FLECHAS DEL CARRUSEL OCULTAS EN MÓVIL */
-  .hidden.md\:flex {
-    display: none !important; /* OCULTA BOTONES EN MÓVIL */
-  }
-  
-  /* Imágenes laterales ocultas en móvil */
-  .hidden.md\:block {
     display: none !important;
   }
   
-  /* Ajustar contenedor de imágenes para móvil */
+  .absolute.-bottom-6 {
+    display: none !important;
+  }
+  
+  /* 2. CARRUSEL CON MÁS ALTURA, MENOS ANCHO Y ESPACIO A LOS COSTADOS */
+  /* Contenedor principal del carrusel */
   .h-\[450px\] {
-    height: 350px !important;      /* Reducido de 420px */
+    height: 380px !important; /* Más altura */
   }
   
-  /* Imagen central más pequeña para móvil */
-  .w-\[500px\] {
-    width: 85vw !important;        /* Reducido de 90vw */
+  /* Imagen central - más alta, menos ancha */
+  .w-\[calc\(100\%-20px\)\] {
+    width: calc(100% - 20px) !important; /* 10px a cada lado = 20px total */
   }
   
-  .h-\[375px\] {
-    height: 280px !important;      /* Reducido de 350px */
+  .h-\[400px\] {
+    height: 350px !important; /* Más altura */
   }
   
-  /* Imagen dentro del carrusel central más pequeña */
-  .h-\[250px\] {
-    height: 180px !important;      /* Reducido de 220px */
+  /* Imagen dentro del carrusel - más alta */
+  .h-\[270px\] {
+    height: 240px !important; /* Significativamente más alta */
   }
   
-  .h-\[125px\] {
-    height: 100px !important;      /* Reducido de 130px */
+  /* Contenedor de texto - ajustado para nueva altura */
+  .h-\[130px\] {
+    height: 110px !important;
+    min-height: 110px !important;
   }
   
-  /* 3. LOGOS DE EMPRESAS AUMENTADOS EN MÓVIL */
-  .w-24, .h-24 {
-    width: 4rem !important;        /* Aumentado de 3rem */
-    height: 4rem !important;       /* Aumentado de 3rem */
+  /* Espacio a los costados del contenedor de imágenes */
+  .px-3 {
+    padding-left: 0.75rem !important; /* ~12px */
+    padding-right: 0.75rem !important; /* ~12px */
   }
   
+  /* 3. TÍTULO "Empresas que Confían en ENSEA" CON TAMAÑO REDUCIDO */
+  .text-lg {
+    font-size: 1.125rem !important; /* Reducido de 1.5rem */
+  }
+  
+  .sm\:text-xl {
+    font-size: 1.25rem !important; /* Reducido de 1.75rem */
+  }
+  
+  /* Espacio a los costados del título */
+  .px-4 {
+    padding-left: 1rem !important; /* 16px */
+    padding-right: 1rem !important; /* 16px */
+  }
+  
+  .whitespace-nowrap {
+    white-space: nowrap !important;
+  }
+  
+  .overflow-hidden {
+    overflow: hidden !important;
+  }
+  
+  .text-ellipsis {
+    text-overflow: ellipsis !important;
+  }
+  
+  /* 4. IMÁGENES DE EMPRESAS (MANTIENE TAMAÑO AUMENTADO) */
   .w-20, .h-20 {
-    width: 3.5rem !important;      /* Aumentado de 2.5rem */
-    height: 3.5rem !important;     /* Aumentado de 2.5rem */
+    width: 5rem !important;
+    height: 5rem !important;
   }
   
-  .w-16, .h-16 {
-    width: 3rem !important;        /* Aumentado de 1.75rem */
-    height: 3rem !important;       /* Aumentado de 1.75rem */
+  .md\:w-24, .md\:h-24 {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
   }
   
-  /* Título de empresas - tamaño ajustado para móvil */
-  .text-4xl {
-    font-size: 2.25rem !important; /* Aumentado de 2rem */
+  .lg\:w-28, .lg\:h-28 {
+    width: 4rem !important;
+    height: 4rem !important;
   }
   
-  .text-3xl {
-    font-size: 2rem !important;    /* Aumentado de 1.75rem */
+  /* Ajustes para el contenedor de logos */
+  .p-3 {
+    padding: 0.75rem !important;
+  }
+  
+  .gap-4 {
+    gap: 1rem !important;
   }
   
   /* Ajustes adicionales existentes */
@@ -1236,15 +1264,15 @@ watch(isDarkMode, (newVal) => {
     height: 450px;
   }
   
-  .w-\[600px\] {
+  .md\:w-\[600px\] {
     width: 90vw;
   }
   
-  .h-\[300px\] {
+  .md\:h-\[300px\] {
     height: 220px;
   }
   
-  .h-\[150px\] {
+  .md\:h-\[150px\] {
     height: 130px;
   }
   
@@ -1264,6 +1292,16 @@ watch(isDarkMode, (newVal) => {
     height: 100px;
   }
   
+  /* Flechas ocultas en móvil */
+  .hidden.md\:flex {
+    display: none !important;
+  }
+  
+  /* Imágenes laterales ocultas en móvil */
+  .hidden.md\:block {
+    display: none !important;
+  }
+  
   /* Botones de navegación más pequeños */
   .w-12, .w-14 {
     width: 2.5rem;
@@ -1277,76 +1315,77 @@ watch(isDarkMode, (newVal) => {
 }
 
 @media (max-width: 480px) {
-  /* 1. BOTÓN DE TEMAS AÚN MÁS GRANDE EN MÓVILES PEQUEÑOS */
+  /* 1. BOTÓN DE TEMAS CON MÁS ESPACIO EN MÓVILES PEQUEÑOS */
+  .mr-2 {
+    margin-right: 0.625rem !important; /* 10px de espacio */
+  }
+  
   .theme-switch-premium {
-    width: 44px; /* AUMENTADO DE 40px */
-    height: 44px; /* AUMENTADO DE 40px */
+    width: 44px !important;
+    height: 44px !important;
   }
   
   .theme-switch-premium > div:first-child {
-    width: 34px; /* AUMENTADO DE 32px */
-    height: 34px; /* AUMENTADO DE 32px */
+    width: 34px !important;
+    height: 34px !important;
   }
   
   .absolute.left-2 {
-    left: 9px;
+    left: 9px !important;
   }
   
   .absolute.right-2 {
-    right: 9px;
+    right: 9px !important;
   }
   
-  /* 2. CARRUSEL AÚN MÁS REDUCIDO EN MÓVILES PEQUEÑOS */
-  /* Contenedor principal más pequeño */
+  /* 2. CARRUSEL AÚN MÁS OPTIMIZADO PARA MÓVILES PEQUEÑOS */
   .h-\[450px\] {
-    height: 300px !important;      /* Reducido de 380px */
+    height: 340px !important;
   }
   
-  /* Imagen central más pequeña */
-  .w-\[500px\] {
-    width: 90vw !important;        /* Ajustado de 95vw */
+  .h-\[400px\] {
+    height: 310px !important;
   }
   
-  .h-\[375px\] {
-    height: 240px !important;      /* Reducido de 300px */
+  .h-\[270px\] {
+    height: 220px !important;
   }
   
-  /* Imagen dentro del carrusel central más pequeña */
-  .h-\[250px\] {
-    height: 160px !important;      /* Reducido de 190px */
+  .h-\[130px\] {
+    height: 90px !important;
+    min-height: 90px !important;
   }
   
-  .h-\[125px\] {
-    height: 80px !important;       /* Reducido de 110px */
+  /* Más espacio a los costados en móviles pequeños */
+  .px-3 {
+    padding-left: 1rem !important; /* 16px */
+    padding-right: 1rem !important; /* 16px */
   }
   
-  /* 3. LOGOS DE EMPRESAS AÚN MÁS AUMENTADOS EN MÓVILES PEQUEÑOS */
-  .w-24, .h-24 {
-    width: 3.5rem !important;      /* Aumentado de 2.5rem */
-    height: 3.5rem !important;     /* Aumentado de 2.5rem */
+  /* 3. TÍTULO MÁS PEQUEÑO EN MÓVILES PEQUEÑOS */
+  .text-lg {
+    font-size: 1rem !important; /* 16px */
   }
   
+  .sm\:text-xl {
+    font-size: 1.125rem !important; /* 18px */
+  }
+  
+  /* Ajuste de padding para mejor visualización */
+  .px-4 {
+    padding-left: 0.75rem !important; /* 12px */
+    padding-right: 0.75rem !important; /* 12px */
+  }
+  
+  /* 4. IMÁGENES DE EMPRESAS AÚN MÁS AUMENTADAS EN MÓVILES PEQUEÑOS */
   .w-20, .h-20 {
-    width: 3rem !important;        /* Aumentado de 2rem */
-    height: 3rem !important;       /* Aumentado de 2rem */
+    width: 4.5rem !important;
+    height: 4.5rem !important;
   }
   
-  .w-16, .h-16 {
-    width: 2.5rem !important;      /* Aumentado de 1.75rem */
-    height: 2.5rem !important;     /* Aumentado de 1.75rem */
-  }
-  
-  /* Título de empresas - tamaño ajustado para móvil pequeño */
-  .text-4xl {
-    font-size: 2rem !important;    /* Aumentado de 1.75rem */
-  }
-  
-  .text-3xl {
-    font-size: 1.75rem !important; /* Aumentado de 1.5rem */
-  }
-  
-  .text-2xl {
-    font-size: 1.5rem !important;  /* Aumentado de 1.25rem */
+  /* Reducir padding para logos más grandes */
+  .p-3 {
+    padding: 0.5rem !important;
   }
   
   /* Ajustes adicionales existentes */

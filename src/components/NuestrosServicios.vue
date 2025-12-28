@@ -317,10 +317,12 @@
         </div>
 
         <!-- Grid de servicios (CONSISTENTE EN COLORES Y ESTILOS) -->
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto w-full px-4 animate-fadeInUp transition-all duration-150" style="animation-delay: 150ms">
+        <!-- CAMBIO AQUÍ: Agregado mb-8 en móvil para más espacio entre tarjetas -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto w-full px-4 animate-fadeInUp transition-all duration-150 mb-4 md:mb-0" style="animation-delay: 150ms">
           
           <!-- Plan Básico -->
-          <div class="group relative animate-fadeInUp transition-all duration-150" style="animation-delay: 80ms">
+          <!-- CAMBIO AQUÍ: Agregado pb-6 en móvil para más espacio debajo de la tarjeta -->
+          <div class="group relative animate-fadeInUp transition-all duration-150 pb-6 md:pb-0" style="animation-delay: 80ms">
             <!-- Tarjeta (ESTILOS IGUALES A LAS TARJETAS DE STATS DEL INICIO) -->
             <div class="relative backdrop-blur-xl rounded-lg border p-4 transform transition-all duration-150 group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:shadow-lg shadow-md hover:shadow-glow h-full flex flex-col"
                  :class="isDarkMode 
@@ -397,7 +399,8 @@
           </div>
 
           <!-- Plan Estándar - Popular -->
-          <div class="group relative animate-fadeInUp transition-all duration-150" style="animation-delay: 120ms">
+          <!-- CAMBIO AQUÍ: Agregado pb-6 en móvil para más espacio debajo de la tarjeta -->
+          <div class="group relative animate-fadeInUp transition-all duration-150 pb-6 md:pb-0" style="animation-delay: 120ms">
             <!-- Badge Popular (ESTILO IGUAL AL BADGE DEL INICIO) -->
             <div class="absolute -top-2 left-1/2 transform -translate-x-1/2 z-30 transition-all duration-150">
               <div class="inline-flex items-center backdrop-blur-lg rounded-full px-3 py-1 border shadow-sm animate-pulse-slow transition-all duration-150"
@@ -490,7 +493,8 @@
           </div>
 
           <!-- Plan Profesional -->
-          <div class="group relative animate-fadeInUp transition-all duration-150" style="animation-delay: 160ms">
+          <!-- CAMBIO AQUÍ: Agregado pb-6 en móvil para más espacio debajo de la tarjeta -->
+          <div class="group relative animate-fadeInUp transition-all duration-150 pb-6 md:pb-0" style="animation-delay: 160ms">
             <!-- Tarjeta -->
             <div class="relative backdrop-blur-xl rounded-lg border p-4 transform transition-all duration-150 group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:shadow-lg shadow-md hover:shadow-glow h-full flex flex-col"
                  :class="isDarkMode 
@@ -566,7 +570,8 @@
           </div>
 
           <!-- Plan Empresa -->
-          <div class="group relative animate-fadeInUp transition-all duration-150" style="animation-delay: 200ms">
+          <!-- CAMBIO AQUÍ: Agregado pb-6 en móvil para más espacio debajo de la tarjeta -->
+          <div class="group relative animate-fadeInUp transition-all duration-150 pb-6 md:pb-0" style="animation-delay: 200ms">
             <!-- Tarjeta -->
             <div class="relative backdrop-blur-xl rounded-lg border p-4 transform transition-all duration-150 group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:shadow-lg shadow-md hover:shadow-glow h-full flex flex-col"
                  :class="isDarkMode 
@@ -645,7 +650,8 @@
         </div>
 
         <!-- Nota adicional -->
-        <div class="text-center mt-4 md:mt-6 max-w-2xl mx-auto px-4 animate-fadeInUp transition-all duration-150" style="animation-delay: 240ms">
+        <!-- CAMBIO AQUÍ: Agregado mt-8 en móvil para más espacio después del grid -->
+        <div class="text-center mt-8 md:mt-6 max-w-2xl mx-auto px-4 animate-fadeInUp transition-all duration-150" style="animation-delay: 240ms">
           <div class="relative backdrop-blur-sm border rounded-lg p-3 md:p-4 shadow-lg transform transition-all duration-150 hover:scale-102"
                :class="isDarkMode 
                  ? 'bg-blue-900/20 border-blue-400/15 shadow-blue-500/10 hover:border-blue-300/30' 
@@ -1037,6 +1043,11 @@ watch(isDarkMode, (newVal) => {
   .absolute.right-2 {
     right: 8px;
   }
+  
+  /* CAMBIO AQUÍ: Espacio adicional entre tarjetas en móvil */
+  .grid.grid-cols-1 {
+    gap: 1.5rem; /* Aumentado de 0.75rem */
+  }
 }
 
 @media (max-width: 480px) {
@@ -1067,6 +1078,11 @@ watch(isDarkMode, (newVal) => {
   /* ESPACIO AÚN MÁS REDUCIDO EN MÓVILES MUY PEQUEÑOS */
   .relative.w-full.mb-1 {
     margin-bottom: 0.25rem; /* AÚN MÁS REDUCIDO */
+  }
+  
+  /* CAMBIO AQUÍ: Espacio adicional entre tarjetas en móviles pequeños */
+  .grid.grid-cols-1 {
+    gap: 2rem; /* Aumentado aún más para móviles pequeños */
   }
 }
 
