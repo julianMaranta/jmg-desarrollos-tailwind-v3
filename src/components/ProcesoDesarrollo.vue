@@ -319,7 +319,7 @@
         <!-- Contenedor del carrusel de pasos -->
         <div class="relative w-full max-w-6xl mx-auto mb-6 md:mb-8 animate-fadeInUp transition-all duration-150" style="animation-delay: 150ms">
           <!-- Contenedor principal con tarjetas -->
-          <div class="flex items-center justify-center h-[320px] md:h-[360px] transition-all duration-150">
+          <div class="flex items-center justify-center h-[340px] md:h-[360px] transition-all duration-150">
             
             <!-- Botón izquierdo (ESTILO COHERENTE) -->
             <button 
@@ -352,24 +352,24 @@
               <!-- Tarjeta anterior -->
               <div 
                 v-if="prevCard"
-                class="absolute left-0 w-[220px] h-[280px] md:w-[260px] md:h-[300px] transition-all duration-300 z-20"
+                class="absolute left-0 w-[220px] h-[300px] md:w-[260px] md:h-[300px] transition-all duration-300 z-20"
                 :class="isAnimating ? 'opacity-60 -translate-x-8' : 'opacity-80'"
               >
                 <div 
-                  class="w-full h-full backdrop-blur-xl rounded-lg border shadow-lg p-4 transform hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer group flex flex-col items-center relative overflow-hidden min-h-full"
+                  class="w-full h-full backdrop-blur-xl rounded-lg border shadow-lg p-4 transform hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer group flex flex-col items-center justify-center relative overflow-hidden"
                   style="transform: rotateY(15deg) translateZ(-10px);"
                   @click="prevSlide"
                   :class="isDarkMode 
                     ? 'bg-gradient-to-br from-blue-700/40 via-indigo-800/50 to-blue-900/40 border-cyan-400/40 hover:border-cyan-300/50 hover:shadow-glow' 
                     : 'bg-gradient-to-br from-blue-50/80 via-blue-100/70 to-blue-200/60 border-blue-400/50 hover:border-blue-500/60 hover:shadow-glow'">
                   
-                  <!-- Icono -->
-                  <div class="flex justify-center mb-3 w-full">
-                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center border shadow-lg transform group-hover:scale-110 transition-transform duration-150 animate-pulse-slow"
+                  <!-- Icono grande -->
+                  <div class="flex justify-center mb-4 w-full">
+                    <div class="w-16 h-16 rounded-lg flex items-center justify-center border shadow-lg transform group-hover:scale-110 transition-transform duration-150 animate-pulse-slow"
                          :class="isDarkMode 
                            ? 'bg-gradient-to-br from-blue-500/70 to-cyan-500/70 border-cyan-400/30' 
                            : 'bg-gradient-to-br from-blue-200/70 to-blue-300/70 border-blue-300/30'">
-                      <span class="text-xl md:text-2xl">{{ prevCard.icon }}</span>
+                      <span class="text-3xl">{{ prevCard.icon }}</span>
                     </div>
                   </div>
                   
@@ -380,13 +380,13 @@
                   </h3>
                   
                   <!-- Descripción -->
-                  <p class="leading-relaxed text-xs md:text-sm text-center mb-3 min-h-[2.5rem] max-h-[3rem] w-full px-3 transition-colors duration-150 overflow-hidden text-ellipsis line-clamp-2"
+                  <p class="leading-relaxed text-xs md:text-sm text-center mb-3 w-full px-3 transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/80' : 'text-blue-800/80'">
                     {{ prevCard.description }}
                   </p>
                   
                   <!-- Características -->
-                  <ul class="space-y-1.5 w-full px-3 flex-grow overflow-hidden">
+                  <ul class="space-y-1.5 w-full px-3 flex-grow overflow-y-auto max-h-[100px] md:max-h-none">
                     <li v-for="(feature, featureIndex) in prevCard.features" :key="featureIndex" 
                         class="flex items-start justify-start transform group-hover:translate-x-1 transition-transform duration-150"
                         :style="`transition-delay: ${featureIndex * 50}ms`">
@@ -395,7 +395,7 @@
                              ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
                              : 'bg-gradient-to-r from-blue-400 to-blue-300'">
                       </div>
-                      <span class="text-xs text-left flex-1 font-medium transition-colors duration-150 line-clamp-2"
+                      <span class="text-xs text-left flex-1 font-medium transition-colors duration-150"
                             :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
                         {{ feature }}
                       </span>
@@ -406,22 +406,22 @@
 
               <!-- Tarjeta actual central -->
               <div 
-                class="absolute left-1/2 transform -translate-x-1/2 w-[280px] h-[320px] md:w-[320px] md:h-[360px] z-30 transition-all duration-300"
+                class="absolute left-1/2 transform -translate-x-1/2 w-[280px] h-[340px] md:w-[320px] md:h-[360px] z-30 transition-all duration-300"
                 :class="isAnimating ? 'opacity-80 scale-95' : 'opacity-100 scale-100'"
               >
                 <div 
-                  class="w-full h-full backdrop-blur-xl rounded-lg border shadow-xl p-5 md:p-6 transform hover:scale-105 hover:-translate-y-0.5 transition-all duration-300 group flex flex-col items-center relative overflow-hidden min-h-full"
+                  class="w-full h-full backdrop-blur-xl rounded-lg border shadow-xl p-5 md:p-6 transform hover:scale-105 hover:-translate-y-0.5 transition-all duration-300 group flex flex-col items-center justify-center relative overflow-hidden"
                   :class="isDarkMode 
                     ? 'bg-gradient-to-br from-blue-700/50 via-indigo-800/60 to-blue-900/50 border-cyan-400/50 hover:border-cyan-300/60 shadow-cyan-500/20 hover:shadow-glow' 
                     : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/60 hover:border-blue-500/70 shadow-blue-400/20 hover:shadow-glow'">
                   
                   <!-- Icono grande central -->
                   <div class="flex justify-center mb-4 w-full relative">
-                    <div class="w-16 h-16 md:w-18 md:h-18 rounded-lg flex items-center justify-center border shadow-xl transform group-hover:rotate-12 transition-transform duration-300 animate-pulse-slow"
+                    <div class="w-20 h-20 rounded-lg flex items-center justify-center border shadow-xl transform group-hover:rotate-12 transition-transform duration-300 animate-pulse-slow"
                          :class="isDarkMode 
                            ? 'bg-gradient-to-br from-blue-500/60 to-cyan-600/60 border-cyan-400/50' 
                            : 'bg-gradient-to-br from-blue-300/60 to-blue-400/60 border-blue-300/50'">
-                      <span class="text-2xl md:text-3xl custom-bounce-slow">{{ currentCard.icon }}</span>
+                      <span class="text-4xl custom-bounce-slow">{{ currentCard.icon }}</span>
                     </div>
                   </div>
                   
@@ -434,13 +434,13 @@
                   </h3>
                   
                   <!-- Descripción -->
-                  <p class="leading-relaxed text-sm md:text-base text-center mb-4 min-h-[3rem] max-h-[3.5rem] w-full px-4 transition-colors duration-150 overflow-hidden text-ellipsis line-clamp-2"
+                  <p class="leading-relaxed text-sm md:text-base text-center mb-4 w-full px-4 transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
                     {{ currentCard.description }}
                   </p>
                   
                   <!-- Características -->
-                  <ul class="space-y-2 w-full px-4 mb-4 flex-grow overflow-y-auto">
+                  <ul class="space-y-1.5 w-full px-4 mb-4 flex-grow overflow-y-auto max-h-[100px] md:max-h-none">
                     <li v-for="(feature, featureIndex) in currentCard.features" :key="featureIndex" 
                         class="flex items-start justify-start transform group-hover:translate-x-1 transition-transform duration-150"
                         :style="`transition-delay: ${featureIndex * 80}ms`">
@@ -449,7 +449,7 @@
                              ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
                              : 'bg-gradient-to-r from-blue-400 to-blue-300'">
                       </div>
-                      <span class="text-sm md:text-base text-left flex-1 font-semibold transition-colors duration-150 line-clamp-2"
+                      <span class="text-sm md:text-base text-left flex-1 font-semibold transition-colors duration-150"
                             :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
                         {{ feature }}
                       </span>
@@ -461,24 +461,24 @@
               <!-- Tarjeta siguiente -->
               <div 
                 v-if="nextCard"
-                class="absolute right-0 w-[220px] h-[280px] md:w-[260px] md:h-[300px] transition-all duration-300 z-20"
+                class="absolute right-0 w-[220px] h-[300px] md:w-[260px] md:h-[300px] transition-all duration-300 z-20"
                 :class="isAnimating ? 'opacity-60 translate-x-8' : 'opacity-80'"
               >
                 <div 
-                  class="w-full h-full backdrop-blur-xl rounded-lg border shadow-lg p-4 transform hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer group flex flex-col items-center relative overflow-hidden min-h-full"
+                  class="w-full h-full backdrop-blur-xl rounded-lg border shadow-lg p-4 transform hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer group flex flex-col items-center justify-center relative overflow-hidden"
                   style="transform: rotateY(-15deg) translateZ(-10px);"
                   @click="nextSlide"
                   :class="isDarkMode 
                     ? 'bg-gradient-to-br from-blue-700/40 via-indigo-800/50 to-blue-900/40 border-cyan-400/40 hover:border-cyan-300/50 hover:shadow-glow' 
                     : 'bg-gradient-to-br from-blue-50/80 via-blue-100/70 to-blue-200/60 border-blue-400/50 hover:border-blue-500/60 hover:shadow-glow'">
                   
-                  <!-- Icono -->
-                  <div class="flex justify-center mb-3 w-full">
-                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center border shadow-lg transform group-hover:scale-110 transition-transform duration-150 animate-pulse-slow"
+                  <!-- Icono grande -->
+                  <div class="flex justify-center mb-4 w-full">
+                    <div class="w-16 h-16 rounded-lg flex items-center justify-center border shadow-lg transform group-hover:scale-110 transition-transform duration-150 animate-pulse-slow"
                          :class="isDarkMode 
                            ? 'bg-gradient-to-br from-blue-500/70 to-cyan-500/70 border-cyan-400/30' 
                            : 'bg-gradient-to-br from-blue-200/70 to-blue-300/70 border-blue-300/30'">
-                      <span class="text-xl md:text-2xl">{{ nextCard.icon }}</span>
+                      <span class="text-3xl">{{ nextCard.icon }}</span>
                     </div>
                   </div>
                   
@@ -489,13 +489,13 @@
                   </h3>
                   
                   <!-- Descripción -->
-                  <p class="leading-relaxed text-xs md:text-sm text-center mb-3 min-h-[2.5rem] max-h-[3rem] w-full px-3 transition-colors duration-150 overflow-hidden text-ellipsis line-clamp-2"
+                  <p class="leading-relaxed text-xs md:text-sm text-center mb-3 w-full px-3 transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/80' : 'text-blue-800/80'">
                     {{ nextCard.description }}
                   </p>
                   
                   <!-- Características -->
-                  <ul class="space-y-1.5 w-full px-3 flex-grow overflow-hidden">
+                  <ul class="space-y-1.5 w-full px-3 flex-grow overflow-y-auto max-h-[100px] md:max-h-none">
                     <li v-for="(feature, featureIndex) in nextCard.features" :key="featureIndex" 
                         class="flex items-start justify-start transform group-hover:translate-x-1 transition-transform duration-150"
                         :style="`transition-delay: ${featureIndex * 50}ms`">
@@ -504,7 +504,7 @@
                              ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
                              : 'bg-gradient-to-r from-blue-400 to-blue-300'">
                       </div>
-                      <span class="text-xs text-left flex-1 font-medium transition-colors duration-150 line-clamp-2"
+                      <span class="text-xs text-left flex-1 font-medium transition-colors duration-150"
                             :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
                         {{ feature }}
                       </span>
@@ -1078,45 +1078,72 @@ watch(isDarkMode, (newVal) => {
     right: 8px;
   }
   
-  /* Ajustes del carrusel en móvil */
-  .h-\[320px\] {
-    height: 280px;
+  /* Altura del contenedor */
+  .h-\[340px\] {
+    height: 340px;
   }
   
-  .h-\[360px\] {
-    height: 300px;
-  }
-  
-  .w-\[280px\] {
-    width: 240px;
-  }
-  
-  .w-\[320px\] {
-    width: 280px;
-  }
-  
-  .w-\[220px\] {
-    width: 200px;
-  }
-  
-  .w-\[260px\] {
-    width: 220px;
-  }
-  
-  .h-\[280px\] {
-    height: 260px;
-  }
-  
+  /* Altura de tarjetas */
   .h-\[300px\] {
-    height: 280px;
-  }
-  
-  .h-\[320px\] {
-    height: 280px;
-  }
-  
-  .h-\[360px\] {
     height: 300px;
+  }
+  
+  .h-\[340px\] {
+    height: 340px;
+  }
+  
+  /* Iconos más grandes en móvil */
+  .w-16 {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .w-20 {
+    width: 5rem;
+    height: 5rem;
+  }
+  
+  .text-3xl {
+    font-size: 2rem;
+  }
+  
+  .text-4xl {
+    font-size: 2.5rem;
+  }
+  
+  /* Reducir altura máxima del scroll */
+  .max-h-\[100px\] {
+    max-height: 100px;
+  }
+  
+  /* Permitir scroll en características */
+  .overflow-y-auto {
+    overflow-y: auto;
+  }
+  
+  /* Mejorar el scroll */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(59, 130, 246, 0.5);
+    border-radius: 4px;
+  }
+  
+  /* Asegurar que el texto no se corte */
+  .whitespace-normal {
+    white-space: normal;
+  }
+  
+  /* Centrar contenido verticalmente */
+  .justify-center {
+    justify-content: center;
   }
   
   /* Botones de navegación más pequeños */
@@ -1159,62 +1186,54 @@ watch(isDarkMode, (newVal) => {
     margin-bottom: 0.25rem;
   }
   
-  /* Ajustes del carrusel en móvil pequeño */
-  .h-\[320px\] {
-    height: 260px;
-  }
-  
-  .h-\[360px\] {
-    height: 280px;
-  }
-  
-  .w-\[280px\] {
-    width: 220px;
-  }
-  
-  .w-\[320px\] {
-    width: 260px;
-  }
-  
-  .w-\[220px\] {
-    width: 180px;
-  }
-  
-  .w-\[260px\] {
-    width: 200px;
-  }
-  
-  .h-\[280px\] {
-    height: 240px;
+  /* Altura reducida para pantallas muy pequeñas */
+  .h-\[340px\] {
+    height: 320px;
   }
   
   .h-\[300px\] {
-    height: 260px;
-  }
-  
-  .h-\[320px\] {
-    height: 260px;
-  }
-  
-  .h-\[360px\] {
     height: 280px;
   }
   
-  /* Más ajustes para móviles pequeños */
-  .text-xl {
-    font-size: 1.125rem;
+  .h-\[340px\] {
+    height: 300px;
   }
   
-  .text-2xl {
-    font-size: 1.375rem;
+  /* Iconos ajustados para pantallas pequeñas */
+  .w-16 {
+    width: 3.5rem;
+    height: 3.5rem;
   }
   
-  .text-lg {
-    font-size: 1rem;
+  .w-20 {
+    width: 4rem;
+    height: 4rem;
   }
   
-  .text-base {
-    font-size: 0.9rem;
+  .text-3xl {
+    font-size: 1.75rem;
+  }
+  
+  .text-4xl {
+    font-size: 2rem;
+  }
+  
+  /* Reducir márgenes */
+  .mb-3, .mb-4 {
+    margin-bottom: 0.75rem;
+  }
+  
+  .mb-2 {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Reducir padding */
+  .p-4 {
+    padding: 0.75rem;
+  }
+  
+  .p-5 {
+    padding: 1rem;
   }
   
   /* Botones más pequeños */
@@ -1292,5 +1311,33 @@ watch(isDarkMode, (newVal) => {
 /* Utilidades de escalado */
 .hover\:scale-102:hover {
   transform: scale(1.02);
+}
+
+/* Añadir utilidad para forzar el wrap de texto */
+.break-words {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Para móvil específicamente */
+@media (max-width: 768px) {
+  .md\:break-words {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+  
+  /* Asegurar que todos los textos sean visibles */
+  h3, p, span {
+    overflow: visible !important;
+    text-overflow: unset !important;
+    white-space: normal !important;
+  }
+}
+
+/* Centrar contenido verticalmente */
+.flex-col.justify-center {
+  justify-content: center;
 }
 </style>
