@@ -249,27 +249,27 @@
       <!-- Título principal en un solo renglón (MISMO TAMAÑO QUE INICIO) -->
       <div class="relative w-full mb-2 transition-all duration-150 text-center">
         <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center w-full tracking-tight leading-tight animate-slideInLeft transition-all duration-150">
-  <span class="relative inline-block">
-    <div class="relative pb-1">
-      <!-- Línea completa -->
-      <div 
-        class="bg-clip-text text-transparent leading-tight transition-all duration-150"
-        :class="isDarkMode 
-          ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
-          : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
-        Nuestro Caso de Éxito: ENSEA
-      </div>
-    </div>
-    
-    <!-- Subrayado animado (EXACTO AL INICIO) -->
-    <div 
-      class="absolute -bottom-1 left-1/4 right-1/4 h-0.5 rounded-full opacity-60 mt-0.5 transition-all duration-150"
-      :class="isDarkMode 
-        ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-        : 'bg-gradient-to-r from-blue-500 to-blue-400'">
-    </div>
-  </span>
-</h2>
+          <span class="relative inline-block">
+            <div class="relative pb-1">
+              <!-- Línea completa -->
+              <div 
+                class="bg-clip-text text-transparent leading-tight transition-all duration-150"
+                :class="isDarkMode 
+                  ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
+                  : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
+                Nuestro Caso de Éxito: ENSEA
+              </div>
+            </div>
+            
+            <!-- Subrayado animado (EXACTO AL INICIO) -->
+            <div 
+              class="absolute -bottom-1 left-1/4 right-1/4 h-0.5 rounded-full opacity-60 mt-0.5 transition-all duration-150"
+              :class="isDarkMode 
+                ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+                : 'bg-gradient-to-r from-blue-500 to-blue-400'">
+            </div>
+          </span>
+        </h2>
         
         <!-- Slogan (EXACTO AL INICIO) -->
         <div class="mt-2 md:mt-3 animate-fadeInUp transition-all duration-150" style="animation-delay: 50ms">
@@ -643,29 +643,30 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
 
-// Estado (EXACTO A OTRAS SECCIONES)
+// Estado (SIN localStorage)
 const isDarkMode = ref(true);
 const isTransitioning = ref(false);
 const gradientPosition = ref(0);
 const showParticles = ref(false);
 
-// Gradientes simplificados (EXACTO A OTRAS SECCIONES)
+// Gradientes simplificados
 const darkGradient = 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #0369a1 50%, #1e40af 75%, #0f172a 100%)';
 const lightGradient = 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 25%, #93c5fd 50%, #60a5fa 75%, #3b82f6 100%)';
 
-// Inicializar tema (EXACTO A OTRAS SECCIONES)
+// Inicializar tema (SIN localStorage)
 const initializeTheme = () => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
-    isDarkMode.value = false;
-    gradientPosition.value = 100;
-  } else {
-    isDarkMode.value = true;
-    gradientPosition.value = 0;
-  }
+  // Usamos tema oscuro por defecto siempre
+  isDarkMode.value = true;
+  gradientPosition.value = 0;
+  
+  // Opcional: puedes detectar preferencia del sistema
+  // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+  //   isDarkMode.value = false;
+  //   gradientPosition.value = 100;
+  // }
 };
 
-// Alternar tema (EXACTO A OTRAS SECCIONES)
+// Alternar tema (SIN localStorage)
 const toggleTheme = async () => {
   if (isTransitioning.value) return;
   
@@ -693,7 +694,7 @@ const toggleTheme = async () => {
   };
   
   isDarkMode.value = !isDarkMode.value;
-  localStorage.setItem('theme', isDarkMode.value ? 'dark' : 'light');
+  // ELIMINADO: localStorage.setItem('theme', isDarkMode.value ? 'dark' : 'light');
   
   requestAnimationFrame(animateGradient);
   
@@ -703,7 +704,7 @@ const toggleTheme = async () => {
   }, duration + 50);
 };
 
-// Estilo del gradiente (EXACTO A OTRAS SECCIONES)
+// Estilo del gradiente
 const sectionGradientStyle = computed(() => {
   if (isTransitioning.value) {
     const startGradient = isDarkMode.value ? lightGradient : darkGradient;
@@ -885,7 +886,7 @@ const stopAutoRotate = () => {
   }
 };
 
-// Scroll a sección (EXACTO A OTRAS SECCIONES)
+// Scroll a sección
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
   if (element) {
@@ -901,7 +902,7 @@ const handleInteraction = () => {
   setTimeout(startAutoRotate, 15000);
 };
 
-// Inicializar (EXACTO A OTRAS SECCIONES)
+// Inicializar
 onMounted(() => {
   initializeTheme();
   startAutoRotate();
@@ -921,7 +922,7 @@ onUnmounted(() => {
   }
 });
 
-// Watch para cambio de tema (EXACTO A OTRAS SECCIONES)
+// Watch para cambio de tema
 watch(isDarkMode, (newVal) => {
   document.documentElement.classList.add('theme-transition-fast');
   
@@ -938,7 +939,7 @@ watch(isDarkMode, (newVal) => {
 </script>
 
 <style scoped>
-/* ANIMACIONES OPTIMIZADAS (EXACTO A OTRAS SECCIONES) */
+/* ANIMACIONES OPTIMIZADAS */
 
 @keyframes gradient-shift-dark {
   0%, 100% {
@@ -1142,7 +1143,7 @@ watch(isDarkMode, (newVal) => {
 @media (max-width: 768px) {
   /* 1. BOTÓN DE TEMAS CON MÁS ESPACIO A LA DERECHA */
   .mr-2 {
-    margin-right: 0.5rem !important; /* 8px de espacio a la derecha */
+    margin-right: 0.5rem !important;
   }
   
   .theme-switch-premium {
@@ -1172,50 +1173,44 @@ watch(isDarkMode, (newVal) => {
   }
   
   /* 2. CARRUSEL CON MÁS ALTURA, MENOS ANCHO Y ESPACIO A LOS COSTADOS */
-  /* Contenedor principal del carrusel */
   .h-\[450px\] {
-    height: 380px !important; /* Más altura */
+    height: 380px !important;
   }
   
-  /* Imagen central - más alta, menos ancha */
   .w-\[calc\(100\%-20px\)\] {
-    width: calc(100% - 20px) !important; /* 10px a cada lado = 20px total */
+    width: calc(100% - 20px) !important;
   }
   
   .h-\[400px\] {
-    height: 350px !important; /* Más altura */
+    height: 350px !important;
   }
   
-  /* Imagen dentro del carrusel - más alta */
   .h-\[270px\] {
-    height: 240px !important; /* Significativamente más alta */
+    height: 240px !important;
   }
   
-  /* Contenedor de texto - ajustado para nueva altura */
   .h-\[130px\] {
     height: 110px !important;
     min-height: 110px !important;
   }
   
-  /* Espacio a los costados del contenedor de imágenes */
   .px-3 {
-    padding-left: 0.75rem !important; /* ~12px */
-    padding-right: 0.75rem !important; /* ~12px */
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
   }
   
   /* 3. TÍTULO "Empresas que Confían en ENSEA" CON TAMAÑO REDUCIDO */
   .text-lg {
-    font-size: 1.125rem !important; /* Reducido de 1.5rem */
+    font-size: 1.125rem !important;
   }
   
   .sm\:text-xl {
-    font-size: 1.25rem !important; /* Reducido de 1.75rem */
+    font-size: 1.25rem !important;
   }
   
-  /* Espacio a los costados del título */
   .px-4 {
-    padding-left: 1rem !important; /* 16px */
-    padding-right: 1rem !important; /* 16px */
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   
   .whitespace-nowrap {
@@ -1246,7 +1241,6 @@ watch(isDarkMode, (newVal) => {
     height: 4rem !important;
   }
   
-  /* Ajustes para el contenedor de logos */
   .p-3 {
     padding: 0.75rem !important;
   }
@@ -1317,7 +1311,7 @@ watch(isDarkMode, (newVal) => {
 @media (max-width: 480px) {
   /* 1. BOTÓN DE TEMAS CON MÁS ESPACIO EN MÓVILES PEQUEÑOS */
   .mr-2 {
-    margin-right: 0.625rem !important; /* 10px de espacio */
+    margin-right: 0.625rem !important;
   }
   
   .theme-switch-premium {
@@ -1358,23 +1352,23 @@ watch(isDarkMode, (newVal) => {
   
   /* Más espacio a los costados en móviles pequeños */
   .px-3 {
-    padding-left: 1rem !important; /* 16px */
-    padding-right: 1rem !important; /* 16px */
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   
   /* 3. TÍTULO MÁS PEQUEÑO EN MÓVILES PEQUEÑOS */
   .text-lg {
-    font-size: 1rem !important; /* 16px */
+    font-size: 1rem !important;
   }
   
   .sm\:text-xl {
-    font-size: 1.125rem !important; /* 18px */
+    font-size: 1.125rem !important;
   }
   
   /* Ajuste de padding para mejor visualización */
   .px-4 {
-    padding-left: 0.75rem !important; /* 12px */
-    padding-right: 0.75rem !important; /* 12px */
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
   }
   
   /* 4. IMÁGENES DE EMPRESAS AÚN MÁS AUMENTADAS EN MÓVILES PEQUEÑOS */
@@ -1448,7 +1442,7 @@ watch(isDarkMode, (newVal) => {
   }
 }
 
-/* Accesibilidad (IGUAL AL INICIO) */
+/* Accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   .animate-pulse-fast,
   .animate-pulse-slow,
@@ -1471,7 +1465,7 @@ watch(isDarkMode, (newVal) => {
   }
 }
 
-/* Mejoras de rendimiento (IGUAL AL INICIO) */
+/* Mejoras de rendimiento */
 #testimonios > div:first-child {
   will-change: background-position;
 }

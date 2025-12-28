@@ -254,27 +254,27 @@
         <!-- Título principal en un solo renglón (MISMO TAMAÑO QUE INICIO) -->
         <div class="relative w-full mb-1 md:mb-2 transition-all duration-150 text-center">
           <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center w-full tracking-tight leading-tight animate-slideInLeft transition-all duration-150">
-  <span class="relative inline-block">
-    <div class="relative pb-1">
-      <!-- Línea completa -->
-      <div 
-        class="bg-clip-text text-transparent leading-tight transition-all duration-150"
-        :class="isDarkMode 
-          ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
-          : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
-        Metodología Probada
-      </div>
-    </div>
-    
-    <!-- Subrayado animado (EXACTO A OTRAS SECCIONES) -->
-    <div 
-      class="absolute -bottom-1 left-1/4 right-1/4 h-0.5 rounded-full opacity-60 mt-0.5 transition-all duration-150"
-      :class="isDarkMode 
-        ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-        : 'bg-gradient-to-r from-blue-500 to-blue-400'">
-    </div>
-  </span>
-</h2>
+            <span class="relative inline-block">
+              <div class="relative pb-1">
+                <!-- Línea completa -->
+                <div 
+                  class="bg-clip-text text-transparent leading-tight transition-all duration-150"
+                  :class="isDarkMode 
+                    ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
+                    : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
+                  Metodología Probada
+                </div>
+              </div>
+              
+              <!-- Subrayado animado (EXACTO A OTRAS SECCIONES) -->
+              <div 
+                class="absolute -bottom-1 left-1/4 right-1/4 h-0.5 rounded-full opacity-60 mt-0.5 transition-all duration-150"
+                :class="isDarkMode 
+                  ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+                  : 'bg-gradient-to-r from-blue-500 to-blue-400'">
+              </div>
+            </span>
+          </h2>
           
           <!-- Slogan (EXACTO AL INICIO) -->
           <div class="mt-2 md:mt-3 animate-fadeInUp transition-all duration-150" style="animation-delay: 50ms">
@@ -613,29 +613,30 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
 
-// Estado (EXACTO A OTRAS SECCIONES)
+// Estado (SIN localStorage)
 const isDarkMode = ref(true);
 const isTransitioning = ref(false);
 const gradientPosition = ref(0);
 const showParticles = ref(false);
 
-// Gradientes simplificados (EXACTO A OTRAS SECCIONES)
+// Gradientes simplificados
 const darkGradient = 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #0369a1 50%, #1e40af 75%, #0f172a 100%)';
 const lightGradient = 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 25%, #93c5fd 50%, #60a5fa 75%, #3b82f6 100%)';
 
-// Inicializar tema (EXACTO A OTRAS SECCIONES)
+// Inicializar tema (SIN localStorage)
 const initializeTheme = () => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
-    isDarkMode.value = false;
-    gradientPosition.value = 100;
-  } else {
-    isDarkMode.value = true;
-    gradientPosition.value = 0;
-  }
+  // Usamos tema oscuro por defecto siempre
+  isDarkMode.value = true;
+  gradientPosition.value = 0;
+  
+  // Opcional: puedes detectar preferencia del sistema
+  // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+  //   isDarkMode.value = false;
+  //   gradientPosition.value = 100;
+  // }
 };
 
-// Alternar tema (EXACTO A OTRAS SECCIONES)
+// Alternar tema (SIN localStorage)
 const toggleTheme = async () => {
   if (isTransitioning.value) return;
   
@@ -663,7 +664,7 @@ const toggleTheme = async () => {
   };
   
   isDarkMode.value = !isDarkMode.value;
-  localStorage.setItem('theme', isDarkMode.value ? 'dark' : 'light');
+  // ELIMINADO: localStorage.setItem('theme', isDarkMode.value ? 'dark' : 'light');
   
   requestAnimationFrame(animateGradient);
   
@@ -673,7 +674,7 @@ const toggleTheme = async () => {
   }, duration + 50);
 };
 
-// Estilo del gradiente (EXACTO A OTRAS SECCIONES)
+// Estilo del gradiente
 const sectionGradientStyle = computed(() => {
   if (isTransitioning.value) {
     const startGradient = isDarkMode.value ? lightGradient : darkGradient;
@@ -789,7 +790,7 @@ const stopAutoRotate = () => {
   }
 };
 
-// Scroll a sección (EXACTO A OTRAS SECCIONES)
+// Scroll a sección
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
   if (element) {
@@ -805,7 +806,7 @@ const handleInteraction = () => {
   setTimeout(startAutoRotate, 15000);
 };
 
-// Inicializar (EXACTO A OTRAS SECCIONES)
+// Inicializar
 onMounted(() => {
   initializeTheme();
   startAutoRotate();
@@ -825,7 +826,7 @@ onUnmounted(() => {
   }
 });
 
-// Watch para cambio de tema (EXACTO A OTRAS SECCIONES)
+// Watch para cambio de tema
 watch(isDarkMode, (newVal) => {
   document.documentElement.classList.add('theme-transition-fast');
   
@@ -842,7 +843,7 @@ watch(isDarkMode, (newVal) => {
 </script>
 
 <style scoped>
-/* ANIMACIONES OPTIMIZADAS (EXACTO A OTRAS SECCIONES) */
+/* ANIMACIONES OPTIMIZADAS */
 
 @keyframes gradient-shift-dark {
   0%, 100% {
@@ -1049,25 +1050,24 @@ watch(isDarkMode, (newVal) => {
   box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
 }
 
-/* Optimización responsive (CONSISTENTE CON INICIO) */
+/* Optimización responsive */
 @media (max-width: 768px) {
   #proceso {
     min-height: 80vh;
   }
   
   .relative.w-full.mb-1 {
-    margin-bottom: 0.5rem; /* REDUCIDO EN MÓVIL */
+    margin-bottom: 0.5rem;
   }
   
-  /* Botón de tema MÁS GRANDE EN MÓVIL (IGUAL AL INICIO) */
   .theme-switch-premium {
-    width: 40px; /* AUMENTADO DE 10px */
-    height: 40px; /* AUMENTADO DE 10px */
+    width: 40px;
+    height: 40px;
   }
   
   .theme-switch-premium > div:first-child {
-    width: 32px; /* AUMENTADO DE 8px */
-    height: 32px; /* AUMENTADO DE 8px */
+    width: 32px;
+    height: 32px;
   }
   
   .absolute.left-2 {
@@ -1137,15 +1137,14 @@ watch(isDarkMode, (newVal) => {
     gap: 1rem;
   }
   
-  /* Botón de tema AÚN MÁS GRANDE EN MÓVILES PEQUEÑOS (IGUAL AL INICIO) */
   .theme-switch-premium {
-    width: 44px; /* AUMENTADO DE 40px */
-    height: 44px; /* AUMENTADO DE 40px */
+    width: 44px;
+    height: 44px;
   }
   
   .theme-switch-premium > div:first-child {
-    width: 34px; /* AUMENTADO DE 32px */
-    height: 34px; /* AUMENTADO DE 32px */
+    width: 34px;
+    height: 34px;
   }
   
   .absolute.left-2 {
@@ -1156,9 +1155,8 @@ watch(isDarkMode, (newVal) => {
     right: 9px;
   }
   
-  /* ESPACIO AÚN MÁS REDUCIDO EN MÓVILES MUY PEQUEÑOS */
   .relative.w-full.mb-1 {
-    margin-bottom: 0.25rem; /* AÚN MÁS REDUCIDO */
+    margin-bottom: 0.25rem;
   }
   
   /* Ajustes del carrusel en móvil pequeño */
@@ -1231,7 +1229,7 @@ watch(isDarkMode, (newVal) => {
   }
 }
 
-/* Accesibilidad (IGUAL AL INICIO) */
+/* Accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   .animate-pulse-fast,
   .animate-pulse-slow,
@@ -1255,7 +1253,7 @@ watch(isDarkMode, (newVal) => {
   }
 }
 
-/* Mejoras de rendimiento (IGUAL AL INICIO) */
+/* Mejoras de rendimiento */
 #proceso > div:first-child {
   will-change: background-position;
 }

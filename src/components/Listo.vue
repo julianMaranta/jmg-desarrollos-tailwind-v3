@@ -403,7 +403,7 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue';
 
-// Estado
+// Estado (SIN localStorage)
 const isDarkMode = ref(true);
 const isTransitioning = ref(false);
 const gradientPosition = ref(0);
@@ -413,19 +413,20 @@ const showParticles = ref(false);
 const darkGradient = 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #0369a1 50%, #1e40af 75%, #0f172a 100%)';
 const lightGradient = 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 25%, #93c5fd 50%, #60a5fa 75%, #3b82f6 100%)';
 
-// Inicializar tema
+// Inicializar tema (SIN localStorage)
 const initializeTheme = () => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
-    isDarkMode.value = false;
-    gradientPosition.value = 100;
-  } else {
-    isDarkMode.value = true;
-    gradientPosition.value = 0;
-  }
+  // Usamos tema oscuro por defecto siempre
+  isDarkMode.value = true;
+  gradientPosition.value = 0;
+  
+  // Opcional: puedes detectar preferencia del sistema
+  // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+  //   isDarkMode.value = false;
+  //   gradientPosition.value = 100;
+  // }
 };
 
-// Alternar tema
+// Alternar tema (SIN localStorage)
 const toggleTheme = async () => {
   if (isTransitioning.value) return;
   
@@ -453,7 +454,7 @@ const toggleTheme = async () => {
   };
   
   isDarkMode.value = !isDarkMode.value;
-  localStorage.setItem('theme', isDarkMode.value ? 'dark' : 'light');
+  // ELIMINADO: localStorage.setItem('theme', isDarkMode.value ? 'dark' : 'light');
   
   requestAnimationFrame(animateGradient);
   
@@ -707,18 +708,18 @@ watch(isDarkMode, (newVal) => {
   
   /* 1. ESPACIO REDUCIDO DEBAJO DEL BADGE EN MÓVIL */
   .relative.w-full.mb-1 {
-    margin-bottom: 0.5rem !important; /* REDUCIDO DE 1.5rem (24px) A 0.5rem (8px) */
+    margin-bottom: 0.5rem !important;
   }
   
   /* 2. BOTÓN DE TEMA AUMENTADO EN MÓVIL */
   .theme-switch-premium {
-    width: 40px !important;        /* AUMENTADO DE 10px */
-    height: 40px !important;       /* AUMENTADO DE 10px */
+    width: 40px !important;
+    height: 40px !important;
   }
   
   .theme-switch-premium > div:first-child {
-    width: 32px !important;        /* AUMENTADO DE 8px */
-    height: 32px !important;       /* AUMENTADO DE 8px */
+    width: 32px !important;
+    height: 32px !important;
   }
   
   /* Ajustar posiciones de iconos para botón más grande */
@@ -733,13 +734,13 @@ watch(isDarkMode, (newVal) => {
   /* Ajustar tamaños de iconos en móvil */
   .theme-switch-premium .absolute.left-2,
   .theme-switch-premium .absolute.right-2 {
-    width: 5px !important;        /* Ajustado para móvil */
-    height: 5px !important;       /* Ajustado para móvil */
+    width: 5px !important;
+    height: 5px !important;
   }
   
   /* Espacio reducido general en móvil */
   .relative.w-full.mb-6 {
-    margin-bottom: 4rem;          /* Mantenido para desktop, solo afecta desktop */
+    margin-bottom: 4rem;
   }
   
   .absolute.-bottom-4 {
@@ -751,18 +752,18 @@ watch(isDarkMode, (newVal) => {
 @media (max-width: 480px) {
   /* 1. ESPACIO AÚN MÁS REDUCIDO EN MÓVILES PEQUEÑOS */
   .relative.w-full.mb-1 {
-    margin-bottom: 0.25rem !important; /* AÚN MÁS REDUCIDO - DE 0.5rem A 0.25rem (4px) */
+    margin-bottom: 0.25rem !important;
   }
   
   /* 2. BOTÓN DE TEMA AÚN MÁS GRANDE EN MÓVILES PEQUEÑOS */
   .theme-switch-premium {
-    width: 44px !important;        /* AUMENTADO DE 40px */
-    height: 44px !important;       /* AUMENTADO DE 40px */
+    width: 44px !important;
+    height: 44px !important;
   }
   
   .theme-switch-premium > div:first-child {
-    width: 34px !important;        /* AUMENTADO DE 32px */
-    height: 34px !important;       /* AUMENTADO DE 32px */
+    width: 34px !important;
+    height: 34px !important;
   }
   
   .theme-switch-premium .absolute.left-2 {

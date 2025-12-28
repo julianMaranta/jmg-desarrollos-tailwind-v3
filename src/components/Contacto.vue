@@ -452,7 +452,7 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue';
 
-// Estado
+// Estado - TEMA OSCURO SIEMPRE POR DEFECTO
 const isDarkMode = ref(true);
 const isTransitioning = ref(false);
 const gradientPosition = ref(0);
@@ -462,19 +462,17 @@ const showParticles = ref(false);
 const darkGradient = 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #0369a1 50%, #1e40af 75%, #0f172a 100%)';
 const lightGradient = 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 25%, #93c5fd 50%, #60a5fa 75%, #3b82f6 100%)';
 
-// Inicializar tema
+// Inicializar tema - SIEMPRE TEMA OSCURO POR DEFECTO
 const initializeTheme = () => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
-    isDarkMode.value = false;
-    gradientPosition.value = 100;
-  } else {
-    isDarkMode.value = true;
-    gradientPosition.value = 0;
-  }
+  // TEMA OSCURO SIEMPRE como valor inicial
+  isDarkMode.value = true;
+  gradientPosition.value = 0;
+  
+  // Aplicar tema oscuro inmediatamente al HTML
+  document.documentElement.classList.add('dark');
 };
 
-// Alternar tema
+// Alternar tema - SIN localStorage
 const toggleTheme = async () => {
   if (isTransitioning.value) return;
   
@@ -502,7 +500,6 @@ const toggleTheme = async () => {
   };
   
   isDarkMode.value = !isDarkMode.value;
-  localStorage.setItem('theme', isDarkMode.value ? 'dark' : 'light');
   
   requestAnimationFrame(animateGradient);
   
@@ -558,7 +555,7 @@ const openWhatsApp = () => {
   window.open(`https://wa.me/5492214002619?text=${message}`, '_blank', 'noopener,noreferrer');
 };
 
-// Inicializar
+// Inicializar - TEMA OSCURO INMEDIATAMENTE
 onMounted(() => {
   initializeTheme();
 });
@@ -577,6 +574,13 @@ watch(isDarkMode, (newVal) => {
     document.documentElement.classList.remove('theme-transition-fast');
   }, 200);
 });
+
+// También forzar tema oscuro incluso antes de que se monte el componente
+// Esto previene el "flash" de tema claro
+if (typeof window !== 'undefined') {
+  // Ejecutar inmediatamente
+  document.documentElement.classList.add('dark');
+}
 </script>
 
 <style scoped>
