@@ -73,22 +73,22 @@
     <div class="w-full max-w-6xl mx-auto px-4 md:px-6 text-center relative z-10 py-6 md:py-8 flex flex-col items-center">
       
       <!-- Contenedor para badge y botón de temas -->
-      <div class="relative w-full mb-6">
-        <!-- Botón de tema compacto -->
+      <div class="relative w-full mb-1 md:mb-6">
+        <!-- Botón de tema compacto - AUMENTADO EN MÓVIL -->
         <div class="absolute top-0 right-0 md:right-2 z-50">
           <button
             @click="toggleTheme"
-            class="relative flex items-center justify-center w-32 h-12 rounded-lg border shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95 transition-all duration-150 ease-out overflow-hidden group theme-switch-premium"
+            class="relative flex items-center justify-center w-10 h-10 md:w-32 md:h-12 rounded-lg border shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95 transition-all duration-150 ease-out overflow-hidden group theme-switch-premium"
             :class="isDarkMode 
               ? 'border-cyan-400/50 hover:border-cyan-300 shadow-cyan-500/15 bg-gradient-to-br from-blue-900/80 via-indigo-900/80 to-purple-900/80' 
               : 'border-blue-300/50 hover:border-blue-200 shadow-blue-400/15 bg-gradient-to-br from-white/90 via-blue-50/90 to-blue-100/90'"
             :title="isDarkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
             aria-label="Cambiar tema"
           >
-            <!-- Switch compacto -->
+            <!-- Switch compacto - MÁS GRANDE EN MÓVIL -->
             <div 
-              class="absolute w-12 h-12 rounded-full transition-all duration-300 ease-out transform z-30 overflow-hidden"
-              :class="isDarkMode ? 'right-3' : 'left-3'"
+              class="absolute w-8 h-8 md:w-12 md:h-12 rounded-full transition-all duration-300 ease-out transform z-30 overflow-hidden"
+              :class="isDarkMode ? 'right-1 md:right-3' : 'left-1 md:left-3'"
               :style="isTransitioning ? { 
                 filter: 'brightness(1.1)',
                 boxShadow: isDarkMode 
@@ -123,16 +123,16 @@
                 ></div>
               </div>
               
-              <!-- Icono dentro del switch (SVG) -->
+              <!-- Icono dentro del switch (SVG) - AJUSTADO PARA MÓVIL -->
               <div class="absolute inset-0 flex items-center justify-center z-10">
                 <!-- Icono de Luna para tema oscuro -->
-                <svg v-if="isDarkMode" class="w-6 h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
+                <svg v-if="isDarkMode" class="w-5 h-5 md:w-6 md:h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
                      :class="isTransitioning ? 'text-blue-200' : 'text-blue-300'">
                   <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
                 </svg>
                 
                 <!-- Icono de Sol para tema claro -->
-                <svg v-else class="w-6 h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
+                <svg v-else class="w-5 h-5 md:w-6 md:h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
                      :class="isTransitioning ? 'text-yellow-200' : 'text-yellow-400'">
                   <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
                 </svg>
@@ -149,18 +149,18 @@
             <!-- Contenedor principal con iconos -->
             <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
               
-              <!-- Sol (izquierda) -->
-              <div class="absolute left-3 w-6 h-6 transition-all duration-150 ease-out z-20"
+              <!-- Sol (izquierda) - AJUSTADO POSICIÓN PARA MÓVIL -->
+              <div class="absolute left-2 md:left-3 w-5 h-5 md:w-6 md:h-6 transition-all duration-150 ease-out z-20"
                    :class="isDarkMode 
                      ? 'opacity-30 scale-90 text-yellow-300/40' 
                      : 'opacity-100 scale-105 text-yellow-400'">
                 <svg class="w-full h-full" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
-                </svg>
+              </svg>
               </div>
               
-              <!-- Luna (derecha) -->
-              <div class="absolute right-3 w-5 h-5 transition-all duration-150 ease-out z-20"
+              <!-- Luna (derecha) - AJUSTADO POSICIÓN PARA MÓVIL -->
+              <div class="absolute right-2 md:right-3 w-4 h-4 md:w-5 md:h-5 transition-all duration-150 ease-out z-20"
                    :class="!isDarkMode 
                      ? 'opacity-30 scale-90 text-blue-400/40' 
                      : 'opacity-100 scale-105 text-blue-300'">
@@ -169,8 +169,8 @@
                 </svg>
               </div>
               
-              <!-- Texto "DÍA/NOCHE" -->
-              <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[9px] font-semibold uppercase tracking-wide opacity-80 z-5 transition-all duration-150 whitespace-nowrap"
+              <!-- Texto "DÍA/NOCHE" - OCULTO EN MÓVIL -->
+              <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[9px] font-semibold uppercase tracking-wide opacity-80 z-5 transition-all duration-150 whitespace-nowrap hidden md:block"
                    :class="isDarkMode ? 'text-blue-300/80' : 'text-yellow-600/80'">
                 {{ isDarkMode ? 'NOCHE' : 'DÍA' }}
               </div>
@@ -178,7 +178,7 @@
             </div>
             
             <!-- Rayos del sol animados -->
-            <div v-if="!isDarkMode" class="absolute left-3 w-6 h-6 z-10">
+            <div v-if="!isDarkMode" class="absolute left-2 md:left-3 w-5 h-5 md:w-6 md:h-6 z-10">
               <div v-for="(ray, index) in 8" :key="index"
                    class="absolute top-1/2 left-1/2 w-0.5 h-2.5 bg-yellow-300/60 rounded-full transform origin-center transition-all duration-150"
                    :style="`
@@ -190,7 +190,7 @@
             </div>
             
             <!-- Constelación estelar -->
-            <div v-if="isDarkMode" class="absolute right-3 w-5 h-5 z-10">
+            <div v-if="isDarkMode" class="absolute right-2 md:right-3 w-4 h-4 md:w-5 md:h-5 z-10">
               <div v-for="(star, index) in 3" :key="index"
                    class="absolute rounded-full bg-blue-100/60 animate-twinkle-fast transition-all duration-150"
                    :style="`
@@ -203,8 +203,8 @@
               </div>
             </div>
             
-            <!-- Tooltip -->
-            <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-50">
+            <!-- Tooltip - OCULTO EN MÓVIL -->
+            <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-50 hidden md:block">
               <div class="px-1.5 py-0.5 text-[9px] font-medium rounded backdrop-blur-sm shadow-sm"
                    :class="isDarkMode 
                      ? 'bg-blue-900/80 text-blue-300 border border-blue-400/20' 
@@ -696,30 +696,50 @@ watch(isDarkMode, (newVal) => {
   box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
 }
 
-/* Optimización responsive */
+/* *********************************************************** */
+/* MODIFICACIONES ESPECÍFICAS PARA MÓVIL - SOLO EN ESTA SECCIÓN */
+/* *********************************************************** */
+
 @media (max-width: 768px) {
   section {
     min-height: 40vh;
   }
   
+  /* 1. ESPACIO REDUCIDO DEBAJO DEL BADGE EN MÓVIL */
+  .relative.w-full.mb-1 {
+    margin-bottom: 0.5rem !important; /* REDUCIDO DE 1.5rem (24px) A 0.5rem (8px) */
+  }
+  
+  /* 2. BOTÓN DE TEMA AUMENTADO EN MÓVIL */
+  .theme-switch-premium {
+    width: 40px !important;        /* AUMENTADO DE 10px */
+    height: 40px !important;       /* AUMENTADO DE 10px */
+  }
+  
+  .theme-switch-premium > div:first-child {
+    width: 32px !important;        /* AUMENTADO DE 8px */
+    height: 32px !important;       /* AUMENTADO DE 8px */
+  }
+  
+  /* Ajustar posiciones de iconos para botón más grande */
+  .theme-switch-premium .absolute.left-2 {
+    left: 8px !important;
+  }
+  
+  .theme-switch-premium .absolute.right-2 {
+    right: 8px !important;
+  }
+  
+  /* Ajustar tamaños de iconos en móvil */
+  .theme-switch-premium .absolute.left-2,
+  .theme-switch-premium .absolute.right-2 {
+    width: 5px !important;        /* Ajustado para móvil */
+    height: 5px !important;       /* Ajustado para móvil */
+  }
+  
+  /* Espacio reducido general en móvil */
   .relative.w-full.mb-6 {
-    margin-bottom: 4rem;
-  }
-  
-  /* Botón de tema más compacto en móvil */
-  button[aria-label="Cambiar tema"] {
-    width: 28px;
-    height: 10px;
-  }
-  
-  button[aria-label="Cambiar tema"] > div:first-child {
-    width: 10px;
-    height: 10px;
-  }
-  
-  .absolute.left-3, .absolute.right-3 {
-    width: 5px;
-    height: 5px;
+    margin-bottom: 4rem;          /* Mantenido para desktop, solo afecta desktop */
   }
   
   .absolute.-bottom-4 {
@@ -729,15 +749,28 @@ watch(isDarkMode, (newVal) => {
 }
 
 @media (max-width: 480px) {
-  /* Botón de tema ultra compacto */
-  button[aria-label="Cambiar tema"] {
-    width: 26px;
-    height: 9px;
+  /* 1. ESPACIO AÚN MÁS REDUCIDO EN MÓVILES PEQUEÑOS */
+  .relative.w-full.mb-1 {
+    margin-bottom: 0.25rem !important; /* AÚN MÁS REDUCIDO - DE 0.5rem A 0.25rem (4px) */
   }
   
-  button[aria-label="Cambiar tema"] > div:first-child {
-    width: 9px;
-    height: 9px;
+  /* 2. BOTÓN DE TEMA AÚN MÁS GRANDE EN MÓVILES PEQUEÑOS */
+  .theme-switch-premium {
+    width: 44px !important;        /* AUMENTADO DE 40px */
+    height: 44px !important;       /* AUMENTADO DE 40px */
+  }
+  
+  .theme-switch-premium > div:first-child {
+    width: 34px !important;        /* AUMENTADO DE 32px */
+    height: 34px !important;       /* AUMENTADO DE 32px */
+  }
+  
+  .theme-switch-premium .absolute.left-2 {
+    left: 9px !important;
+  }
+  
+  .theme-switch-premium .absolute.right-2 {
+    right: 9px !important;
   }
 }
 
@@ -763,7 +796,7 @@ section > div:first-child {
   will-change: background-position;
 }
 
-button[aria-label="Cambiar tema"] {
+.theme-switch-premium {
   will-change: transform;
 }
 </style>

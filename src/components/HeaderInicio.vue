@@ -28,36 +28,36 @@
       </div>
     </div>
 
-    <!-- Efecto de halo del cursor - TAMAÑO REDUCIDO -->
-<div 
-  class="fixed rounded-full pointer-events-none transition-all duration-100 ease-out z-50 cursor-halo"
-  :class="[
-    isDarkMode ? 'cursor-halo-white' : 'cursor-halo-blue-intense',
-    cursorHaloClass
-  ]"
-  :style="`
-    width: ${cursorHaloSize}px;
-    height: ${cursorHaloSize}px;
-    left: ${cursorPosition.x}px;
-    top: ${cursorPosition.y}px;
-    transform: translate(-50%, -50%);
-    filter: blur(${isDarkMode ? '25px' : '20px'}); <!-- Reducido de 35/45px -->
-  `"
-></div>
+    <!-- Efecto de halo del cursor - TAMAÑO REDUCIDO - SOLO DESKTOP -->
+    <div 
+      class="fixed rounded-full pointer-events-none transition-all duration-100 ease-out z-50 cursor-halo hidden md:block"
+      :class="[
+        isDarkMode ? 'cursor-halo-white' : 'cursor-halo-blue-intense',
+        cursorHaloClass
+      ]"
+      :style="`
+        width: ${cursorHaloSize}px;
+        height: ${cursorHaloSize}px;
+        left: ${cursorPosition.x}px;
+        top: ${cursorPosition.y}px;
+        transform: translate(-50%, -50%);
+        filter: blur(${isDarkMode ? '25px' : '20px'});
+      `"
+    ></div>
 
-    <!-- Efecto de destello interno del cursor - TAMAÑO REDUCIDO -->
-<div 
-  class="fixed rounded-full pointer-events-none transition-all duration-150 ease-out z-40 cursor-sparkle"
-  :class="isDarkMode ? 'cursor-sparkle-white' : 'cursor-sparkle-blue-intense'"
-  :style="`
-    width: ${cursorHaloSize * 0.3}px; <!-- Reducido de 0.4 -->
-    height: ${cursorHaloSize * 0.3}px; <!-- Reducido de 0.4 -->
-    left: ${cursorPosition.x}px;
-    top: ${cursorPosition.y}px;
-    transform: translate(-50%, -50%);
-    filter: blur(6px); <!-- Reducido de 10px -->
-  `"
-></div>
+    <!-- Efecto de destello interno del cursor - TAMAÑO REDUCIDO - SOLO DESKTOP -->
+    <div 
+      class="fixed rounded-full pointer-events-none transition-all duration-150 ease-out z-40 cursor-sparkle hidden md:block"
+      :class="isDarkMode ? 'cursor-sparkle-white' : 'cursor-sparkle-blue-intense'"
+      :style="`
+        width: ${cursorHaloSize * 0.3}px;
+        height: ${cursorHaloSize * 0.3}px;
+        left: ${cursorPosition.x}px;
+        top: ${cursorPosition.y}px;
+        transform: translate(-50%, -50%);
+        filter: blur(6px);
+      `"
+    ></div>
 
     <!-- Efectos de fondo animados -->
     <div class="absolute inset-0 overflow-hidden transition-all duration-150 ease-out">
@@ -105,8 +105,8 @@
     <!-- Contenedor principal -->
     <div class="w-full max-w-6xl mx-auto px-4 md:px-6 text-center relative z-10 py-6 md:py-8 flex flex-col items-center">
       
-      <!-- Contenedor para badge y botón de temas -->
-      <div class="relative w-full mb-6">
+      <!-- Contenedor para badge y botón de temas - CON ESPACIO AUMENTADO ARRIBA EN MÓVIL -->
+      <div class="relative w-full mb-1 md:mb-6 pt-8 md:pt-0">
         <!-- Badge animado compacto -->
         <div 
           class="inline-flex items-center backdrop-blur-lg rounded-full px-4 py-1.5 mb-2 shadow-glow animate-pulse-slow transition-all duration-150"
@@ -139,21 +139,21 @@
           </div>
         </div>
 
-        <!-- Botón de tema compacto -->
+        <!-- Botón de tema compacto - AUMENTADO EN MÓVIL -->
         <div class="absolute top-0 right-0 md:right-2 z-50">
           <button
             @click="toggleTheme"
-            class="relative flex items-center justify-center w-32 h-12 rounded-lg border shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95 transition-all duration-150 ease-out overflow-hidden group theme-switch-premium"
+            class="relative flex items-center justify-center w-10 h-10 md:w-32 md:h-12 rounded-lg border shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95 transition-all duration-150 ease-out overflow-hidden group theme-switch-premium"
             :class="isDarkMode 
               ? 'border-cyan-400/50 hover:border-cyan-300 shadow-cyan-500/15 bg-gradient-to-br from-blue-900/80 via-indigo-900/80 to-purple-900/80' 
               : 'border-blue-300/50 hover:border-blue-200 shadow-blue-400/15 bg-gradient-to-br from-white/90 via-blue-50/90 to-blue-100/90'"
             :title="isDarkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
             aria-label="Cambiar tema"
           >
-            <!-- Switch compacto -->
+            <!-- Switch compacto - MÁS GRANDE EN MÓVIL -->
             <div 
-              class="absolute w-12 h-12 rounded-full transition-all duration-300 ease-out transform z-30 overflow-hidden"
-              :class="isDarkMode ? 'right-3' : 'left-3'"
+              class="absolute w-8 h-8 md:w-12 md:h-12 rounded-full transition-all duration-300 ease-out transform z-30 overflow-hidden"
+              :class="isDarkMode ? 'right-1 md:right-3' : 'left-1 md:left-3'"
               :style="isTransitioning ? { 
                 filter: 'brightness(1.1)',
                 boxShadow: isDarkMode 
@@ -188,16 +188,16 @@
                 ></div>
               </div>
               
-              <!-- Icono dentro del switch (SVG) -->
+              <!-- Icono dentro del switch (SVG) - AJUSTADO PARA MÓVIL -->
               <div class="absolute inset-0 flex items-center justify-center z-10">
                 <!-- Icono de Luna para tema oscuro -->
-                <svg v-if="isDarkMode" class="w-6 h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
+                <svg v-if="isDarkMode" class="w-5 h-5 md:w-6 md:h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
                      :class="isTransitioning ? 'text-blue-200' : 'text-blue-300'">
                   <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
                 </svg>
                 
                 <!-- Icono de Sol para tema claro -->
-                <svg v-else class="w-6 h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
+                <svg v-else class="w-5 h-5 md:w-6 md:h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
                      :class="isTransitioning ? 'text-yellow-200' : 'text-yellow-400'">
                   <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
                 </svg>
@@ -214,8 +214,8 @@
             <!-- Contenedor principal con iconos -->
             <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
               
-              <!-- Sol (izquierda) -->
-              <div class="absolute left-3 w-6 h-6 transition-all duration-150 ease-out z-20"
+              <!-- Sol (izquierda) - AJUSTADO POSICIÓN PARA MÓVIL -->
+              <div class="absolute left-2 md:left-3 w-5 h-5 md:w-6 md:h-6 transition-all duration-150 ease-out z-20"
                    :class="isDarkMode 
                      ? 'opacity-30 scale-90 text-yellow-300/40' 
                      : 'opacity-100 scale-105 text-yellow-400'">
@@ -224,8 +224,8 @@
                 </svg>
               </div>
               
-              <!-- Luna (derecha) -->
-              <div class="absolute right-3 w-5 h-5 transition-all duration-150 ease-out z-20"
+              <!-- Luna (derecha) - AJUSTADO POSICIÓN PARA MÓVIL -->
+              <div class="absolute right-2 md:right-3 w-4 h-4 md:w-5 md:h-5 transition-all duration-150 ease-out z-20"
                    :class="!isDarkMode 
                      ? 'opacity-30 scale-90 text-blue-400/40' 
                      : 'opacity-100 scale-105 text-blue-300'">
@@ -234,8 +234,8 @@
                 </svg>
               </div>
               
-              <!-- Texto "DÍA/NOCHE" -->
-              <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[9px] font-semibold uppercase tracking-wide opacity-80 z-5 transition-all duration-150 whitespace-nowrap"
+              <!-- Texto "DÍA/NOCHE" - OCULTO EN MÓVIL -->
+              <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[9px] font-semibold uppercase tracking-wide opacity-80 z-5 transition-all duration-150 whitespace-nowrap hidden md:block"
                    :class="isDarkMode ? 'text-blue-300/80' : 'text-yellow-600/80'">
                 {{ isDarkMode ? 'NOCHE' : 'DÍA' }}
               </div>
@@ -243,7 +243,7 @@
             </div>
             
             <!-- Rayos del sol animados -->
-            <div v-if="!isDarkMode" class="absolute left-3 w-6 h-6 z-10">
+            <div v-if="!isDarkMode" class="absolute left-2 md:left-3 w-5 h-5 md:w-6 md:h-6 z-10">
               <div v-for="(ray, index) in 8" :key="index"
                    class="absolute top-1/2 left-1/2 w-0.5 h-2.5 bg-yellow-300/60 rounded-full transform origin-center transition-all duration-150"
                    :style="`
@@ -255,7 +255,7 @@
             </div>
             
             <!-- Constelación estelar -->
-            <div v-if="isDarkMode" class="absolute right-3 w-5 h-5 z-10">
+            <div v-if="isDarkMode" class="absolute right-2 md:right-3 w-4 h-4 md:w-5 md:h-5 z-10">
               <div v-for="(star, index) in 3" :key="index"
                    class="absolute rounded-full bg-blue-100/60 animate-twinkle-fast transition-all duration-150"
                    :style="`
@@ -268,8 +268,8 @@
               </div>
             </div>
             
-            <!-- Tooltip -->
-            <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-50">
+            <!-- Tooltip - OCULTO EN MÓVIL -->
+            <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-50 hidden md:block">
               <div class="px-1.5 py-0.5 text-[9px] font-medium rounded backdrop-blur-sm shadow-sm"
                    :class="isDarkMode 
                      ? 'bg-blue-900/80 text-blue-300 border border-blue-400/20' 
@@ -379,25 +379,25 @@
           
           <!-- Botón Secundario -->
           <button @click="scrollToSection('contacto')"
-        class="group relative border font-bold py-2.5 px-6 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 text-sm md:text-base overflow-hidden backdrop-blur-lg"
-        :class="isDarkMode 
-          ? 'border-cyan-400/40 text-white hover:text-blue-100 hover:border-cyan-300/50' 
-          : 'border-blue-400/40 text-blue-800 hover:text-blue-900 hover:border-blue-500/60'">
-  <!-- Efecto de fondo al hover -->
-  <div class="absolute inset-0 transition-all duration-150"
-       :class="isDarkMode 
-         ? 'bg-blue-900/15 group-hover:bg-blue-800/20' 
-         : 'bg-blue-100/15 group-hover:bg-blue-200/20'"></div>
-  
-  <span class="relative z-10 flex items-center justify-center">
-    <img 
-      src="/assets/whatsapp-logo1.png" 
-      alt="WhatsApp" 
-      class="w-5 h-5 mr-2 object-contain transform transition-all duration-300 group-hover:scale-105 animate-bounce-fast"
-    />
-    Contactar Ahora
-  </span>
-</button>
+                  class="group relative border font-bold py-2.5 px-6 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 text-sm md:text-base overflow-hidden backdrop-blur-lg"
+                  :class="isDarkMode 
+                    ? 'border-cyan-400/40 text-white hover:text-blue-100 hover:border-cyan-300/50' 
+                    : 'border-blue-400/40 text-blue-800 hover:text-blue-900 hover:border-blue-500/60'">
+            <!-- Efecto de fondo al hover -->
+            <div class="absolute inset-0 transition-all duration-150"
+                 :class="isDarkMode 
+                   ? 'bg-blue-900/15 group-hover:bg-blue-800/20' 
+                   : 'bg-blue-100/15 group-hover:bg-blue-200/20'"></div>
+            
+            <span class="relative z-10 flex items-center justify-center">
+              <img 
+                src="/assets/whatsapp-logo1.png" 
+                alt="WhatsApp" 
+                class="w-5 h-5 mr-2 object-contain transform transition-all duration-300 group-hover:scale-105 animate-bounce-fast"
+              />
+              Contactar Ahora
+            </span>
+          </button>
         </div>
 
         <!-- Stats -->
@@ -561,8 +561,11 @@ const scrollToSection = (sectionId) => {
   }
 };
 
-// Manejar movimiento del mouse
+// Manejar movimiento del mouse - DESACTIVADO EN MÓVIL
 const handleMouseMove = (event) => {
+  // Desactivar cursor personalizado en móvil
+  if (window.innerWidth < 768) return;
+  
   cursorPosition.value = {
     x: event.clientX,
     y: event.clientY
@@ -586,9 +589,9 @@ const handleMouseMove = (event) => {
 // Ajustar tamaño del halo según el dispositivo
 const adjustHaloSize = () => {
   if (window.innerWidth < 768) {
-    cursorHaloSize.value = 120; // Reducido de 170px
+    cursorHaloSize.value = 0; // Desactivar en móvil
   } else {
-    cursorHaloSize.value = 150; // Reducido de 200px
+    cursorHaloSize.value = 150;
   }
 };
 
@@ -978,63 +981,43 @@ watch(isDarkMode, (newVal) => {
 @media (max-width: 768px) {
   #inicio {
     min-height: 80vh;
+    cursor: auto; /* RESTAURAR CURSOR NORMAL EN MÓVIL */
   }
   
-  .relative.w-full.mb-6 {
-    margin-bottom: 4rem;
+  /* ESPACIO AUMENTADO ARRIBA DEL BADGE EN MÓVIL */
+  .relative.w-full.pt-8 {
+    padding-top: 2rem; /* ESPACIO AUMENTADO ARRIBA */
   }
   
-   .cursor-halo {
-    width: 120px !important; 
-    height: 120px !important; 
-    filter: blur(20px) !important;
+  /* ESPACIO MUCHO MÁS REDUCIDO DEBAJO DEL BADGE EN MÓVIL */
+  .relative.w-full.mb-1 {
+    margin-bottom: 0.5rem; /* MUCHO MÁS REDUCIDO - de 3rem a 0.5rem */
   }
   
+  /* OCULTAR COMPLETAMENTE EL CURSOR EN MÓVIL */
+  .cursor-halo,
   .cursor-sparkle {
-    width: 36px !important;
-    height: 36px !important; 
-    filter: blur(5px) !important;
+    display: none !important;
   }
   
-  /* Reducir efectos de sombra en móviles */
-  .cursor-halo-white {
-    box-shadow: 
-      0 0 50px rgba(255, 255, 255, 0.4), 
-      0 0 100px rgba(255, 255, 255, 0.25), 
-      0 0 150px rgba(255, 255, 255, 0.1), 
-      inset 0 0 40px rgba(255, 255, 255, 0.3); 
-  }
-  
-  .cursor-halo-blue-intense {
-    box-shadow: 
-      0 0 60px rgba(37, 99, 235, 0.5), 
-      0 0 120px rgba(29, 78, 216, 0.4), 
-      0 0 180px rgba(30, 64, 175, 0.3), 
-      0 0 240px rgba(37, 99, 235, 0.2), 
-      inset 0 0 50px rgba(37, 99, 235, 0.4), 
-      inset 0 0 25px rgba(29, 78, 216, 0.3), 
-      inset 0 0 12px rgba(30, 64, 175, 0.2); 
-  }
-  
-  /* Botón de tema más compacto en móvil */
+  /* Botón de tema MÁS GRANDE EN MÓVIL */
   .theme-switch-premium {
-    width: 28px;
-    height: 10px;
+    width: 40px; /* AUMENTADO DE 10px */
+    height: 40px; /* AUMENTADO DE 10px */
   }
   
   .theme-switch-premium > div:first-child {
-    width: 10px;
-    height: 10px;
+    width: 32px; /* AUMENTADO DE 8px */
+    height: 32px; /* AUMENTADO DE 8px */
   }
   
-  .absolute.left-3, .absolute.right-3 {
-    width: 5px;
-    height: 5px;
+  /* Ajustar posiciones de iconos para botón más grande */
+  .absolute.left-2 {
+    left: 8px;
   }
   
-  .absolute.-bottom-4 {
-    font-size: 8px;
-    bottom: -3px;
+  .absolute.right-2 {
+    right: 8px;
   }
 }
 
@@ -1044,47 +1027,33 @@ watch(isDarkMode, (newVal) => {
     gap: 1rem;
   }
   
-  /* Cursor más pequeño en móviles muy pequeños */
-    .cursor-halo {
-    width: 100px !important;
-    height: 100px !important;
-    filter: blur(15px) !important
-  }
-  
-  .cursor-sparkle {
-    width: 30px !important;
-    height: 30px !important; 
-    filter: blur(4px) !important;
-  }
-  
-  .cursor-halo-white {
-    box-shadow: 
-      0 0 35px rgba(255, 255, 255, 0.4), 
-      0 0 70px rgba(255, 255, 255, 0.2), 
-      0 0 105px rgba(255, 255, 255, 0.1), 
-      inset 0 0 30px rgba(255, 255, 255, 0.3); 
-  }
-  
-  .cursor-halo-blue-intense {
-    box-shadow: 
-      0 0 50px rgba(37, 99, 235, 0.5), 
-      0 0 100px rgba(29, 78, 216, 0.35), 
-      0 0 150px rgba(30, 64, 175, 0.25), 
-      0 0 200px rgba(37, 99, 235, 0.15), 
-      inset 0 0 35px rgba(37, 99, 235, 0.35), 
-      inset 0 0 18px rgba(29, 78, 216, 0.25), 
-      inset 0 0 9px rgba(30, 64, 175, 0.15); 
-  }
-  
-  /* Botón de tema ultra compacto */
+  /* Botón de tema AÚN MÁS GRANDE EN MÓVILES PEQUEÑOS */
   .theme-switch-premium {
-    width: 26px;
-    height: 9px;
+    width: 44px; /* AUMENTADO DE 40px */
+    height: 44px; /* AUMENTADO DE 40px */
   }
   
   .theme-switch-premium > div:first-child {
-    width: 9px;
-    height: 9px;
+    width: 34px; /* AUMENTADO DE 32px */
+    height: 34px; /* AUMENTADO DE 32px */
+  }
+  
+  .absolute.left-2 {
+    left: 9px;
+  }
+  
+  .absolute.right-2 {
+    right: 9px;
+  }
+  
+  /* ESPACIO AÚN MÁS REDUCIDO EN MÓVILES MUY PEQUEÑOS */
+  .relative.w-full.mb-1 {
+    margin-bottom: 0.25rem; /* AÚN MÁS REDUCIDO */
+  }
+  
+  /* ESPACIO AÚN MÁS AUMENTADO ARRIBA EN MÓVILES PEQUEÑOS */
+  .relative.w-full.pt-8 {
+    padding-top: 2.5rem; /* MÁS ESPACIO ARRIBA */
   }
 }
 
@@ -1173,13 +1142,17 @@ button, a, [role="button"], input, select, textarea {
   cursor: pointer !important;
 }
 
-/* Deshabilitar el cursor del sistema solo en el header */
-#inicio {
-  cursor: none;
+/* Deshabilitar el cursor del sistema solo en el header y solo en desktop */
+@media (min-width: 768px) {
+  #inicio {
+    cursor: none;
+  }
 }
 
-/* Restaurar cursor normal en otros elementos */
-body *:not(#inicio) {
-  cursor: auto;
+/* Restaurar cursor normal en móvil */
+@media (max-width: 768px) {
+  #inicio {
+    cursor: auto;
+  }
 }
 </style>

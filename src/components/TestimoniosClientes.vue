@@ -104,21 +104,21 @@
         </div>
       </div>
 
-      <!-- Botón de tema compacto (EXACTAMENTE IGUAL A OTRAS SECCIONES) -->
+      <!-- Botón de tema compacto - EXACTO AL HEADER -->
       <div class="absolute top-0 right-0 md:right-2 z-50">
         <button
           @click="toggleTheme"
-          class="relative flex items-center justify-center w-32 h-12 rounded-lg border shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95 transition-all duration-150 ease-out overflow-hidden group theme-switch-premium"
+          class="relative flex items-center justify-center w-10 h-10 md:w-32 md:h-12 rounded-lg border shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95 transition-all duration-150 ease-out overflow-hidden group theme-switch-premium"
           :class="isDarkMode 
             ? 'border-cyan-400/50 hover:border-cyan-300 shadow-cyan-500/15 bg-gradient-to-br from-blue-900/80 via-indigo-900/80 to-purple-900/80' 
             : 'border-blue-300/50 hover:border-blue-200 shadow-blue-400/15 bg-gradient-to-br from-white/90 via-blue-50/90 to-blue-100/90'"
           :title="isDarkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
           aria-label="Cambiar tema"
         >
-          <!-- Switch compacto -->
+          <!-- Switch compacto - MÁS GRANDE EN MÓVIL -->
           <div 
-            class="absolute w-12 h-12 rounded-full transition-all duration-300 ease-out transform z-30 overflow-hidden"
-            :class="isDarkMode ? 'right-3' : 'left-3'"
+            class="absolute w-8 h-8 md:w-12 md:h-12 rounded-full transition-all duration-300 ease-out transform z-30 overflow-hidden"
+            :class="isDarkMode ? 'right-1 md:right-3' : 'left-1 md:left-3'"
             :style="isTransitioning ? { 
               filter: 'brightness(1.1)',
               boxShadow: isDarkMode 
@@ -153,16 +153,16 @@
               ></div>
             </div>
             
-            <!-- Icono dentro del switch (SVG) -->
+            <!-- Icono dentro del switch (SVG) - AJUSTADO PARA MÓVIL -->
             <div class="absolute inset-0 flex items-center justify-center z-10">
               <!-- Icono de Luna para tema oscuro -->
-              <svg v-if="isDarkMode" class="w-6 h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
+              <svg v-if="isDarkMode" class="w-5 h-5 md:w-6 md:h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
                    :class="isTransitioning ? 'text-blue-200' : 'text-blue-300'">
                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
               </svg>
               
               <!-- Icono de Sol para tema claro -->
-              <svg v-else class="w-6 h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
+              <svg v-else class="w-5 h-5 md:w-6 md:h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
                    :class="isTransitioning ? 'text-yellow-200' : 'text-yellow-400'">
                 <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
               </svg>
@@ -179,8 +179,8 @@
           <!-- Contenedor principal con iconos -->
           <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
             
-            <!-- Sol (izquierda) -->
-            <div class="absolute left-3 w-6 h-6 transition-all duration-150 ease-out z-20"
+            <!-- Sol (izquierda) - AJUSTADO POSICIÓN PARA MÓVIL -->
+            <div class="absolute left-2 md:left-3 w-5 h-5 md:w-6 md:h-6 transition-all duration-150 ease-out z-20"
                  :class="isDarkMode 
                    ? 'opacity-30 scale-90 text-yellow-300/40' 
                    : 'opacity-100 scale-105 text-yellow-400'">
@@ -189,8 +189,8 @@
               </svg>
             </div>
             
-            <!-- Luna (derecha) -->
-            <div class="absolute right-3 w-5 h-5 transition-all duration-150 ease-out z-20"
+            <!-- Luna (derecha) - AJUSTADO POSICIÓN PARA MÓVIL -->
+            <div class="absolute right-2 md:right-3 w-4 h-4 md:w-5 md:h-5 transition-all duration-150 ease-out z-20"
                  :class="!isDarkMode 
                    ? 'opacity-30 scale-90 text-blue-400/40' 
                    : 'opacity-100 scale-105 text-blue-300'">
@@ -199,8 +199,8 @@
               </svg>
             </div>
             
-            <!-- Texto "DÍA/NOCHE" -->
-            <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[9px] font-semibold uppercase tracking-wide opacity-80 z-5 transition-all duration-150 whitespace-nowrap"
+            <!-- Texto "DÍA/NOCHE" - OCULTO EN MÓVIL -->
+            <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[9px] font-semibold uppercase tracking-wide opacity-80 z-5 transition-all duration-150 whitespace-nowrap hidden md:block"
                  :class="isDarkMode ? 'text-blue-300/80' : 'text-yellow-600/80'">
               {{ isDarkMode ? 'NOCHE' : 'DÍA' }}
             </div>
@@ -208,7 +208,7 @@
           </div>
           
           <!-- Rayos del sol animados -->
-          <div v-if="!isDarkMode" class="absolute left-3 w-6 h-6 z-10">
+          <div v-if="!isDarkMode" class="absolute left-2 md:left-3 w-5 h-5 md:w-6 md:h-6 z-10">
             <div v-for="(ray, index) in 8" :key="index"
                  class="absolute top-1/2 left-1/2 w-0.5 h-2.5 bg-yellow-300/60 rounded-full transform origin-center transition-all duration-150"
                  :style="`
@@ -220,7 +220,7 @@
           </div>
           
           <!-- Constelación estelar -->
-          <div v-if="isDarkMode" class="absolute right-3 w-5 h-5 z-10">
+          <div v-if="isDarkMode" class="absolute right-2 md:right-3 w-4 h-4 md:w-5 md:h-5 z-10">
             <div v-for="(star, index) in 3" :key="index"
                  class="absolute rounded-full bg-blue-100/60 animate-twinkle-fast transition-all duration-150"
                  :style="`
@@ -233,8 +233,8 @@
             </div>
           </div>
           
-          <!-- Tooltip -->
-          <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-50">
+          <!-- Tooltip - OCULTO EN MÓVIL -->
+          <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-50 hidden md:block">
             <div class="px-1.5 py-0.5 text-[9px] font-medium rounded backdrop-blur-sm shadow-sm"
                  :class="isDarkMode 
                    ? 'bg-blue-900/80 text-blue-300 border border-blue-400/20' 
@@ -316,11 +316,11 @@
         <!-- Contenedor del carrusel con altura reducida -->
         <div class="flex items-center justify-center h-[450px] md:h-[500px] transition-all duration-150">
           
-          <!-- Botón izquierdo (ESTILO COHERENTE CON SECCIÓN PROCESO) -->
+          <!-- Botón izquierdo (OCULTO EN MÓVIL) -->
           <button 
             @click="prevSlide"
             :disabled="isAnimating"
-            class="relative z-30 w-12 h-12 md:w-14 md:h-14 backdrop-blur-lg rounded-lg border flex items-center justify-center transition-all duration-150 hover:scale-110 hover:-translate-y-0.5 hover:shadow-xl group mr-2 md:mr-3 shadow-md"
+            class="relative z-30 w-12 h-12 md:w-14 md:h-14 backdrop-blur-lg rounded-lg border flex items-center justify-center transition-all duration-150 hover:scale-110 hover:-translate-y-0.5 hover:shadow-xl group mr-2 md:mr-3 shadow-md hidden md:flex"
             :class="isDarkMode 
               ? 'bg-blue-900/30 border-cyan-400/30 hover:border-cyan-300/50 shadow-cyan-500/15 hover:shadow-cyan-500/30' 
               : 'bg-blue-50/30 border-blue-400/30 hover:border-blue-500/50 shadow-blue-400/15 hover:shadow-blue-400/30'">
@@ -347,7 +347,7 @@
             <!-- Imagen anterior -->
             <div 
               v-if="prevImage"
-              class="absolute left-0 w-[220px] h-[330px] md:w-[260px] md:h-[390px] transition-all duration-300 z-20"
+              class="absolute left-0 w-[220px] h-[330px] md:w-[260px] md:h-[390px] transition-all duration-300 z-20 hidden md:block"
               :class="isAnimating ? 'opacity-60 -translate-x-16' : 'opacity-80'"
             >
               <div 
@@ -422,7 +422,7 @@
             <!-- Imagen siguiente -->
             <div 
               v-if="nextImage"
-              class="absolute right-0 w-[220px] h-[330px] md:w-[260px] md:h-[390px] transition-all duration-300 z-20"
+              class="absolute right-0 w-[220px] h-[330px] md:w-[260px] md:h-[390px] transition-all duration-300 z-20 hidden md:block"
               :class="isAnimating ? 'opacity-60 translate-x-16' : 'opacity-80'"
             >
               <div 
@@ -458,11 +458,11 @@
             </div>
           </div>
 
-          <!-- Botón derecho (ESTILO COHERENTE CON SECCIÓN PROCESO) -->
+          <!-- Botón derecho (OCULTO EN MÓVIL) -->
           <button 
             @click="nextSlide"
             :disabled="isAnimating"
-            class="relative z-30 w-12 h-12 md:w-14 md:h-14 backdrop-blur-lg rounded-lg border flex items-center justify-center transition-all duration-150 hover:scale-110 hover:-translate-y-0.5 hover:shadow-xl group ml-2 md:ml-3 shadow-md"
+            class="relative z-30 w-12 h-12 md:w-14 md:h-14 backdrop-blur-lg rounded-lg border flex items-center justify-center transition-all duration-150 hover:scale-110 hover:-translate-y-0.5 hover:shadow-xl group ml-2 md:ml-3 shadow-md hidden md:flex"
             :class="isDarkMode 
               ? 'bg-blue-900/30 border-cyan-400/30 hover:border-cyan-300/50 shadow-cyan-500/15 hover:shadow-cyan-500/30' 
               : 'bg-blue-50/30 border-blue-400/30 hover:border-blue-500/50 shadow-blue-400/15 hover:shadow-blue-400/30'">
@@ -1137,30 +1137,97 @@ watch(isDarkMode, (newVal) => {
   box-shadow: 0 0 25px rgba(34, 211, 238, 0.4);
 }
 
-/* Optimización responsive (CONSISTENTE CON INICIO) */
+/* *********************************************************** */
+/* MODIFICACIONES ESPECÍFICAS PARA MÓVIL - SOLO EN ESTA SECCIÓN */
+/* *********************************************************** */
+
 @media (max-width: 768px) {
-  /* Botón de tema más compacto en móvil (IGUAL AL INICIO) */
+  /* 1. BOTÓN DE TEMAS IDÉNTICO AL HEADER */
   .theme-switch-premium {
-    width: 28px;
-    height: 10px;
+    width: 40px; /* AUMENTADO DE 10px */
+    height: 40px; /* AUMENTADO DE 10px */
   }
   
   .theme-switch-premium > div:first-child {
-    width: 10px;
-    height: 10px;
+    width: 32px; /* AUMENTADO DE 8px */
+    height: 32px; /* AUMENTADO DE 8px */
   }
   
-  .absolute.left-3, .absolute.right-3 {
-    width: 5px;
-    height: 5px;
+  .absolute.left-2 {
+    left: 8px;
+  }
+  
+  .absolute.right-2 {
+    right: 8px;
   }
   
   .absolute.-bottom-4 {
-    font-size: 8px;
-    bottom: -3px;
+    display: none; /* OCULTO EN MÓVIL */
   }
   
-  /* Ajustes del carrusel en móvil - ESPACIO REDUCIDO */
+  .absolute.-bottom-6 {
+    display: none; /* OCULTO EN MÓVIL */
+  }
+  
+  /* 2. FLECHAS DEL CARRUSEL OCULTAS EN MÓVIL */
+  .hidden.md\:flex {
+    display: none !important; /* OCULTA BOTONES EN MÓVIL */
+  }
+  
+  /* Imágenes laterales ocultas en móvil */
+  .hidden.md\:block {
+    display: none !important;
+  }
+  
+  /* Ajustar contenedor de imágenes para móvil */
+  .h-\[450px\] {
+    height: 350px !important;      /* Reducido de 420px */
+  }
+  
+  /* Imagen central más pequeña para móvil */
+  .w-\[500px\] {
+    width: 85vw !important;        /* Reducido de 90vw */
+  }
+  
+  .h-\[375px\] {
+    height: 280px !important;      /* Reducido de 350px */
+  }
+  
+  /* Imagen dentro del carrusel central más pequeña */
+  .h-\[250px\] {
+    height: 180px !important;      /* Reducido de 220px */
+  }
+  
+  .h-\[125px\] {
+    height: 100px !important;      /* Reducido de 130px */
+  }
+  
+  /* 3. LOGOS DE EMPRESAS AUMENTADOS EN MÓVIL */
+  .w-24, .h-24 {
+    width: 4rem !important;        /* Aumentado de 3rem */
+    height: 4rem !important;       /* Aumentado de 3rem */
+  }
+  
+  .w-20, .h-20 {
+    width: 3.5rem !important;      /* Aumentado de 2.5rem */
+    height: 3.5rem !important;     /* Aumentado de 2.5rem */
+  }
+  
+  .w-16, .h-16 {
+    width: 3rem !important;        /* Aumentado de 1.75rem */
+    height: 3rem !important;       /* Aumentado de 1.75rem */
+  }
+  
+  /* Título de empresas - tamaño ajustado para móvil */
+  .text-4xl {
+    font-size: 2.25rem !important; /* Aumentado de 2rem */
+  }
+  
+  .text-3xl {
+    font-size: 2rem !important;    /* Aumentado de 1.75rem */
+  }
+  
+  /* Ajustes adicionales existentes */
   .h-\[500px\] {
     height: 420px;
   }
@@ -1171,10 +1238,6 @@ watch(isDarkMode, (newVal) => {
   
   .w-\[600px\] {
     width: 90vw;
-  }
-  
-  .h-\[450px\] {
-    height: 350px;
   }
   
   .h-\[300px\] {
@@ -1201,26 +1264,6 @@ watch(isDarkMode, (newVal) => {
     height: 100px;
   }
   
-  /* Título de empresas más grande - AJUSTE RESPONSIVE */
-  .text-4xl {
-    font-size: 2rem;
-  }
-  
-  .text-3xl {
-    font-size: 1.75rem;
-  }
-  
-  /* Logos más grandes - AJUSTE RESPONSIVE */
-  .w-24, .h-24 {
-    width: 3rem;
-    height: 3rem;
-  }
-  
-  .w-20, .h-20 {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  
   /* Botones de navegación más pequeños */
   .w-12, .w-14 {
     width: 2.5rem;
@@ -1234,18 +1277,79 @@ watch(isDarkMode, (newVal) => {
 }
 
 @media (max-width: 480px) {
-  /* Botón de tema ultra compacto (IGUAL AL INICIO) */
+  /* 1. BOTÓN DE TEMAS AÚN MÁS GRANDE EN MÓVILES PEQUEÑOS */
   .theme-switch-premium {
-    width: 26px;
-    height: 9px;
+    width: 44px; /* AUMENTADO DE 40px */
+    height: 44px; /* AUMENTADO DE 40px */
   }
   
   .theme-switch-premium > div:first-child {
-    width: 9px;
-    height: 9px;
+    width: 34px; /* AUMENTADO DE 32px */
+    height: 34px; /* AUMENTADO DE 32px */
   }
   
-  /* Ajustes del carrusel en móvil pequeño - ESPACIO REDUCIDO */
+  .absolute.left-2 {
+    left: 9px;
+  }
+  
+  .absolute.right-2 {
+    right: 9px;
+  }
+  
+  /* 2. CARRUSEL AÚN MÁS REDUCIDO EN MÓVILES PEQUEÑOS */
+  /* Contenedor principal más pequeño */
+  .h-\[450px\] {
+    height: 300px !important;      /* Reducido de 380px */
+  }
+  
+  /* Imagen central más pequeña */
+  .w-\[500px\] {
+    width: 90vw !important;        /* Ajustado de 95vw */
+  }
+  
+  .h-\[375px\] {
+    height: 240px !important;      /* Reducido de 300px */
+  }
+  
+  /* Imagen dentro del carrusel central más pequeña */
+  .h-\[250px\] {
+    height: 160px !important;      /* Reducido de 190px */
+  }
+  
+  .h-\[125px\] {
+    height: 80px !important;       /* Reducido de 110px */
+  }
+  
+  /* 3. LOGOS DE EMPRESAS AÚN MÁS AUMENTADOS EN MÓVILES PEQUEÑOS */
+  .w-24, .h-24 {
+    width: 3.5rem !important;      /* Aumentado de 2.5rem */
+    height: 3.5rem !important;     /* Aumentado de 2.5rem */
+  }
+  
+  .w-20, .h-20 {
+    width: 3rem !important;        /* Aumentado de 2rem */
+    height: 3rem !important;       /* Aumentado de 2rem */
+  }
+  
+  .w-16, .h-16 {
+    width: 2.5rem !important;      /* Aumentado de 1.75rem */
+    height: 2.5rem !important;     /* Aumentado de 1.75rem */
+  }
+  
+  /* Título de empresas - tamaño ajustado para móvil pequeño */
+  .text-4xl {
+    font-size: 2rem !important;    /* Aumentado de 1.75rem */
+  }
+  
+  .text-3xl {
+    font-size: 1.75rem !important; /* Aumentado de 1.5rem */
+  }
+  
+  .text-2xl {
+    font-size: 1.5rem !important;  /* Aumentado de 1.25rem */
+  }
+  
+  /* Ajustes adicionales existentes */
   .h-\[500px\] {
     height: 380px;
   }
@@ -1284,35 +1388,6 @@ watch(isDarkMode, (newVal) => {
   
   .h-\[130px\] {
     height: 90px;
-  }
-  
-  /* Título de empresas más grande - AJUSTE RESPONSIVE PEQUEÑO */
-  .text-4xl {
-    font-size: 1.75rem;
-  }
-  
-  .text-3xl {
-    font-size: 1.5rem;
-  }
-  
-  .text-2xl {
-    font-size: 1.25rem;
-  }
-  
-  /* Logos más grandes - AJUSTE RESPONSIVE PEQUEÑO */
-  .w-24, .h-24 {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  
-  .w-20, .h-20 {
-    width: 2rem;
-    height: 2rem;
-  }
-  
-  .w-16, .h-16 {
-    width: 1.75rem;
-    height: 1.75rem;
   }
   
   /* Textos más pequeños */
