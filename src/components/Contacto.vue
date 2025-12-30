@@ -236,13 +236,13 @@
             </span>
           </h2>
           
-          <!-- Slogan -->
+          <!-- Slogan 
           <div class="mt-2 md:mt-3 animate-fadeInUp transition-all duration-150" style="animation-delay: 50ms">
             <p class="text-base md:text-lg font-bold transition-colors duration-150"
                :class="isDarkMode ? 'text-blue-100/90' : 'text-blue-700/90'">
               Contáctanos y recibe una <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">cotización gratuita</span>
             </p>
-          </div>
+          </div>-->
         </div>
         
         <!-- Subtítulo -->
@@ -253,14 +253,14 @@
                  : 'bg-blue-50/20 border-blue-300/15 shadow-blue-400/10 hover:border-blue-400/30'">
             <p class="text-sm sm:text-base md:text-lg leading-relaxed text-center font-medium transition-colors duration-150"
                :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
-              Transformamos tus ideas en <span :class="isDarkMode ? 'text-white' : 'text-blue-900'">soluciones digitales</span> 
-              que <span class="relative inline-block">
+              Contáctanos <span :class="isDarkMode ? 'text-white' : 'text-blue-900'">y recibe</span> 
+               una <span class="relative inline-block">
                 <span 
                   class="bg-clip-text text-transparent font-bold transition-all duration-150"
                   :class="isDarkMode 
                     ? 'bg-gradient-to-r from-blue-300 via-blue-200 to-white' 
                     : 'bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400'">
-                  superan expectativas
+                  cotización gratuita
                 </span>
                 <!-- Brillo de fondo del texto -->
                 <div 
@@ -304,12 +304,12 @@
             <!-- Descripción compacta -->
             <p class="mb-3 md:mb-4 text-center w-full max-w-md mx-auto text-xs md:text-sm transition-colors duration-150 px-2"
                :class="isDarkMode ? 'text-green-100/90' : 'text-green-900/90'">
-              <span :class="isDarkMode ? 'text-green-200 font-semibold' : 'text-green-800 font-semibold'">Respuesta inmediata</span> y atención personalizada
+              <span :class="isDarkMode ? 'text-green-200 font-semibold' : 'text-green-800 font-semibold'">Respuesta en menos de 24 HS</span> y atención personalizada
             </p>
             
             <!-- Botón de WhatsApp -->
             <a 
-              href="https://wa.me/5492214002619" 
+              href="https://wa.me/5492212222358" 
               target="_blank"
               @click="openWhatsApp"
               class="group relative text-white font-bold py-2.5 md:py-3 px-6 md:px-8 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow text-base md:text-lg overflow-hidden w-full max-w-xs"
@@ -351,7 +351,7 @@
                   </div>
                   <p class="text-xs mt-0.5 transition-colors duration-150"
                      :class="isDarkMode ? 'text-green-200/80' : 'text-green-800/80'">
-                    24/7
+                    Consultas Gratis
                   </p>
                 </div>
               </div>
@@ -377,7 +377,7 @@
                   </h4>
                   <p class="text-sm md:text-base font-semibold transition-colors duration-150"
                      :class="isDarkMode ? 'text-cyan-200' : 'text-blue-700'">
-                    +54 9 0221 400-2619
+                    +54 9 221 222-2358
                   </p>
                   <p class="text-xs transition-colors duration-150 mt-0.5"
                      :class="isDarkMode ? 'text-white/65' : 'text-blue-900/65'">
@@ -552,7 +552,7 @@ const getParticleStyle = (i) => {
 // WhatsApp function
 const openWhatsApp = () => {
   const message = encodeURIComponent('Hola, me gustaría solicitar información sobre sus servicios de desarrollo web.');
-  window.open(`https://wa.me/5492214002619?text=${message}`, '_blank', 'noopener,noreferrer');
+  window.open(`https://wa.me/5492212222358?text=${message}`, '_blank', 'noopener,noreferrer');
 };
 
 // Inicializar - TEMA OSCURO INMEDIATAMENTE

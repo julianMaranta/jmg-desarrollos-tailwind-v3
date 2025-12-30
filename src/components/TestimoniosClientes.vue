@@ -271,14 +271,14 @@
           </span>
         </h2>
         
-        <!-- Slogan (EXACTO AL INICIO) -->
+        <!-- Slogan (EXACTO AL INICIO) 
         <div class="mt-2 md:mt-3 animate-fadeInUp transition-all duration-150" style="animation-delay: 50ms">
           <p class="text-base md:text-lg font-bold transition-colors duration-150"
              :class="isDarkMode ? 'text-blue-100/90' : 'text-blue-700/90'">
             De <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">Estrategia</span> a 
             <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">Resultados</span> Excepcionales
           </p>
-        </div>
+        </div>-->
       </div>
       
       <!-- Subtítulo (CONSISTENTE CON INICIO) -->

@@ -301,7 +301,7 @@
                  : 'bg-blue-50/20 border-blue-300/15 shadow-blue-400/10 hover:border-blue-400/30'">
             <p class="text-sm sm:text-base md:text-lg leading-relaxed text-center font-medium transition-colors duration-150"
                :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
-              Sigue los pasos de las empresas exitosas que confiaron en nuestro 
+              Sigue los pasos de nuestro 
               <span class="relative inline-block">
                 <span 
                   class="bg-clip-text text-transparent font-bold transition-all duration-150"

@@ -276,14 +276,14 @@
             </span>
           </h2>
           
-          <!-- Slogan (EXACTO AL INICIO) -->
+          <!-- Slogan (EXACTO AL INICIO) 
           <div class="mt-2 md:mt-3 animate-fadeInUp transition-all duration-150" style="animation-delay: 50ms">
             <p class="text-base md:text-lg font-bold transition-colors duration-150"
                :class="isDarkMode ? 'text-blue-100/90' : 'text-blue-700/90'">
               De <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">Estrategia</span> a 
               <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">Resultados</span> Excepcionales
             </p>
-          </div>
+          </div>-->
         </div>
         
         <!-- Subtítulo (CONSISTENTE CON INICIO) -->
@@ -702,7 +702,7 @@ const steps = [
   {
     icon: "💡",
     title: "Estrategia",
-    description: "Comprendemos tu negocio para una estrategia digital.",
+    description: "Comprendemos tu negocio para un producto digital.",
     features: [
       "Análisis de competencia",
       "Definición de objetivos",
@@ -722,17 +722,17 @@ const steps = [
   {
     icon: "⚡",
     title: "Desarrollo",
-    description: "Programamos tu sitio web con las mejores tecnologías.",
+    description: "Tu sitio web con las mejores tecnologías.",
     features: [
       "Desarrollo Full Stack",
       "Funcionalidades avanzadas",
-      "Optimización SEO on-page"
+      "Optimización SEO"
     ]
   },
   {
     icon: "🚀",
     title: "Lanzamiento",
-    description: "Desplegamos tu sitio web con garantía de calidad.",
+    description: "Desplegamos tu sitio web.",
     features: [
       "Lanzamiento seguro",
       "Monitoreo y analytics",

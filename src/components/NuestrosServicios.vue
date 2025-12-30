@@ -276,14 +276,14 @@
             </span>
           </h2>
           
-          <!-- Slogan (EXACTO AL INICIO) -->
+          <!-- Slogan (EXACTO AL INICIO) 
           <div class="mt-2 md:mt-3 animate-fadeInUp transition-all duration-150" style="animation-delay: 50ms">
             <p class="text-base md:text-lg font-bold transition-colors duration-150"
                :class="isDarkMode ? 'text-blue-100/90' : 'text-blue-700/90'">
               De <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">Ideas</span> a 
               <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">Resultados</span> Excepcionales
             </p>
-          </div>
+          </div>-->
         </div>
         
         <!-- Subtítulo (CONSISTENTE CON INICIO) -->
@@ -340,11 +340,11 @@
                 
                 <h3 class="text-lg md:text-xl font-black mb-1 transition-colors duration-150"
                     :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                  Inicial
+                  Básico
                 </h3>
                 <p class="text-xs font-semibold tracking-wide uppercase transition-colors duration-150"
                    :class="isDarkMode ? 'text-blue-100/60' : 'text-blue-700/60'">
-                  PARA EMPRENDEDORES
+                  Página Web Básica
                 </p>
               </div>
               
@@ -356,7 +356,7 @@
                 </div>
                 <div class="text-xs font-medium transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
-                  Hosting 1 año incluido
+                Soporte Mensual: $10.000
                 </div>
               </div>
               
@@ -439,7 +439,7 @@
                 </h3>
                 <p class="text-xs font-semibold tracking-wide uppercase transition-colors duration-150"
                    :class="isDarkMode ? 'text-blue-100/60' : 'text-blue-700/60'">
-                  PEQUEÑAS EMPRESAS
+                  Página Web Moderna y Animada
                 </p>
               </div>
               
@@ -451,7 +451,7 @@
                 </div>
                 <div class="text-xs font-medium transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
-                  SEO Avanzado Incluido
+                  Soporte Mensual: $20.000
                 </div>
               </div>
               
@@ -512,11 +512,11 @@
                 
                 <h3 class="text-lg md:text-xl font-black mb-1 transition-colors duration-150"
                     :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                  Profesional
+                  Avanzado
                 </h3>
                 <p class="text-xs font-semibold tracking-wide uppercase transition-colors duration-150"
                    :class="isDarkMode ? 'text-blue-100/60' : 'text-blue-700/60'">
-                  NEGOCIOS EN CRECIMIENTO
+                  Página Web con Administrador
                 </p>
               </div>
               
@@ -528,7 +528,7 @@
                 </div>
                 <div class="text-xs font-medium transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
-                  Gestión de Datos Incluido
+                  Soporte Mensual: $30.000
                 </div>
               </div>
               
@@ -561,7 +561,7 @@
                   <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-300"></div>
                   
                   <span class="flex items-center justify-center relative">
-                    Ir Profesional
+                    Ir Avanzado
                     <span class="ml-2 text-lg animate-bounce-fast">→</span>
                   </span>
                 </button>
@@ -607,7 +607,7 @@
                 </div>
                 <div class="text-xs font-medium transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
-                  Aplicaciones Web & Mobile
+                  Aplicaciones Web & Mobile Complejas
                 </div>
               </div>
               
@@ -767,35 +767,34 @@ const sectionGradientStyle = computed(() => {
 // Features de planes
 const basicFeatures = [
   'Página web con 5 secciones',
-  'Diseño responsive avanzado',
-  'SEO básico optimizado',
-  'Hosting 1 año incluido',
-  'Certificado SSL gratuito'
+  'Diseño responsive',
+  'SEO optimizado',
+  'Conexión con WhatsApp',
+  'Carrusel de Fotos'
 ];
 
 const standardFeatures = [
   'Animaciones interactivas',
-  'Diseño UX/UI exclusivo',
-  'SEO avanzado integrado',
-  'Formularios de contacto',
-  'Integración multimedia'
+  'Diseño UX/UI',
+  'Aspecto 3D',
+  'Formulario de contacto',
+  'Modo Oscuro y Claro'
 ];
 
 const professionalFeatures = [
-  'Diseño premium personalizado',
-  'Sistema de branding completo',
+  
   'Panel de Administrador',
-  'Contenido editable en tiempo real',
-  'Soporte prioritario 24/7'
+  'Contenido editable',
+  'Desarrollo Full-Stack',
+  'Soporte prioritario'
+
 ];
 
 const enterpriseFeatures = [
   'Desarrollo 100% a medida',
-  'Consultoría estratégica digital',
-  'Desarrollo Full-Stack',
-  'Soporte prioritario extendido',
-  'Backup automatizado garantizado',
-  'Seguridad informática avanzada'
+  'Diseño personalizado',
+  'Branding completo',
+  'Funcionalidades complejas'
 ];
 
 // Scroll a sección

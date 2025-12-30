@@ -183,7 +183,7 @@ onUnmounted(() => {
     <div class="fixed bottom-4 right-4 z-40 space-y-2">
       <!-- WhatsApp Button -->
       <a 
-  href="https://wa.me/5492214002619" 
+  href="https://wa.me/5492212222358" 
   target="_blank"
   class="w-12 h-12 rounded-lg shadow-lg flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:rotate-6 group overflow-hidden relative bg-transparent"
   aria-label="WhatsApp"
@@ -256,7 +256,7 @@ onUnmounted(() => {
             <div class="space-y-2 text-gray-400 flex flex-col items-center md:items-start">
               <p class="flex items-center transition-all duration-500 hover:text-white transform hover:translate-x-1 group justify-center md:justify-start text-sm">
                 <span class="w-6 h-6 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-2 group-hover:scale-110 transition-transform duration-500 text-xs">📞</span>
-                +54 9 0221 400-2619
+                +54 9 221 222-2358
               </p>
               <p class="flex items-center transition-all duration-500 hover:text-white transform hover:translate-x-1 group justify-center md:justify-start text-sm">
                 <span class="w-6 h-6 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-2 group-hover:scale-110 transition-transform duration-500 text-xs">✉️</span>

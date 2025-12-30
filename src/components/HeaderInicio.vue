@@ -336,15 +336,15 @@
                  : 'bg-blue-50/20 border-blue-300/15 shadow-blue-400/10 hover:border-blue-400/30'">
             <p class="text-sm sm:text-base md:text-lg leading-relaxed text-center font-medium transition-colors duration-150"
                :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
-              <span :class="isDarkMode ? 'text-white' : 'text-blue-900'">Creamos experiencias web innovadoras</span> 
-              que no solo 
+              <span :class="isDarkMode ? 'text-white' : 'text-blue-900'">Creamos experiencias web y mobile </span> 
+               
               <span class="relative inline-block">
                 <span 
                   class="bg-clip-text text-transparent font-bold transition-all duration-150"
                   :class="isDarkMode 
                     ? 'bg-gradient-to-r from-blue-300 via-blue-200 to-white' 
                     : 'bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400'">
-                  captan la atención
+                  innovadoras que además de captar 
                 </span>
                 <!-- Brillo de fondo del texto -->
                 <div 
@@ -353,8 +353,7 @@
                     ? 'bg-gradient-to-r from-blue-400/20 via-blue-300/15 to-blue-200/15' 
                     : 'bg-gradient-to-r from-blue-500/20 via-blue-400/15 to-blue-300/15'">
                 </div>
-              </span>, 
-              sino que <span :class="isDarkMode ? 'text-blue-100' : 'text-blue-700'">generan resultados medibles</span>
+              </span> la atención <span :class="isDarkMode ? 'text-blue-100' : 'text-blue-700'">generan experiencias únicas</span>
             </p>
           </div>
         </div>
@@ -527,20 +526,20 @@ const sectionGradientStyle = computed(() => {
 // Stats
 const stats = [
   { 
-    value: '+15', 
-    label: 'Proyectos'
+    value: 'Desarrollo Express', 
+    label: 'VELOCIDAD'
   },
   { 
-    value: '+10', 
-    label: 'Clientes'
+    value: 'Calidad Premium', 
+    label: 'EXCELENCIA'
   },
   { 
-    value: '24 HS', 
-    label: 'Soporte'
+    value: 'Soporte Continuo', 
+    label: 'COMPROMISO'
   },
   { 
-    value: '+5', 
-    label: 'Años'
+    value: 'Consultas Gratis', 
+    label: 'ATENCIÓN PERSONALIZADA'
   }
 ];
 

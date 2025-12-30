@@ -272,41 +272,41 @@
                     : 'bg-gradient-to-r from-blue-500/20 via-blue-400/15 to-blue-300/15'">
                 </div>
               </span>
-              y generan <span :class="isDarkMode ? 'text-blue-100' : 'text-blue-700'">resultados tangibles</span>
+              
             </p>
           </div>
         </div>
 
-        <!-- Features Grid con efectos premium -->
+        <!-- Features Grid con efectos premium 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3 max-w-6xl mx-auto w-full px-4 animate-fadeInUp transition-all duration-150" style="animation-delay: 150ms">
           
           <div v-for="(feature, index) in features" :key="index" 
                class="group relative w-full max-w-xs flex flex-col animate-fadeInUp transform-gpu"
-               :style="{ animationDelay: `${120 + index * 50}ms` }">
+               :style="{ animationDelay: `${120 + index * 50}ms` }">-->
             
-            <!-- Efecto de iluminación premium al hover -->
+            <!-- Efecto de iluminación premium al hover 
             <div class="absolute inset-0 rounded-lg transform group-hover:scale-103 transition-all duration-400 opacity-0 group-hover:opacity-100 transition-all duration-150"
                  :class="isDarkMode 
                    ? 'bg-gradient-to-br from-blue-300/25 via-blue-200/20 to-blue-100/15' 
                    : 'bg-gradient-to-br from-blue-300/20 via-blue-200/15 to-blue-100/10'">
-            </div>
+            </div>-->
             
-            <!-- Tarjeta Principal premium -->
+            <!-- Tarjeta Principal premium 
             <div class="relative backdrop-blur-xl rounded-lg border transition-all duration-250 transform group-hover:-translate-y-1 shadow-md group-hover:shadow-lg overflow-hidden w-full flex flex-col flex-1"
                  :class="isDarkMode 
                    ? 'bg-gradient-to-br from-blue-700/25 via-indigo-800/35 to-blue-900/25 border-cyan-400/35 hover:border-cyan-300/50 shadow-cyan-500/10 group-hover:shadow-cyan-500/20' 
-                   : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/35 hover:border-blue-300/50 shadow-blue-400/10 group-hover:shadow-blue-400/20'">
+                   : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/35 hover:border-blue-300/50 shadow-blue-400/10 group-hover:shadow-blue-400/20'">-->
               
-              <!-- Luz superior premium -->
+              <!-- Luz superior premium 
               <div class="absolute top-0 left-0 right-0 h-0.5 rounded-t-lg bg-gradient-to-r from-transparent via-blue-400/40 to-transparent group-hover:via-blue-300/60 transition-all duration-400"
                    :class="isDarkMode ? 'via-blue-400/35 group-hover:via-cyan-300/50' : 'via-blue-400/35 group-hover:via-blue-500/50'">
-              </div>
+              </div>-->
               
-              <!-- Header premium -->
+              <!-- Header premium 
               <div class="p-4 text-center border-b flex-shrink-0 flex flex-col items-center justify-center transition-all duration-150"
-                   :class="isDarkMode ? 'border-cyan-400/20' : 'border-blue-400/20'">
+                   :class="isDarkMode ? 'border-cyan-400/20' : 'border-blue-400/20'">-->
                 
-                <!-- Icono premium -->
+                <!-- Icono premium 
                 <div class="relative w-14 h-14 rounded-lg flex items-center justify-center mb-2 transform transition-all duration-250 group-hover:scale-105 group-hover:rotate-2 shadow-md group-hover:shadow-glow"
                      :class="isDarkMode 
                        ? 'bg-gradient-to-br from-blue-500 via-cyan-600 to-blue-700 group-hover:shadow-cyan-500/25' 
@@ -324,9 +324,9 @@
                      : 'text-blue-600/75 group-hover:text-blue-600'">
                   {{ feature.subtitle || 'VENTAJA PREMIUM' }}
                 </p>
-              </div>
+              </div>-->
               
-              <!-- Descripción premium -->
+              <!-- Descripción premium 
               <div class="p-4 flex-grow relative flex items-center justify-center">
                 <div class="relative w-full">
                   <p class="text-sm leading-relaxed text-center transition-colors duration-250"
@@ -336,9 +336,9 @@
                     {{ feature.description }}
                   </p>
                 </div>
-              </div>
+              </div>-->
               
-              <!-- Línea de iluminación premium -->
+              <!-- Línea de iluminación premium 
               <div class="px-4 pb-4 pt-0 flex-shrink-0">
                 <div class="w-0 h-0.5 rounded-full transition-all duration-400 group-hover:w-full animate-pulse-fast"
                      :class="isDarkMode 
@@ -347,7 +347,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
 
         <!-- Technology & Promise Section premium -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4 items-start w-full max-w-6xl mx-auto mt-4 md:mt-6 animate-fadeInUp transition-all duration-150" style="animation-delay: 200ms">
@@ -720,7 +720,7 @@ const technologies = [
 const promises = [
   {
     title: 'Entrega Puntual',
-    description: 'Cumplimos plazos sin excusas ni retrasos injustificados'
+    description: 'Cumplimos con los plazos acordados'
   },
   {
     title: 'Comunicación Clara',
