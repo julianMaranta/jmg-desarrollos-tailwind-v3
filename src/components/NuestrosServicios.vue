@@ -774,15 +774,15 @@ const basicFeatures = [
 ];
 
 const standardFeatures = [
+  'Plan anterior incluido',
   'Animaciones interactivas',
   'Diseño UX/UI',
   'Aspecto 3D',
-  'Formulario de contacto',
   'Modo Oscuro y Claro'
 ];
 
 const professionalFeatures = [
-  
+  'Planes anteriores incluidos',
   'Panel de Administrador',
   'Contenido editable',
   'Desarrollo Full-Stack',
@@ -791,6 +791,7 @@ const professionalFeatures = [
 ];
 
 const enterpriseFeatures = [
+  'Planes anteriores incluidos',
   'Desarrollo 100% a medida',
   'Diseño personalizado',
   'Branding completo',

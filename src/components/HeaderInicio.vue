@@ -539,7 +539,7 @@ const stats = [
   },
   { 
     value: 'Consultas Gratis', 
-    label: 'ATENCIÓN PERSONALIZADA'
+    label: 'ASESORÍA'
   }
 ];
 
