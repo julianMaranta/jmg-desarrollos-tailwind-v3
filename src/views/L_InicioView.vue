@@ -35,7 +35,7 @@ const handleScroll = () => {
   isScrolled.value = window.scrollY > 50;
   
   // Update active section based on scroll position
-  const sections = ['inicio', 'servicios', 'proceso', 'testimonios', 'contacto'];
+  const sections = ['inicio', 'servicios', 'proceso', 'por-que-elegirnos', 'contacto'];
   const scrollPosition = window.scrollY + 100;
   
   for (const section of sections) {
@@ -91,7 +91,7 @@ onUnmounted(() => {
                 { id: 'inicio', name: 'Inicio' },
                 { id: 'servicios', name: 'Servicios' },
                 { id: 'proceso', name: 'Proceso' },
-                { id: 'testimonios', name: 'Testimonios' }
+                { id: 'por-que-elegirnos', name: 'Nosostros' }
               ]" 
               :key="item.id"
               @click="scrollToSection(item.id)"
@@ -140,7 +140,7 @@ onUnmounted(() => {
                 { id: 'inicio', name: 'Inicio' },
                 { id: 'servicios', name: 'Servicios' },
                 { id: 'proceso', name: 'Proceso' },
-                { id: 'testimonios', name: 'Testimonios' }
+                { id: 'por-que-elegirnos', name: 'Nosotros' }
               ]" 
               :key="item.id"
               @click="scrollToSection(item.id)"

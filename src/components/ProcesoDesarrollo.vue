@@ -374,7 +374,7 @@
                   </div>
                   
                   <!-- Título -->
-                  <h3 class="text-base md:text-lg font-black mb-2 text-center w-full group-hover:text-blue-800 transition-colors duration-150 px-3 whitespace-normal tracking-tight"
+                  <h3 class="text-base md:text-lg font-black mb-2 text-center w-full px-3 whitespace-normal tracking-tight"
                       :class="isDarkMode ? 'text-white' : 'text-blue-900'">
                     {{ prevCard.title }}
                   </h3>
@@ -483,7 +483,7 @@
                   </div>
                   
                   <!-- Título -->
-                  <h3 class="text-base md:text-lg font-black mb-2 text-center w-full group-hover:text-blue-800 transition-colors duration-150 px-3 whitespace-normal tracking-tight"
+                  <h3 class="text-base md:text-lg font-black mb-2 text-center w-full px-3 whitespace-normal tracking-tight"
                       :class="isDarkMode ? 'text-white' : 'text-blue-900'">
                     {{ nextCard.title }}
                   </h3>
