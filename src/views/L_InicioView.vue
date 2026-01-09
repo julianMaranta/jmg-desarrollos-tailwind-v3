@@ -91,7 +91,7 @@ onUnmounted(() => {
                 { id: 'inicio', name: 'Inicio' },
                 { id: 'servicios', name: 'Servicios' },
                 { id: 'proceso', name: 'Proceso' },
-                { id: 'por-que-elegirnos', name: 'Nosostros' }
+                { id: 'nosotros', name: 'Nosostros' }
               ]" 
               :key="item.id"
               @click="scrollToSection(item.id)"
@@ -140,7 +140,7 @@ onUnmounted(() => {
                 { id: 'inicio', name: 'Inicio' },
                 { id: 'servicios', name: 'Servicios' },
                 { id: 'proceso', name: 'Proceso' },
-                { id: 'por-que-elegirnos', name: 'Nosotros' }
+                { id: 'nosotros', name: 'Nosotros' }
               ]" 
               :key="item.id"
               @click="scrollToSection(item.id)"
@@ -236,7 +236,7 @@ onUnmounted(() => {
           <div class="flex flex-col items-center md:items-start">
             <h3 class="text-base font-bold mb-4 text-transparent bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text">Enlaces Rápidos</h3>
             <ul class="space-y-2">
-              <li v-for="link in ['inicio', 'servicios', 'proceso', 'testimonios']" :key="link">
+              <li v-for="link in ['inicio', 'servicios', 'proceso', 'nosotros']" :key="link">
                 <a 
                   @click="scrollToSection(link)" 
                   class="text-gray-400 hover:text-white transition-all duration-500 cursor-pointer transform hover:translate-x-1 inline-block group"

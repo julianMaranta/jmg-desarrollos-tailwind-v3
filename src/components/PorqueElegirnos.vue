@@ -1,6 +1,6 @@
 <template>
   <section 
-    id="por-que-elegirnos" 
+    id="nosotros" 
     class="min-h-auto w-full relative overflow-hidden flex items-center justify-center py-6 md:py-8 transition-all duration-150 ease-out"
     :style="sectionGradientStyle"
   >

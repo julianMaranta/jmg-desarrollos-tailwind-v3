@@ -356,7 +356,7 @@
                 </div>
                 <div class="text-xs font-medium transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
-                Soporte Mensual: $10.000
+                Soporte Mensual: $5.000
                 </div>
               </div>
               
@@ -451,7 +451,7 @@
                 </div>
                 <div class="text-xs font-medium transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
-                  Soporte Mensual: $20.000
+                  Soporte Mensual: $15.000
                 </div>
               </div>
               
@@ -524,7 +524,7 @@
               <div class="mb-4 text-center flex-shrink-0">
                 <div class="text-xl md:text-2xl lg:text-3xl font-black leading-none mb-1 transition-all duration-150"
                      :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">
-                  $1.400.000
+                  $1.600.000
                 </div>
                 <div class="text-xs font-medium transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
