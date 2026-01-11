@@ -344,7 +344,7 @@
                 </h3>
                 <p class="text-xs font-semibold tracking-wide uppercase transition-colors duration-150"
                    :class="isDarkMode ? 'text-blue-100/60' : 'text-blue-700/60'">
-                  Página Web Básica
+                  Web Básica
                 </p>
               </div>
               
@@ -356,7 +356,7 @@
                 </div>
                 <div class="text-xs font-medium transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
-                Soporte Mensual: $5.000
+                Soporte Mensual ( Opcional ): $5.000
                 </div>
               </div>
               
@@ -439,7 +439,7 @@
                 </h3>
                 <p class="text-xs font-semibold tracking-wide uppercase transition-colors duration-150"
                    :class="isDarkMode ? 'text-blue-100/60' : 'text-blue-700/60'">
-                  Página Web Moderna y Animada
+                  Web Moderna, Única y Animada
                 </p>
               </div>
               
@@ -451,7 +451,7 @@
                 </div>
                 <div class="text-xs font-medium transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
-                  Soporte Mensual: $15.000
+                  Soporte Mensual ( Opcional ): $10.000
                 </div>
               </div>
               
@@ -516,7 +516,7 @@
                 </h3>
                 <p class="text-xs font-semibold tracking-wide uppercase transition-colors duration-150"
                    :class="isDarkMode ? 'text-blue-100/60' : 'text-blue-700/60'">
-                  Página Web con Administrador
+                  Web con Catálogo Productos
                 </p>
               </div>
               
@@ -524,11 +524,11 @@
               <div class="mb-4 text-center flex-shrink-0">
                 <div class="text-xl md:text-2xl lg:text-3xl font-black leading-none mb-1 transition-all duration-150"
                      :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">
-                  $1.600.000
+                  $1.200.000
                 </div>
                 <div class="text-xs font-medium transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
-                  Soporte Mensual: $30.000
+                  Soporte Mensual ( Opcional ): $15.000
                 </div>
               </div>
               
