@@ -352,7 +352,7 @@
               <div class="mb-4 text-center flex-shrink-0">
                 <div class="text-xl md:text-2xl lg:text-3xl font-black leading-none mb-1 transition-all duration-150"
                      :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">
-                  $250.000
+                  $200.000
                 </div>
                 <!--<div class="text-xs font-medium transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
@@ -447,7 +447,7 @@
               <div class="mb-4 text-center flex-shrink-0">
                 <div class="text-xl md:text-2xl lg:text-3xl font-black leading-none mb-1 transition-all duration-150"
                      :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">
-                  $500.000
+                  $400.000
                 </div>
                 <!--<div class="text-xs font-medium transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
@@ -484,7 +484,7 @@
                   <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-300"></div>
                   
                   <span class="flex items-center justify-center relative">
-                    Elegir Plan
+                    Elegir
                     <span class="ml-2 text-lg animate-bounce-fast">⚡</span>
                   </span>
                 </button>
@@ -524,7 +524,7 @@
               <div class="mb-4 text-center flex-shrink-0">
                 <div class="text-xl md:text-2xl lg:text-3xl font-black leading-none mb-1 transition-all duration-150"
                      :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">
-                  $750.000
+                  $600.000
                 </div>
                 <!--<div class="text-xs font-medium transition-colors duration-150"
                      :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
@@ -786,7 +786,7 @@ const professionalFeatures = [
   'Panel de Administrador',
   'Contenido editable',
   'Desarrollo Full-Stack',
-  'Soporte prioritario'
+  'Filtros de búsqueda'
 
 ];
 

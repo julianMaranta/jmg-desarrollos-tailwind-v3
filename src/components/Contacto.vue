@@ -429,7 +429,7 @@
                   </p>
                   <p class="text-xs transition-colors duration-150 mt-0.5"
                      :class="isDarkMode ? 'text-white/65' : 'text-blue-900/65'">
-                    Trabajamos con clientes de todo el mundo
+                    Trabajamos con clientes de todo el país
                   </p>
                 </div>
               </div>

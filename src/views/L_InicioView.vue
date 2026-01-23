@@ -229,7 +229,7 @@ onUnmounted(() => {
             <p class="text-gray-400 mb-4 max-w-xs text-center md:text-left leading-relaxed text-sm">
               Creamos soluciones web innovadoras que impulsan el crecimiento de tu negocio
             </p>
-            <p class="text-gray-500 text-xs text-center md:text-left">&copy; 2025 JMG Desarrollos. Todos los derechos reservados.</p>
+            <p class="text-gray-500 text-xs text-center md:text-left">&copy; 2026 JMG Desarrollos. Todos los derechos reservados.</p>
           </div>
           
           <!-- Enlaces rápidos -->
@@ -301,7 +301,7 @@ onUnmounted(() => {
                 <div class="absolute inset-0 bg-white/10 rounded-xl scale-0 group-hover:scale-100 transition-transform duration-500"></div>
               </a>
               
-              <!-- LinkedIn -->
+              <!-- LinkedIn 
               <a 
                 href="https://www.linkedin.com/company/jmg-desarrollos" 
                 class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow-lg group overflow-hidden"
@@ -313,7 +313,7 @@ onUnmounted(() => {
                   onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'text-white font-bold text-base\'>IN</span>';"
                 />
                 <div class="absolute inset-0 bg-white/10 rounded-xl scale-0 group-hover:scale-100 transition-transform duration-500"></div>
-              </a>
+              </a>-->
               
               
             </div>
