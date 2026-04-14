@@ -260,7 +260,7 @@
                   :class="isDarkMode 
                     ? 'bg-gradient-to-r from-blue-300 via-blue-200 to-white' 
                     : 'bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400'">
-                  cotización gratuita
+                  asesoría gratuita
                 </span>
                 <!-- Brillo de fondo del texto -->
                 <div 

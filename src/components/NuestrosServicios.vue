@@ -1,10 +1,10 @@
 <template>
   <section 
     id="servicios" 
-    class="min-h-[85vh] w-full text-white relative overflow-hidden flex items-center justify-center transition-all duration-150 ease-out"
+    class="min-h-[50vh] w-full text-white relative overflow-hidden flex items-center justify-center transition-all duration-150 ease-out"
     :style="sectionGradientStyle"
   >
-    <!-- Capa de fondo principal (EXACTO AL INICIO) -->
+    <!-- Capa de fondo principal -->
     <div 
       class="absolute inset-0 transition-all duration-150 ease-out overflow-hidden"
       :style="sectionGradientStyle"
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <!-- Efectos de fondo animados (EXACTO AL INICIO) -->
+    <!-- Efectos de fondo animados -->
     <div class="absolute inset-0 overflow-hidden transition-all duration-150 ease-out">
       <transition name="theme-fade-fast" mode="out-in">
         <div v-if="isDarkMode" key="dark-bg-1" class="absolute top-1/4 -left-12 w-48 h-48 bg-gradient-to-br from-blue-500/25 to-cyan-400/15 rounded-full blur-2xl animate-pulse-fast transition-all duration-150"
@@ -72,41 +72,9 @@
     <!-- Contenedor principal -->
     <div class="w-full max-w-6xl mx-auto px-4 md:px-6 text-center relative z-10 py-6 md:py-8 flex flex-col items-center">
       
-      <!-- Contenedor para badge y botón de temas (EXACTO AL INICIO) -->
+      <!-- Contenedor para badge y botón de temas -->
       <div class="relative w-full mb-1 md:mb-6">
-        <!-- Badge animado compacto -->
-        <div 
-          class="inline-flex items-center backdrop-blur-lg rounded-full px-4 py-1.5 mb-2 shadow-glow animate-pulse-slow transition-all duration-150"
-          :class="isDarkMode 
-            ? 'bg-gradient-to-r from-blue-600/40 to-cyan-500/30 border border-cyan-400/40' 
-            : 'bg-gradient-to-r from-blue-500/30 to-blue-400/40 border border-blue-400/50'"
-          :style="isTransitioning ? { 
-            filter: 'brightness(1.1)',
-            boxShadow: isDarkMode 
-              ? '0 0 15px rgba(34, 211, 238, 0.3)' 
-              : '0 0 15px rgba(59, 130, 246, 0.3)'
-          } : {}"
-        >
-          <div 
-            class="w-2 h-2 rounded-full mr-2 animate-pulse-fast transition-all duration-150"
-            :class="isDarkMode 
-              ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-              : 'bg-gradient-to-r from-blue-400 to-blue-300'"
-            :style="isTransitioning ? { 
-              transform: 'scale(1.1)'
-            } : {}"
-          ></div>
-          <span class="text-xs font-bold tracking-wider transition-colors duration-150"
-                :class="isDarkMode ? 'text-white' : 'text-blue-900'">🚀 SERVICIOS</span>
-          <div 
-            class="ml-2 w-0.5 h-4 rounded-full transition-all duration-150"
-            :class="isDarkMode 
-              ? 'bg-gradient-to-b from-blue-300/30 to-blue-400/30' 
-              : 'bg-gradient-to-b from-blue-400/30 to-blue-500/30'">
-          </div>
-        </div>
-
-        <!-- Botón de tema compacto - AUMENTADO EN MÓVIL (EXACTO AL INICIO) -->
+        <!-- Botón de tema compacto -->
         <div class="absolute top-0 right-0 md:right-2 z-50">
           <button
             @click="toggleTheme"
@@ -117,7 +85,7 @@
             :title="isDarkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
             aria-label="Cambiar tema"
           >
-            <!-- Switch compacto - MÁS GRANDE EN MÓVIL -->
+            <!-- Switch compacto -->
             <div 
               class="absolute w-8 h-8 md:w-12 md:h-12 rounded-full transition-all duration-300 ease-out transform z-30 overflow-hidden"
               :class="isDarkMode ? 'right-1 md:right-3' : 'left-1 md:left-3'"
@@ -155,7 +123,7 @@
                 ></div>
               </div>
               
-              <!-- Icono dentro del switch (SVG) - AJUSTADO PARA MÓVIL -->
+              <!-- Icono dentro del switch -->
               <div class="absolute inset-0 flex items-center justify-center z-10">
                 <!-- Icono de Luna para tema oscuro -->
                 <svg v-if="isDarkMode" class="w-5 h-5 md:w-6 md:h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
@@ -181,7 +149,7 @@
             <!-- Contenedor principal con iconos -->
             <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
               
-              <!-- Sol (izquierda) - AJUSTADO POSICIÓN PARA MÓVIL -->
+              <!-- Sol (izquierda) -->
               <div class="absolute left-2 md:left-3 w-5 h-5 md:w-6 md:h-6 transition-all duration-150 ease-out z-20"
                    :class="isDarkMode 
                      ? 'opacity-30 scale-90 text-yellow-300/40' 
@@ -191,7 +159,7 @@
                 </svg>
               </div>
               
-              <!-- Luna (derecha) - AJUSTADO POSICIÓN PARA MÓVIL -->
+              <!-- Luna (derecha) -->
               <div class="absolute right-2 md:right-3 w-4 h-4 md:w-5 md:h-5 transition-all duration-150 ease-out z-20"
                    :class="!isDarkMode 
                      ? 'opacity-30 scale-90 text-blue-400/40' 
@@ -201,7 +169,7 @@
                 </svg>
               </div>
               
-              <!-- Texto "DÍA/NOCHE" - OCULTO EN MÓVIL -->
+              <!-- Texto "DÍA/NOCHE" -->
               <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[9px] font-semibold uppercase tracking-wide opacity-80 z-5 transition-all duration-150 whitespace-nowrap hidden md:block"
                    :class="isDarkMode ? 'text-blue-300/80' : 'text-yellow-600/80'">
                 {{ isDarkMode ? 'NOCHE' : 'DÍA' }}
@@ -235,7 +203,7 @@
               </div>
             </div>
             
-            <!-- Tooltip - OCULTO EN MÓVIL -->
+            <!-- Tooltip -->
             <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-50 hidden md:block">
               <div class="px-1.5 py-0.5 text-[9px] font-medium rounded backdrop-blur-sm shadow-sm"
                    :class="isDarkMode 
@@ -247,431 +215,212 @@
             
           </button>
         </div>
+        
+        <!-- Badge animado compacto -->
+        <div 
+          class="inline-flex items-center backdrop-blur-lg rounded-full px-4 py-1.5 mb-2 shadow-glow animate-pulse-slow transition-all duration-150"
+          :class="isDarkMode 
+            ? 'bg-gradient-to-r from-blue-600/40 to-cyan-500/30 border border-cyan-400/40' 
+            : 'bg-gradient-to-r from-blue-500/30 to-blue-400/40 border border-blue-400/50'"
+          :style="isTransitioning ? { 
+            filter: 'brightness(1.1)',
+            boxShadow: isDarkMode 
+              ? '0 0 15px rgba(34, 211, 238, 0.3)' 
+              : '0 0 15px rgba(59, 130, 246, 0.3)'
+          } : {}"
+        >
+          <div 
+            class="w-2 h-2 rounded-full mr-2 animate-pulse-fast transition-all duration-150"
+            :class="isDarkMode 
+              ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+              : 'bg-gradient-to-r from-blue-400 to-blue-300'"
+            :style="isTransitioning ? { 
+              transform: 'scale(1.1)'
+            } : {}"
+          ></div>
+          <span class="text-xs font-bold tracking-wider transition-colors duration-150"
+                :class="isDarkMode ? 'text-white' : 'text-blue-900'">💎 PLAN MENSUAL</span>
+          <div 
+            class="ml-2 w-0.5 h-4 rounded-full transition-all duration-150"
+            :class="isDarkMode 
+              ? 'bg-gradient-to-b from-blue-300/30 to-blue-400/30' 
+              : 'bg-gradient-to-b from-blue-400/30 to-blue-500/30'">
+          </div>
+        </div>
       </div>
 
-      <!-- Sección principal con títulos -->
-      <div class="w-full flex flex-col items-center space-y-3 md:space-y-4">
-        <!-- Título principal EN UN SOLO RENGLÓN (MISMO TAMAÑO QUE INICIO) -->
-        <div class="relative w-full mb-1 md:mb-2 transition-all duration-150 text-center">
-          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center w-full tracking-tight leading-tight animate-slideInLeft transition-all duration-150">
-            <span class="relative inline-block">
-              <div class="relative pb-1">
-                <!-- Línea completa -->
-                <div 
-                  class="bg-clip-text text-transparent leading-tight transition-all duration-150"
-                  :class="isDarkMode 
-                    ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
-                    : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
-                  Servicios Premium
-                </div>
-              </div>
-              
-              <!-- Subrayado animado (EXACTO A OTRAS SECCIONES) -->
+      <!-- TÍTULO PRINCIPAL CORREGIDO: "y Animada" DEBAJO DE "Web Moderna" EN MÓVIL -->
+      <div class="w-full text-center mb-4 md:mb-5">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight animate-slideInLeft transition-all duration-150">
+          <div class="flex flex-col items-center justify-center">
+            <!-- Primera línea: Web Moderna -->
+            <div class="relative inline-block">
+              <span 
+                class="bg-clip-text text-transparent transition-all duration-150"
+                :class="isDarkMode 
+                  ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
+                  : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
+                Web Moderna
+              </span>
               <div 
-                class="absolute -bottom-1 left-1/4 right-1/4 h-0.5 rounded-full opacity-60 mt-0.5 transition-all duration-150"
+                class="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full opacity-60 transition-all duration-150"
                 :class="isDarkMode 
                   ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
                   : 'bg-gradient-to-r from-blue-500 to-blue-400'">
               </div>
-            </span>
-          </h2>
-          
-          <!-- Slogan (EXACTO AL INICIO) 
-          <div class="mt-2 md:mt-3 animate-fadeInUp transition-all duration-150" style="animation-delay: 50ms">
-            <p class="text-base md:text-lg font-bold transition-colors duration-150"
-               :class="isDarkMode ? 'text-blue-100/90' : 'text-blue-700/90'">
-              De <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">Ideas</span> a 
-              <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">Resultados</span> Excepcionales
-            </p>
-          </div>-->
-        </div>
-        
-        <!-- Subtítulo (CONSISTENTE CON INICIO) -->
-        <div class="relative max-w-2xl mx-auto mb-4 md:mb-6 animate-fadeInUp transition-all duration-150" style="animation-delay: 100ms">
-          <div class="relative backdrop-blur-sm border rounded-lg p-3 md:p-4 shadow-lg transform transition-all duration-150 hover:scale-102"
-               :class="isDarkMode 
-                 ? 'bg-blue-900/20 border-blue-400/15 shadow-blue-500/10 hover:border-blue-300/30' 
-                 : 'bg-blue-50/20 border-blue-300/15 shadow-blue-400/10 hover:border-blue-400/30'">
-            <p class="text-sm sm:text-base md:text-lg leading-relaxed text-center font-medium transition-colors duration-150"
-               :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
-              <span :class="isDarkMode ? 'text-white' : 'text-blue-900'">Planes premium </span> 
-              <span class="relative inline-block">
-                <span 
-                  class="bg-clip-text text-transparent font-bold transition-all duration-150"
-                  :class="isDarkMode 
-                    ? 'bg-gradient-to-r from-blue-300 via-blue-200 to-white' 
-                    : 'bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400'">
-                  diseñados exclusivamente
-                </span>
-                <!-- Brillo de fondo del texto -->
-                <div 
-                  class="absolute inset-0 blur-sm -z-10 rounded-full transition-all duration-150"
-                  :class="isDarkMode 
-                    ? 'bg-gradient-to-r from-blue-400/20 via-blue-300/15 to-blue-200/15' 
-                    : 'bg-gradient-to-r from-blue-500/20 via-blue-400/15 to-blue-300/15'">
-                </div>
-              </span>
-              para tu <span :class="isDarkMode ? 'text-blue-100' : 'text-blue-700'">negocio</span>
-            </p>
-          </div>
-        </div>
-
-        <!-- Grid de servicios (CONSISTENTE EN COLORES Y ESTILOS) -->
-        <!-- CAMBIO AQUÍ: Agregado mb-8 en móvil para más espacio entre tarjetas -->
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto w-full px-4 animate-fadeInUp transition-all duration-150 mb-4 md:mb-0" style="animation-delay: 150ms">
-          
-          <!-- Plan Básico -->
-          <!-- CAMBIO AQUÍ: Agregado pb-6 en móvil para más espacio debajo de la tarjeta -->
-          <div class="group relative animate-fadeInUp transition-all duration-150 pb-6 md:pb-0" style="animation-delay: 80ms">
-            <!-- Tarjeta (ESTILOS IGUALES A LAS TARJETAS DE STATS DEL INICIO) -->
-            <div class="relative backdrop-blur-xl rounded-lg border p-4 transform transition-all duration-150 group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:shadow-lg shadow-md hover:shadow-glow h-full flex flex-col"
-                 :class="isDarkMode 
-                   ? 'bg-gradient-to-br from-blue-700/40 via-indigo-800/50 to-blue-900/40 border-cyan-400/40 hover:border-cyan-300/50' 
-                   : 'bg-gradient-to-br from-blue-50/80 via-blue-100/70 to-blue-200/60 border-blue-400/50 hover:border-blue-500/60'">
-              
-              <!-- Header -->
-              <div class="relative mb-3 md:mb-4 text-center flex-shrink-0">
-                <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center mb-3 mx-auto transform transition-all duration-150 group-hover:scale-110 animate-pulse-slow"
-                     :class="isDarkMode 
-                       ? 'bg-gradient-to-br from-blue-500/70 to-cyan-500/70 border border-cyan-400/30' 
-                       : 'bg-gradient-to-br from-blue-200/70 to-blue-300/70 border border-blue-300/30'">
-                  <span class="text-xl md:text-2xl">🌱</span>
-                </div>
-                
-                <h3 class="text-lg md:text-xl font-black mb-1 transition-colors duration-150"
-                    :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                  Básico
-                </h3>
-                <p class="text-xs font-semibold tracking-wide uppercase transition-colors duration-150"
-                   :class="isDarkMode ? 'text-blue-100/60' : 'text-blue-700/60'">
-                  Web Básica
-                </p>
-              </div>
-              
-              <!-- Precio (ESTILOS IGUALES A LOS STATS) -->
-              <div class="mb-4 text-center flex-shrink-0">
-                <div class="text-xl md:text-2xl lg:text-3xl font-black leading-none mb-1 transition-all duration-150"
-                     :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">
-                  $200.000
-                </div>
-                <!--<div class="text-xs font-medium transition-colors duration-150"
-                     :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
-                Soporte Mensual ( Opcional ): $5.000
-                </div>-->
-              </div>
-              
-              <!-- Features -->
-              <div class="mb-4 flex-grow">
-                <ul class="space-y-2">
-                  <li v-for="(feature, index) in basicFeatures" :key="index" 
-                      class="flex items-start transform group-hover:translate-x-1 transition-transform duration-150"
-                      :style="`transition-delay: ${index * 50}ms`">
-                    <div class="w-2 h-2 rounded-full mr-2 mt-1.5 flex-shrink-0 shadow-sm animate-pulse-fast"
-                         :class="isDarkMode 
-                           ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                           : 'bg-gradient-to-r from-blue-400 to-blue-300'">
-                    </div>
-                    <span class="text-sm text-left flex-1 font-medium transition-colors duration-150"
-                          :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
-                      {{ feature }}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              
-              <!-- Botón (IGUAL A LOS BOTONES DEL INICIO) -->
-              <div class="flex-shrink-0">
-                <button @click="scrollToSection('contacto')"
-                        class="group/btn relative w-full text-white font-bold py-2.5 px-4 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow-hover text-sm md:text-base overflow-hidden"
-                        :class="isDarkMode 
-                          ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
-                          : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'">
-                  <!-- Efecto de brillo al hover -->
-                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-300"></div>
-                  
-                  <span class="flex items-center justify-center relative">
-                    Comenzar
-                    <span class="ml-2 text-lg animate-bounce-fast">→</span>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Plan Estándar - Popular -->
-          <!-- CAMBIO AQUÍ: Agregado pb-6 en móvil para más espacio debajo de la tarjeta -->
-          <div class="group relative animate-fadeInUp transition-all duration-150 pb-6 md:pb-0" style="animation-delay: 120ms">
-            <!-- Badge Popular (ESTILO IGUAL AL BADGE DEL INICIO) -->
-            <div class="absolute -top-2 left-1/2 transform -translate-x-1/2 z-30 transition-all duration-150">
-              <div class="inline-flex items-center backdrop-blur-lg rounded-full px-3 py-1 border shadow-sm animate-pulse-slow transition-all duration-150"
-                   :class="isDarkMode 
-                     ? 'bg-gradient-to-r from-blue-600/40 to-cyan-500/30 border border-cyan-400/40' 
-                     : 'bg-gradient-to-r from-blue-500/30 to-blue-400/40 border border-blue-400/50'">
-                <div 
-                  class="w-1.5 h-1.5 rounded-full mr-1.5 animate-pulse-fast transition-all duration-150"
-                  :class="isDarkMode 
-                    ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                    : 'bg-gradient-to-r from-blue-400 to-blue-300'">
-                </div>
-                <span class="text-xs font-bold tracking-wider transition-colors duration-150"
-                      :class="isDarkMode ? 'text-white' : 'text-blue-900'">⭐ POPULAR</span>
-              </div>
             </div>
             
-            <!-- Tarjeta -->
-            <div class="relative backdrop-blur-xl rounded-lg border p-4 transform transition-all duration-150 group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:shadow-lg shadow-md hover:shadow-glow h-full flex flex-col"
-                 :class="isDarkMode 
-                   ? 'bg-gradient-to-br from-blue-700/50 via-indigo-800/60 to-blue-900/50 border-cyan-400/50 hover:border-cyan-300/60' 
-                   : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/60 hover:border-blue-500/70'">
-              
-              <!-- Header -->
-              <div class="relative mb-3 md:mb-4 text-center flex-shrink-0">
-                <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center mb-3 mx-auto transform transition-all duration-150 group-hover:scale-110 animate-pulse-slow"
-                     :class="isDarkMode 
-                       ? 'bg-gradient-to-br from-blue-500/70 to-cyan-500/70 border border-cyan-400/30' 
-                       : 'bg-gradient-to-br from-blue-200/70 to-blue-300/70 border border-blue-300/30'">
-                  <span class="text-xl md:text-2xl">🚀</span>
-                </div>
-                
-                <h3 class="text-lg md:text-xl font-black mb-1 transition-colors duration-150"
-                    :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                  Estándar
-                </h3>
-                <p class="text-xs font-semibold tracking-wide uppercase transition-colors duration-150"
-                   :class="isDarkMode ? 'text-blue-100/60' : 'text-blue-700/60'">
-                  Web Moderna y Animada
-                </p>
-              </div>
-              
-              <!-- Precio -->
-              <div class="mb-4 text-center flex-shrink-0">
-                <div class="text-xl md:text-2xl lg:text-3xl font-black leading-none mb-1 transition-all duration-150"
-                     :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">
-                  $400.000
-                </div>
-                <!--<div class="text-xs font-medium transition-colors duration-150"
-                     :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
-                  Soporte Mensual ( Opcional ): $10.000
-                </div>-->
-              </div>
-              
-              <!-- Features -->
-              <div class="mb-4 flex-grow">
-                <ul class="space-y-2">
-                  <li v-for="(feature, index) in standardFeatures" :key="index" 
-                      class="flex items-start transform group-hover:translate-x-1 transition-transform duration-150"
-                      :style="`transition-delay: ${index * 50}ms`">
-                    <div class="w-2 h-2 rounded-full mr-2 mt-1.5 flex-shrink-0 shadow-sm animate-pulse-fast"
-                         :class="isDarkMode 
-                           ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                           : 'bg-gradient-to-r from-blue-400 to-blue-300'">
-                    </div>
-                    <span class="text-sm text-left flex-1 font-medium transition-colors duration-150"
-                          :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
-                      {{ feature }}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              
-              <!-- Botón -->
-              <div class="flex-shrink-0">
-                <button @click="scrollToSection('contacto')"
-                        class="group/btn relative w-full text-white font-bold py-2.5 px-4 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow-hover text-sm md:text-base overflow-hidden"
-                        :class="isDarkMode 
-                          ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
-                          : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'">
-                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-300"></div>
-                  
-                  <span class="flex items-center justify-center relative">
-                    Elegir
-                    <span class="ml-2 text-lg animate-bounce-fast">⚡</span>
-                  </span>
-                </button>
-              </div>
+            <!-- Segunda línea: y Animada (siempre debajo en móvil, al lado en desktop) -->
+            <div class="mt-2 sm:mt-0 sm:ml-3 inline-block">
+              <span 
+                class="bg-clip-text text-transparent transition-all duration-150"
+                :class="isDarkMode 
+                  ? 'bg-gradient-to-r from-cyan-300 via-blue-200 to-white' 
+                  : 'bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600'">
+                y Animada
+              </span>
             </div>
           </div>
+        </h2>
+      </div>
 
-          <!-- Plan Profesional -->
-          <!-- CAMBIO AQUÍ: Agregado pb-6 en móvil para más espacio debajo de la tarjeta -->
-          <div class="group relative animate-fadeInUp transition-all duration-150 pb-6 md:pb-0" style="animation-delay: 160ms">
-            <!-- Tarjeta -->
-            <div class="relative backdrop-blur-xl rounded-lg border p-4 transform transition-all duration-150 group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:shadow-lg shadow-md hover:shadow-glow h-full flex flex-col"
-                 :class="isDarkMode 
-                   ? 'bg-gradient-to-br from-blue-700/50 via-indigo-800/60 to-blue-900/50 border-cyan-400/50 hover:border-cyan-300/60' 
-                   : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/60 hover:border-blue-500/70'">
-              
-              <!-- Header -->
-              <div class="relative mb-3 md:mb-4 text-center flex-shrink-0">
-                <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center mb-3 mx-auto transform transition-all duration-150 group-hover:scale-110 animate-pulse-slow"
-                     :class="isDarkMode 
-                       ? 'bg-gradient-to-br from-blue-500/70 to-cyan-500/70 border border-cyan-400/30' 
-                       : 'bg-gradient-to-br from-blue-200/70 to-blue-300/70 border border-blue-300/30'">
-                  <span class="text-xl md:text-2xl">⭐</span>
-                </div>
-                
-                <h3 class="text-lg md:text-xl font-black mb-1 transition-colors duration-150"
-                    :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                  Avanzado
-                </h3>
-                <p class="text-xs font-semibold tracking-wide uppercase transition-colors duration-150"
-                   :class="isDarkMode ? 'text-blue-100/60' : 'text-blue-700/60'">
-                  Web con Catálogo Productos
-                </p>
-              </div>
-              
-              <!-- Precio -->
-              <div class="mb-4 text-center flex-shrink-0">
-                <div class="text-xl md:text-2xl lg:text-3xl font-black leading-none mb-1 transition-all duration-150"
-                     :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">
-                  $600.000
-                </div>
-                <!--<div class="text-xs font-medium transition-colors duration-150"
-                     :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
-                  Soporte Mensual ( Opcional ): $15.000
-                </div>-->
-              </div>
-              
-              <!-- Features -->
-              <div class="mb-4 flex-grow">
-                <ul class="space-y-2">
-                  <li v-for="(feature, index) in professionalFeatures" :key="index" 
-                      class="flex items-start transform group-hover:translate-x-1 transition-transform duration-150"
-                      :style="`transition-delay: ${index * 50}ms`">
-                    <div class="w-2 h-2 rounded-full mr-2 mt-1.5 flex-shrink-0 shadow-sm animate-pulse-fast"
-                         :class="isDarkMode 
-                           ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                           : 'bg-gradient-to-r from-blue-400 to-blue-300'">
-                    </div>
-                    <span class="text-sm text-left flex-1 font-medium transition-colors duration-150"
-                          :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
-                      {{ feature }}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              
-              <!-- Botón -->
-              <div class="flex-shrink-0">
-                <button @click="scrollToSection('contacto')"
-                        class="group/btn relative w-full text-white font-bold py-2.5 px-4 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow-hover text-sm md:text-base overflow-hidden"
-                        :class="isDarkMode 
-                          ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
-                          : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'">
-                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-300"></div>
-                  
-                  <span class="flex items-center justify-center relative">
-                    Ir Avanzado
-                    <span class="ml-2 text-lg animate-bounce-fast">→</span>
-                  </span>
-                </button>
-              </div>
-            </div>
+      <!-- PRECIO DESTACADO -->
+      <div class="relative max-w-2xl mx-auto mb-5 md:mb-6 animate-fadeInUp transition-all duration-150 w-full" style="animation-delay: 100ms">
+        <div class="relative backdrop-blur-sm border rounded-lg p-3 md:p-4 shadow-lg transform transition-all duration-150 hover:scale-102"
+             :class="isDarkMode 
+               ? 'bg-blue-900/20 border-blue-400/15 shadow-blue-500/10 hover:border-blue-300/30' 
+               : 'bg-blue-50/20 border-blue-300/15 shadow-blue-400/10 hover:border-blue-400/30'">
+          
+          <div class="flex items-center justify-center gap-2 md:gap-3 flex-wrap">
+            <span class="text-3xl md:text-4xl lg:text-5xl font-black transition-all duration-150"
+                  :class="isDarkMode ? 'text-white' : 'text-blue-900'">
+              $30.000
+            </span>
+            <span class="text-sm md:text-base font-semibold transition-colors duration-150"
+                  :class="isDarkMode ? 'text-blue-200' : 'text-blue-700'">
+              / mes
+            </span>
           </div>
-
-          <!-- Plan Empresa -->
-          <!-- CAMBIO AQUÍ: Agregado pb-6 en móvil para más espacio debajo de la tarjeta -->
-          <div class="group relative animate-fadeInUp transition-all duration-150 pb-6 md:pb-0" style="animation-delay: 200ms">
-            <!-- Tarjeta -->
-            <div class="relative backdrop-blur-xl rounded-lg border p-4 transform transition-all duration-150 group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:shadow-lg shadow-md hover:shadow-glow h-full flex flex-col"
-                 :class="isDarkMode 
-                   ? 'bg-gradient-to-br from-blue-700/50 via-indigo-800/60 to-blue-900/50 border-cyan-400/50 hover:border-cyan-300/60' 
-                   : 'bg-gradient-to-br from-blue-50/85 via-blue-100/75 to-blue-200/65 border-blue-400/60 hover:border-blue-500/70'">
-              
-              <!-- Header -->
-              <div class="relative mb-3 md:mb-4 text-center flex-shrink-0">
-                <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center mb-3 mx-auto transform transition-all duration-150 group-hover:scale-110 animate-pulse-slow"
-                     :class="isDarkMode 
-                       ? 'bg-gradient-to-br from-blue-500/70 to-cyan-500/70 border border-cyan-400/30' 
-                       : 'bg-gradient-to-br from-blue-200/70 to-blue-300/70 border border-blue-300/30'">
-                  <span class="text-xl md:text-2xl">🏢</span>
-                </div>
-                
-                <h3 class="text-lg md:text-xl font-black mb-1 transition-colors duration-150"
-                    :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                  Empresa
-                </h3>
-                <p class="text-xs font-semibold tracking-wide uppercase transition-colors duration-150"
-                   :class="isDarkMode ? 'text-blue-100/60' : 'text-blue-700/60'">
-                  SOLUCIONES CORPORATIVAS
-                </p>
-              </div>
-              
-              <!-- Precio (CON GRADIENTE ESPECIAL) -->
-              <div class="mb-4 text-center flex-shrink-0">
-                <div class="text-xl md:text-2xl lg:text-3xl font-black leading-none mb-1 bg-clip-text text-transparent transition-all duration-150"
-                     :class="isDarkMode 
-                       ? 'bg-gradient-to-r from-white via-cyan-200 to-blue-100' 
-                       : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'">
-                  Hablemos
-                </div>
-                <div class="text-xs font-medium transition-colors duration-150"
-                     :class="isDarkMode ? 'text-white/90' : 'text-blue-700/90'">
-                  Aplicaciones Web & Mobile Complejas
-                </div>
-              </div>
-              
-              <!-- Features -->
-              <div class="mb-4 flex-grow">
-                <ul class="space-y-2">
-                  <li v-for="(feature, index) in enterpriseFeatures" :key="index" 
-                      class="flex items-start transform group-hover:translate-x-1 transition-transform duration-150"
-                      :style="`transition-delay: ${index * 50}ms`">
-                    <div class="w-2 h-2 rounded-full mr-2 mt-1.5 flex-shrink-0 shadow-sm animate-pulse-fast"
-                         :class="isDarkMode 
-                           ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
-                           : 'bg-gradient-to-r from-blue-400 to-blue-300'">
-                    </div>
-                    <span class="text-sm text-left flex-1 font-medium transition-colors duration-150"
-                          :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
-                      {{ feature }}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              
-              <!-- Botón -->
-              <div class="flex-shrink-0">
-                <button @click="scrollToSection('contacto')"
-                        class="group/btn relative w-full text-white font-bold py-2.5 px-4 rounded-xl transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-glow-hover text-sm md:text-base overflow-hidden"
-                        :class="isDarkMode 
-                          ? 'bg-gradient-to-r from-blue-600 via-cyan-700 to-indigo-800 hover:from-blue-700 hover:via-cyan-800 hover:to-indigo-900' 
-                          : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'">
-                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-300"></div>
-                  
-                  <span class="flex items-center justify-center relative">
-                    Enviar Mensaje
-                    <span class="ml-2 text-lg animate-bounce-fast">→</span>
-                  </span>
-                </button>
-              </div>
+          
+          <div class="mt-2 pt-2 border-t transition-all duration-150"
+               :class="isDarkMode ? 'border-cyan-400/20' : 'border-blue-300/30'">
+            <div class="flex items-center justify-center gap-2 text-xs md:text-sm">
+              <span class="text-lg">🎁</span>
+              <span class="font-bold transition-colors duration-150"
+                    :class="isDarkMode ? 'text-cyan-300' : 'text-blue-700'">
+                ¡Hosting + Dominio gratis por 1 año!
+              </span>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Nota adicional -->
-        <!-- CAMBIO AQUÍ: Agregado mt-8 en móvil para más espacio después del grid -->
-        <div class="text-center mt-8 md:mt-6 max-w-2xl mx-auto px-4 animate-fadeInUp transition-all duration-150" style="animation-delay: 240ms">
-          <div class="relative backdrop-blur-sm border rounded-lg p-3 md:p-4 shadow-lg transform transition-all duration-150 hover:scale-102"
-               :class="isDarkMode 
-                 ? 'bg-blue-900/20 border-blue-400/15 shadow-blue-500/10 hover:border-blue-300/30' 
-                 : 'bg-blue-50/20 border-blue-300/15 shadow-blue-400/10 hover:border-blue-400/30'">
-            <p class="text-xs sm:text-sm leading-relaxed text-center font-medium transition-colors duration-150"
-               :class="isDarkMode ? 'text-white/90' : 'text-blue-800/90'">
-              <span :class="isDarkMode ? 'text-white' : 'text-blue-900'">¿Necesitas algo personalizado?</span> 
-              Todos los planes son ajustables.
-              <button @click="scrollToSection('contacto')"
-                      class="inline-flex items-center font-bold ml-1 transition-colors duration-150 group"
-                      :class="isDarkMode ? 'text-blue-200 hover:text-white' : 'text-blue-700 hover:text-blue-900'">
-                Contáctanos
-                <span class="ml-1 transform transition-transform duration-150 group-hover:translate-x-0.5 animate-bounce-fast transition-all duration-150"
-                      :class="isDarkMode ? 'text-blue-300' : 'text-blue-600'">
-                  ↗
-                </span>
-              </button>
-            </p>
+      <!-- CUADRADO CON CARACTERÍSTICAS - CENTRADO PERFECTO -->
+      <div class="w-full max-w-4xl mx-auto animate-fadeInUp transition-all duration-150 mb-6 md:mb-7" style="animation-delay: 150ms">
+        
+        <div class="relative backdrop-blur-xl rounded-xl border p-5 md:p-6 transform transition-all duration-150 hover:shadow-xl shadow-md"
+             :class="isDarkMode 
+               ? 'bg-gradient-to-br from-blue-700/50 via-indigo-800/60 to-blue-900/50 border-cyan-400/50 hover:border-cyan-300/60' 
+               : 'bg-gradient-to-br from-blue-50/90 via-blue-100/80 to-blue-200/70 border-blue-400/60 hover:border-blue-500/70'">
+          
+          <!-- Título del cuadro de características -->
+          <h3 class="text-base md:text-lg font-bold text-center mb-4 md:mb-5 transition-colors duration-150"
+              :class="isDarkMode ? 'text-white' : 'text-blue-900'">
+            TODAS NUESTRAS PÁGINAS WEB INCLUYEN:
+          </h3>
+          
+          <!-- Grid de características 2 columnas CENTRADO -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 max-w-2xl mx-auto">
+            <div v-for="(feature, index) in allFeatures" :key="index"
+                 class="flex items-center transform hover:translate-x-1 transition-all duration-150 p-2 rounded-md group/feature"
+                 :style="`transition-delay: ${index * 15}ms`"
+                 :class="isDarkMode ? 'hover:bg-blue-600/15' : 'hover:bg-blue-200/20'">
+              <div class="w-2 h-2 rounded-full mr-2 flex-shrink-0 shadow-sm"
+                   :class="isDarkMode 
+                     ? 'bg-gradient-to-r from-cyan-400 to-blue-300' 
+                     : 'bg-gradient-to-r from-blue-400 to-blue-300'">
+              </div>
+              <span class="text-sm md:text-base text-left flex-1 font-medium transition-colors duration-150"
+                    :class="isDarkMode ? 'text-white/85' : 'text-blue-800/85'">
+                {{ feature }}
+              </span>
+            </div>
+          </div>
+          
+          <!-- Separador con beneficios adicionales -->
+          <div class="mt-4 pt-4 border-t transition-all duration-150 grid grid-cols-1 sm:grid-cols-3 gap-2 text-center"
+               :class="isDarkMode ? 'border-cyan-400/20' : 'border-blue-300/30'">
+            <div class="flex items-center justify-center space-x-2">
+              <span class="text-base">🚀</span>
+              <span class="text-xs md:text-sm font-medium transition-colors duration-150"
+                    :class="isDarkMode ? 'text-blue-200' : 'text-blue-700'">
+                Hosting rápido
+              </span>
+            </div>
+            <div class="flex items-center justify-center space-x-2">
+              <span class="text-base">🔒</span>
+              <span class="text-xs md:text-sm font-medium transition-colors duration-150"
+                    :class="isDarkMode ? 'text-blue-200' : 'text-blue-700'">
+                SSL incluido
+              </span>
+            </div>
+            <div class="flex items-center justify-center space-x-2">
+              <span class="text-base">💬</span>
+              <span class="text-xs md:text-sm font-medium transition-colors duration-150"
+                    :class="isDarkMode ? 'text-blue-200' : 'text-blue-700'">
+                Soporte 24/7
+              </span>
+            </div>
           </div>
         </div>
+      </div>
+
+      <!-- CTA Y GARANTÍAS -->
+      <div class="w-full max-w-2xl mx-auto text-center">
+        <!-- Botón CTA principal -->
+        <button @click="scrollToSection('contacto')"
+                class="group/btn relative text-white font-bold py-3 px-9 rounded-lg transition-all duration-150 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-xl text-base md:text-lg overflow-hidden mb-5 w-full md:w-auto"
+                :class="isDarkMode 
+                  ? 'bg-gradient-to-r from-blue-600 via-cyan-600 to-indigo-700 hover:from-blue-700 hover:via-cyan-700 hover:to-indigo-800' 
+                  : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900'">
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-500 ease-out"></div>
+          <span class="flex items-center justify-center relative gap-2">
+            🚀 ¡Quiero mi web!
+            <span class="text-lg animate-bounce-fast">→</span>
+          </span>
+        </button>
+        
+        <!-- Garantías -->
+        <div class="flex flex-wrap items-center justify-center gap-3 text-xs md:text-sm transition-colors duration-150"
+             :class="isDarkMode ? 'text-blue-200/70' : 'text-blue-700/70'">
+          <div class="flex items-center gap-1.5">
+            <span>✅</span>
+            <span>Soporte Técnico</span>
+          </div>
+          <div class="w-0.5 h-0.5 rounded-full"
+               :class="isDarkMode ? 'bg-blue-400/50' : 'bg-blue-500/50'"></div>
+          <div class="flex items-center gap-1.5">
+            <span>🎨</span>
+            <span>Diseño personalizado</span>
+          </div>
+          <div class="w-0.5 h-0.5 rounded-full"
+               :class="isDarkMode ? 'bg-blue-400/50' : 'bg-blue-500/50'"></div>
+          <div class="flex items-center gap-1.5">
+            <span>⚡</span>
+            <span>Entrega 15 días</span>
+          </div>
+        </div>
+        
+        <!-- Enlace secundario -->
+        <p class="text-xs mt-4 transition-colors duration-150"
+           :class="isDarkMode ? 'text-blue-200/50' : 'text-blue-600/60'">
+          ¿Dudas? 
+          <button @click="scrollToSection('contacto')"
+                  class="font-bold underline hover:no-underline transition-all duration-150"
+                  :class="isDarkMode ? 'text-cyan-300 hover:text-white' : 'text-blue-600 hover:text-blue-800'">
+            Contáctanos
+          </button>
+        </p>
       </div>
     </div>
   </section>
@@ -680,30 +429,39 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue';
 
-// Estado (SIN localStorage)
+// Estado
 const isDarkMode = ref(true);
 const isTransitioning = ref(false);
 const gradientPosition = ref(0);
 const showParticles = ref(false);
 
-// Gradientes simplificados
+// Gradientes
 const darkGradient = 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #0369a1 50%, #1e40af 75%, #0f172a 100%)';
 const lightGradient = 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 25%, #93c5fd 50%, #60a5fa 75%, #3b82f6 100%)';
 
-// Inicializar tema (SIN localStorage)
+// Características
+const allFeatures = [
+  '5 secciones',
+  'Diseño responsive',
+  'SEO optimizado',
+  'Conexión con WhatsApp',
+  'Carrusel de Fotos',
+  'Animaciones interactivas',
+  'Diseño UX/UI',
+  'Efectos y aspectos 3D',
+  'Modo Oscuro y Claro',
+  'Hosting + Dominio Gratis (1 año)',
+  'Certificado SSL',
+  'Soporte técnico'
+];
+
+// Inicializar
 const initializeTheme = () => {
-  // Usamos tema oscuro por defecto siempre
   isDarkMode.value = true;
   gradientPosition.value = 0;
-  
-  // Opcional: puedes detectar preferencia del sistema
-  // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-  //   isDarkMode.value = false;
-  //   gradientPosition.value = 100;
-  // }
 };
 
-// Alternar tema (SIN localStorage)
+// Alternar tema
 const toggleTheme = async () => {
   if (isTransitioning.value) return;
   
@@ -712,14 +470,12 @@ const toggleTheme = async () => {
   
   const startPosition = isDarkMode.value ? 0 : 100;
   const endPosition = isDarkMode.value ? 100 : 0;
-  
   const duration = 200;
   const startTime = Date.now();
   
   const animateGradient = () => {
     const elapsed = Date.now() - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    
     const easedProgress = progress * (2 - progress);
     gradientPosition.value = startPosition + (endPosition - startPosition) * easedProgress;
     
@@ -731,8 +487,6 @@ const toggleTheme = async () => {
   };
   
   isDarkMode.value = !isDarkMode.value;
-  // ELIMINADO: localStorage.setItem('theme', isDarkMode.value ? 'dark' : 'light');
-  
   requestAnimationFrame(animateGradient);
   
   setTimeout(() => {
@@ -741,7 +495,7 @@ const toggleTheme = async () => {
   }, duration + 50);
 };
 
-// Estilo del gradiente
+// Estilo gradiente
 const sectionGradientStyle = computed(() => {
   if (isTransitioning.value) {
     const startGradient = isDarkMode.value ? lightGradient : darkGradient;
@@ -764,40 +518,6 @@ const sectionGradientStyle = computed(() => {
   }
 });
 
-// Features de planes
-const basicFeatures = [
-  'Página web con 5 secciones',
-  'Diseño responsive',
-  'SEO optimizado',
-  'Conexión con WhatsApp',
-  'Carrusel de Fotos'
-];
-
-const standardFeatures = [
-  'Plan anterior incluido',
-  'Animaciones interactivas',
-  'Diseño UX/UI',
-  'Aspecto 3D',
-  'Modo Oscuro y Claro'
-];
-
-const professionalFeatures = [
-  'Planes anteriores incluidos',
-  'Panel de Administrador',
-  'Contenido editable',
-  'Desarrollo Full-Stack',
-  'Filtros de búsqueda'
-
-];
-
-const enterpriseFeatures = [
-  'Planes anteriores incluidos',
-  'Desarrollo 100% a medida',
-  'Diseño personalizado',
-  'Branding completo',
-  'Funcionalidades complejas'
-];
-
 // Scroll a sección
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
@@ -809,12 +529,10 @@ const scrollToSection = (sectionId) => {
   }
 };
 
-// Inicializar
 onMounted(() => {
   initializeTheme();
 });
 
-// Watch para cambio de tema
 watch(isDarkMode, (newVal) => {
   document.documentElement.classList.add('theme-transition-fast');
   
@@ -968,7 +686,7 @@ watch(isDarkMode, (newVal) => {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
   }
 }
 
@@ -977,14 +695,14 @@ watch(isDarkMode, (newVal) => {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 }
 
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-15px);
   }
   to {
     opacity: 1;
@@ -995,7 +713,7 @@ watch(isDarkMode, (newVal) => {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -1005,80 +723,85 @@ watch(isDarkMode, (newVal) => {
 
 /* Efectos de sombras */
 .shadow-glow {
-  box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.2);
 }
 
 .hover\:shadow-glow:hover {
-  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.3);
 }
 
 .hover\:shadow-glow-hover:hover {
-  box-shadow: 0 0 25px rgba(34, 211, 238, 0.4);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
 }
 
-/* Optimización responsive */
+/* *********************************************************** */
+/* MODIFICACIONES ESPECÍFICAS PARA MÓVIL */
+/* *********************************************************** */
+
 @media (max-width: 768px) {
   #servicios {
-    min-height: 80vh;
+    min-height: 40vh;
   }
   
+  /* Espacio reducido debajo del badge en móvil */
   .relative.w-full.mb-1 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem !important;
   }
   
+  /* Botón de tema aumentado en móvil */
   .theme-switch-premium {
-    width: 40px;
-    height: 40px;
+    width: 40px !important;
+    height: 40px !important;
   }
   
   .theme-switch-premium > div:first-child {
-    width: 32px;
-    height: 32px;
+    width: 32px !important;
+    height: 32px !important;
   }
   
-  .absolute.left-2 {
-    left: 8px;
+  /* Ajustar posiciones de iconos para botón más grande */
+  .theme-switch-premium .absolute.left-2 {
+    left: 8px !important;
   }
   
-  .absolute.right-2 {
-    right: 8px;
+  .theme-switch-premium .absolute.right-2 {
+    right: 8px !important;
   }
   
-  .grid.grid-cols-1 {
-    gap: 1.5rem;
+  /* Espacio reducido general en móvil */
+  .relative.w-full.mb-6 {
+    margin-bottom: 4rem;
+  }
+  
+  .absolute.-bottom-4 {
+    font-size: 8px;
+    bottom: -3px;
   }
 }
 
 @media (max-width: 480px) {
-  .grid.grid-cols-2 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+  /* Espacio aún más reducido en móviles pequeños */
+  .relative.w-full.mb-1 {
+    margin-bottom: 0.25rem !important;
   }
   
+  /* Botón de tema aún más grande en móviles pequeños */
   .theme-switch-premium {
-    width: 44px;
-    height: 44px;
+    width: 44px !important;
+    height: 44px !important;
   }
   
   .theme-switch-premium > div:first-child {
-    width: 34px;
-    height: 34px;
+    width: 34px !important;
+    height: 34px !important;
   }
   
-  .absolute.left-2 {
-    left: 9px;
+  .theme-switch-premium .absolute.left-2 {
+    left: 9px !important;
   }
   
-  .absolute.right-2 {
-    right: 9px;
-  }
-  
-  .relative.w-full.mb-1 {
-    margin-bottom: 0.25rem;
-  }
-  
-  .grid.grid-cols-1 {
-    gap: 2rem;
+  .theme-switch-premium .absolute.right-2 {
+    right: 9px !important;
   }
 }
 
