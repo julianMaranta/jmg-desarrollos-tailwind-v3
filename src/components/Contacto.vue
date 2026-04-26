@@ -6,14 +6,12 @@
   >
     <!-- Background Elements con tema -->
     <div class="absolute inset-0 overflow-hidden w-full transition-all duration-150 ease-out">
-      <!-- Partículas con tema -->
       <div v-for="i in 20" :key="i" 
            class="absolute rounded-full custom-float transition-all duration-150"
            :class="isDarkMode ? 'bg-blue-400/15' : 'bg-blue-300/20'"
            :style="getParticleStyle(i)">
       </div>
       
-      <!-- Orbes con tema -->
       <div class="absolute -top-20 -left-20 w-40 h-40 rounded-full blur-2xl custom-pulse-slow transition-all duration-150"
            :class="isDarkMode ? 'bg-blue-600/15' : 'bg-blue-400/10'"
            :style="transitionStyle">
@@ -23,7 +21,6 @@
            :style="transitionStyle">
       </div>
       
-      <!-- Gradientes de borde con tema -->
       <div class="absolute top-0 left-0 right-0 h-16 transition-all duration-150"
            :class="isDarkMode ? 'bg-gradient-to-b from-blue-900/40 to-transparent' : 'bg-gradient-to-b from-blue-100/25 to-transparent'">
       </div>
@@ -34,7 +31,6 @@
       
       <!-- Contenedor para badge y botón de temas alineados -->
       <div class="relative w-full mb-1 md:mb-6">
-        <!-- Badge animado compacto -->
         <div 
           class="inline-flex items-center backdrop-blur-lg rounded-full px-4 py-1.5 mb-2 shadow-glow animate-pulse-slow transition-all duration-150"
           :class="isDarkMode 
@@ -66,7 +62,6 @@
           </div>
         </div>
 
-        <!-- Botón de tema compacto IDÉNTICO AL HEADER -->
         <div class="absolute top-0 right-0 md:right-2 z-50">
           <button
             @click="toggleTheme"
@@ -77,7 +72,6 @@
             :title="isDarkMode ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
             aria-label="Cambiar tema"
           >
-            <!-- Switch compacto - MÁS GRANDE EN MÓVIL -->
             <div 
               class="absolute w-8 h-8 md:w-12 md:h-12 rounded-full transition-all duration-300 ease-out transform z-30 overflow-hidden"
               :class="isDarkMode ? 'right-1 md:right-3' : 'left-1 md:left-3'"
@@ -88,20 +82,14 @@
                   : '0 0 15px rgba(250, 204, 21, 0.4), inset 0 0 15px rgba(250, 204, 21, 0.2)'
               } : {}"
             >
-              <!-- Fondo del switch -->
               <div class="absolute inset-0">
-                <!-- Base del switch con gradiente -->
                 <div 
                   class="absolute inset-0 transition-all duration-150"
                   :class="isDarkMode 
                     ? 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800' 
-                    : 'bg-gradient-to-br from-yellow-400 via-yellow-300 to-yellow-500'"
-                ></div>
-                
-                <!-- Efecto de luz interior pulsante -->
+                    : 'bg-gradient-to-br from-yellow-400 via-yellow-300 to-yellow-500'">
+                </div>
                 <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/40 to-transparent opacity-60 animate-pulse-slow transition-all duration-150"></div>
-                
-                <!-- Brillo de borde -->
                 <div 
                   class="absolute inset-0 rounded-full border transition-all duration-150"
                   :class="isDarkMode 
@@ -111,37 +99,28 @@
                     boxShadow: isDarkMode 
                       ? '0 0 10px rgba(96, 165, 250, 0.5), inset 0 0 8px rgba(96, 165, 250, 0.3)' 
                       : '0 0 10px rgba(250, 204, 21, 0.5), inset 0 0 8px rgba(250, 204, 21, 0.3)'
-                  } : {}"
-                ></div>
+                  } : {}">
+                </div>
               </div>
               
-              <!-- Icono dentro del switch (SVG) - AJUSTADO PARA MÓVIL -->
               <div class="absolute inset-0 flex items-center justify-center z-10">
-                <!-- Icono de Luna para tema oscuro -->
                 <svg v-if="isDarkMode" class="w-5 h-5 md:w-6 md:h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
                      :class="isTransitioning ? 'text-blue-200' : 'text-blue-300'">
                   <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
                 </svg>
-                
-                <!-- Icono de Sol para tema claro -->
                 <svg v-else class="w-5 h-5 md:w-6 md:h-6 transition-all duration-150" fill="currentColor" viewBox="0 0 20 20"
                      :class="isTransitioning ? 'text-yellow-200' : 'text-yellow-400'">
                   <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
                 </svg>
               </div>
               
-              <!-- Brillo central -->
               <div class="absolute top-1/2 left-1/2 w-2 h-2 rounded-full transform -translate-x-1/2 -translate-y-1/2 blur-sm transition-all duration-150"
                    :class="isDarkMode ? 'bg-blue-300/70' : 'bg-yellow-300/70'"></div>
             </div>
             
-            <!-- Efecto de brillo al hover -->
             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-out"></div>
             
-            <!-- Contenedor principal con iconos -->
             <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
-              
-              <!-- Sol (izquierda) - AJUSTADO POSICIÓN PARA MÓVIL -->
               <div class="absolute left-2 md:left-3 w-5 h-5 md:w-6 md:h-6 transition-all duration-150 ease-out z-20"
                    :class="isDarkMode 
                      ? 'opacity-30 scale-90 text-yellow-300/40' 
@@ -151,7 +130,6 @@
                 </svg>
               </div>
               
-              <!-- Luna (derecha) - AJUSTADO POSICIÓN PARA MÓVIL -->
               <div class="absolute right-2 md:right-3 w-4 h-4 md:w-5 md:h-5 transition-all duration-150 ease-out z-20"
                    :class="!isDarkMode 
                      ? 'opacity-30 scale-90 text-blue-400/40' 
@@ -161,15 +139,12 @@
                 </svg>
               </div>
               
-              <!-- Texto "DÍA/NOCHE" - OCULTO EN MÓVIL -->
               <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-[9px] font-semibold uppercase tracking-wide opacity-80 z-5 transition-all duration-150 whitespace-nowrap hidden md:block"
                    :class="isDarkMode ? 'text-blue-300/80' : 'text-yellow-600/80'">
                 {{ isDarkMode ? 'NOCHE' : 'DÍA' }}
               </div>
-              
             </div>
             
-            <!-- Rayos del sol animados -->
             <div v-if="!isDarkMode" class="absolute left-2 md:left-3 w-5 h-5 md:w-6 md:h-6 z-10">
               <div v-for="(ray, index) in 8" :key="index"
                    class="absolute top-1/2 left-1/2 w-0.5 h-2.5 bg-yellow-300/60 rounded-full transform origin-center transition-all duration-150"
@@ -181,7 +156,6 @@
               </div>
             </div>
             
-            <!-- Constelación estelar -->
             <div v-if="isDarkMode" class="absolute right-2 md:right-3 w-4 h-4 md:w-5 md:h-5 z-10">
               <div v-for="(star, index) in 3" :key="index"
                    class="absolute rounded-full bg-blue-100/60 animate-twinkle-fast transition-all duration-150"
@@ -195,7 +169,6 @@
               </div>
             </div>
             
-            <!-- Tooltip - OCULTO EN MÓVIL -->
             <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-50 hidden md:block">
               <div class="px-1.5 py-0.5 text-[9px] font-medium rounded backdrop-blur-sm shadow-sm"
                    :class="isDarkMode 
@@ -211,12 +184,10 @@
 
       <!-- Sección principal con títulos -->
       <div class="w-full flex flex-col items-center space-y-3 md:space-y-4">
-        <!-- Título principal -->
         <div class="relative w-full mb-1 md:mb-2 transition-all duration-150 text-center">
           <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center w-full tracking-tight leading-tight animate-slideInLeft transition-all duration-150">
             <span class="relative inline-block">
               <div class="relative pb-1">
-                <!-- Línea única -->
                 <div 
                   class="bg-clip-text text-transparent leading-tight transition-all duration-150"
                   :class="isDarkMode 
@@ -226,7 +197,6 @@
                 </div>
               </div>
               
-              <!-- Subrayado animado -->
               <div 
                 class="absolute -bottom-1 left-1/4 right-1/4 h-0.5 rounded-full opacity-60 mt-0.5 transition-all duration-150"
                 :class="isDarkMode 
@@ -235,17 +205,8 @@
               </div>
             </span>
           </h2>
-          
-          <!-- Slogan 
-          <div class="mt-2 md:mt-3 animate-fadeInUp transition-all duration-150" style="animation-delay: 50ms">
-            <p class="text-base md:text-lg font-bold transition-colors duration-150"
-               :class="isDarkMode ? 'text-blue-100/90' : 'text-blue-700/90'">
-              Contáctanos y recibe una <span :class="isDarkMode ? 'text-blue-200' : 'text-blue-800'">cotización gratuita</span>
-            </p>
-          </div>-->
         </div>
         
-        <!-- Subtítulo -->
         <div class="relative max-w-2xl mx-auto mb-4 md:mb-6 animate-fadeInUp transition-all duration-150" style="animation-delay: 100ms">
           <div class="relative backdrop-blur-sm border rounded-lg p-3 md:p-4 shadow-lg transform transition-all duration-150 hover:scale-102"
                :class="isDarkMode 
@@ -262,7 +223,6 @@
                     : 'bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400'">
                   asesoría gratuita
                 </span>
-                <!-- Brillo de fondo del texto -->
                 <div 
                   class="absolute inset-0 blur-sm -z-10 rounded-full transition-all duration-150"
                   :class="isDarkMode 
@@ -274,17 +234,16 @@
           </div>
         </div>
 
-        <!-- Contenido Principal -->
+        <!-- Contenido Principal: WhatsApp + Formulario -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4 w-full max-w-6xl mx-auto px-4 animate-fadeInUp transition-all duration-150" style="animation-delay: 150ms">
           
-          <!-- WhatsApp Box (caja compacta) -->
+          <!-- WhatsApp Box -->
           <div 
             class="backdrop-blur-xl rounded-lg border shadow-lg p-4 md:p-5 w-full flex flex-col items-center justify-center transform hover:scale-101 transition-all duration-150 group min-h-[300px]"
             :class="isDarkMode 
               ? 'bg-gradient-to-br from-green-900/20 via-emerald-800/25 to-green-900/20 border-green-400/35 hover:border-green-300/50' 
               : 'bg-gradient-to-br from-green-50/85 via-emerald-100/75 to-green-200/65 border-green-400/35 hover:border-green-300/50'"
           >
-            <!-- WhatsApp Logo compacto -->
             <div class="mb-3 md:mb-4">
               <img 
                 src="/assets/whatsapp-logo1.png" 
@@ -293,7 +252,6 @@
               />
             </div>
             
-            <!-- Título WhatsApp compacto -->
             <h3 class="text-lg md:text-xl font-bold mb-2 text-center w-full bg-clip-text text-transparent transition-all duration-150"
                 :class="isDarkMode 
                   ? 'bg-gradient-to-r from-green-300 via-emerald-200 to-green-100' 
@@ -301,13 +259,11 @@
               WhatsApp Directo
             </h3>
             
-            <!-- Descripción compacta -->
             <p class="mb-3 md:mb-4 text-center w-full max-w-md mx-auto text-xs md:text-sm transition-colors duration-150 px-2"
                :class="isDarkMode ? 'text-green-100/90' : 'text-green-900/90'">
               <span :class="isDarkMode ? 'text-green-200 font-semibold' : 'text-green-800 font-semibold'">Respuesta en menos de 24 HS</span> y atención personalizada
             </p>
             
-            <!-- Botón de WhatsApp -->
             <a 
               href="https://wa.me/5492212222358" 
               target="_blank"
@@ -317,7 +273,6 @@
                 ? 'bg-gradient-to-r from-green-600 via-emerald-700 to-green-800 hover:from-green-700 hover:via-emerald-800 hover:to-green-900' 
                 : 'bg-gradient-to-r from-green-600 via-green-700 to-green-800 hover:from-green-700 hover:via-green-800 hover:to-green-900'"
             >
-              <!-- Efecto de brillo al hover -->
               <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-300"></div>
               
               <span class="flex items-center justify-center relative">
@@ -330,7 +285,6 @@
               </span>
             </a>
             
-            <!-- Información adicional compacta -->
             <div class="mt-3 md:mt-4 pt-3 md:pt-4 border-t w-full max-w-sm"
                  :class="isDarkMode ? 'border-green-400/20' : 'border-green-400/30'">
               <div class="flex justify-center space-x-4 md:space-x-6">
@@ -358,82 +312,190 @@
             </div>
           </div>
           
-          <!-- Contact Information (datos de contacto) -->
-          <div class="flex flex-col justify-center items-start w-full transition-all duration-150">
-            <!-- Contact Methods -->
-            <div class="space-y-3 w-full transition-all duration-150">
-              <!-- Phone -->
-              <div class="flex items-start group cursor-pointer transform transition-all duration-400 hover:scale-103 w-full transition-all duration-150">
-                <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4 transform transition-all duration-400 group-hover:scale-105 group-hover:rotate-2 shadow-md group-hover:shadow-glow"
-                     :class="isDarkMode 
-                       ? 'bg-gradient-to-br from-blue-600 via-cyan-700 to-indigo-800' 
-                       : 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800'">
-                  <span class="text-xl transition-all duration-150">📞</span>
-                </div>
-                <div class="flex-1 text-left transition-all duration-150">
-                  <h4 class="text-base md:text-lg font-bold mb-1 transition-colors duration-150"
-                      :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                    Teléfono
-                  </h4>
-                  <p class="text-sm md:text-base font-semibold transition-colors duration-150"
-                     :class="isDarkMode ? 'text-cyan-200' : 'text-blue-700'">
-                    +54 9 221 222-2358
-                  </p>
-                  <p class="text-xs transition-colors duration-150 mt-0.5"
-                     :class="isDarkMode ? 'text-white/65' : 'text-blue-900/65'">
-                    Lunes a Viernes 9:00 - 18:00
-                  </p>
-                </div>
+          <!-- FORMULARIO DE CONTACTO -->
+          <div 
+            class="backdrop-blur-xl rounded-lg border shadow-lg p-4 md:p-5 w-full transition-all duration-150 group"
+            :class="isDarkMode 
+              ? 'bg-gradient-to-br from-blue-900/20 via-indigo-900/25 to-blue-900/20 border-blue-400/35 hover:border-blue-300/50' 
+              : 'bg-gradient-to-br from-blue-50/85 via-indigo-100/75 to-blue-200/65 border-blue-400/35 hover:border-blue-300/50'"
+          >
+            <h3 class="text-lg md:text-xl font-bold mb-3 text-center w-full bg-clip-text text-transparent transition-all duration-150"
+                :class="isDarkMode 
+                  ? 'bg-gradient-to-r from-blue-300 via-cyan-200 to-blue-100' 
+                  : 'bg-gradient-to-r from-blue-900 via-indigo-800 to-blue-700'">
+              Formulario de Contacto
+            </h3>
+            
+            <form @submit.prevent="submitContactForm" class="space-y-3">
+              <div>
+                <input 
+                  v-model="formData.nombre"
+                  type="text" 
+                  placeholder="Nombre completo *"
+                  required
+                  class="w-full px-3 py-2 rounded-lg text-sm transition-all duration-150"
+                  :class="isDarkMode 
+                    ? 'bg-blue-900/40 border border-blue-400/30 text-white placeholder-blue-300/50 focus:border-cyan-400 focus:outline-none' 
+                    : 'bg-white/80 border border-blue-300/50 text-gray-800 placeholder-blue-500/50 focus:border-blue-500 focus:outline-none'"
+                />
               </div>
               
-              <!-- Email -->
-              <div class="flex items-start group cursor-pointer transform transition-all duration-400 hover:scale-103 w-full transition-all duration-150">
-                <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4 transform transition-all duration-400 group-hover:scale-105 group-hover:rotate-2 shadow-md group-hover:shadow-glow"
-                     :class="isDarkMode 
-                       ? 'bg-gradient-to-br from-blue-700 via-cyan-800 to-indigo-900' 
-                       : 'bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900'">
-                  <span class="text-xl transition-all duration-150">✉️</span>
-                </div>
-                <div class="flex-1 text-left transition-all duration-150">
-                  <h4 class="text-base md:text-lg font-bold mb-1 transition-colors duration-150"
-                      :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                    Email
-                  </h4>
-                  <p class="text-sm md:text-base font-semibold transition-colors duration-150"
-                     :class="isDarkMode ? 'text-cyan-200' : 'text-blue-700'">
-                    jmgdesarrollos@gmail.com
-                  </p>
-                  <p class="text-xs transition-colors duration-150 mt-0.5"
-                     :class="isDarkMode ? 'text-white/65' : 'text-blue-900/65'">
-                    Respondemos en menos de 24 horas
-                  </p>
-                </div>
+              <div>
+                <input 
+                  v-model="formData.email"
+                  type="email" 
+                  placeholder="Correo electrónico *"
+                  required
+                  class="w-full px-3 py-2 rounded-lg text-sm transition-all duration-150"
+                  :class="isDarkMode 
+                    ? 'bg-blue-900/40 border border-blue-400/30 text-white placeholder-blue-300/50 focus:border-cyan-400 focus:outline-none' 
+                    : 'bg-white/80 border border-blue-300/50 text-gray-800 placeholder-blue-500/50 focus:border-blue-500 focus:outline-none'"
+                />
               </div>
               
-              <!-- Location -->
-              <div class="flex items-start group cursor-pointer transform transition-all duration-400 hover:scale-103 w-full transition-all duration-150">
-                <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4 transform transition-all duration-400 group-hover:scale-105 group-hover:rotate-2 shadow-md group-hover:shadow-glow"
-                     :class="isDarkMode 
-                       ? 'bg-gradient-to-br from-indigo-800 via-blue-900 to-purple-900' 
-                       : 'bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-900'">
-                  <span class="text-xl transition-all duration-150">📍</span>
-                </div>
-                <div class="flex-1 text-left transition-all duration-150">
-                  <h4 class="text-base md:text-lg font-bold mb-1 transition-colors duration-150"
-                      :class="isDarkMode ? 'text-white' : 'text-blue-900'">
-                    Ubicación
-                  </h4>
-                  <p class="text-sm md:text-base font-semibold transition-colors duration-150"
-                     :class="isDarkMode ? 'text-cyan-200' : 'text-blue-700'">
-                    Buenos Aires, Argentina
-                  </p>
-                  <p class="text-xs transition-colors duration-150 mt-0.5"
-                     :class="isDarkMode ? 'text-white/65' : 'text-blue-900/65'">
-                    Trabajamos con clientes de todo el país
-                  </p>
-                </div>
+              <div>
+                <input 
+                  v-model="formData.telefono"
+                  type="tel" 
+                  placeholder="Teléfono (opcional)"
+                  class="w-full px-3 py-2 rounded-lg text-sm transition-all duration-150"
+                  :class="isDarkMode 
+                    ? 'bg-blue-900/40 border border-blue-400/30 text-white placeholder-blue-300/50 focus:border-cyan-400 focus:outline-none' 
+                    : 'bg-white/80 border border-blue-300/50 text-gray-800 placeholder-blue-500/50 focus:border-blue-500 focus:outline-none'"
+                />
+              </div>
+              
+              <div>
+                <textarea 
+                  v-model="formData.mensaje"
+                  rows="3" 
+                  placeholder="Mensaje *"
+                  required
+                  class="w-full px-3 py-2 rounded-lg text-sm transition-all duration-150 resize-none"
+                  :class="isDarkMode 
+                    ? 'bg-blue-900/40 border border-blue-400/30 text-white placeholder-blue-300/50 focus:border-cyan-400 focus:outline-none' 
+                    : 'bg-white/80 border border-blue-300/50 text-gray-800 placeholder-blue-500/50 focus:border-blue-500 focus:outline-none'"
+                ></textarea>
+              </div>
+              
+              <div v-if="submitStatus === 'success'" 
+                   class="text-xs text-center p-2 rounded-lg bg-green-500/20 text-green-600 dark:text-green-400 border border-green-500/30">
+                {{ successMessage }}
+              </div>
+              
+              <div v-if="submitStatus === 'error'" 
+                   class="text-xs text-center p-2 rounded-lg bg-red-500/20 text-red-600 dark:text-red-400 border border-red-500/30">
+                {{ errorMessage }}
+              </div>
+              
+              <button 
+                type="submit" 
+                :disabled="isLoading || !isFormValid"
+                class="w-full font-bold py-2 px-4 rounded-lg transition-all duration-150 transform hover:scale-105 text-sm flex items-center justify-center gap-2"
+                :class="isDarkMode 
+                  ? 'bg-gradient-to-r from-blue-600 via-indigo-700 to-blue-800 hover:from-blue-700 hover:via-indigo-800 hover:to-blue-900 text-white disabled:opacity-50 disabled:cursor-not-allowed' 
+                  : 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white disabled:opacity-50 disabled:cursor-not-allowed'"
+              >
+                <span v-if="isLoading" class="inline-block w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                {{ isLoading ? 'Enviando...' : '📨 Enviar Mensaje' }}
+              </button>
+            </form>
+            
+            <div class="mt-3 pt-3 border-t text-center"
+                 :class="isDarkMode ? 'border-blue-400/20' : 'border-blue-400/30'">
+              <p class="text-xs transition-colors duration-150"
+                 :class="isDarkMode ? 'text-blue-300/70' : 'text-blue-700/70'">
+                🔒 Tus datos están seguros. Respondemos en menos de 24h.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- DATOS DE CONTACTO - UNO AL LADO DEL OTRO EN FILA HORIZONTAL -->
+        <div class="w-full max-w-6xl mx-auto px-4 mt-4 animate-fadeInUp transition-all duration-150" style="animation-delay: 200ms">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 w-full">
+            
+            <!-- Teléfono -->
+            <div class="flex items-center justify-start group cursor-pointer transform transition-all duration-400 hover:scale-103 w-full backdrop-blur-sm rounded-lg p-3"
+                 :class="isDarkMode 
+                   ? 'bg-blue-900/30 hover:bg-blue-900/50 border border-blue-400/20' 
+                   : 'bg-blue-50/50 hover:bg-blue-100/50 border border-blue-300/30'">
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center mr-3 transform transition-all duration-400 group-hover:scale-105 shadow-md"
+                   :class="isDarkMode 
+                     ? 'bg-gradient-to-br from-blue-600 via-cyan-700 to-indigo-800' 
+                     : 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800'">
+                <span class="text-lg transition-all duration-150">📞</span>
+              </div>
+              <div class="flex-1 text-left">
+                <h4 class="text-sm md:text-base font-bold mb-0.5 transition-colors duration-150"
+                    :class="isDarkMode ? 'text-white' : 'text-blue-900'">
+                  Teléfono
+                </h4>
+                <p class="text-xs md:text-sm font-semibold transition-colors duration-150"
+                   :class="isDarkMode ? 'text-cyan-200' : 'text-blue-700'">
+                  +54 9 221 222-2358
+                </p>
+                <p class="text-xs transition-colors duration-150 mt-0.5"
+                   :class="isDarkMode ? 'text-white/60' : 'text-blue-900/60'">
+                  Lun-Vie 9-18hs
+                </p>
               </div>
             </div>
+            
+            <!-- Email -->
+            <div class="flex items-center justify-start group cursor-pointer transform transition-all duration-400 hover:scale-103 w-full backdrop-blur-sm rounded-lg p-3"
+                 :class="isDarkMode 
+                   ? 'bg-blue-900/30 hover:bg-blue-900/50 border border-blue-400/20' 
+                   : 'bg-blue-50/50 hover:bg-blue-100/50 border border-blue-300/30'">
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center mr-3 transform transition-all duration-400 group-hover:scale-105 shadow-md"
+                   :class="isDarkMode 
+                     ? 'bg-gradient-to-br from-blue-700 via-cyan-800 to-indigo-900' 
+                     : 'bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900'">
+                <span class="text-lg transition-all duration-150">✉️</span>
+              </div>
+              <div class="flex-1 text-left">
+                <h4 class="text-sm md:text-base font-bold mb-0.5 transition-colors duration-150"
+                    :class="isDarkMode ? 'text-white' : 'text-blue-900'">
+                  Email
+                </h4>
+                <p class="text-xs md:text-sm font-semibold transition-colors duration-150"
+                   :class="isDarkMode ? 'text-cyan-200' : 'text-blue-700'">
+                  jmgdesarrollos@gmail.com
+                </p>
+                <p class="text-xs transition-colors duration-150 mt-0.5"
+                   :class="isDarkMode ? 'text-white/60' : 'text-blue-900/60'">
+                  Respuesta en 24h
+                </p>
+              </div>
+            </div>
+            
+            <!-- Ubicación -->
+            <div class="flex items-center justify-start group cursor-pointer transform transition-all duration-400 hover:scale-103 w-full backdrop-blur-sm rounded-lg p-3"
+                 :class="isDarkMode 
+                   ? 'bg-blue-900/30 hover:bg-blue-900/50 border border-blue-400/20' 
+                   : 'bg-blue-50/50 hover:bg-blue-100/50 border border-blue-300/30'">
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center mr-3 transform transition-all duration-400 group-hover:scale-105 shadow-md"
+                   :class="isDarkMode 
+                     ? 'bg-gradient-to-br from-indigo-800 via-blue-900 to-purple-900' 
+                     : 'bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-900'">
+                <span class="text-lg transition-all duration-150">📍</span>
+              </div>
+              <div class="flex-1 text-left">
+                <h4 class="text-sm md:text-base font-bold mb-0.5 transition-colors duration-150"
+                    :class="isDarkMode ? 'text-white' : 'text-blue-900'">
+                  Ubicación
+                </h4>
+                <p class="text-xs md:text-sm font-semibold transition-colors duration-150"
+                   :class="isDarkMode ? 'text-cyan-200' : 'text-blue-700'">
+                  Buenos Aires, Argentina
+                </p>
+                <p class="text-xs transition-colors duration-150 mt-0.5"
+                   :class="isDarkMode ? 'text-white/60' : 'text-blue-900/60'">
+                  Trabajamos todo el país
+                </p>
+              </div>
+            </div>
+            
           </div>
         </div>
         
@@ -449,238 +511,273 @@
   </section>
 </template>
 
-<script setup>
+<script>
 import { ref, computed, onMounted, watch } from 'vue';
+import { generateClient } from 'aws-amplify/api';
 
-// Estado - TEMA OSCURO SIEMPRE POR DEFECTO
-const isDarkMode = ref(true);
-const isTransitioning = ref(false);
-const gradientPosition = ref(0);
-const showParticles = ref(false);
+const client = generateClient();
 
-// Gradientes simplificados
-const darkGradient = 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #0369a1 50%, #1e40af 75%, #0f172a 100%)';
-const lightGradient = 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 25%, #93c5fd 50%, #60a5fa 75%, #3b82f6 100%)';
+export default {
+  setup() {
+    const formData = ref({
+      nombre: '',
+      email: '',
+      telefono: '',
+      mensaje: ''
+    });
 
-// Inicializar tema - SIEMPRE TEMA OSCURO POR DEFECTO
-const initializeTheme = () => {
-  // TEMA OSCURO SIEMPRE como valor inicial
-  isDarkMode.value = true;
-  gradientPosition.value = 0;
-  
-  // Aplicar tema oscuro inmediatamente al HTML
-  document.documentElement.classList.add('dark');
-};
+    const isLoading = ref(false);
+    const submitStatus = ref('idle');
+    const errorMessage = ref('');
+    const successMessage = ref('');
 
-// Alternar tema - SIN localStorage
-const toggleTheme = async () => {
-  if (isTransitioning.value) return;
-  
-  isTransitioning.value = true;
-  showParticles.value = true;
-  
-  const startPosition = isDarkMode.value ? 0 : 100;
-  const endPosition = isDarkMode.value ? 100 : 0;
-  
-  const duration = 200;
-  const startTime = Date.now();
-  
-  const animateGradient = () => {
-    const elapsed = Date.now() - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    
-    const easedProgress = progress * (2 - progress);
-    gradientPosition.value = startPosition + (endPosition - startPosition) * easedProgress;
-    
-    if (progress < 1) {
+    const isFormValid = computed(() => {
+      return formData.value.nombre.trim() !== '' &&
+             formData.value.email.trim() !== '' &&
+             /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.value.email) &&
+             formData.value.mensaje.trim() !== '';
+    });
+
+    const submitContactForm = async () => {
+      if (!isFormValid.value) {
+        submitStatus.value = 'error';
+        errorMessage.value = 'Completa todos los campos correctamente';
+        setTimeout(() => {
+          if (submitStatus.value === 'error') submitStatus.value = 'idle';
+        }, 3000);
+        return;
+      }
+
+      isLoading.value = true;
+      submitStatus.value = 'idle';
+      errorMessage.value = '';
+      successMessage.value = '';
+
+      try {
+        const contactResponse = await client.models.Contact.create({
+          nombre: formData.value.nombre,
+          email: formData.value.email,
+          telefono: formData.value.telefono || null,
+          mensaje: formData.value.mensaje,
+          fecha: new Date().toISOString(),
+          destinatario: 'jmgdesarrollos@gmail.com',
+          leido: false
+        });
+
+        if (!contactResponse.data) {
+          throw new Error('Error al guardar el mensaje');
+        }
+
+        const emailResponse = await client.mutations.sendEmail({
+          nombre: formData.value.nombre,
+          email: formData.value.email,
+          telefono: formData.value.telefono || null,
+          mensaje: formData.value.mensaje
+        });
+
+        if (emailResponse.data) {
+          submitStatus.value = 'success';
+          successMessage.value = '¡Mensaje enviado! Te contactaremos pronto';
+          
+          formData.value = {
+            nombre: '',
+            email: '',
+            telefono: '',
+            mensaje: ''
+          };
+          
+          setTimeout(() => {
+            if (submitStatus.value === 'success') submitStatus.value = 'idle';
+          }, 3000);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        submitStatus.value = 'error';
+        errorMessage.value = 'Error al enviar. Intenta nuevamente';
+        
+        setTimeout(() => {
+          if (submitStatus.value === 'error') submitStatus.value = 'idle';
+        }, 3000);
+      } finally {
+        isLoading.value = false;
+      }
+    };
+
+    const isDarkMode = ref(true);
+    const isTransitioning = ref(false);
+    const gradientPosition = ref(0);
+    const showParticles = ref(false);
+
+    const darkGradient = 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #0369a1 50%, #1e40af 75%, #0f172a 100%)';
+    const lightGradient = 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 25%, #93c5fd 50%, #60a5fa 75%, #3b82f6 100%)';
+
+    const initializeTheme = () => {
+      isDarkMode.value = true;
+      gradientPosition.value = 0;
+      document.documentElement.classList.add('dark');
+    };
+
+    const toggleTheme = async () => {
+      if (isTransitioning.value) return;
+      
+      isTransitioning.value = true;
+      showParticles.value = true;
+      
+      const startPosition = isDarkMode.value ? 0 : 100;
+      const endPosition = isDarkMode.value ? 100 : 0;
+      
+      const duration = 200;
+      const startTime = Date.now();
+      
+      const animateGradient = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        const easedProgress = progress * (2 - progress);
+        gradientPosition.value = startPosition + (endPosition - startPosition) * easedProgress;
+        
+        if (progress < 1) {
+          requestAnimationFrame(animateGradient);
+        } else {
+          gradientPosition.value = endPosition;
+        }
+      };
+      
+      isDarkMode.value = !isDarkMode.value;
+      
       requestAnimationFrame(animateGradient);
-    } else {
-      gradientPosition.value = endPosition;
-    }
-  };
-  
-  isDarkMode.value = !isDarkMode.value;
-  
-  requestAnimationFrame(animateGradient);
-  
-  setTimeout(() => {
-    showParticles.value = false;
-    isTransitioning.value = false;
-  }, duration + 50);
-};
-
-// Estilo del gradiente
-const sectionGradientStyle = computed(() => {
-  if (isTransitioning.value) {
-    const startGradient = isDarkMode.value ? lightGradient : darkGradient;
-    const endGradient = isDarkMode.value ? darkGradient : lightGradient;
-    
-    return {
-      backgroundImage: `${startGradient}, ${endGradient}`,
-      backgroundSize: `200% 200%, 200% 200%`,
-      backgroundPosition: `${gradientPosition.value}% ${gradientPosition.value}%, ${gradientPosition.value}% ${gradientPosition.value}%`,
-      filter: 'brightness(1.1)',
-      transition: 'all 0.15s ease-out',
+      
+      setTimeout(() => {
+        showParticles.value = false;
+        isTransitioning.value = false;
+      }, duration + 50);
     };
-  } else {
+
+    const sectionGradientStyle = computed(() => {
+      if (isTransitioning.value) {
+        const startGradient = isDarkMode.value ? lightGradient : darkGradient;
+        const endGradient = isDarkMode.value ? darkGradient : lightGradient;
+        
+        return {
+          backgroundImage: `${startGradient}, ${endGradient}`,
+          backgroundSize: `200% 200%, 200% 200%`,
+          backgroundPosition: `${gradientPosition.value}% ${gradientPosition.value}%, ${gradientPosition.value}% ${gradientPosition.value}%`,
+          filter: 'brightness(1.1)',
+          transition: 'all 0.15s ease-out',
+        };
+      } else {
+        return {
+          backgroundImage: isDarkMode.value ? darkGradient : lightGradient,
+          backgroundSize: '200% 200%',
+          backgroundPosition: '0% 0%',
+          animation: isDarkMode.value ? 'gradient-shift-dark 8s ease infinite' : 'gradient-shift-light 8s ease infinite',
+        };
+      }
+    });
+
+    const transitionStyle = computed(() => isTransitioning.value ? { filter: 'brightness(1.15)' } : {});
+
+    const getParticleStyle = (i) => {
+      const size = Math.random() * 1.2 + 0.6;
+      return {
+        width: `${size}px`,
+        height: `${size}px`,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * 3}s`,
+        animationDuration: `${6 + Math.random() * 6}s`,
+        filter: isTransitioning.value ? 'brightness(1.2)' : 'brightness(1)',
+      };
+    };
+
+    const openWhatsApp = () => {
+      const message = encodeURIComponent('Hola, me gustaría solicitar información sobre sus servicios de desarrollo web.');
+      window.open(`https://wa.me/5492212222358?text=${message}`, '_blank', 'noopener,noreferrer');
+    };
+
+    onMounted(() => {
+      initializeTheme();
+    });
+
+    watch(isDarkMode, (newVal) => {
+      document.documentElement.classList.add('theme-transition-fast');
+      
+      if (newVal) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      
+      setTimeout(() => {
+        document.documentElement.classList.remove('theme-transition-fast');
+      }, 200);
+    });
+
     return {
-      backgroundImage: isDarkMode.value ? darkGradient : lightGradient,
-      backgroundSize: '200% 200%',
-      backgroundPosition: '0% 0%',
-      animation: isDarkMode.value ? 'gradient-shift-dark 8s ease infinite' : 'gradient-shift-light 8s ease infinite',
+      formData,
+      isLoading,
+      submitStatus,
+      errorMessage,
+      successMessage,
+      isFormValid,
+      submitContactForm,
+      isDarkMode,
+      isTransitioning,
+      sectionGradientStyle,
+      transitionStyle,
+      getParticleStyle,
+      toggleTheme,
+      openWhatsApp
     };
   }
-});
-
-// Estilo de transición
-const transitionStyle = computed(() => isTransitioning.value ? { filter: 'brightness(1.15)' } : {});
-
-// Estilo de partículas
-const getParticleStyle = (i) => {
-  const size = Math.random() * 1.2 + 0.6;
-  return {
-    width: `${size}px`,
-    height: `${size}px`,
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    animationDelay: `${Math.random() * 3}s`,
-    animationDuration: `${6 + Math.random() * 6}s`,
-    filter: isTransitioning.value ? 'brightness(1.2)' : 'brightness(1)',
-  };
 };
-
-// WhatsApp function
-const openWhatsApp = () => {
-  const message = encodeURIComponent('Hola, me gustaría solicitar información sobre sus servicios de desarrollo web.');
-  window.open(`https://wa.me/5492212222358?text=${message}`, '_blank', 'noopener,noreferrer');
-};
-
-// Inicializar - TEMA OSCURO INMEDIATAMENTE
-onMounted(() => {
-  initializeTheme();
-});
-
-// Watch para cambio de tema
-watch(isDarkMode, (newVal) => {
-  document.documentElement.classList.add('theme-transition-fast');
-  
-  if (newVal) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-  
-  setTimeout(() => {
-    document.documentElement.classList.remove('theme-transition-fast');
-  }, 200);
-});
-
-// También forzar tema oscuro incluso antes de que se monte el componente
-// Esto previene el "flash" de tema claro
-if (typeof window !== 'undefined') {
-  // Ejecutar inmediatamente
-  document.documentElement.classList.add('dark');
-}
 </script>
 
 <style scoped>
 /* ANIMACIONES OPTIMIZADAS */
-
 @keyframes gradient-shift-dark {
-  0%, 100% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 50%; }
 }
 
 @keyframes gradient-shift-light {
-  0%, 100% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 50%; }
 }
 
-/* Transiciones de tema */
 @keyframes themeFadeInFast {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes themeFadeOutFast {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(1.05);
-  }
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(1.05); }
 }
 
-.theme-fade-fast-enter-active {
-  animation: themeFadeInFast 0.12s ease-out !important;
-}
+.theme-fade-fast-enter-active { animation: themeFadeInFast 0.12s ease-out !important; }
+.theme-fade-fast-leave-active { animation: themeFadeOutFast 0.12s ease-out !important; }
 
-.theme-fade-fast-leave-active {
-  animation: themeFadeOutFast 0.12s ease-out !important;
-}
-
-/* Animaciones personalizadas */
 @keyframes customFloat {
-  0%, 100% { 
-    transform: translateY(0) rotate(0deg); 
-    opacity: 0.25;
-  }
-  50% { 
-    transform: translateY(-12px) rotate(180deg); 
-    opacity: 0.5;
-  }
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.25; }
+  50% { transform: translateY(-12px) rotate(180deg); opacity: 0.5; }
 }
 
 @keyframes customPulseSlow {
-  0%, 100% { 
-    opacity: 0.25; 
-    transform: scale(1);
-  }
-  50% { 
-    opacity: 0.5; 
-    transform: scale(1.02);
-  }
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.02); }
 }
 
 @keyframes pulse-ray-fast {
-  0%, 100% {
-    opacity: 0.25;
-    transform: rotate(var(--rotation)) translateY(-9px) scale(0.85);
-  }
-  50% {
-    opacity: 0.8;
-    transform: rotate(var(--rotation)) translateY(-9px) scale(1.1);
-  }
+  0%, 100% { opacity: 0.25; transform: rotate(var(--rotation)) translateY(-9px) scale(0.85); }
+  50% { opacity: 0.8; transform: rotate(var(--rotation)) translateY(-9px) scale(1.1); }
 }
 
 @keyframes twinkle-fast {
-  0%, 100% {
-    opacity: 0.25;
-    transform: scale(0.85);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.1);
-  }
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  50% { opacity: 0.9; transform: scale(1.1); }
 }
 
-/* Transiciones optimizadas */
 * {
   transition: background-color 0.12s ease-out, 
               border-color 0.12s ease-out,
@@ -689,192 +786,79 @@ if (typeof window !== 'undefined') {
               opacity 0.12s ease-out;
 }
 
-/* Animaciones básicas */
-.custom-float {
-  animation: customFloat 12s ease-in-out infinite;
-}
-
-.custom-pulse-slow {
-  animation: customPulseSlow 4s ease-in-out infinite;
-}
-
-.custom-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animate-pulse-fast {
-  animation: pulse 1.2s ease-in-out infinite;
-}
-
-.animate-pulse-slow {
-  animation: pulse 2.5s ease-in-out infinite;
-}
-
-.animate-twinkle-fast {
-  animation: twinkle-fast 1.2s ease-in-out infinite;
-}
-
+.custom-float { animation: customFloat 12s ease-in-out infinite; }
+.custom-pulse-slow { animation: customPulseSlow 4s ease-in-out infinite; }
+.custom-delay-2000 { animation-delay: 2s; }
+.animate-pulse-fast { animation: pulse 1.2s ease-in-out infinite; }
+.animate-pulse-slow { animation: pulse 2.5s ease-in-out infinite; }
+.animate-twinkle-fast { animation: twinkle-fast 1.2s ease-in-out infinite; }
 .animate-slideInLeft {
   animation: slideInLeft 0.5s ease-out forwards;
   opacity: 0;
 }
-
 .animate-fadeInUp {
   animation: fadeInUp 0.5s ease-out forwards;
   opacity: 0;
 }
 
 @keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Efectos de sombras */
-.shadow-glow {
-  box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);
-}
+.shadow-glow { box-shadow: 0 0 15px rgba(34, 211, 238, 0.2); }
 
-/* Optimización responsive */
 @media (max-width: 768px) {
-  /* Botón de tema MÁS GRANDE EN MÓVIL - IDÉNTICO AL HEADER */
-  .theme-switch-premium {
-    width: 40px; /* AUMENTADO DE 28px */
-    height: 40px; /* AUMENTADO DE 10px */
-  }
-  
-  .theme-switch-premium > div:first-child {
-    width: 32px; /* AUMENTADO DE 10px */
-    height: 32px; /* AUMENTADO DE 10px */
-  }
-  
-  /* Ajustar posiciones de iconos para botón más grande */
-  .absolute.left-2 {
-    left: 8px;
-  }
-  
-  .absolute.right-2 {
-    right: 8px;
-  }
-  
-  /* ESPACIO REDUCIDO DEBAJO DEL BADGE EN MÓVIL */
-  .relative.w-full.mb-1 {
-    margin-bottom: 0.25rem; /* REDUCIDO SIGNIFICATIVAMENTE */
-  }
-  
-  /* Elementos ocultos en móvil */
-  .absolute.-bottom-4 {
-    display: none; /* OCULTO EN MÓVIL */
-  }
-  
-  .absolute.-bottom-6 {
-    display: none; /* OCULTO EN MÓVIL */
-  }
-  
-  /* WhatsApp logo responsive */
-  .min-h-\[300px\] {
-    min-height: 280px;
-  }
+  .theme-switch-premium { width: 40px; height: 40px; }
+  .theme-switch-premium > div:first-child { width: 32px; height: 32px; }
+  .absolute.left-2 { left: 8px; }
+  .absolute.right-2 { right: 8px; }
+  .relative.w-full.mb-1 { margin-bottom: 0.25rem; }
+  .absolute.-bottom-4, .absolute.-bottom-6 { display: none; }
 }
 
 @media (max-width: 480px) {
-  .grid.grid-cols-2 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-  
-  /* Botón de tema AÚN MÁS GRANDE EN MÓVILES PEQUEÑOS */
-  .theme-switch-premium {
-    width: 44px; /* AUMENTADO DE 26px */
-    height: 44px; /* AUMENTADO DE 9px */
-  }
-  
-  .theme-switch-premium > div:first-child {
-    width: 34px; /* AUMENTADO DE 9px */
-    height: 34px; /* AUMENTADO DE 9px */
-  }
-  
-  .absolute.left-2 {
-    left: 9px;
-  }
-  
-  .absolute.right-2 {
-    right: 9px;
-  }
-  
-  /* ESPACIO AÚN MÁS REDUCIDO EN MÓVILES MUY PEQUEÑOS */
-  .relative.w-full.mb-1 {
-    margin-bottom: 0.25rem; /* MANTENIDO MUY REDUCIDO */
-  }
-  
-  /* WhatsApp logo más pequeño en móvil */
-  .min-h-\[300px\] {
-    min-height: 260px;
-  }
+  .theme-switch-premium { width: 44px; height: 44px; }
+  .theme-switch-premium > div:first-child { width: 34px; height: 34px; }
+  .absolute.left-2 { left: 9px; }
+  .absolute.right-2 { right: 9px; }
+  .relative.w-full.mb-1 { margin-bottom: 0.25rem; }
 }
 
-/* Accesibilidad */
 @media (prefers-reduced-motion: reduce) {
-  .custom-float,
-  .custom-pulse-slow,
-  .animate-pulse-fast,
-  .animate-pulse-slow,
-  .animate-twinkle-fast,
-  .animate-slideInLeft,
-  .animate-fadeInUp {
-    animation: none !important;
-  }
-  
-  .hover\:scale-105,
-  .hover\:-translate-y-0\.5 {
-    transform: none !important;
-  }
+  .custom-float, .custom-pulse-slow, .animate-pulse-fast, 
+  .animate-pulse-slow, .animate-twinkle-fast, .animate-slideInLeft, 
+  .animate-fadeInUp { animation: none !important; }
+  .hover\:scale-105, .hover\:-translate-y-0\.5 { transform: none !important; }
 }
 
-/* Mejoras de rendimiento */
-section > div:first-child {
-  will-change: background-position;
-}
-
-.theme-switch-premium {
-  will-change: transform;
-}
-
-/* Utilidades premium */
+section > div:first-child { will-change: background-position; }
+.theme-switch-premium { will-change: transform; }
 .transform-gpu { transform: translate3d(0, 0, 0); backface-visibility: hidden; }
 .backdrop-blur-xl { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
 .backdrop-blur-lg { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-
-/* Gradientes de texto premium */
 .bg-clip-text {
   -webkit-background-clip: text !important;
   background-clip: text !important;
   color: transparent;
   display: inline-block;
+}
+
+/* Animación del spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.animate-spin {
+  animation: spin 0.6s linear infinite;
 }
 </style>
