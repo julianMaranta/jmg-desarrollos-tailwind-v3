@@ -1,33 +1,6 @@
 import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
-import { sendEmail } from '../functions/send-email/resource';
 
 const schema = a.schema({
-
-   Contact: a.model({
-    nombre: a.string().required(),
-    email: a.string().required(),
-    telefono: a.string(),
-    mensaje: a.string().required(),
-    fecha: a.string().required(),
-    destinatario: a.string().required(),
-    leido: a.boolean().required(),
-  })
-  .authorization(allow => [
-    allow.publicApiKey(),
-    allow.authenticated()
-  ]),
-
-   sendEmail: a.mutation()
-    .arguments({
-      nombre: a.string().required(),
-      email: a.string().required(),
-      telefono: a.string(),
-      mensaje: a.string().required(),
-    })
-    .returns(a.json())
-    .authorization(allow => [allow.publicApiKey()])
-    .handler(a.handler.function(sendEmail)),
- 
   Usuario: a
     .model({
       nombre: a.string().required(),
@@ -181,8 +154,6 @@ const schema = a.schema({
       usuarioCorreo: a.string(),  // Campo para el correo del usuario
     })
     .authorization((allow) => [allow.publicApiKey()]),
-
-    
 
 });
 
