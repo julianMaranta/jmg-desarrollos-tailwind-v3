@@ -576,7 +576,7 @@ watch(isDarkMode, (newVal) => {
 });
 
 // También forzar tema oscuro incluso antes de que se monte el componente
-// Esto previene el "flash" de tema claro
+// Esto previene el "flashh" de tema claro
 if (typeof window !== 'undefined') {
   // Ejecutar inmediatamente
   document.documentElement.classList.add('dark');
