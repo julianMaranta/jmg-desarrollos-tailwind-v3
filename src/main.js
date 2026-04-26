@@ -10,7 +10,7 @@ import outputs from '../amplify_outputs.json';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faChalkboardUser, faGraduationCap, faSchool, faCertificate, faUser } from '@fortawesome/free-solid-svg-icons';
-import router from './router/routes'; // Asegúrate de que la ruta sea correcta
+import router from './router/routes'; // Asegúrate de que la ruta sea correcta!
 
 
 // Configura Amplify con los outputs
